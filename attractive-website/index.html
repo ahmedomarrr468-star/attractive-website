@@ -958,6 +958,8 @@
                 if (updated) {
                     renderHomePageContent();
                     renderFeatured();
+                    // Newly rendered cards weren't seen by the scroll-reveal observer; show them immediately.
+                    document.querySelectorAll('.apple-reveal:not(.revealed)').forEach(el => el.classList.add('revealed'));
                 }
             });
         }

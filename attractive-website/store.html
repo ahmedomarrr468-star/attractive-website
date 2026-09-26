@@ -1968,6 +1968,7 @@
                     renderCategoryTabs();
                     renderStore();
                     populateShippingSelect();
+                    document.querySelectorAll('.apple-reveal:not(.revealed)').forEach(el => el.classList.add('revealed'));
                 }
             });
         }

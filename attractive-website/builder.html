@@ -1686,6 +1686,7 @@
                 if (updated) {
                     updateLength(15);
                     populateShippingSelect();
+                    document.querySelectorAll('.apple-reveal:not(.revealed)').forEach(el => el.classList.add('revealed'));
                 }
             });
         }
