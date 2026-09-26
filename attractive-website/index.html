@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar" style="--primary-color: #C8102E;"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Attractive - أنظمة التيار الخفيف والأمن والمراقبة المتكاملة</title>
+    
+    <!-- Google Fonts & Material Symbols -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS with Apple + Attractive Brand Colors -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#C8102E",
+              "primary-dark": "#A00D24",
+              "primary-container": "#990C22",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#FFE8EC",
+              "on-primary-fixed": "#5C000F",
+              "surface": "#F5F5F7",
+              "on-surface": "#1D1D1F",
+              "on-surface-variant": "#6E6E73",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#F5F5F7",
+              "surface-container": "#E8E8ED",
+              "surface-container-high": "#E2E2E7",
+              "surface-container-highest": "#D2D2D7",
+              "outline-variant": "#E8E8ED",
+              "error": "#BA1A1A",
+              "success": "#16A34A",
+              "whatsapp": "#25D366",
+              "whatsapp-hover": "#128C7E"
+            },
+            fontFamily: {
+              body: ['Cairo', 'Inter', 'sans-serif'],
+              headline: ['Cairo', 'Plus Jakarta Sans', 'Inter', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        
+        /* === Apple Motion Tokens === */
+        :root {
+            --apple-ease: cubic-bezier(0.16, 1, 0.3, 1);
+            --apple-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* === Apple Scroll Reveal System === */
+        .apple-reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s var(--apple-ease), transform 0.8s var(--apple-ease);
+            will-change: opacity, transform;
+        }
+        .apple-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .apple-reveal-delay-1 { transition-delay: 80ms; }
+        .apple-reveal-delay-2 { transition-delay: 160ms; }
+        .apple-reveal-delay-3 { transition-delay: 240ms; }
+        .apple-reveal-delay-4 { transition-delay: 320ms; }
+        .apple-reveal-delay-5 { transition-delay: 400ms; }
+
+        /* === Hero Sequence Choreography === */
+        @keyframes heroSeqFadeUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-seq-1 { animation: heroSeqFadeUp 0.9s var(--apple-ease) 100ms both; }
+        .hero-seq-2 { animation: heroSeqFadeUp 0.9s var(--apple-ease) 220ms both; }
+        .hero-seq-3 { animation: heroSeqFadeUp 0.9s var(--apple-ease) 340ms both; }
+        .hero-seq-4 { animation: heroSeqFadeUp 0.9s var(--apple-ease) 460ms both; }
+        .hero-seq-5 { animation: heroSeqFadeUp 0.9s var(--apple-ease) 580ms both; }
+        .hero-seq-visual { animation: heroSeqFadeUp 1.1s var(--apple-ease) 250ms both; }
+
+        /* === Apple Nav Scrolled Elevation === */
+        nav.apple-nav {
+            transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        nav.apple-nav.scrolled {
+            background: rgba(255, 255, 255, 0.92) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border-bottom-color: rgba(0, 0, 0, 0.12) !important;
+        }
+
+        /* === Card Transition Polish === */
+        .apple-card {
+            transition: box-shadow 0.35s var(--apple-ease), transform 0.35s var(--apple-ease);
+        }
+        .apple-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .apple-reveal, .hero-seq-1, .hero-seq-2, .hero-seq-3, .hero-seq-4, .hero-seq-5, .hero-seq-visual {
+                animation: none !important;
+                transition: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+        /* === Apple-style Base === */
+        *, *::before, *::after { box-sizing: border-box; }
+        body { font-family: 'Cairo', 'Inter', sans-serif; background-color: #F5F5F7; color: #1D1D1F; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+        /* === Apple Frosted Nav === */
+        nav.apple-nav { background: rgba(255,255,255,0.82); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(0,0,0,0.08); }
+
+        /* === Apple Card Hover Lift === */
+        .apple-card { transition: box-shadow 0.3s cubic-bezier(0.16,1,0.3,1), transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.2s ease; }
+        .apple-card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,0.09); border-color: rgba(200,16,46,0.25) !important; }
+
+        /* === Apple CTA Buttons === */
+        .apple-btn-primary { transition: background 0.2s ease, transform 0.2s cubic-bezier(0.16,1,0.3,1), box-shadow 0.2s ease; }
+        .apple-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(200,16,46,0.3); }
+        .apple-btn-primary:active { transform: scale(0.98); }
+        .apple-btn-secondary { transition: background 0.2s ease, color 0.2s ease, transform 0.2s cubic-bezier(0.16,1,0.3,1); }
+        .apple-btn-secondary:hover { transform: translateY(-1px); }
+
+        /* === Modals === */
+        .modal-overlay { opacity: 0; pointer-events: none; transition: opacity 0.25s ease; }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .modal-content { transform: scale(0.95) translateY(12px); opacity: 0; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .modal-overlay.active .modal-content { transform: scale(1) translateY(0); opacity: 1; }
+
+        /* === Hero Cable Animation === */
+        @keyframes drawLine { from { stroke-dasharray: 0 1000; } to { stroke-dasharray: 1000 1000; } }
+        .animate-draw { animation: drawLine 1.1s cubic-bezier(0.16,1,0.3,1) forwards; }
+
+        /* === Cart Badge Pulse === */
+        @keyframes pulse-badge { 0% { transform: scale(1); } 50% { transform: scale(1.25); } 100% { transform: scale(1); } }
+        .pulse-badge { animation: pulse-badge 0.3s ease-in-out; }
+
+        /* === Section Eyebrow Label === */
+        .section-eyebrow { letter-spacing: 0.1em; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: #C8102E; display: block; margin-bottom: 0.4rem; }
+
+        /* === Live Status Dot === */
+        @keyframes live-pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(1.4); } }
+        .live-dot { animation: live-pulse 2s ease-in-out infinite; }
+
+        /* === No Scrollbar === */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* === Focus Ring === */
+        input:focus, textarea:focus, select:focus { outline: none; box-shadow: 0 0 0 3px rgba(200,16,46,0.2); border-color: #C8102E !important; }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}[type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select{-webkit-appearance:none;appearance:none;background-color:#fff;border-color:#6b7280;border-width:1px;border-radius:0px;padding-top:0.5rem;padding-right:0.75rem;padding-bottom:0.5rem;padding-left:0.75rem;font-size:1rem;line-height:1.5rem;--tw-shadow:0 0 #0000;}[type='text']:focus, input:where(:not([type])):focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);border-color:#2563eb}input::placeholder,textarea::placeholder{color:#6b7280;opacity:1}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-date-and-time-value{min-height:1.5em;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{padding-top:0;padding-bottom:0}select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");background-position:right 0.5rem center;background-repeat:no-repeat;background-size:1.5em 1.5em;padding-right:2.5rem;print-color-adjust:exact}[multiple],[size]:where(select:not([size="1"])){background-image:initial;background-position:initial;background-repeat:unset;background-size:initial;padding-right:0.75rem;print-color-adjust:unset}[type='checkbox'],[type='radio']{-webkit-appearance:none;appearance:none;padding:0;print-color-adjust:exact;display:inline-block;vertical-align:middle;background-origin:border-box;-webkit-user-select:none;user-select:none;flex-shrink:0;height:1rem;width:1rem;color:#2563eb;background-color:#fff;border-color:#6b7280;border-width:1px;--tw-shadow:0 0 #0000}[type='checkbox']{border-radius:0px}[type='radio']{border-radius:100%}[type='checkbox']:focus,[type='radio']:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:2px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}[type='checkbox']:checked,[type='radio']:checked{border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat}[type='checkbox']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='checkbox']:checked{-webkit-appearance:auto;appearance:auto}}[type='radio']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='radio']:checked{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus{border-color:transparent;background-color:currentColor}[type='checkbox']:indeterminate{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat;}@media (forced-colors: active) {[type='checkbox']:indeterminate{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus{border-color:transparent;background-color:currentColor}[type='file']{background:unset;border-color:inherit;border-width:0;border-radius:0;padding:0;font-size:unset;line-height:inherit}[type='file']:focus{outline:1px solid ButtonText;outline:1px auto -webkit-focus-ring-color}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.-right-0\.5{right:-0.125rem}.-top-0\.5{top:-0.125rem}.top-0{top:0px}.top-full{top:100%}.top-4{top:1rem}.bottom-6{bottom:1.5rem}.left-6{left:1.5rem}.z-50{z-index:50}.z-\[2500\]{z-index:2500}.z-40{z-index:40}.m-0{margin:0px}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-12{margin-bottom:3rem}.mb-14{margin-bottom:3.5rem}.mb-3{margin-bottom:0.75rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-auto{margin-top:auto}.mb-4{margin-bottom:1rem}.ms-1{margin-inline-start:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-1\.5{margin-bottom:0.375rem}.line-clamp-2{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-12{height:3rem}.h-2{height:0.5rem}.h-24{height:6rem}.h-48{height:12rem}.h-6{height:1.5rem}.h-8{height:2rem}.h-full{height:100%}.h-7{height:1.75rem}.h-20{height:5rem}.max-h-\[90vh\]{max-height:90vh}.min-h-\[16px\]{min-height:16px}.min-h-\[18px\]{min-height:18px}.min-h-screen{min-height:100vh}.min-h-\[100px\]{min-height:100px}.w-12{width:3rem}.w-2{width:0.5rem}.w-24{width:6rem}.w-8{width:2rem}.w-full{width:100%}.w-7{width:1.75rem}.w-auto{width:auto}.min-w-\[16px\]{min-width:16px}.min-w-\[18px\]{min-width:18px}.min-w-\[250px\]{min-width:250px}.max-w-2xl{max-width:42rem}.max-w-6xl{max-width:72rem}.max-w-\[1200px\]{max-width:1200px}.max-w-\[400px\]{max-width:400px}.max-w-lg{max-width:32rem}.max-w-xl{max-width:36rem}.max-w-\[430px\]{max-width:430px}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.shrink-0{flex-shrink:0}@keyframes ping{75%, 100%{transform:scale(2);opacity:0}}.animate-ping{animation:ping 1s cubic-bezier(0, 0, 0.2, 1) infinite}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.select-none{-webkit-user-select:none;user-select:none}.list-none{list-style-type:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-10{gap:2.5rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-3\.5{gap:0.875rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-7{gap:1.75rem}.gap-8{gap:2rem}.gap-0\.5{gap:0.125rem}.gap-x-5{column-gap:1.25rem}.gap-y-1\.5{row-gap:0.375rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-3\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.875rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.875rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.whitespace-nowrap{white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-\[24px\]{border-radius:24px}.rounded-\[28px\]{border-radius:28px}.rounded-\[32px\]{border-radius:32px}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-s-2{border-inline-start-width:2px}.border-t{border-top-width:1px}.border-b-2{border-bottom-width:2px}.border-amber-200\/50{border-color:rgb(253 230 138 / 0.5)}.border-amber-200\/60{border-color:rgb(253 230 138 / 0.6)}.border-black\/10{border-color:rgb(0 0 0 / 0.1)}.border-black\/15{border-color:rgb(0 0 0 / 0.15)}.border-black\/5{border-color:rgb(0 0 0 / 0.05)}.border-black\/\[0\.06\]{border-color:rgb(0 0 0 / 0.06)}.border-primary\/20{border-color:rgb(200 16 46 / 0.2)}.border-red-500\/30{border-color:rgb(239 68 68 / 0.3)}.border-surface{--tw-border-opacity:1;border-color:rgb(245 245 247 / var(--tw-border-opacity, 1))}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-outline-variant{--tw-border-opacity:1;border-color:rgb(232 232 237 / var(--tw-border-opacity, 1))}.border-primary{--tw-border-opacity:1;border-color:rgb(200 16 46 / var(--tw-border-opacity, 1))}.border-red-200{--tw-border-opacity:1;border-color:rgb(254 202 202 / var(--tw-border-opacity, 1))}.border-transparent{border-color:transparent}.border-black\/\[0\.03\]{border-color:rgb(0 0 0 / 0.03)}.bg-\[\#1D1D1F\]{--tw-bg-opacity:1;background-color:rgb(29 29 31 / var(--tw-bg-opacity, 1))}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(200 16 46 / var(--tw-bg-opacity, 1))}.bg-primary-fixed{--tw-bg-opacity:1;background-color:rgb(255 232 236 / var(--tw-bg-opacity, 1))}.bg-primary\/10{background-color:rgb(200 16 46 / 0.1)}.bg-success{--tw-bg-opacity:1;background-color:rgb(22 163 74 / var(--tw-bg-opacity, 1))}.bg-surface{--tw-bg-opacity:1;background-color:rgb(245 245 247 / var(--tw-bg-opacity, 1))}.bg-surface-container-lowest{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-whatsapp{--tw-bg-opacity:1;background-color:rgb(37 211 102 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/20{background-color:rgb(255 255 255 / 0.2)}.bg-white\/5{background-color:rgb(255 255 255 / 0.05)}.bg-white\/70{background-color:rgb(255 255 255 / 0.7)}.bg-white\/90{background-color:rgb(255 255 255 / 0.9)}.bg-white\/95{background-color:rgb(255 255 255 / 0.95)}.bg-black\/50{background-color:rgb(0 0 0 / 0.5)}.bg-primary\/5{background-color:rgb(200 16 46 / 0.05)}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity, 1))}.bg-surface-container-low{--tw-bg-opacity:1;background-color:rgb(245 245 247 / var(--tw-bg-opacity, 1))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.bg-gradient-to-tr{background-image:linear-gradient(to top right, var(--tw-gradient-stops))}.from-primary\/10{--tw-gradient-from:rgb(200 16 46 / 0.1) var(--tw-gradient-from-position);--tw-gradient-to:rgb(200 16 46 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-red-600{--tw-gradient-from:#dc2626 var(--tw-gradient-from-position);--tw-gradient-to:rgb(220 38 38 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-red-700{--tw-gradient-to:rgb(185 28 28 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #b91c1c var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-white{--tw-gradient-to:rgb(255 255 255 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #fff var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-\[\#1D1D1F\]{--tw-gradient-to:#1D1D1F var(--tw-gradient-to-position)}.to-surface-container-low{--tw-gradient-to:#F5F5F7 var(--tw-gradient-to-position)}.object-contain{object-fit:contain}.p-0{padding:0px}.p-2{padding:0.5rem}.p-2\.5{padding:0.625rem}.p-4{padding:1rem}.p-7{padding:1.75rem}.p-8{padding:2rem}.p-3{padding:0.75rem}.p-6{padding:1.5rem}.p-1{padding:0.25rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-7{padding-left:1.75rem;padding-right:1.75rem}.px-8{padding-left:2rem;padding-right:2rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.ps-2{padding-inline-start:0.5rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.pt-6{padding-top:1.5rem}.pb-3{padding-bottom:0.75rem}.pt-1{padding-top:0.25rem}.text-left{text-align:left}.text-center{text-align:center}.text-start{text-align:start}.text-end{text-align:end}.align-middle{vertical-align:middle}.font-headline{font-family:Cairo, Plus Jakarta Sans, Inter, sans-serif}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-5xl{font-size:3rem;line-height:1}.text-\[0\.68rem\]{font-size:0.68rem}.text-\[0\.6rem\]{font-size:0.6rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[22px\]{font-size:22px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-\[1\.15\]{line-height:1.15}.leading-relaxed{line-height:1.625}.leading-none{line-height:1}.tracking-tight{letter-spacing:-0.025em}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-\[\#6E6E73\]{--tw-text-opacity:1;color:rgb(110 110 115 / var(--tw-text-opacity, 1))}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6 / var(--tw-text-opacity, 1))}.text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-inherit{color:inherit}.text-on-primary-fixed{--tw-text-opacity:1;color:rgb(92 0 15 / var(--tw-text-opacity, 1))}.text-on-surface{--tw-text-opacity:1;color:rgb(29 29 31 / var(--tw-text-opacity, 1))}.text-on-surface-variant{--tw-text-opacity:1;color:rgb(110 110 115 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(200 16 46 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-white\/60{color:rgb(255 255 255 / 0.6)}.text-white\/70{color:rgb(255 255 255 / 0.7)}.text-white\/85{color:rgb(255 255 255 / 0.85)}.text-yellow-300{--tw-text-opacity:1;color:rgb(253 224 71 / var(--tw-text-opacity, 1))}.text-error{--tw-text-opacity:1;color:rgb(186 26 26 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.line-through{-webkit-text-decoration-line:line-through;text-decoration-line:line-through}.no-underline{-webkit-text-decoration-line:none;text-decoration-line:none}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow{--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.drop-shadow-md{--tw-drop-shadow:drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-primary:hover{--tw-border-opacity:1;border-color:rgb(200 16 46 / var(--tw-border-opacity, 1))}.hover\:border-primary\/40:hover{border-color:rgb(200 16 46 / 0.4)}.hover\:bg-black\/5:hover{background-color:rgb(0 0 0 / 0.05)}.hover\:bg-primary-dark:hover{--tw-bg-opacity:1;background-color:rgb(160 13 36 / var(--tw-bg-opacity, 1))}.hover\:bg-whatsapp-hover:hover{--tw-bg-opacity:1;background-color:rgb(18 140 126 / var(--tw-bg-opacity, 1))}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/90:hover{background-color:rgb(255 255 255 / 0.9)}.hover\:bg-gray-100:hover{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.hover\:bg-primary\/20:hover{background-color:rgb(200 16 46 / 0.2)}.hover\:bg-surface-container-high:hover{--tw-bg-opacity:1;background-color:rgb(226 226 231 / var(--tw-bg-opacity, 1))}.hover\:bg-primary:hover{--tw-bg-opacity:1;background-color:rgb(200 16 46 / var(--tw-bg-opacity, 1))}.hover\:text-on-surface:hover{--tw-text-opacity:1;color:rgb(29 29 31 / var(--tw-text-opacity, 1))}.hover\:text-primary:hover{--tw-text-opacity:1;color:rgb(200 16 46 / var(--tw-text-opacity, 1))}.hover\:text-gray-700:hover{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.hover\:text-primary-dark:hover{--tw-text-opacity:1;color:rgb(160 13 36 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:text-white\/80:hover{color:rgb(255 255 255 / 0.8)}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.hover\:opacity-80:hover{opacity:0.8}.hover\:shadow-2xl:hover{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-primary:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(200 16 46 / var(--tw-ring-opacity, 1))}.group:hover .group-hover\:block{display:block}.group:hover .group-hover\:rotate-180{--tw-rotate:180deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:bg-primary{--tw-bg-opacity:1;background-color:rgb(200 16 46 / var(--tw-bg-opacity, 1))}.group:hover .group-hover\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:block{display:block}.sm\:flex{display:flex}.sm\:h-28{height:7rem}.sm\:w-28{width:7rem}.sm\:w-auto{width:auto}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-end{align-items:flex-end}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:space-y-0 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0px * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0px * var(--tw-space-y-reverse))}.sm\:p-10{padding:2.5rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.sm\:py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-5xl{font-size:3rem;line-height:1}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}}@media (min-width: 768px){.md\:col-span-5{grid-column:span 5 / span 5}.md\:col-span-7{grid-column:span 7 / span 7}.md\:mx-0{margin-left:0px;margin-right:0px}.md\:flex{display:flex}.md\:hidden{display:none}.md\:h-9{height:2.25rem}.md\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:justify-start{justify-content:flex-start}.md\:p-12{padding:3rem}.md\:p-14{padding:3.5rem}.md\:py-24{padding-top:6rem;padding-bottom:6rem}.md\:text-start{text-align:start}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-6xl{font-size:3.75rem;line-height:1}.md\:text-sm{font-size:0.875rem;line-height:1.25rem}}.ltr\:left-0:where([dir="ltr"], [dir="ltr"] *){left:0px}.ltr\:right-4:where([dir="ltr"], [dir="ltr"] *){right:1rem}.rtl\:right-0:where([dir="rtl"], [dir="rtl"] *){right:0px}.rtl\:left-4:where([dir="rtl"], [dir="rtl"] *){left:1rem}</style><style id="dynamic-theme-style">
+            :root { --primary-color: #C8102E; }
+            .bg-primary { background-color: #C8102E !important; }
+            .text-primary { color: #C8102E !important; }
+            .border-primary { border-color: #C8102E !important; }
+            .hover\:bg-primary:hover { background-color: #C8102E !important; }
+            .hover\:text-primary:hover { color: #C8102E !important; }
+            .focus\:ring-primary:focus { --tw-ring-color: #C8102E !important; }
+            .text-primary-fixed { color: #C8102E !important; }
+            .hover\:border-primary\/50:hover { border-color: #C8102E80 !important; }
+            body.has-custom-bg { background-color: transparent !important; }
+            body.has-custom-bg main { position: relative; z-index: 1; }
+        </style><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}[type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select{-webkit-appearance:none;appearance:none;background-color:#fff;border-color:#6b7280;border-width:1px;border-radius:0px;padding-top:0.5rem;padding-right:0.75rem;padding-bottom:0.5rem;padding-left:0.75rem;font-size:1rem;line-height:1.5rem;--tw-shadow:0 0 #0000;}[type='text']:focus, input:where(:not([type])):focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);border-color:#2563eb}input::placeholder,textarea::placeholder{color:#6b7280;opacity:1}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-date-and-time-value{min-height:1.5em;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{padding-top:0;padding-bottom:0}select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");background-position:right 0.5rem center;background-repeat:no-repeat;background-size:1.5em 1.5em;padding-right:2.5rem;print-color-adjust:exact}[multiple],[size]:where(select:not([size="1"])){background-image:initial;background-position:initial;background-repeat:unset;background-size:initial;padding-right:0.75rem;print-color-adjust:unset}[type='checkbox'],[type='radio']{-webkit-appearance:none;appearance:none;padding:0;print-color-adjust:exact;display:inline-block;vertical-align:middle;background-origin:border-box;-webkit-user-select:none;user-select:none;flex-shrink:0;height:1rem;width:1rem;color:#2563eb;background-color:#fff;border-color:#6b7280;border-width:1px;--tw-shadow:0 0 #0000}[type='checkbox']{border-radius:0px}[type='radio']{border-radius:100%}[type='checkbox']:focus,[type='radio']:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:2px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}[type='checkbox']:checked,[type='radio']:checked{border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat}[type='checkbox']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='checkbox']:checked{-webkit-appearance:auto;appearance:auto}}[type='radio']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='radio']:checked{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus{border-color:transparent;background-color:currentColor}[type='checkbox']:indeterminate{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat;}@media (forced-colors: active) {[type='checkbox']:indeterminate{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus{border-color:transparent;background-color:currentColor}[type='file']{background:unset;border-color:inherit;border-width:0;border-radius:0;padding:0;font-size:unset;line-height:inherit}[type='file']:focus{outline:1px solid ButtonText;outline:1px auto -webkit-focus-ring-color}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.-right-0\.5{right:-0.125rem}.-top-0\.5{top:-0.125rem}.top-0{top:0px}.top-full{top:100%}.top-4{top:1rem}.bottom-6{bottom:1.5rem}.left-6{left:1.5rem}.z-50{z-index:50}.z-\[2500\]{z-index:2500}.z-40{z-index:40}.m-0{margin:0px}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.mb-12{margin-bottom:3rem}.mb-14{margin-bottom:3.5rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-auto{margin-top:auto}.ms-1{margin-inline-start:0.25rem}.mt-1{margin-top:0.25rem}.line-clamp-2{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-12{height:3rem}.h-2{height:0.5rem}.h-20{height:5rem}.h-24{height:6rem}.h-48{height:12rem}.h-6{height:1.5rem}.h-8{height:2rem}.h-full{height:100%}.h-7{height:1.75rem}.max-h-\[90vh\]{max-height:90vh}.min-h-\[100px\]{min-height:100px}.min-h-\[16px\]{min-height:16px}.min-h-\[18px\]{min-height:18px}.min-h-screen{min-height:100vh}.w-12{width:3rem}.w-2{width:0.5rem}.w-24{width:6rem}.w-8{width:2rem}.w-auto{width:auto}.w-full{width:100%}.w-7{width:1.75rem}.min-w-\[16px\]{min-width:16px}.min-w-\[18px\]{min-width:18px}.min-w-\[250px\]{min-width:250px}.min-w-\[160px\]{min-width:160px}.max-w-2xl{max-width:42rem}.max-w-6xl{max-width:72rem}.max-w-\[1200px\]{max-width:1200px}.max-w-\[400px\]{max-width:400px}.max-w-lg{max-width:32rem}.max-w-xl{max-width:36rem}.max-w-\[430px\]{max-width:430px}.max-w-5xl{max-width:64rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.shrink-0{flex-shrink:0}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}@keyframes ping{75%, 100%{transform:scale(2);opacity:0}}.animate-ping{animation:ping 1s cubic-bezier(0, 0, 0.2, 1) infinite}.select-none{-webkit-user-select:none;user-select:none}.list-none{list-style-type:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.flex-row-reverse{flex-direction:row-reverse}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0\.5{gap:0.125rem}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-10{gap:2.5rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-3\.5{gap:0.875rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-7{gap:1.75rem}.gap-8{gap:2rem}.gap-12{gap:3rem}.gap-x-5{column-gap:1.25rem}.gap-y-1\.5{row-gap:0.375rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-3\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.875rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.875rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-0\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.125rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.125rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.whitespace-nowrap{white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-\[24px\]{border-radius:24px}.rounded-\[28px\]{border-radius:28px}.rounded-\[32px\]{border-radius:32px}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-s-2{border-inline-start-width:2px}.border-t{border-top-width:1px}.border-b-2{border-bottom-width:2px}.border-amber-200\/50{border-color:rgb(253 230 138 / 0.5)}.border-amber-200\/60{border-color:rgb(253 230 138 / 0.6)}.border-black\/10{border-color:rgb(0 0 0 / 0.1)}.border-black\/15{border-color:rgb(0 0 0 / 0.15)}.border-black\/5{border-color:rgb(0 0 0 / 0.05)}.border-black\/\[0\.03\]{border-color:rgb(0 0 0 / 0.03)}.border-black\/\[0\.06\]{border-color:rgb(0 0 0 / 0.06)}.border-outline-variant{--tw-border-opacity:1;border-color:rgb(232 232 237 / var(--tw-border-opacity, 1))}.border-primary\/20{border-color:rgb(200 16 46 / 0.2)}.border-red-500\/30{border-color:rgb(239 68 68 / 0.3)}.border-surface{--tw-border-opacity:1;border-color:rgb(245 245 247 / var(--tw-border-opacity, 1))}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-primary{--tw-border-opacity:1;border-color:rgb(200 16 46 / var(--tw-border-opacity, 1))}.border-red-200{--tw-border-opacity:1;border-color:rgb(254 202 202 / var(--tw-border-opacity, 1))}.border-transparent{border-color:transparent}.bg-\[\#1D1D1F\]{--tw-bg-opacity:1;background-color:rgb(29 29 31 / var(--tw-bg-opacity, 1))}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(200 16 46 / var(--tw-bg-opacity, 1))}.bg-primary-fixed{--tw-bg-opacity:1;background-color:rgb(255 232 236 / var(--tw-bg-opacity, 1))}.bg-primary\/10{background-color:rgb(200 16 46 / 0.1)}.bg-success{--tw-bg-opacity:1;background-color:rgb(22 163 74 / var(--tw-bg-opacity, 1))}.bg-surface{--tw-bg-opacity:1;background-color:rgb(245 245 247 / var(--tw-bg-opacity, 1))}.bg-surface-container-low{--tw-bg-opacity:1;background-color:rgb(245 245 247 / var(--tw-bg-opacity, 1))}.bg-surface-container-lowest{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-whatsapp{--tw-bg-opacity:1;background-color:rgb(37 211 102 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/20{background-color:rgb(255 255 255 / 0.2)}.bg-white\/5{background-color:rgb(255 255 255 / 0.05)}.bg-white\/70{background-color:rgb(255 255 255 / 0.7)}.bg-white\/90{background-color:rgb(255 255 255 / 0.9)}.bg-white\/95{background-color:rgb(255 255 255 / 0.95)}.bg-black\/50{background-color:rgb(0 0 0 / 0.5)}.bg-primary\/5{background-color:rgb(200 16 46 / 0.05)}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity, 1))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.bg-gradient-to-tr{background-image:linear-gradient(to top right, var(--tw-gradient-stops))}.from-primary\/10{--tw-gradient-from:rgb(200 16 46 / 0.1) var(--tw-gradient-from-position);--tw-gradient-to:rgb(200 16 46 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-red-600{--tw-gradient-from:#dc2626 var(--tw-gradient-from-position);--tw-gradient-to:rgb(220 38 38 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-red-700{--tw-gradient-to:rgb(185 28 28 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #b91c1c var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-white{--tw-gradient-to:rgb(255 255 255 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #fff var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-\[\#1D1D1F\]{--tw-gradient-to:#1D1D1F var(--tw-gradient-to-position)}.to-surface-container-low{--tw-gradient-to:#F5F5F7 var(--tw-gradient-to-position)}.object-contain{object-fit:contain}.p-0{padding:0px}.p-1{padding:0.25rem}.p-2{padding:0.5rem}.p-2\.5{padding:0.625rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-7{padding:1.75rem}.p-8{padding:2rem}.p-3{padding:0.75rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-7{padding-left:1.75rem;padding-right:1.75rem}.px-8{padding-left:2rem;padding-right:2rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-8{padding-top:2rem;padding-bottom:2rem}.ps-2{padding-inline-start:0.5rem}.pt-1{padding-top:0.25rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.pt-6{padding-top:1.5rem}.pb-3{padding-bottom:0.75rem}.pb-1{padding-bottom:0.25rem}.text-left{text-align:left}.text-center{text-align:center}.text-start{text-align:start}.text-end{text-align:end}.align-middle{vertical-align:middle}.font-headline{font-family:Cairo, Plus Jakarta Sans, Inter, sans-serif}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-5xl{font-size:3rem;line-height:1}.text-\[0\.68rem\]{font-size:0.68rem}.text-\[0\.6rem\]{font-size:0.6rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[22px\]{font-size:22px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-\[1\.15\]{line-height:1.15}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.tracking-tight{letter-spacing:-0.025em}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-\[\#6E6E73\]{--tw-text-opacity:1;color:rgb(110 110 115 / var(--tw-text-opacity, 1))}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6 / var(--tw-text-opacity, 1))}.text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-inherit{color:inherit}.text-on-primary-fixed{--tw-text-opacity:1;color:rgb(92 0 15 / var(--tw-text-opacity, 1))}.text-on-surface{--tw-text-opacity:1;color:rgb(29 29 31 / var(--tw-text-opacity, 1))}.text-on-surface-variant{--tw-text-opacity:1;color:rgb(110 110 115 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(200 16 46 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-white\/60{color:rgb(255 255 255 / 0.6)}.text-white\/70{color:rgb(255 255 255 / 0.7)}.text-white\/85{color:rgb(255 255 255 / 0.85)}.text-yellow-300{--tw-text-opacity:1;color:rgb(253 224 71 / var(--tw-text-opacity, 1))}.text-error{--tw-text-opacity:1;color:rgb(186 26 26 / var(--tw-text-opacity, 1))}.text-\[\#1d1d1f\]{--tw-text-opacity:1;color:rgb(29 29 31 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.line-through{-webkit-text-decoration-line:line-through;text-decoration-line:line-through}.no-underline{-webkit-text-decoration-line:none;text-decoration-line:none}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow{--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.drop-shadow-md{--tw-drop-shadow:drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-shadow{transition-property:box-shadow;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-primary:hover{--tw-border-opacity:1;border-color:rgb(200 16 46 / var(--tw-border-opacity, 1))}.hover\:bg-black\/5:hover{background-color:rgb(0 0 0 / 0.05)}.hover\:bg-primary:hover{--tw-bg-opacity:1;background-color:rgb(200 16 46 / var(--tw-bg-opacity, 1))}.hover\:bg-primary-dark:hover{--tw-bg-opacity:1;background-color:rgb(160 13 36 / var(--tw-bg-opacity, 1))}.hover\:bg-surface-container-high:hover{--tw-bg-opacity:1;background-color:rgb(226 226 231 / var(--tw-bg-opacity, 1))}.hover\:bg-whatsapp-hover:hover{--tw-bg-opacity:1;background-color:rgb(18 140 126 / var(--tw-bg-opacity, 1))}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/90:hover{background-color:rgb(255 255 255 / 0.9)}.hover\:bg-gray-100:hover{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.hover\:bg-primary\/20:hover{background-color:rgb(200 16 46 / 0.2)}.hover\:text-primary:hover{--tw-text-opacity:1;color:rgb(200 16 46 / var(--tw-text-opacity, 1))}.hover\:text-primary-dark:hover{--tw-text-opacity:1;color:rgb(160 13 36 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:text-white\/80:hover{color:rgb(255 255 255 / 0.8)}.hover\:text-gray-700:hover{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.hover\:text-\[\#C8102E\]:hover{--tw-text-opacity:1;color:rgb(200 16 46 / var(--tw-text-opacity, 1))}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.hover\:opacity-80:hover{opacity:0.8}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.hover\:shadow-2xl:hover{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-primary:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(200 16 46 / var(--tw-ring-opacity, 1))}.group:hover .group-hover\:block{display:block}.group:hover .group-hover\:rotate-180{--tw-rotate:180deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:bg-primary{--tw-bg-opacity:1;background-color:rgb(200 16 46 / var(--tw-bg-opacity, 1))}.group:hover .group-hover\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:block{display:block}.sm\:flex{display:flex}.sm\:h-28{height:7rem}.sm\:w-28{width:7rem}.sm\:w-auto{width:auto}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-end{align-items:flex-end}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:space-y-0 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0px * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0px * var(--tw-space-y-reverse))}.sm\:p-10{padding:2.5rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.sm\:py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-5xl{font-size:3rem;line-height:1}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}}@media (min-width: 768px){.md\:col-span-5{grid-column:span 5 / span 5}.md\:col-span-7{grid-column:span 7 / span 7}.md\:mx-0{margin-left:0px;margin-right:0px}.md\:flex{display:flex}.md\:hidden{display:none}.md\:h-9{height:2.25rem}.md\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:justify-start{justify-content:flex-start}.md\:p-12{padding:3rem}.md\:p-14{padding:3.5rem}.md\:py-24{padding-top:6rem;padding-bottom:6rem}.md\:text-start{text-align:start}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}.md\:text-6xl{font-size:3.75rem;line-height:1}.md\:text-sm{font-size:0.875rem;line-height:1.25rem}}.ltr\:left-0:where([dir="ltr"], [dir="ltr"] *){left:0px}.ltr\:right-4:where([dir="ltr"], [dir="ltr"] *){right:1rem}.rtl\:right-0:where([dir="rtl"], [dir="rtl"] *){right:0px}.rtl\:left-4:where([dir="rtl"], [dir="rtl"] *){left:1rem}</style></head>
+<body class="antialiased flex flex-col min-h-screen">
+
+<!-- TOP PROMO BANNER CONTAINER -->
+<div id="topPromoBannerContainer">
+            <div id="topPromoBanner" style="background: #C8102E;" class="text-white py-2 px-4 text-xs font-bold transition-all duration-300 relative z-50 shadow-md">
+                <div class="max-w-6xl mx-auto flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-2 flex-1 justify-center text-center truncate">
+                        <span class="bg-white/20 text-white text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider animate-pulse flex-shrink-0">عرض حصري</span>
+                        <span class="truncate">🔥 عرض خاص: معاينة فنية مجانية وخصم 15% على مقايسات أنظمة المراقبة والحريق للمنشآت والمصانع!</span>
+                        <a href="store.html" class="underline hover:text-white/80 font-black flex items-center gap-0.5 flex-shrink-0"><span>تسوق الآن</span><span class="material-symbols-outlined text-xs">arrow_forward</span></a>
+                    </div>
+                    <button onclick="ProCable.dismissPromoBanner()" class="text-white/70 hover:text-white text-base leading-none p-1 flex-shrink-0" title="إغلاق">&#10005;</button>
+                </div>
+            </div>
+        </div>
+
+<!-- ================= NAVIGATION ================= -->
+<nav class="sticky top-0 z-50 apple-nav">
+    <div class="max-w-[1200px] mx-auto px-5 h-12 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 text-on-surface no-underline select-none">
+            <img src="logo.png" alt="Attractive" class="site-logo-img h-8 md:h-9 object-contain transition-opacity hover:opacity-80">
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center gap-7">
+            <ul id="desktopNavLinks" class="flex items-center gap-6 list-none p-0 m-0 text-sm font-medium">
+                    <li class="" data-nav-id="nav-home">
+                        <a href="index.html" class="text-primary font-bold transition flex items-center gap-1 text-sm font-medium">
+                            
+                            <span>الرئيسية</span>
+                            
+                        </a>
+                    </li>
+                
+                        <li class="relative" data-nav-id="nav-store" data-has-mega="true">
+                            <a href="store.html" class="text-on-surface hover:text-primary transition flex items-center gap-1 py-1 text-sm font-medium agy-mega-trigger" data-mega-id="nav-store">
+                                
+                                <span>المتجر</span>
+                                <span class="material-symbols-outlined text-sm transition-transform agy-mega-chevron">expand_more</span>
+                                
+                            </a>
+                        </li>
+                    
+                    <li class="sale-nav-item" data-nav-id="nav-sale">
+                        <a href="store.html?cat=sale" class="text-primary font-bold transition flex items-center gap-1 text-sm font-medium">
+                            <span class="material-symbols-outlined text-sm">local_fire_department</span>
+                            <span>خصومات 🔥</span>
+                            
+                        </a>
+                    </li>
+                
+                        <li class="relative group" data-nav-id="nav-builder">
+                            <a href="builder.html" class="text-on-surface hover:text-primary transition flex items-center gap-1 py-1 text-sm font-medium">
+                                <span>توصيلات التيار الخفيف</span>
+                                <span class="material-symbols-outlined text-sm transition-transform group-hover:rotate-180">expand_more</span>
+                            </a>
+                            <div class="absolute top-full ltr:left-0 rtl:right-0 pt-2 hidden group-hover:block z-50 min-w-[250px]">
+                                <div class="bg-white/95 backdrop-blur-xl border border-black/10 rounded-2xl shadow-2xl p-2 space-y-1">
+                                    <a href="builder.html" class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-black/5 text-on-surface text-xs font-bold transition">
+                                        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+                                            <span class="material-symbols-outlined text-base">tune</span>
+                                        </div>
+                                        <div>
+                                            <span class="block text-on-surface">مهندس التوصيلات والكابلات</span>
+                                            <span class="block text-[10px] font-normal text-gray-400">تجهيز وتفصيل وصلات التيار الخفيف</span>
+                                        </div>
+                                    </a>
+                                    
+                                    <a href="index.html#repairSection" class="repair-nav-item flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-black/5 text-on-surface text-xs font-bold transition">
+                                        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+                                            <span class="material-symbols-outlined text-base">build</span>
+                                        </div>
+                                        <div>
+                                            <span class="block text-on-surface">مركز التركيبات والصيانة</span>
+                                            <span class="block text-[10px] font-normal text-gray-400">برمجة وصيانة وفحص الشبكات</span>
+                                        </div>
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                        </li>
+                    
+                    <li class="" data-nav-id="nav-reviews">
+                        <a href="index.html#reviewsSection" class="text-primary font-bold transition flex items-center gap-1 text-sm font-medium">
+                            
+                            <span>آراء العملاء</span>
+                            
+                        </a>
+                    </li>
+                
+                    <li class="" data-nav-id="nav-contact">
+                        <a href="index.html#contactSection" class="text-primary font-bold transition flex items-center gap-1 text-sm font-medium">
+                            
+                            <span>تواصل معنا</span>
+                            
+                        </a>
+                    </li>
+                </ul>
+
+            <div class="flex items-center gap-2">
+                <!-- Order Tracking -->
+                <button onclick="ProCable.showOrderTrackingModal()" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-surface border border-black/10 hover:bg-white text-on-surface-variant flex items-center gap-1.5 transition" title="تتبع مسار الطلب">
+                    <span class="material-symbols-outlined text-base text-primary">track_changes</span>
+                    <span data-ar="تتبع طلبك" data-en="Track Order">تتبع طلبك</span>
+                </button>
+
+                <!-- User Auth Area -->
+                <div id="desktopAuthArea">
+                    <button onclick="ProCable.showAuthModal()" class="text-xs font-bold px-3 py-1.5 bg-surface text-on-surface border border-outline-variant rounded-xl hover:bg-surface-container-high transition flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-base">login</span>
+                        <span>دخول / حساب</span>
+                    </button>
+                </div>
+
+                <!-- Lang Toggle -->
+                <button onclick="ProCable.toggleLang()" class="lang-toggle-btn text-xs font-semibold px-2.5 py-1 rounded-full border border-black/10 hover:bg-black/5 transition text-on-surface-variant" title="تبديل اللغة">EN</button>
+
+                <!-- Cart -->
+                <a href="store.html#cartSection" class="relative p-2 rounded-full text-on-surface hover:bg-black/5 transition">
+                    <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+                    <span id="navCartBadge" class="absolute -top-0.5 -right-0.5 bg-primary text-white text-[0.6rem] font-bold w-4.5 h-4.5 min-w-[18px] min-h-[18px] rounded-full flex items-center justify-center border-2 border-surface hidden">٠</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Mobile Controls -->
+        <div class="flex items-center gap-2 md:hidden">
+            <button onclick="ProCable.showOrderTrackingModal()" class="p-2 text-primary rounded-full hover:bg-black/5 transition" title="تتبع الطلب">
+                <span class="material-symbols-outlined text-xl">track_changes</span>
+            </button>
+            <button onclick="ProCable.toggleLang()" class="lang-toggle-btn text-xs font-semibold px-2 py-1 rounded-full border border-black/10 text-on-surface-variant">EN</button>
+            <a href="store.html#cartSection" class="relative p-2 text-on-surface">
+                <span class="material-symbols-outlined text-xl">shopping_bag</span>
+                <span id="mobileCartBadge" class="absolute -top-0.5 -right-0.5 bg-primary text-white text-[0.6rem] font-bold min-w-[16px] min-h-[16px] rounded-full flex items-center justify-center border-2 border-surface hidden">٠</span>
+            </a>
+            <button onclick="document.getElementById('mobileDrawer').classList.toggle('hidden')" class="p-2 text-on-surface rounded-full hover:bg-black/5 transition">
+                <span class="material-symbols-outlined text-xl">menu</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-b border-black/5 px-6 py-5">
+        <div id="mobileAuthArea">
+                    <button onclick="ProCable.showAuthModal(); document.getElementById('mobileDrawer').classList.add('hidden');" class="w-full flex items-center gap-2 py-2 text-primary font-bold border-b border-outline-variant mb-2">
+                        <span class="material-symbols-outlined text-base">login</span>
+                        <span>تسجيل الدخول / إنشاء حساب</span>
+                    </button>
+                </div>
+        <ul id="mobileDrawerLinks" class="space-y-3 list-none p-0 m-0 font-medium text-sm mt-2">
+                    <li class="">
+                        <a href="index.html" class="block py-1 text-xs text-primary font-bold flex items-center gap-1.5">
+                            
+                            <span>الرئيسية</span>
+                            
+                        </a>
+                    </li>
+                
+                        <li class="">
+                            <button onclick="document.getElementById('mob-acc-nav-store').classList.toggle('hidden'); this.querySelector('.mob-acc-chevron').classList.toggle('rotate-180')" class="w-full flex items-center justify-between py-1 text-xs font-semibold text-on-surface">
+                                <span class="flex items-center gap-1.5">
+                                    
+                                    <span>المتجر</span>
+                                </span>
+                                <span class="material-symbols-outlined text-sm mob-acc-chevron transition-transform">expand_more</span>
+                            </button>
+                            <div id="mob-acc-nav-store" class="hidden ps-2 border-s-2 border-primary/20 mt-1 pb-1"><div class="mb-3"><div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">الأنظمة والحلول</div><a href="store.html" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">كافة الأجهزة والأنظمة</a><a href="store.html?cat=cctv" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">كاميرات المراقبة</a><a href="store.html?cat=fire-alarm" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">إنذار الحريق</a><a href="store.html?cat=sound-pa" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">أنظمة الصوت والإذاعة</a><a href="store.html?cat=nurse-call" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">الاستدعاء والإنتركم</a><a href="store.html?cat=cables" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">كابلات وبنية تحتية</a><a href="store.html?cat=sale" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">عروض وخصومات 🔥</a></div><div class="mb-3"><div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">الخدمات الهندسية</div><a href="builder.html" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">مهندس التوصيلات والكابلات</a><a href="index.html#repairSection" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">مركز التركيبات والصيانة</a><a href="index.html#contactSection" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">طلب مقايسة فنية ومعاينة</a></div></div>
+                        </li>
+                    
+                    <li class="sale-nav-item">
+                        <a href="store.html?cat=sale" class="block py-1 text-xs text-primary font-bold flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-sm">local_fire_department</span>
+                            <span>خصومات 🔥</span>
+                            
+                        </a>
+                    </li>
+                
+                        <li class="py-1">
+                            <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">توصيلات التيار الخفيف</div>
+                            <div class="space-y-1 ps-2 border-s-2 border-primary/20">
+                                <a href="builder.html" class="block py-1 text-xs text-on-surface font-semibold flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-sm text-primary">tune</span>
+                                    <span>مهندس التوصيلات والكابلات</span>
+                                </a>
+                                
+                                <a href="index.html#repairSection" class="repair-nav-item block py-1 text-xs text-on-surface font-semibold flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-sm text-primary">build</span>
+                                    <span>مركز التركيبات والصيانة</span>
+                                </a>
+                                
+                            </div>
+                        </li>
+                    
+                    <li class="">
+                        <a href="index.html#reviewsSection" class="block py-1 text-xs text-primary font-bold flex items-center gap-1.5">
+                            
+                            <span>آراء العملاء</span>
+                            
+                        </a>
+                    </li>
+                
+                    <li class="">
+                        <a href="index.html#contactSection" class="block py-1 text-xs text-primary font-bold flex items-center gap-1.5">
+                            
+                            <span>تواصل معنا</span>
+                            
+                        </a>
+                    </li>
+                
+                <li class="pt-2 border-t border-outline-variant">
+                    <a href="store.html#cartSection" onclick="document.getElementById('mobileDrawer').classList.add('hidden')" class="w-full text-start py-1 text-on-surface font-bold flex items-center justify-between">
+                        <span class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-base">shopping_bag</span>
+                            <span>سلة المشتريات</span>
+                        </span>
+                        <span class="cart-count-badge bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full">0</span>
+                    </a>
+                </li>
+                <li class="pt-1">
+                    <button onclick="ProCable.showOrderTrackingModal(); document.getElementById('mobileDrawer').classList.add('hidden')" class="w-full text-start py-1 text-primary font-bold flex items-center gap-2 text-xs">
+                        <span class="material-symbols-outlined text-base">track_changes</span>
+                        <span>تتبع مسار طلبك</span>
+                    </button>
+                </li>
+            </ul>
+    </div>
+</nav>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="max-w-6xl mx-auto px-4 sm:px-6 flex-1 w-full">
+
+    <!-- HERO SECTION -->
+    <section class="py-16 md:py-24 grid grid-cols-1 md:grid-cols-12 gap-10 items-center border-b border-black/[0.06]">
+        <div class="md:col-span-7 text-center md:text-start space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed text-xs font-bold tracking-wide">
+                <span class="material-symbols-outlined text-sm">verified</span>
+                <span id="homeHeroBadge">Attractive — الريادة في حلول وتوريدات أنظمة التيار الخفيف</span>
+            </div>
+
+            <h1 id="homeHeroHeading" class="hero-seq-2 text-3xl sm:text-5xl md:text-6xl font-black leading-[1.15] tracking-tight text-on-surface font-headline">أنظمة التيار الخفيف المتكاملة.<br><span style="color: var(--primary-color, #C8102E);">أمان متطور، صوت نقي، وإنذار فوري.</span></h1>
+
+            <p id="homeHeroDesc" class="hero-seq-3 text-base sm:text-lg text-on-surface-variant max-w-xl leading-relaxed">نقدم حلولاً هندسية متكاملة: كاميرات مراقبة ذكية 4K، أنظمة إنذار الحريق المعنونة، شبكات الإذاعة والصوتيات للمباني، وأنظمة الاستدعاء الطبي والإنتركم، مع بنية تحتية فائقة الاعتمادية من كابلات الشبكات والفايبر المعتمدة.</p>
+
+            <!-- Action Buttons (Apple Style Pills) -->
+            <div class="hero-seq-4 flex flex-col sm:flex-row items-center gap-3.5 justify-center md:justify-start pt-2">
+                <a href="store.html" class="w-full sm:w-auto bg-primary text-white py-3.5 px-8 rounded-full font-bold text-sm hover:bg-primary-dark apple-btn-primary transition shadow-md flex items-center justify-center gap-2">
+                    <span data-ar="تصفح كتالوج الأنظمة والأجهزة" data-en="Browse Systems Catalog">تصفح كتالوج الأنظمة والأجهزة</span>
+                    <span class="material-symbols-outlined text-base">storefront</span>
+                </a>
+                <a href="builder.html" class="w-full sm:w-auto bg-white text-on-surface border border-black/15 py-3.5 px-8 rounded-full font-bold text-sm hover:bg-black/5 apple-btn-secondary transition flex items-center justify-center gap-2">
+                    <span data-ar="استوديو تفصيل كابلات الصوت" data-en="Pro Audio Cable Studio">استوديو تفصيل كابلات الصوت</span>
+                    <span class="material-symbols-outlined text-base">tune</span>
+                </a>
+            </div>
+
+            <!-- Trust Badges (Apple Stat Row) -->
+            <div class="hero-seq-5 grid grid-cols-3 gap-6 pt-6 border-t border-black/[0.06] max-w-lg mx-auto md:mx-0 text-center">
+                <div>
+                    <span id="homeBadge1Val" class="block font-black text-2xl md:text-3xl text-primary stat-number">100%</span>
+                    <span id="homeBadge1Text" class="text-xs text-on-surface-variant font-medium">أجهزة معتمدة ومختبرة</span>
+                </div>
+                <div>
+                    <span id="homeBadge2Val" class="block font-black text-2xl md:text-3xl text-primary stat-number">24/7</span>
+                    <span id="homeBadge2Text" class="text-xs text-on-surface-variant font-medium">استقرار وأمان دائم</span>
+                </div>
+                <div>
+                    <span id="homeBadge3Val" class="block font-black text-2xl md:text-3xl text-primary stat-number">2 سنة</span>
+                    <span id="homeBadge3Text" class="text-xs text-on-surface-variant font-medium">ضمان صيانة واستبدال</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="md:col-span-5 flex justify-center items-center hero-seq-visual">
+            <div class="relative w-full max-w-[400px] bg-gradient-to-tr from-primary/10 via-white to-surface-container-low rounded-[32px] p-8 border border-black/[0.06] shadow-xl flex flex-col items-center">
+                <div id="homeHeroVisualBox" class="w-full h-48 flex items-center justify-center overflow-hidden rounded-2xl bg-white/70 backdrop-blur-md p-4">
+                    <svg viewBox="0 0 320 160" class="w-full h-full drop-shadow-md">
+                        <rect x="10" y="10" width="300" height="140" rx="16" fill="rgba(200,16,46,0.04)" stroke="rgba(200,16,46,0.12)" stroke-width="1.5" stroke-dasharray="4 4"/>
+                        <g transform="translate(110, 20)">
+                            <path d="M50 8 L85 24 C85 65 50 88 50 88 C50 88 15 65 15 24 Z" fill="none" stroke="#1D1D1F" stroke-width="3" stroke-linejoin="round"/>
+                            <path d="M50 14 L79 28 C79 62 50 81 50 81 C50 81 21 62 21 28 Z" fill="rgba(200,16,46,0.08)"/>
+                            <rect x="34" y="38" width="32" height="20" rx="4" fill="#1D1D1F"/>
+                            <polygon points="66,42 78,35 78,57 66,54" fill="var(--primary-color, #C8102E)"/>
+                            <circle cx="45" cy="48" r="4.5" fill="#FFFFFF"/>
+                            <circle cx="45" cy="48" r="2" fill="var(--primary-color, #C8102E)"/>
+                            <line x1="30" y1="36" x2="48" y2="36" stroke="#6E6E73" stroke-width="2.5" stroke-linecap="round"/>
+                        </g>
+                        <circle cx="45" cy="80" r="14" fill="#1D1D1F"/>
+                        <text x="45" y="84" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="bold">IP</text>
+                        <path d="M 60 80 Q 85 80 115 70" fill="none" stroke="#6E6E73" stroke-width="1.5" stroke-dasharray="3 3"/>
+                        <circle cx="275" cy="80" r="14" fill="var(--primary-color, #C8102E)"/>
+                        <text x="275" y="84" text-anchor="middle" fill="#FFFFFF" font-size="10" font-weight="bold">PA</text>
+                        <path d="M 260 80 Q 235 80 205 70" fill="none" stroke="#6E6E73" stroke-width="1.5" stroke-dasharray="3 3"/>
+                        <circle cx="160" cy="130" r="12" fill="#3D3D3F"/>
+                        <text x="160" y="134" text-anchor="middle" fill="#FFFFFF" font-size="8" font-weight="bold">FIRE</text>
+                        <path d="M 160 110 L 160 118" fill="none" stroke="#6E6E73" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <div class="mt-4 bg-white/90 backdrop-blur-md py-2.5 px-4 rounded-full shadow-sm border border-black/[0.06] text-xs font-semibold text-on-surface flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-success live-dot"></span>
+                    <span id="homeHeroLiveBadgeText" data-ar="توريد وتركيب وعقود صيانة معتمدة لجميع المحافظات" data-en="Supply, installation &amp; certified maintenance nationwide">توريد وتركيب وعقود صيانة معتمدة لجميع المحافظات</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: HOW IT WORKS (APPLE BENTO BOXES) -->
+    <section class="py-20 border-b border-black/[0.06] apple-reveal">
+        <div class="text-center max-w-xl mx-auto mb-14">
+            <span class="section-eyebrow" data-ar="تجربة توريد مرنة" data-en="Flexible Supply Experience">تجربة توريد مرنة</span>
+            <h2 class="text-2xl sm:text-4xl font-black text-on-surface font-headline tracking-tight" data-ar="طريقتان للحصول على حل التيار الخفيف المثالي" data-en="Two Ways to Get Your Light Current Solution">طريقتان للحصول على حل التيار الخفيف المثالي</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Path A: Store -->
+            <div class="apple-card apple-reveal apple-reveal-delay-1 bg-surface-container-lowest rounded-[28px] p-8 sm:p-10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-primary-fixed text-primary flex items-center justify-center mb-5">
+                        <span class="material-symbols-outlined text-2xl">shopping_basket</span>
+                    </div>
+                    <h3 id="homePath1Title" class="text-xl sm:text-2xl font-bold text-on-surface mb-3 tracking-tight">كتالوج الأجهزة والأنظمة المعتمدة</h3>
+                    <p id="homePath1Desc" class="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-8">تصفح كتالوجنا الشامل من كاميرات المراقبة، لوحات إنذار الحريق، مضخمات الصوت، ووحدات الاستدعاء المعتمدة — جاهزة للشحن الفوري لجميع المحافظات.</p>
+                </div>
+                <a href="store.html" class="w-full bg-surface hover:bg-black/5 text-on-surface py-3.5 rounded-full font-bold text-xs text-center apple-btn-secondary transition flex items-center justify-center gap-2 border border-black/10">
+                    <span data-ar="تصفح كتالوج الأنظمة (تسوق فوري)" data-en="Browse Systems Catalog (Shop Now)">تصفح كتالوج الأنظمة (تسوق فوري)</span>
+                    <span class="material-symbols-outlined text-base">arrow_back</span>
+                </a>
+            </div>
+
+            <!-- Path B: Custom Builder -->
+            <div class="apple-card apple-reveal apple-reveal-delay-1 bg-surface-container-lowest rounded-[28px] p-8 sm:p-10 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-primary text-white flex items-center justify-center mb-5">
+                        <span class="material-symbols-outlined text-2xl">tune</span>
+                    </div>
+                    <h3 id="homePath2Title" class="text-xl sm:text-2xl font-bold text-on-surface mb-3 tracking-tight">استوديو تفصيل كابلات الصوت الاحترافية</h3>
+                    <p id="homePath2Desc" class="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-8">صمم كابلك الصوتي بنفسك: اختر الطرف الأول (XLR، TRS، RCA، Speakon)، الطرف الثاني، خامة النحاس النقي OFC، والطول الذي تحتاجه بدقة بالسنتيمتر مع حساب السعر والعربون لحظياً.</p>
+                </div>
+                <a href="builder.html" class="w-full bg-primary text-white hover:bg-primary-dark py-3.5 rounded-full font-bold text-xs text-center apple-btn-primary transition flex items-center justify-center gap-2 shadow">
+                    <span data-ar="دخول استوديو تفصيل كابلات الصوت" data-en="Enter Custom Audio Studio">دخول استوديو تفصيل كابلات الصوت</span>
+                    <span class="material-symbols-outlined text-base">arrow_back</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: FEATURED CABLES TEASER (#5, #32) -->
+    <section class="py-20 border-b border-black/[0.06] apple-reveal">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-12">
+            <div>
+                <span class="section-eyebrow" data-ar="أنظمة مميزة وأكثر طلباً" data-en="Featured & Most Requested Systems">أنظمة مميزة وأكثر طلباً</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-on-surface font-headline tracking-tight" data-ar="أشهر أجهزة وأنظمة التيار الخفيف" data-en="Most Popular Light Current Systems">أشهر أجهزة وأنظمة التيار الخفيف</h2>
+            </div>
+            <a href="store.html" class="text-xs font-bold text-primary hover:opacity-80 flex items-center gap-1 transition">
+                <span data-ar="عرض كافة منتجات الكتالوج" data-en="View Full Systems Catalog">عرض كافة منتجات الكتالوج</span>
+                <span class="material-symbols-outlined text-sm">arrow_back</span>
+            </a>
+        </div>
+
+        <div id="featuredGrid" class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="apple-card apple-reveal apple-reveal-delay-1 bg-surface-container-lowest rounded-[24px] p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <div class="flex items-center gap-1.5">
+                                <span class="text-xs bg-primary-fixed text-on-primary-fixed font-bold px-3 py-1 rounded-full">IP Camera</span>
+                                <span class="bg-green-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full">&#10003; معتمد</span>
+                            </div>
+                            <div class="text-end">
+                                <span class="font-black text-primary text-base stat-number">&#x662;&#x66a;&#x660;&#x660; &#x62c;.&#x645;</span>
+                            </div>
+                        </div>
+                        <div class="bg-surface-container-low rounded-2xl p-4 mb-4 flex items-center justify-center min-h-[100px] border border-black/[0.03]">
+                            <div class="h-20 flex items-center justify-center"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="20" y="35" width="50" height="35" rx="5" fill="#1D1D1F"/><circle cx="45" cy="52" r="10" fill="#3D3D3F"/><circle cx="45" cy="52" r="5" fill="var(--primary-color,#C8102E)"/><rect x="70" y="48" width="15" height="8" rx="2" fill="#3D3D3F"/><rect x="30" y="28" width="4" height="8" rx="1" fill="#6E6E73"/></svg></div>
+                        </div>
+                        <h3 class="font-bold text-sm text-on-surface mb-1.5 tracking-tight">كاميرا IP داخلية FullHD 2MP</h3>
+                        <p class="text-xs text-on-surface-variant line-clamp-2 mb-4 leading-relaxed">كاميرا مراقبة داخلية عالية الدقة 1080p مع رؤية ليلية 20م، دعم PoE وبروتوكول ONVIF.</p>
+                    </div>
+                    <a href="store.html" class="w-full bg-surface hover:bg-primary hover:text-white text-on-surface py-2.5 rounded-full font-semibold text-xs text-center apple-btn-secondary transition flex items-center justify-center gap-1.5 border border-black/10">
+                        <span>طلب المنتج</span>
+                        <span class="material-symbols-outlined text-sm">shopping_bag</span>
+                    </a>
+                </div>
+            
+                <div class="apple-card apple-reveal apple-reveal-delay-2 bg-surface-container-lowest rounded-[24px] p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <div class="flex items-center gap-1.5">
+                                <span class="text-xs bg-primary-fixed text-on-primary-fixed font-bold px-3 py-1 rounded-full">Fire Alarm</span>
+                                <span class="bg-amber-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full">EN54</span>
+                            </div>
+                            <div class="text-end">
+                                <span class="font-black text-primary text-base stat-number">&#x661;&#x660;&#x66a;&#x660;&#x660; &#x62c;.&#x645;</span>
+                            </div>
+                        </div>
+                        <div class="bg-surface-container-low rounded-2xl p-4 mb-4 flex items-center justify-center min-h-[100px] border border-black/[0.03]">
+                            <div class="h-20 flex items-center justify-center"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="15" y="30" width="70" height="45" rx="5" fill="#1D1D1F"/><rect x="20" y="35" width="60" height="35" rx="3" fill="#2D2D2F"/><circle cx="35" cy="50" r="6" fill="var(--primary-color,#C8102E)"/><circle cx="50" cy="50" r="6" fill="#6E6E73"/><circle cx="65" cy="50" r="6" fill="#34C759"/><rect x="42" y="24" width="16" height="7" rx="2" fill="#3D3D3F"/></svg></div>
+                        </div>
+                        <h3 class="font-bold text-sm text-on-surface mb-1.5 tracking-tight">لوحة إنذار حريق عنواني 4-Loop</h3>
+                        <p class="text-xs text-on-surface-variant line-clamp-2 mb-4 leading-relaxed">لوحة تحكم مركزية عنوانية 4 حلقات تستوعب 250 كاشف/حلقة مع بروتوكول متوافق EN54.</p>
+                    </div>
+                    <a href="store.html" class="w-full bg-surface hover:bg-primary hover:text-white text-on-surface py-2.5 rounded-full font-semibold text-xs text-center apple-btn-secondary transition flex items-center justify-center gap-1.5 border border-black/10">
+                        <span>طلب المنتج</span>
+                        <span class="material-symbols-outlined text-sm">shopping_bag</span>
+                    </a>
+                </div>
+            
+                <div class="apple-card apple-reveal apple-reveal-delay-3 bg-surface-container-lowest rounded-[24px] p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <div class="flex items-center gap-1.5">
+                                <span class="text-xs bg-primary-fixed text-on-primary-fixed font-bold px-3 py-1 rounded-full">PA System</span>
+                                <span class="bg-primary text-white text-[10px] font-black px-2 py-0.5 rounded-full">خصم</span>
+                            </div>
+                            <div class="text-end">
+                                <span class="font-black text-primary text-base stat-number">&#x668;&#x660;&#x660;&#x660; &#x62c;.&#x645;</span>
+                                <span class="text-xs text-on-surface-variant line-through block stat-number">&#x669;&#x660;&#x660;&#x660; &#x62c;.&#x645;</span>
+                            </div>
+                        </div>
+                        <div class="bg-surface-container-low rounded-2xl p-4 mb-4 flex items-center justify-center min-h-[100px] border border-black/[0.03]">
+                            <div class="h-20 flex items-center justify-center"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="15" y="32" width="55" height="36" rx="5" fill="#1D1D1F"/><rect x="20" y="37" width="45" height="26" rx="3" fill="#2D2D2F"/><circle cx="42" cy="50" r="9" fill="#3D3D3F"/><circle cx="42" cy="50" r="4" fill="#6E6E73"/><rect x="70" y="40" width="16" height="20" rx="3" fill="#3D3D3F"/><rect x="72" y="43" width="3" height="14" rx="1" fill="#6E6E73"/></svg></div>
+                        </div>
+                        <h3 class="font-bold text-sm text-on-surface mb-1.5 tracking-tight">مضخم صوت PA 240W مع معادل تردد</h3>
+                        <p class="text-xs text-on-surface-variant line-clamp-2 mb-4 leading-relaxed">مضخم صوت للأنظمة العامة 240 واط مع اتصال 100V لتوزيع صوت احترافي على سماعات السقف.</p>
+                    </div>
+                    <a href="store.html" class="w-full bg-surface hover:bg-primary hover:text-white text-on-surface py-2.5 rounded-full font-semibold text-xs text-center apple-btn-secondary transition flex items-center justify-center gap-1.5 border border-black/10">
+                        <span>طلب المنتج</span>
+                        <span class="material-symbols-outlined text-sm">shopping_bag</span>
+                    </a>
+                </div>
+            </div>
+
+    <!-- SECTION: MEGA SALE HUB TEASER (Admin Controlled) -->
+    <section class="sale-element py-12 border-b border-black/[0.06]">
+        <div class="rounded-[32px] p-8 md:p-12 bg-gradient-to-r from-red-600 via-red-700 to-[#1D1D1F] text-white shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 border border-red-500/30">
+            <div class="space-y-3.5 text-center md:text-start max-w-xl">
+                <span id="homeSaleBadge" class="inline-flex items-center gap-1.5 px-3.5 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-black uppercase tracking-wider text-yellow-300"><span class="material-symbols-outlined text-sm">local_fire_department</span><span>عروض وتخفيضات 🔥</span></span>
+                <h2 id="homeSaleTitle" class="text-2xl sm:text-4xl font-black tracking-tight">عروض وتخفيضات Attractive على أنظمة التيار الخفيف</h2>
+                <p id="homeSaleDesc" class="text-xs sm:text-sm text-white/85 leading-relaxed">وفر حتى 25% على تشكيلة مختارة من كاميرات المراقبة، أجهزة إنذار الحريق، ومعدات الصوت المعتمدة — لفترة محدودة!</p>
+            </div>
+            <a href="store.html?cat=sale" class="bg-white text-primary hover:bg-white/90 py-3.5 px-8 rounded-full font-black text-xs md:text-sm transition shadow-lg flex items-center gap-2 whitespace-nowrap apple-btn-secondary">
+                <span data-ar="تسوق عروض الخصم الآن" data-en="Shop Sale Deals Now">تسوق عروض الخصم الآن</span>
+                <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION: CABLE REPAIR & MAINTENANCE SERVICE (#37) -->
+    <section id="repairSection" class="repair-nav-item py-20 border-b border-black/[0.06] apple-reveal">
+        <div class="apple-card bg-surface-container-lowest rounded-[28px] p-8 md:p-12 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="max-w-2xl space-y-4">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200/60 text-xs font-bold">
+                    <span class="material-symbols-outlined text-sm">build</span>
+                    <span data-ar="خدمة متخصصة" data-en="Specialized Service">خدمة متخصصة</span>
+                </div>
+                <h2 id="homeRepairTitle" class="text-2xl sm:text-3xl font-black text-on-surface font-headline tracking-tight">مركز الصيانة والتركيبات وعقود الدعم الفني</h2>
+                <p id="homeRepairDesc" class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">هل لديك مشروع تيار خفيف يحتاج صيانة أو تركيب؟ نوفر فريقاً هندسياً متخصصاً لصيانة كاميرات المراقبة، أنظمة الحريق، وتوصيلات الصوت مع توقيع عقود دعم فني سنوية.</p>
+                <div class="pt-2 flex flex-wrap items-center gap-4">
+                    <a id="homeRepairWhatsAppBtn" href="https://wa.me/201027814400" target="_blank" class="bg-primary hover:bg-primary-dark text-white py-3 px-6 rounded-full font-bold text-xs sm:text-sm flex items-center gap-2 apple-btn-primary transition shadow">
+                        <span class="material-symbols-outlined text-lg">build_circle</span>
+                        <span data-ar="طلب صيانة أو تركيب الآن" data-en="Request Maintenance / Installation">طلب صيانة أو تركيب الآن</span>
+                    </a>
+                    <span id="homeRepairPricingNote" class="text-xs text-on-surface-variant font-medium">تبدأ تكلفة الصيانة من 200 ج.م حسب نوع النظام والمنطقة.</span>
+                </div>
+            </div>
+            <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-amber-50 border border-amber-200/50 flex items-center justify-center text-amber-600 flex-shrink-0 shadow-inner">
+                <span class="material-symbols-outlined text-5xl">home_repair_service</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: REVIEWS -->
+    <section id="reviewsSection" class="py-20 border-b border-black/[0.06] apple-reveal">
+        <div class="text-center max-w-lg mx-auto mb-14">
+            <span class="section-eyebrow" data-ar="ثقة المهندسين" data-en="Trusted by Engineers">ثقة المهندسين</span>
+            <h2 class="text-2xl sm:text-4xl font-black text-on-surface font-headline tracking-tight" data-ar="آراء مهندسي الأمن والسلامة والتيار الخفيف" data-en="What Light Current Engineers Say">آراء مهندسي الأمن والسلامة والتيار الخفيف</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="apple-card apple-reveal bg-surface-container-lowest p-7 rounded-[24px] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                <div>
+                    <div class="flex text-amber-400 text-sm mb-3">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</div>
+                    <p class="text-xs sm:text-sm text-on-surface leading-relaxed mb-6 font-medium" data-ar="&quot;كابلات Cat6 بكفاءة عالية جداً، نتيجة اختبار الشبكة ممتازة وما فيش أي خسارة في الإشارة حتى على مسافة 90 متر. شغل هندسي من الدرجة الأولى.&quot;" data-en="&quot;Excellent Cat6 performance, zero signal loss up to 90m. Truly professional engineering work.&quot;">"كابلات Cat6 بكفاءة عالية جداً، نتيجة اختبار الشبكة ممتازة وما فيش أي خسارة في الإشارة حتى على مسافة 90 متر. شغل هندسي من الدرجة الأولى."</p>
+                </div>
+                <div class="border-t border-black/[0.06] pt-3">
+                    <span class="block font-bold text-xs text-on-surface" data-ar="م/ أحمد علي" data-en="Eng. Ahmed Ali">م/ أحمد علي</span>
+                    <span class="text-[0.68rem] text-on-surface-variant font-medium" data-ar="مهندس أنظمة مراقبة CCTV - مشروع فندقي" data-en="CCTV Systems Engineer - Hotel Project">مهندس أنظمة مراقبة CCTV - مشروع فندقي</span>
+                </div>
+            </div>
+
+            <div class="apple-card apple-reveal bg-surface-container-lowest p-7 rounded-[24px] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                <div>
+                    <div class="flex text-amber-400 text-sm mb-3">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</div>
+                    <p class="text-xs sm:text-sm text-on-surface leading-relaxed mb-6 font-medium" data-ar="&quot;كابلات الحريق مقاومة للحرارة ومعتمدة وجودتها ممتازة. لوحة الإنذار شغلت من أول مرة بدون أي مشكلة في التوصيل. أنصح بيهم جداً للمشاريع الحساسة.&quot;" data-en="&quot;Fire-rated cables and panel worked flawlessly on first installation. Highly recommended for sensitive projects.&quot;">"كابلات الحريق مقاومة للحرارة ومعتمدة وجودتها ممتازة. لوحة الإنذار شغلت من أول مرة بدون أي مشكلة في التوصيل. أنصح بيهم جداً للمشاريع الحساسة."</p>
+                </div>
+                <div class="border-t border-black/[0.06] pt-3">
+                    <span class="block font-bold text-xs text-on-surface" data-ar="سارة محمود" data-en="Sarah Mahmoud">سارة محمود</span>
+                    <span class="text-[0.68rem] text-on-surface-variant font-medium" data-ar="مديرة أمن وسلامة - مجمع تجاري" data-en="Safety Manager - Commercial Complex">مديرة أمن وسلامة - مجمع تجاري</span>
+                </div>
+            </div>
+
+            <div class="apple-card apple-reveal bg-surface-container-lowest p-7 rounded-[24px] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                <div>
+                    <div class="flex text-amber-400 text-sm mb-3">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</div>
+                    <p class="text-xs sm:text-sm text-on-surface leading-relaxed mb-6 font-medium" data-ar="&quot;نظام الصوت والإذاعة اتركّب في المستشفى بكفاءة عالية. الكابلات مدروسة وتغليفها ممتاز للبيئات الطبية. فريق Attractive فاهم متطلبات المشاريع الحساسة.&quot;" data-en="&quot;PA system installed in hospital with excellent quality. Attractive's team truly understands sensitive project requirements.&quot;">"نظام الصوت والإذاعة اتركّب في المستشفى بكفاءة عالية. الكابلات مدروسة وتغليفها ممتاز للبيئات الطبية. فريق Attractive فاهم متطلبات المشاريع الحساسة."</p>
+                </div>
+                <div class="border-t border-black/[0.06] pt-3">
+                    <span class="block font-bold text-xs text-on-surface" data-ar="ياسين إبراهيم" data-en="Yassin Ibrahim">ياسين إبراهيم</span>
+                    <span class="text-[0.68rem] text-on-surface-variant font-medium" data-ar="مهندس تيار خفيف - مشاريع صحية وسكنية" data-en="Light Current Engineer - Healthcare & Residential">مهندس تيار خفيف - مشاريع صحية وسكنية</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: CONTACT & WORKSHOP (#35) -->
+    <section id="contactSection" class="py-20 apple-reveal">
+        <div class="bg-[#1D1D1F] text-white rounded-[32px] p-8 md:p-14 shadow-2xl grid grid-cols-1 md:grid-cols-2 gap-10 items-center border border-white/10">
+            <div class="space-y-4">
+                <span class="text-primary text-xs font-bold tracking-widest uppercase block"><span class="site-brand-name">Attractive</span> — <span data-ar="دائماً في خدمتك" data-en="Always At Your Service">دائماً في خدمتك</span></span>
+                <h2 id="homeContactHeading" class="text-2xl sm:text-4xl font-black font-headline tracking-tight">هل لديك مشروع أو تحتاج مقايسة فنية متكاملة (BOQ)؟</h2>
+                <p id="homeContactDesc" class="text-xs sm:text-sm text-white/70 leading-relaxed">فريق المهندسين في Attractive جاهز لإعداد مقايسة فنية شاملة لمشاريع CCTV، إنذار الحريق، أنظمة الصوت، والاستدعاء — مع توريد المعدات والتركيب والتشغيل والدعم الفني.</p>
+                <div class="pt-2 flex flex-wrap items-center gap-4">
+                    <a id="homeWhatsAppBtn" href="https://wa.me/201027814400" target="_blank" class="bg-whatsapp text-white py-3.5 px-7 rounded-full font-bold text-xs sm:text-sm flex items-center gap-2 hover:bg-whatsapp-hover apple-btn-primary transition shadow">
+                        <span class="material-symbols-outlined text-lg">chat</span>
+                        <span data-ar="تواصل مباشر عبر الواتساب" data-en="Chat via WhatsApp">تواصل مباشر عبر الواتساب</span>
+                    </a>
+                    <div id="homeSocialLinks" class="flex items-center gap-2"></div>
+                </div>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-md rounded-2xl p-7 border border-white/10 space-y-4 text-xs sm:text-sm">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary text-2xl">call</span>
+                    <div>
+                        <span class="block text-xs text-white/60" data-ar="خدمة العملاء والدعم الفني:" data-en="Customer Support &amp; Hotline:">خدمة العملاء والدعم الفني:</span>
+                        <span id="homePhoneDisplay" class="font-bold dir-ltr block text-left">01027814400 - 01100000000</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <div>
+                        <span class="block text-xs text-white/60" data-ar="المقر وورشة التصنيع:" data-en="Workshop &amp; HQ Address:">المقر وورشة التصنيع:</span>
+                        <span id="homeAddressDisplay" class="font-bold">القاهرة - جمهورية مصر العربية</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary text-2xl">schedule</span>
+                    <div>
+                        <span class="block text-xs text-white/60" data-ar="مواعيد العمل:" data-en="Working Hours:">مواعيد العمل:</span>
+                        <span id="homeHoursDisplay" class="font-bold">يومياً من 10 صباحاً حتى 10 مساءً</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-white border-t border-black/[0.06] py-10 mt-auto">
+    <div class="max-w-6xl mx-auto px-5 text-center sm:flex sm:justify-between sm:items-center text-xs text-on-surface-variant space-y-4 sm:space-y-0">
+        <div class="flex items-center justify-center sm:justify-start gap-2">
+            <img src="logo.png" alt="Attractive" class="site-logo-img h-6 object-contain">
+            <p class="footer-copyright">© 2026 <span class="site-brand-name font-bold">Attractive</span>. <span class="footer-copyright-text">جميع الحقوق محفوظة لـ Attractive Audio Studio.</span></p>
+        </div>
+        <div class="footer-nav-links flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xs text-[#6E6E73]">
+                    <a href="store.html" class="hover:text-primary transition font-medium">المتجر</a>
+                    <a href="builder.html" class="hover:text-primary transition font-medium">التفصيل الخاص</a>
+                    <button onclick="ProCable.showAboutModal()" class="hover:text-primary transition font-medium text-inherit">عن الشركة</button>
+                    <button onclick="ProCable.showPolicyModal('privacy')" class="hover:text-primary transition font-medium text-inherit">سياسة الخصوصية</button>
+                    <button onclick="ProCable.showPolicyModal('return')" class="hover:text-primary transition font-medium text-inherit">الاستبدال والضمان</button>
+                </div>
+    </div>
+</footer>
+
+<script src="procable-data.js"></script>
+
+<script>
+    function renderFeatured() {
+        const grid = document.getElementById('featuredGrid');
+        const products = ProCable.getProducts().slice(0, 3);
+        const isAr = ProCable.getLang() === 'ar';
+
+        grid.innerHTML = products.map((p, idx) => {
+            const iconSvg = PRO_SVGS[p.icon] || PRO_SVGS['xlr-m'];
+            const isVideoCover = (p.coverType === 'video' || (!p.image && p.video)) && p.video;
+            const visual = isVideoCover
+                ? `<div class="w-full h-full rounded-xl overflow-hidden bg-black flex items-center justify-center"><video src="${ProCable.sanitize(p.video)}" class="w-full h-full object-cover" autoplay loop muted playsinline></video></div>`
+                : (p.image 
+                    ? `<img src="${ProCable.sanitize(p.image)}" alt="${ProCable.sanitize(isAr ? p.nameAr : (p.nameEn || p.nameAr))}" class="w-full h-full object-cover rounded-xl"/>`
+                    : (p.heroMediaUrl 
+                        ? (p.heroMediaType === 'video' 
+                            ? `<div class="w-full h-full rounded-xl overflow-hidden bg-black flex items-center justify-center"><video src="${ProCable.sanitize(p.heroMediaUrl)}" class="w-full h-full object-cover" autoplay loop muted playsinline></video></div>`
+                            : `<img src="${ProCable.sanitize(p.heroMediaUrl)}" alt="${ProCable.sanitize(isAr ? p.nameAr : (p.nameEn || p.nameAr))}" class="w-full h-full object-cover rounded-xl"/>`)
+                        : `<div class="h-20 flex items-center justify-center">${iconSvg}</div>`));
+            
+            const hasDiscount = p.originalPrice && p.originalPrice > p.price;
+            const discountBadge = hasDiscount 
+                ? `<span class="bg-primary text-white text-[10px] font-black px-2 py-0.5 rounded-full">${isAr ? 'خصم' : 'Sale'}</span>` 
+                : '';
+
+            const currency = isAr ? 'ج.م' : 'EGP';
+            const prodName = isAr ? p.nameAr : (p.nameEn || p.nameAr);
+            const prodDesc = isAr ? p.descAr : (p.descEn || p.descAr);
+
+            return `
+                <div class="apple-card apple-reveal apple-reveal-delay-${idx + 1} bg-surface-container-lowest rounded-[24px] p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <div class="flex items-center gap-1.5">
+                                <span class="text-xs bg-primary-fixed text-on-primary-fixed font-bold px-3 py-1 rounded-full">${ProCable.sanitize(p.tag || 'Audio')}</span>
+                                ${discountBadge}
+                            </div>
+                            <div class="text-end">
+                                <span class="font-black text-primary text-base stat-number">${ProCable.formatNum(p.price)} ${currency}</span>
+                                ${hasDiscount ? `<span class="text-xs text-on-surface-variant line-through block stat-number">${ProCable.formatNum(p.originalPrice)} ${currency}</span>` : ''}
+                            </div>
+                        </div>
+                        <div class="bg-surface-container-low rounded-2xl p-4 mb-4 flex items-center justify-center min-h-[100px] border border-black/[0.03]">
+                            ${visual}
+                        </div>
+                        <h3 class="font-bold text-sm text-on-surface mb-1.5 tracking-tight">${ProCable.sanitize(prodName)}</h3>
+                        <p class="text-xs text-on-surface-variant line-clamp-2 mb-4 leading-relaxed">${ProCable.sanitize(prodDesc)}</p>
+                    </div>
+                    <a href="store.html" class="w-full bg-surface hover:bg-primary hover:text-white text-on-surface py-2.5 rounded-full font-semibold text-xs text-center apple-btn-secondary transition flex items-center justify-center gap-1.5 border border-black/10">
+                        <span>${isAr ? 'طلب المنتج' : 'Order Product'}</span>
+                        <span class="material-symbols-outlined text-sm">shopping_bag</span>
+                    </a>
+                </div>
+            `;
+        }).join('');
+    }
+
+    function renderHomePageContent() {
+        const s = ProCable.getSettings();
+        const isAr = ProCable.getLang() === 'ar';
+
+        // Hero
+        const badgeEl = document.getElementById('homeHeroBadge');
+        if (badgeEl) badgeEl.innerText = isAr ? (s.heroBadgeAr || s.heroBadgeEn) : (s.heroBadgeEn || s.heroBadgeAr);
+
+        const headingEl = document.getElementById('homeHeroHeading');
+        if (headingEl) headingEl.innerHTML = isAr ? (s.heroHeadingAr || s.heroHeadingEn) : (s.heroHeadingEn || s.heroHeadingAr);
+
+        const descEl = document.getElementById('homeHeroDesc');
+        if (descEl) descEl.innerText = isAr ? (s.heroDescAr || s.heroDescEn) : (s.heroDescEn || s.heroDescAr);
+
+        // Two Paths
+        const p1Title = document.getElementById('homePath1Title');
+        if (p1Title) p1Title.innerText = isAr ? (s.path1TitleAr || s.path1TitleEn) : (s.path1TitleEn || s.path1TitleAr);
+        const p1Desc = document.getElementById('homePath1Desc');
+        if (p1Desc) p1Desc.innerText = isAr ? (s.path1DescAr || s.path1DescEn) : (s.path1DescEn || s.path1DescAr);
+
+        const p2Title = document.getElementById('homePath2Title');
+        if (p2Title) p2Title.innerText = isAr ? (s.path2TitleAr || s.path2TitleEn) : (s.path2TitleEn || s.path2TitleAr);
+        const p2Desc = document.getElementById('homePath2Desc');
+        if (p2Desc) p2Desc.innerText = isAr ? (s.path2DescAr || s.path2DescEn) : (s.path2DescEn || s.path2DescAr);
+
+        // Trust Badges
+        const b1Val = document.getElementById('homeBadge1Val');
+        if (b1Val) b1Val.innerText = s.badge1Val || '100%';
+        const b1Txt = document.getElementById('homeBadge1Text');
+        if (b1Txt) b1Txt.innerText = isAr ? (s.badge1TextAr || s.badge1TextEn) : (s.badge1TextEn || s.badge1TextAr);
+
+        const b2Val = document.getElementById('homeBadge2Val');
+        if (b2Val) b2Val.innerText = s.badge2Val || '0%';
+        const b2Txt = document.getElementById('homeBadge2Text');
+        if (b2Txt) b2Txt.innerText = isAr ? (s.badge2TextAr || s.badge2TextEn) : (s.badge2TextEn || s.badge2TextAr);
+
+        const b3Val = document.getElementById('homeBadge3Val');
+        if (b3Val) b3Val.innerText = s.badge3Val || '1 سنة';
+        const b3Txt = document.getElementById('homeBadge3Text');
+        if (b3Txt) b3Txt.innerText = isAr ? (s.badge3TextAr || s.badge3TextEn) : (s.badge3TextEn || s.badge3TextAr);
+
+        // Contact
+        const cHead = document.getElementById('homeContactHeading');
+        if (cHead) cHead.innerText = isAr ? (s.contactHeadingAr || s.contactHeadingEn) : (s.contactHeadingEn || s.contactHeadingAr);
+        const cDesc = document.getElementById('homeContactDesc');
+        if (cDesc) cDesc.innerText = isAr ? (s.contactDescAr || s.contactDescEn) : (s.contactDescEn || s.contactDescAr);
+
+        const waBtn = document.getElementById('homeWhatsAppBtn');
+        if (waBtn) waBtn.href = `https://wa.me/${s.whatsappNumber}`;
+
+        const phoneEl = document.getElementById('homePhoneDisplay');
+        if (phoneEl) {
+            const phones = s.phoneNumbers && s.phoneNumbers.length ? s.phoneNumbers.join(' - ') : s.whatsappNumber;
+            phoneEl.innerText = phones;
+        }
+
+        const addrEl = document.getElementById('homeAddressDisplay');
+        if (addrEl) addrEl.innerText = isAr ? (s.workshopAddressAr || s.workshopAddressEn) : (s.workshopAddressEn || s.workshopAddressAr);
+
+        const hoursEl = document.getElementById('homeHoursDisplay');
+        if (hoursEl) hoursEl.innerText = isAr ? (s.workingHoursAr || s.workingHoursEn) : (s.workingHoursEn || s.workingHoursAr);
+
+        // Hero Live Image & Badge
+        const heroVisualBox = document.getElementById('homeHeroVisualBox');
+        if (heroVisualBox && s.heroLiveImage && s.heroLiveImage.trim()) {
+            heroVisualBox.innerHTML = `<img src="${s.heroLiveImage.trim()}" class="w-full h-full object-cover rounded-2xl shadow-inner" alt="Attractive Custom Cable"/>`;
+        }
+        const liveBadgeText = document.getElementById('homeHeroLiveBadgeText');
+        if (liveBadgeText) {
+            const badgeTxt = isAr ? (s.heroLiveBadgeTextAr || s.heroLiveBadgeTextEn) : (s.heroLiveBadgeTextEn || s.heroLiveBadgeTextAr);
+            if (badgeTxt) liveBadgeText.innerText = badgeTxt;
+        }
+
+        // Cable Repair Service Section
+        const repTitle = document.getElementById('homeRepairTitle');
+        if (repTitle) repTitle.innerText = isAr ? (s.repairTitleAr || s.repairTitleEn) : (s.repairTitleEn || s.repairTitleAr);
+        const repDesc = document.getElementById('homeRepairDesc');
+        if (repDesc) repDesc.innerText = isAr ? (s.repairDescAr || s.repairDescEn) : (s.repairDescEn || s.repairDescAr);
+        const repNote = document.getElementById('homeRepairPricingNote');
+        if (repNote) repNote.innerText = isAr ? (s.repairPricingNoteAr || s.repairPricingNoteEn) : (s.repairPricingNoteEn || s.repairPricingNoteAr);
+        const repWaBtn = document.getElementById('homeRepairWhatsAppBtn');
+        if (repWaBtn) repWaBtn.href = `https://wa.me/${s.whatsappNumber}?text=${encodeURIComponent(isAr ? 'مرحباً Attractive، أود الاستفسار عن خدمة صيانة أنظمة التيار الخفيف' : 'Hello Attractive, I would like to inquire about light current systems maintenance')}`;
+
+        // Sale Hub Showcase Section
+        const saleTitleEl = document.getElementById('homeSaleTitle');
+        if (saleTitleEl) saleTitleEl.innerText = isAr ? (s.saleTitleAr || s.saleTitleEn) : (s.saleTitleEn || s.saleTitleAr);
+        const saleDescEl = document.getElementById('homeSaleDesc');
+        if (saleDescEl) saleDescEl.innerText = isAr ? (s.saleDescAr || s.saleDescEn) : (s.saleDescEn || s.saleDescAr);
+        const saleBadgeEl = document.getElementById('homeSaleBadge');
+        if (saleBadgeEl) saleBadgeEl.innerHTML = `<span class="material-symbols-outlined text-sm">local_fire_department</span><span>${ProCable.sanitize(isAr ? (s.saleBadgeAr || 'عروض وتخفيضات كبرى 🔥') : (s.saleBadgeEn || 'Mega Sale 🔥'))}</span>`;
+
+        // Socials
+        const socialsContainer = document.getElementById('homeSocialLinks');
+        if (socialsContainer) {
+            let socHtml = '';
+            if (s.instagramUrl) socHtml += `<a href="${s.instagramUrl}" target="_blank" class="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 transition text-white flex items-center justify-center" title="Instagram"><span class="material-symbols-outlined text-base">photo_camera</span></a>`;
+            if (s.facebookUrl) socHtml += `<a href="${s.facebookUrl}" target="_blank" class="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 transition text-white flex items-center justify-center" title="Facebook"><span class="material-symbols-outlined text-base">thumb_up</span></a>`;
+            if (s.tiktokUrl) socHtml += `<a href="${s.tiktokUrl}" target="_blank" class="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 transition text-white flex items-center justify-center" title="TikTok"><span class="material-symbols-outlined text-base">play_circle</span></a>`;
+            if (s.youtubeUrl) socHtml += `<a href="${s.youtubeUrl}" target="_blank" class="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 transition text-white flex items-center justify-center" title="YouTube"><span class="material-symbols-outlined text-base">smart_display</span></a>`;
+            socialsContainer.innerHTML = socHtml;
+        }
+    }
+
+    
+    function initAppleScrollExperience() {
+        const nav = document.querySelector('nav.apple-nav');
+        if (nav) {
+            const onScroll = () => {
+                if (window.scrollY > 20) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            };
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        }
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px 0px -40px 0px',
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.apple-reveal:not(.revealed)').forEach(el => observer.observe(el));
+            // Immediate reveal fallback for initial viewport
+            setTimeout(() => {
+                document.querySelectorAll('.apple-reveal').forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight + 100) {
+                        el.classList.add('revealed');
+                    }
+                });
+            }, 100);
+        } else {
+            document.querySelectorAll('.apple-reveal').forEach(el => el.classList.add('revealed'));
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        renderHomePageContent();
+        renderFeatured();
+        initAppleScrollExperience();
+        // Pull latest admin-edited content from the server, then refresh the page with it.
+        if (ProCable.syncFromServer) {
+            ProCable.syncFromServer().then((updated) => {
+                if (updated) {
+                    renderHomePageContent();
+                    renderFeatured();
+                }
+            });
+        }
+    });
+</script>
+<!-- User Auth Modal -->
+<div id="userAuthModal" onclick="if(event.target === this) ProCable.hideAuthModal()" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden justify-center items-center z-[2500] modal-overlay p-4">
+    <div class="bg-surface-container-lowest rounded-3xl w-full max-w-[430px] p-6 relative modal-content shadow-2xl border border-outline-variant max-h-[90vh] overflow-y-auto">
+        <button onclick="ProCable.hideAuthModal()" class="absolute ltr:right-4 rtl:left-4 top-4 text-gray-400 hover:text-gray-700 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition" title="إغلاق">&#10005;</button>
+        
+        <div class="flex items-center gap-3 mb-5">
+            <div class="w-12 h-12 rounded-2xl bg-primary-fixed text-primary flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined text-2xl">account_circle</span>
+            </div>
+            <div>
+                <h3 class="text-base font-black text-on-surface" data-ar="حساب Attractive الخاص بك" data-en="Your Attractive Account">حساب Attractive الخاص بك</h3>
+                <p class="text-xs text-on-surface-variant" data-ar="سجل دخولك أو أنشئ حساباً للاستمتاع بالمزايا والخصومات" data-en="Sign in or register to unlock exclusive member perks">سجل دخولك أو أنشئ حساباً للاستمتاع بالمزايا والخصومات</p>
+            </div>
+        </div>
+
+        <div class="flex border-b border-outline-variant mb-5">
+            <button id="tabAuthSignIn" onclick="ProCable.switchAuthTab('signin')" class="flex-1 pb-3 text-center font-bold text-xs sm:text-sm text-primary border-b-2 border-primary transition flex items-center justify-center gap-1.5">
+                <span class="material-symbols-outlined text-base">login</span>
+                <span data-ar="تسجيل الدخول" data-en="Sign In">تسجيل الدخول</span>
+            </button>
+            <button id="tabAuthSignUp" onclick="ProCable.switchAuthTab('signup')" class="flex-1 pb-3 text-center font-bold text-xs sm:text-sm text-on-surface-variant border-b-2 border-transparent transition flex items-center justify-center gap-1.5">
+                <span class="material-symbols-outlined text-base">person_add</span>
+                <span data-ar="إنشاء حساب جديد" data-en="Create Account">إنشاء حساب جديد</span>
+            </button>
+        </div>
+
+        <div id="authErrorMsg" class="hidden mb-4 p-3 bg-red-50 text-error text-xs rounded-xl font-bold border border-red-200 flex items-center gap-2">
+            <span class="material-symbols-outlined text-base shrink-0">error</span>
+            <span id="authErrorMsgText"></span>
+        </div>
+
+        <!-- Sign In Form -->
+        <form id="authSignInForm" onsubmit="ProCable.handleSignIn(event)" class="space-y-4">
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1" data-ar="البريد الإلكتروني" data-en="Email Address">البريد الإلكتروني</label>
+                <input id="authEmailIn" required="" type="email" dir="ltr" placeholder="sound@example.com" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary font-mono">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1" data-ar="كلمة المرور" data-en="Password">كلمة المرور</label>
+                <input id="authPassIn" required="" type="password" dir="ltr" placeholder="••••••••" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary">
+            </div>
+            <button type="submit" class="w-full py-3 bg-primary hover:bg-primary-dark text-white rounded-xl font-bold text-xs sm:text-sm transition shadow flex items-center justify-center gap-2">
+                <span data-ar="دخول لحسابي" data-en="Sign In">دخول لحسابي</span>
+                <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </button>
+
+            <!-- Quick helper to switch to sign up -->
+            <div class="text-center pt-2 border-t border-outline-variant">
+                <span class="text-xs text-on-surface-variant" data-ar="ليس لديك حساب بعد؟" data-en="Do not have an account?">ليس لديك حساب بعد؟</span>
+                <button type="button" onclick="ProCable.switchAuthTab('signup')" class="text-xs font-bold text-primary hover:underline ms-1" data-ar="اضغط هنا لإنشاء حساب والحصول على المزايا" data-en="Register now &amp; get perks">اضغط هنا لإنشاء حساب والحصول على المزايا</button>
+            </div>
+
+            <!-- Demo credentials autofill button -->
+            <div class="p-2.5 bg-surface-container-low rounded-xl border border-outline-variant text-[11px] text-on-surface-variant flex items-center justify-between">
+                <span data-ar="تجربة سريعة بحساب تجريبي مجهز:" data-en="Quick Demo Account:">تجربة سريعة بحساب تجريبي مجهز:</span>
+                <button type="button" onclick="ProCable.fillDemoUser()" class="text-[11px] font-bold text-primary bg-primary/10 hover:bg-primary/20 px-2.5 py-1 rounded-lg transition" data-ar="تعبئة بيانات م/ طارق" data-en="Fill Demo VIP">تعبئة بيانات م/ طارق</button>
+            </div>
+        </form>
+
+        <!-- Sign Up Form -->
+        <form id="authSignUpForm" onsubmit="ProCable.handleSignUp(event)" class="space-y-4 hidden">
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1" data-ar="الاسم بالكامل" data-en="Full Name">الاسم بالكامل</label>
+                <input id="authNameUp" required="" type="text" placeholder="مثال: م/ أحمد علي" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1" data-ar="البريد الإلكتروني" data-en="Email Address">البريد الإلكتروني</label>
+                <input id="authEmailUp" required="" type="email" dir="ltr" placeholder="sound@example.com" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary font-mono">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1" data-ar="رقم الهاتف / الواتساب" data-en="Phone / WhatsApp">رقم الهاتف / الواتساب</label>
+                <input id="authPhoneUp" required="" type="tel" dir="ltr" placeholder="010xxxxxxxx" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary font-mono">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1" data-ar="كلمة المرور" data-en="Password">كلمة المرور</label>
+                <input id="authPassUp" required="" type="password" dir="ltr" minlength="4" placeholder="••••••••" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary">
+            </div>
+
+            <div class="p-2.5 bg-primary/5 rounded-xl border border-primary/20 text-[11px] text-primary space-y-1">
+                <div class="font-black flex items-center gap-1">
+                    <span class="material-symbols-outlined text-xs">loyalty</span>
+                    <span data-ar="بمجرد تسجيل حسابك ستتمتع تلقائياً بـ:" data-en="Upon sign-up you instantly get:">بمجرد تسجيل حسابك ستتمتع تلقائياً بـ:</span>
+                </div>
+                <p class="text-[10px] text-on-surface-variant leading-relaxed" data-ar="• شحن مجاني لكافة المحافظات + كود خصم مباشر + أولوية تجهيز وضمان ذهبي ممتد." data-en="• Free nationwide shipping + instant discount coupon + priority production.">• شحن مجاني لكافة المحافظات + كود خصم مباشر + أولوية تجهيز وضمان ذهبي ممتد.</p>
+            </div>
+
+            <button type="submit" class="w-full py-3 bg-primary hover:bg-primary-dark text-white rounded-xl font-bold text-xs sm:text-sm transition shadow flex items-center justify-center gap-2">
+                <span data-ar="تأكيد وإنشاء الحساب" data-en="Create My Account">تأكيد وإنشاء الحساب</span>
+                <span class="material-symbols-outlined text-base">check</span>
+            </button>
+
+            <div class="text-center pt-2 border-t border-outline-variant">
+                <span class="text-xs text-on-surface-variant" data-ar="لديك حساب بالفعل؟" data-en="Already have an account?">لديك حساب بالفعل؟</span>
+                <button type="button" onclick="ProCable.switchAuthTab('signin')" class="text-xs font-bold text-primary hover:underline ms-1" data-ar="تسجيل الدخول" data-en="Sign In">تسجيل الدخول</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<button id="floatingCouponBadge" title="كوبون خصم" style="position: fixed; bottom: 38%; right: 0px; left: auto; z-index: 9000; background: rgb(200, 16, 46); color: rgb(255, 255, 255); writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); padding: 14px 9px; border-radius: 10px 0px 0px 10px; font-size: 12px; font-weight: 900; cursor: pointer; display: none; align-items: center; gap: 6px; letter-spacing: 0.04em; box-shadow: rgba(0, 0, 0, 0.25) -4px 0px 18px; transition: 0.3s; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; outline: none; user-select: none;">
+            <span class="material-symbols-outlined" style="font-size:15px; writing-mode:horizontal-tb; transform: rotate(90deg); display:block;">redeem</span>
+            <span style="white-space:nowrap;">كوبون خصم</span>
+        </button><div id="couponPromoBubble" style="position: fixed; bottom: 24px; right: 16px; left: auto; z-index: 9001; max-width: 320px; width: 90%; background-color: rgb(29, 29, 31); border-radius: 24px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.15); color: rgb(255, 255, 255); font-size: 13px; box-shadow: rgba(0, 0, 0, 0.4) 0px 20px 60px; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); opacity: 1; transform: translateY(0px) scale(1); pointer-events: auto;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center;">
+                        <span class="material-symbols-outlined" style="font-size:17px;">redeem</span>
+                    </span>
+                    <span style="font-size:10px; font-weight:900; letter-spacing:0.08em; background:rgba(255,255,255,0.12); padding:2px 10px; border-radius:99px; text-transform:uppercase;">
+                        هدية لزوار الموقع
+                    </span>
+                </div>
+                <button onclick="ProCable.dismissCouponBubble()" style="background:none; border:none; color:rgba(255,255,255,0.6); cursor:pointer; font-size:16px; line-height:1; padding:2px 6px; border-radius:6px; transition:all 0.2s;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.1)';" onmouseout="this.style.color='rgba(255,255,255,0.6)';this.style.background='none';">&#10005;</button>
+            </div>
+
+            <h4 style="font-weight:900; font-size:14px; color:#fff; margin:0 0 6px; line-height:1.4;">🎁 خصم حصري 10% لزوار الموقع اليوم!</h4>
+            <p style="font-size:12px; color:rgba(255,255,255,0.78); line-height:1.6; margin:0 0 12px;">استخدم كود الخصم عند الدفع وتمتع بتخفيض فوري على كابلاتك المفصلة والجاهزة.</p>
+
+            <div style="background:rgba(0,0,0,0.28); backdrop-filter:blur(8px); border-radius:14px; padding:10px 12px; border:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px;">
+                <div>
+                    <span style="display:block; font-size:9px; color:rgba(255,255,255,0.55); margin-bottom:2px;">كود الكوبون الحصري:</span>
+                    <span style="font-family:monospace; font-weight:900; font-size:15px; color:#fbbf24; letter-spacing:0.1em; user-select:all;">ATTRACTIVE10</span>
+                </div>
+                <button onclick="ProCable.copyBubbleCouponCode('ATTRACTIVE10')" style="background:var(--primary-color,#C8102E); color:#fff; border:none; padding:7px 14px; border-radius:8px; font-size:11px; font-weight:700; cursor:pointer; display:flex; align-items:center; gap:4px; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+                    <span class="material-symbols-outlined" style="font-size:13px;">content_copy</span>
+                    <span>نسخ</span>
+                </button>
+            </div>
+
+            <div style="display:flex; align-items:center; justify-content:space-between; font-size:11px; color:rgba(255,255,255,0.65); padding-top:8px; border-top:1px solid rgba(255,255,255,0.1);">
+                <a href="store.html" style="color:rgba(255,255,255,0.8); text-decoration:underline; font-weight:700; display:flex; align-items:center; gap:4px;">
+                    <span>استخدمه الآن في المتجر</span>
+                    <span class="material-symbols-outlined" style="font-size:12px;">arrow_forward</span>
+                </a>
+                <button onclick="ProCable.dismissCouponBubble()" style="background:none; border:none; cursor:pointer; color:rgba(255,255,255,0.55); font-size:10px; font-weight:700;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+                    تصغير ←
+                </button>
+            </div>
+        </div><button id="floatingSubscriberBtn" class="fixed bottom-6 left-6 z-40 bg-surface-container-lowest border border-outline-variant hover:border-primary shadow-xl hover:shadow-2xl rounded-2xl p-2.5 sm:px-3.5 sm:py-2.5 flex items-center gap-2 text-xs font-bold text-on-surface transition-all duration-300 hover:scale-105 group">
+            <span class="w-7 h-7 rounded-xl bg-primary-fixed text-primary flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-white transition">
+                <span class="material-symbols-outlined text-base">card_membership</span>
+            </span>
+            <div class="text-start hidden sm:block">
+                <span class="text-[10px] text-gray-400 block leading-none">نادي العملاء</span>
+                <span class="font-bold text-primary">سجّل إيميلك وخصمك</span>
+            </div>
+            <span class="w-2 h-2 rounded-full bg-primary inline-block animate-ping"></span>
+        </button><div id="appleMegaMenuOverlay" aria-hidden="true" style="position: fixed; top: 49px; left: 0px; right: 0px; z-index: 9000; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid rgba(0, 0, 0, 0.08); box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 40px; display: none; pointer-events: none; transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1), transform 0.22s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; transform: translateY(-6px);">
+                <div class="agy-mm-panel hidden" data-panel="nav-store">
+                    <div class="max-w-5xl mx-auto px-8 py-8 flex gap-12 flex-row-reverse">
+                    <div class="agy-mm-col min-w-[160px]">
+                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">التصنيفات</div>
+                        <div class="space-y-0.5">
+                        <a href="store.html" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            كل المنتجات
+                        </a>
+                        <a href="store.html?cat=cables" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            كابلات الصوت
+                        </a>
+                        <a href="store.html?cat=connectors" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            كونيكتورات
+                        </a>
+                        <a href="store.html?cat=adapters" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            محولات
+                        </a>
+                        <a href="store.html?cat=sale" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            خصومات 🔥
+                        </a></div>
+                    </div>
+                    <div class="agy-mm-col min-w-[160px]">
+                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">خدماتنا</div>
+                        <div class="space-y-0.5">
+                        <a href="builder.html" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            تفصيل كابل خاص
+                        </a>
+                        <a href="builder.html#repair" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            صيانة وإصلاح
+                        </a>
+                        <a href="index.html#contactSection" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            استشارة فنية
+                        </a></div>
+                    </div></div>
+                </div></div><div id="appleMegaMenuBackdrop" style="position: fixed; inset: 0px; z-index: 8999; background: rgba(0, 0, 0, 0.15); display: none; opacity: 0; transition: opacity 0.22s; pointer-events: none;"></div></body></html>

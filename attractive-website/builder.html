@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar" style="--primary-color: #C8102E;"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>استوديو تفصيل كابلات الصوت الاحترافية - Attractive</title>
+    
+    <!-- Google Fonts & Material Symbols -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS with Apple + Attractive Colors -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#C8102E",
+              "primary-dark": "#A00D24",
+              "primary-container": "#990C22",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#FFE8EC",
+              "on-primary-fixed": "#5C000F",
+              "surface": "#F5F5F7",
+              "on-surface": "#1D1D1F",
+              "on-surface-variant": "#6E6E73",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#F5F5F7",
+              "surface-container": "#E8E8ED",
+              "surface-container-high": "#E2E2E7",
+              "surface-container-highest": "#D2D2D7",
+              "outline-variant": "#E8E8ED",
+              "error": "#BA1A1A",
+              "success": "#16A34A",
+              "whatsapp": "#25D366",
+              "whatsapp-hover": "#128C7E"
+            },
+            fontFamily: {
+              body: ['Cairo', 'Inter', 'sans-serif'],
+              headline: ['Cairo', 'Plus Jakarta Sans', 'Inter', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        /* === Apple-style Base === */
+        *, *::before, *::after { box-sizing: border-box; }
+        body { 
+            font-family: 'Cairo', 'Inter', sans-serif; 
+            background-color: #F5F5F7; 
+            color: #1D1D1F; 
+            scroll-behavior: smooth; 
+            -webkit-font-smoothing: antialiased; 
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* === Apple Frosted Nav with Scroll Polish === */
+        nav.apple-nav { 
+            background: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: saturate(180%) blur(20px); 
+            -webkit-backdrop-filter: saturate(180%) blur(20px); 
+            border-bottom: 1px solid rgba(0, 0, 0, 0.07); 
+            transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        nav.apple-nav.scrolled {
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+            border-bottom-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* === Apple-Grade Custom Length Slider === */
+        #lengthSlider { 
+            -webkit-appearance: none; 
+            appearance: none;
+            width: 100%; 
+            height: 10px; 
+            border-radius: 9999px; 
+            outline: none; 
+            cursor: pointer; 
+            background: #E8E8ED;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+            transition: background 0.2s ease;
+        }
+        #lengthSlider::-webkit-slider-thumb { 
+            -webkit-appearance: none; 
+            appearance: none;
+            width: 26px; 
+            height: 26px; 
+            border-radius: 50%; 
+            background: #ffffff; 
+            cursor: pointer; 
+            box-shadow: 0 3px 10px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.12); 
+            border: 3px solid #C8102E; 
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+        }
+        #lengthSlider::-webkit-slider-thumb:hover {
+            transform: scale(1.12);
+            box-shadow: 0 4px 14px rgba(200, 16, 46, 0.35);
+        }
+        #lengthSlider::-webkit-slider-thumb:active {
+            transform: scale(0.98);
+        }
+
+        /* === Preset Buttons === */
+        .preset-btn {
+            transition: background-color 0.2s ease, 
+                        color 0.2s ease, 
+                        transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                        border-color 0.2s ease,
+                        box-shadow 0.2s ease;
+        }
+        .preset-btn:hover {
+            transform: translateY(-1px);
+        }
+        .preset-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* === Connector Swap Button === */
+        .swap-btn {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        background-color 0.2s ease, 
+                        color 0.2s ease;
+        }
+        .swap-btn:hover {
+            transform: scale(1.08);
+        }
+        .swap-btn:active {
+            transform: rotate(180deg) scale(0.96);
+        }
+
+        /* === Apple Card Multi-Layer Depth & Hover Lift === */
+        .apple-card { 
+            transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        border-color 0.3s ease; 
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02), 0 4px 16px rgba(0, 0, 0, 0.03);
+            will-change: transform, box-shadow;
+        }
+        .apple-card:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(200, 16, 46, 0.06); 
+            border-color: rgba(200, 16, 46, 0.28) !important; 
+        }
+
+        /* === Apple Tactile CTA Buttons === */
+        .apple-btn-primary { 
+            transition: background-color 0.2s ease, 
+                        transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                        box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1); 
+            box-shadow: 0 4px 14px -2px rgba(200, 16, 46, 0.25);
+        }
+        .apple-btn-primary:hover { 
+            transform: translateY(-1.5px); 
+            box-shadow: 0 8px 24px -4px rgba(200, 16, 46, 0.38); 
+        }
+        .apple-btn-primary:active { 
+            transform: scale(0.97); 
+        }
+
+        .apple-btn-secondary { 
+            transition: background-color 0.2s ease, 
+                        color 0.2s ease, 
+                        transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                        border-color 0.2s ease,
+                        box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        .apple-btn-secondary:hover { 
+            transform: translateY(-1.5px); 
+            box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.08); 
+        }
+        .apple-btn-secondary:active { 
+            transform: scale(0.97); 
+        }
+
+        /* === Modals === */
+        .modal-overlay { opacity: 0; pointer-events: none; transition: opacity 0.25s ease; }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .modal-content { transform: scale(0.96) translateY(14px); opacity: 0; transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+        .modal-overlay.active .modal-content { transform: scale(1) translateY(0); opacity: 1; }
+
+        /* === Apple Scroll Reveal System === */
+        .apple-reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .apple-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .apple-reveal-delay-1 { transition-delay: 80ms; }
+        .apple-reveal-delay-2 { transition-delay: 160ms; }
+        .apple-reveal-delay-3 { transition-delay: 240ms; }
+        .apple-reveal-delay-4 { transition-delay: 320ms; }
+        .apple-reveal-delay-5 { transition-delay: 400ms; }
+
+        /* === Connector Swap Animation === */
+        .swap-btn {
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, color 0.2s ease, box-shadow 0.25s ease;
+        }
+        .swap-btn.rotated {
+            transform: rotate(180deg);
+        }
+
+        /* === Cart Badge Pulse === */
+        @keyframes pulse-badge { 0% { transform: scale(1); } 50% { transform: scale(1.25); } 100% { transform: scale(1); } }
+        .pulse-badge { animation: pulse-badge 0.3s ease-in-out; }
+
+        /* === No Scrollbar === */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* === Focus Ring === */
+        input:focus, textarea:focus, select:focus { 
+            outline: none; 
+            box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.2); 
+            border-color: #C8102E !important; 
+        }
+
+        @keyframes drawLine { from { stroke-dasharray: 0 1000; } to { stroke-dasharray: 1000 1000; } }
+        .animate-draw { animation: drawLine 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        /* === Accessibility: Reduced Motion Support === */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .apple-reveal {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .animate-draw {
+                stroke-dasharray: 1000 1000 !important;
+                animation: none !important;
+            }
+            #lengthSlider::-webkit-slider-thumb {
+                transform: none !important;
+            }
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}[type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select{-webkit-appearance:none;appearance:none;background-color:#fff;border-color:#6b7280;border-width:1px;border-radius:0px;padding-top:0.5rem;padding-right:0.75rem;padding-bottom:0.5rem;padding-left:0.75rem;font-size:1rem;line-height:1.5rem;--tw-shadow:0 0 #0000;}[type='text']:focus, input:where(:not([type])):focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);border-color:#2563eb}input::placeholder,textarea::placeholder{color:#6b7280;opacity:1}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-date-and-time-value{min-height:1.5em;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{padding-top:0;padding-bottom:0}select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");background-position:right 0.5rem center;background-repeat:no-repeat;background-size:1.5em 1.5em;padding-right:2.5rem;print-color-adjust:exact}[multiple],[size]:where(select:not([size="1"])){background-image:initial;background-position:initial;background-repeat:unset;background-size:initial;padding-right:0.75rem;print-color-adjust:unset}[type='checkbox'],[type='radio']{-webkit-appearance:none;appearance:none;padding:0;print-color-adjust:exact;display:inline-block;vertical-align:middle;background-origin:border-box;-webkit-user-select:none;user-select:none;flex-shrink:0;height:1rem;width:1rem;color:#2563eb;background-color:#fff;border-color:#6b7280;border-width:1px;--tw-shadow:0 0 #0000}[type='checkbox']{border-radius:0px}[type='radio']{border-radius:100%}[type='checkbox']:focus,[type='radio']:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:2px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}[type='checkbox']:checked,[type='radio']:checked{border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat}[type='checkbox']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='checkbox']:checked{-webkit-appearance:auto;appearance:auto}}[type='radio']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='radio']:checked{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus{border-color:transparent;background-color:currentColor}[type='checkbox']:indeterminate{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat;}@media (forced-colors: active) {[type='checkbox']:indeterminate{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus{border-color:transparent;background-color:currentColor}[type='file']{background:unset;border-color:inherit;border-width:0;border-radius:0;padding:0;font-size:unset;line-height:inherit}[type='file']:focus{outline:1px solid ButtonText;outline:1px auto -webkit-focus-ring-color}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.-right-0\.5{right:-0.125rem}.-right-2{right:-0.5rem}.-top-0\.5{top:-0.125rem}.-top-2{top:-0.5rem}.bottom-6{bottom:1.5rem}.top-0{top:0px}.top-5{top:1.25rem}.top-full{top:100%}.top-4{top:1rem}.left-6{left:1.5rem}.z-40{z-index:40}.z-50{z-index:50}.z-\[2000\]{z-index:2000}.z-\[2500\]{z-index:2500}.m-0{margin:0px}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-10{margin-bottom:2.5rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-auto{margin-top:auto}.ms-1{margin-inline-start:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.line-clamp-1{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-11{height:2.75rem}.h-12{height:3rem}.h-14{height:3.5rem}.h-20{height:5rem}.h-24{height:6rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-7{height:1.75rem}.h-8{height:2rem}.h-2{height:0.5rem}.h-full{height:100%}.max-h-\[90vh\]{max-height:90vh}.max-h-20{max-height:5rem}.min-h-\[16px\]{min-height:16px}.min-h-\[18px\]{min-height:18px}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-11{width:2.75rem}.w-12{width:3rem}.w-14{width:3.5rem}.w-20{width:5rem}.w-5{width:1.25rem}.w-7{width:1.75rem}.w-8{width:2rem}.w-\[90\%\]{width:90%}.w-\[92\%\]{width:92%}.w-full{width:100%}.w-2{width:0.5rem}.w-6{width:1.5rem}.w-auto{width:auto}.min-w-\[16px\]{min-width:16px}.min-w-\[18px\]{min-width:18px}.min-w-\[250px\]{min-width:250px}.min-w-\[160px\]{min-width:160px}.max-w-2xl{max-width:42rem}.max-w-4xl{max-width:56rem}.max-w-6xl{max-width:72rem}.max-w-7xl{max-width:80rem}.max-w-\[1200px\]{max-width:1200px}.max-w-\[460px\]{max-width:460px}.max-w-\[540px\]{max-width:540px}.max-w-md{max-width:28rem}.max-w-\[430px\]{max-width:430px}.max-w-5xl{max-width:64rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.shrink-0{flex-shrink:0}@keyframes ping{75%, 100%{transform:scale(2);opacity:0}}.animate-ping{animation:ping 1s cubic-bezier(0, 0, 0.2, 1) infinite}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.scroll-mt-24{scroll-margin-top:6rem}.list-none{list-style-type:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.flex-row-reverse{flex-direction:row-reverse}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-3\.5{gap:0.875rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-7{gap:1.75rem}.gap-8{gap:2rem}.gap-0\.5{gap:0.125rem}.gap-12{gap:3rem}.gap-x-4{column-gap:1rem}.gap-y-1{row-gap:0.25rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.space-y-0\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.125rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.125rem * var(--tw-space-y-reverse))}.self-start{align-self:flex-start}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.whitespace-nowrap{white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-\[24px\]{border-radius:24px}.rounded-\[28px\]{border-radius:28px}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-3xl{border-radius:1.5rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-s-2{border-inline-start-width:2px}.border-t{border-top-width:1px}.border-dashed{border-style:dashed}.border-none{border-style:none}.border-amber-200{--tw-border-opacity:1;border-color:rgb(253 230 138 / var(--tw-border-opacity, 1))}.border-black\/10{border-color:rgb(0 0 0 / 0.1)}.border-black\/5{border-color:rgb(0 0 0 / 0.05)}.border-black\/\[0\.04\]{border-color:rgb(0 0 0 / 0.04)}.border-black\/\[0\.06\]{border-color:rgb(0 0 0 / 0.06)}.border-black\/\[0\.08\]{border-color:rgb(0 0 0 / 0.08)}.border-outline-variant{--tw-border-opacity:1;border-color:rgb(232 232 237 / var(--tw-border-opacity, 1))}.border-primary{--tw-border-opacity:1;border-color:rgb(200 16 46 / var(--tw-border-opacity, 1))}.border-primary\/20{border-color:rgb(200 16 46 / 0.2)}.border-surface{--tw-border-opacity:1;border-color:rgb(245 245 247 / var(--tw-border-opacity, 1))}.border-red-200{--tw-border-opacity:1;border-color:rgb(254 202 202 / var(--tw-border-opacity, 1))}.border-transparent{border-color:transparent}.bg-\[\#1D1D1F\]{--tw-bg-opacity:1;background-color:rgb(29 29 31 / var(--tw-bg-opacity, 1))}.bg-\[\#25D366\]{--tw-bg-opacity:1;background-color:rgb(37 211 102 / var(--tw-bg-opacity, 1))}.bg-\[\#F5F5F7\]{--tw-bg-opacity:1;background-color:rgb(245 245 247 / var(--tw-bg-opacity, 1))}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.bg-black\/40{background-color:rgb(0 0 0 / 0.4)}.bg-black\/5{background-color:rgb(0 0 0 / 0.05)}.bg-green-100{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity, 1))}.bg-on-surface{--tw-bg-opacity:1;background-color:rgb(29 29 31 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(200 16 46 / var(--tw-bg-opacity, 1))}.bg-primary-fixed{--tw-bg-opacity:1;background-color:rgb(255 232 236 / var(--tw-bg-opacity, 1))}.bg-primary\/10{background-color:rgb(200 16 46 / 0.1)}.bg-surface{--tw-bg-opacity:1;background-color:rgb(245 245 247 / var(--tw-bg-opacity, 1))}.bg-surface-container{--tw-bg-opacity:1;background-color:rgb(232 232 237 / var(--tw-bg-opacity, 1))}.bg-surface-container-high{--tw-bg-opacity:1;background-color:rgb(226 226 231 / var(--tw-bg-opacity, 1))}.bg-surface-container-low{--tw-bg-opacity:1;background-color:rgb(245 245 247 / var(--tw-bg-opacity, 1))}.bg-surface-container-lowest{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-transparent{background-color:transparent}.bg-whatsapp{--tw-bg-opacity:1;background-color:rgb(37 211 102 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/95{background-color:rgb(255 255 255 / 0.95)}.bg-black\/50{background-color:rgb(0 0 0 / 0.5)}.bg-primary\/5{background-color:rgb(200 16 46 / 0.05)}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity, 1))}.bg-white\/20{background-color:rgb(255 255 255 / 0.2)}.bg-primary-fixed\/40{background-color:rgb(255 232 236 / 0.4)}.object-contain{object-fit:contain}.p-0{padding:0px}.p-1{padding:0.25rem}.p-2{padding:0.5rem}.p-2\.5{padding:0.625rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-5{padding:1.25rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-7{padding-left:1.75rem;padding-right:1.75rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-8{padding-top:2rem;padding-bottom:2rem}.px-8{padding-left:2rem;padding-right:2rem}.pb-2{padding-bottom:0.5rem}.pb-3{padding-bottom:0.75rem}.pb-4{padding-bottom:1rem}.ps-2{padding-inline-start:0.5rem}.pt-1{padding-top:0.25rem}.pt-2{padding-top:0.5rem}.pt-4{padding-top:1rem}.pb-1{padding-bottom:0.25rem}.text-center{text-align:center}.text-right{text-align:right}.text-start{text-align:start}.font-headline{font-family:Cairo, Plus Jakarta Sans, Inter, sans-serif}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[0\.65rem\]{font-size:0.65rem}.text-\[0\.6rem\]{font-size:0.6rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[22px\]{font-size:22px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-none{line-height:1}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6 / var(--tw-text-opacity, 1))}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9 / var(--tw-text-opacity, 1))}.text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-error{--tw-text-opacity:1;color:rgb(186 26 26 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-green-700{--tw-text-opacity:1;color:rgb(21 128 61 / var(--tw-text-opacity, 1))}.text-inherit{color:inherit}.text-on-primary-fixed{--tw-text-opacity:1;color:rgb(92 0 15 / var(--tw-text-opacity, 1))}.text-on-surface{--tw-text-opacity:1;color:rgb(29 29 31 / var(--tw-text-opacity, 1))}.text-on-surface-variant{--tw-text-opacity:1;color:rgb(110 110 115 / var(--tw-text-opacity, 1))}.text-on-surface-variant\/40{color:rgb(110 110 115 / 0.4)}.text-primary{--tw-text-opacity:1;color:rgb(200 16 46 / var(--tw-text-opacity, 1))}.text-success{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-whatsapp{--tw-text-opacity:1;color:rgb(37 211 102 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-\[\#1d1d1f\]{--tw-text-opacity:1;color:rgb(29 29 31 / var(--tw-text-opacity, 1))}.text-white\/70{color:rgb(255 255 255 / 0.7)}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.no-underline{-webkit-text-decoration-line:none;text-decoration-line:none}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow{--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_4px_24px_rgba\(0\2c 0\2c 0\2c 0\.04\)\]{--tw-shadow:0 4px 24px rgba(0,0,0,0.04);--tw-shadow-colored:0 4px 24px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.drop-shadow-sm{--tw-drop-shadow:drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-primary:hover{--tw-border-opacity:1;border-color:rgb(200 16 46 / var(--tw-border-opacity, 1))}.hover\:border-primary\/50:hover{border-color:rgb(200 16 46 / 0.5)}.hover\:bg-\[\#20bd5a\]:hover{--tw-bg-opacity:1;background-color:rgb(32 189 90 / var(--tw-bg-opacity, 1))}.hover\:bg-black:hover{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.hover\:bg-black\/5:hover{background-color:rgb(0 0 0 / 0.05)}.hover\:bg-gray-100:hover{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.hover\:bg-primary:hover{--tw-bg-opacity:1;background-color:rgb(200 16 46 / var(--tw-bg-opacity, 1))}.hover\:bg-primary-dark:hover{--tw-bg-opacity:1;background-color:rgb(160 13 36 / var(--tw-bg-opacity, 1))}.hover\:bg-whatsapp-hover:hover{--tw-bg-opacity:1;background-color:rgb(18 140 126 / var(--tw-bg-opacity, 1))}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.hover\:bg-primary\/20:hover{background-color:rgb(200 16 46 / 0.2)}.hover\:bg-surface-container-high:hover{--tw-bg-opacity:1;background-color:rgb(226 226 231 / var(--tw-bg-opacity, 1))}.hover\:text-error:hover{--tw-text-opacity:1;color:rgb(186 26 26 / var(--tw-text-opacity, 1))}.hover\:text-gray-700:hover{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.hover\:text-on-surface:hover{--tw-text-opacity:1;color:rgb(29 29 31 / var(--tw-text-opacity, 1))}.hover\:text-primary:hover{--tw-text-opacity:1;color:rgb(200 16 46 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:text-\[\#C8102E\]:hover{--tw-text-opacity:1;color:rgb(200 16 46 / var(--tw-text-opacity, 1))}.hover\:text-white\/80:hover{color:rgb(255 255 255 / 0.8)}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.hover\:opacity-80:hover{opacity:0.8}.hover\:shadow-lg:hover{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.hover\:shadow-2xl:hover{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.focus\:ring-0:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-primary:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(200 16 46 / var(--tw-ring-opacity, 1))}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:block{display:block}.group:hover .group-hover\:rotate-180{--tw-rotate:180deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:bg-primary{--tw-bg-opacity:1;background-color:rgb(200 16 46 / var(--tw-bg-opacity, 1))}.group:hover .group-hover\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:block{display:block}.sm\:flex{display:flex}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:space-y-0 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0px * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0px * var(--tw-space-y-reverse))}.sm\:self-auto{align-self:auto}.sm\:p-8{padding:2rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.sm\:py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}}@media (min-width: 768px){.md\:col-span-1{grid-column:span 1 / span 1}.md\:col-span-5{grid-column:span 5 / span 5}.md\:col-span-7{grid-column:span 7 / span 7}.md\:flex{display:flex}.md\:hidden{display:none}.md\:h-9{height:2.25rem}.md\:grid-cols-11{grid-template-columns:repeat(11, minmax(0, 1fr))}.md\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.md\:p-8{padding:2rem}}@media (min-width: 1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}.ltr\:left-0:where([dir="ltr"], [dir="ltr"] *){left:0px}.ltr\:right-5:where([dir="ltr"], [dir="ltr"] *){right:1.25rem}.ltr\:right-6:where([dir="ltr"], [dir="ltr"] *){right:1.5rem}.ltr\:right-4:where([dir="ltr"], [dir="ltr"] *){right:1rem}.rtl\:left-5:where([dir="rtl"], [dir="rtl"] *){left:1.25rem}.rtl\:left-6:where([dir="rtl"], [dir="rtl"] *){left:1.5rem}.rtl\:right-0:where([dir="rtl"], [dir="rtl"] *){right:0px}.rtl\:left-4:where([dir="rtl"], [dir="rtl"] *){left:1rem}</style><style id="dynamic-theme-style">
+            :root { --primary-color: #C8102E; }
+            .bg-primary { background-color: #C8102E !important; }
+            .text-primary { color: #C8102E !important; }
+            .border-primary { border-color: #C8102E !important; }
+            .hover\:bg-primary:hover { background-color: #C8102E !important; }
+            .hover\:text-primary:hover { color: #C8102E !important; }
+            .focus\:ring-primary:focus { --tw-ring-color: #C8102E !important; }
+            .text-primary-fixed { color: #C8102E !important; }
+            .hover\:border-primary\/50:hover { border-color: #C8102E80 !important; }
+            body.has-custom-bg { background-color: transparent !important; }
+            body.has-custom-bg main { position: relative; z-index: 1; }
+        </style></head>
+<body class="antialiased flex flex-col min-h-screen">
+
+<!-- TOP PROMO BANNER CONTAINER -->
+<div id="topPromoBannerContainer">
+            <div id="topPromoBanner" style="background: #C8102E;" class="text-white py-2 px-4 text-xs font-bold transition-all duration-300 relative z-50 shadow-md">
+                <div class="max-w-6xl mx-auto flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-2 flex-1 justify-center text-center truncate">
+                        <span class="bg-white/20 text-white text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider animate-pulse flex-shrink-0">عرض حصري</span>
+                        <span class="truncate">🔥 عرض الافتتاح: شحن مجاني لكافة محافظات مصر عند الطلب بمبلغ 1500 ج.م أو أكثر لفترة محدودة!</span>
+                        <a href="store.html" class="underline hover:text-white/80 font-black flex items-center gap-0.5 flex-shrink-0"><span>تسوق الآن</span><span class="material-symbols-outlined text-xs">arrow_forward</span></a>
+                    </div>
+                    <button onclick="ProCable.dismissPromoBanner()" class="text-white/70 hover:text-white text-base leading-none p-1 flex-shrink-0" title="إغلاق">&#10005;</button>
+                </div>
+            </div>
+        </div>
+
+<!-- ================= NAVIGATION ================= -->
+<nav class="sticky top-0 z-50 apple-nav">
+    <div class="max-w-[1200px] mx-auto px-5 h-12 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 text-on-surface no-underline select-none">
+            <img src="logo.png" alt="Attractive" class="site-logo-img h-8 md:h-9 object-contain transition-opacity hover:opacity-80">
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center gap-7">
+            <ul id="desktopNavLinks" class="flex items-center gap-6 list-none p-0 m-0 text-sm font-medium">
+                    <li class="" data-nav-id="nav-home">
+                        <a href="index.html" class="text-on-surface hover:text-primary transition flex items-center gap-1 text-sm font-medium">
+                            
+                            <span>الرئيسية</span>
+                            
+                        </a>
+                    </li>
+                
+                        <li class="relative" data-nav-id="nav-store" data-has-mega="true">
+                            <a href="store.html" class="text-on-surface hover:text-primary transition flex items-center gap-1 py-1 text-sm font-medium agy-mega-trigger" data-mega-id="nav-store">
+                                
+                                <span>المتجر</span>
+                                <span class="material-symbols-outlined text-sm transition-transform agy-mega-chevron">expand_more</span>
+                                
+                            </a>
+                        </li>
+                    
+                    <li class="sale-nav-item" data-nav-id="nav-sale">
+                        <a href="store.html?cat=sale" class="text-primary font-bold transition flex items-center gap-1 text-sm font-medium">
+                            <span class="material-symbols-outlined text-sm">local_fire_department</span>
+                            <span>خصومات 🔥</span>
+                            
+                        </a>
+                    </li>
+                
+                        <li class="relative group" data-nav-id="nav-builder">
+                            <a href="builder.html" class="text-primary font-bold transition flex items-center gap-1 py-1 text-sm font-medium">
+                                <span>تفصيل وصيانة الكابلات</span>
+                                <span class="material-symbols-outlined text-sm transition-transform group-hover:rotate-180">expand_more</span>
+                            </a>
+                            <div class="absolute top-full ltr:left-0 rtl:right-0 pt-2 hidden group-hover:block z-50 min-w-[250px]">
+                                <div class="bg-white/95 backdrop-blur-xl border border-black/10 rounded-2xl shadow-2xl p-2 space-y-1">
+                                    <a href="builder.html" class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-black/5 text-on-surface text-xs font-bold transition">
+                                        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+                                            <span class="material-symbols-outlined text-base">tune</span>
+                                        </div>
+                                        <div>
+                                            <span class="block text-on-surface">استوديو التفصيل الخاص</span>
+                                            <span class="block text-[10px] font-normal text-gray-400">تجميع وتفصيل كابلك الصوتي</span>
+                                        </div>
+                                    </a>
+                                    
+                                    <a href="index.html#repairSection" class="repair-nav-item flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-black/5 text-on-surface text-xs font-bold transition">
+                                        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+                                            <span class="material-symbols-outlined text-base">build</span>
+                                        </div>
+                                        <div>
+                                            <span class="block text-on-surface">صيانة وإصلاح الكابلات</span>
+                                            <span class="block text-[10px] font-normal text-gray-400">فحص ولحام وتجديد النحاس</span>
+                                        </div>
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                        </li>
+                    
+                    <li class="" data-nav-id="nav-reviews">
+                        <a href="index.html#reviewsSection" class="text-on-surface hover:text-primary transition flex items-center gap-1 text-sm font-medium">
+                            
+                            <span>آراء العملاء</span>
+                            
+                        </a>
+                    </li>
+                
+                    <li class="" data-nav-id="nav-contact">
+                        <a href="index.html#contactSection" class="text-on-surface hover:text-primary transition flex items-center gap-1 text-sm font-medium">
+                            
+                            <span>تواصل معنا</span>
+                            
+                        </a>
+                    </li>
+                </ul>
+
+            <div class="flex items-center gap-2">
+                <!-- Order Tracking -->
+                <button onclick="ProCable.showOrderTrackingModal()" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-surface border border-black/10 hover:bg-white text-on-surface-variant flex items-center gap-1.5 transition" title="تتبع مسار الطلب">
+                    <span class="material-symbols-outlined text-base text-primary">track_changes</span>
+                    <span data-ar="تتبع طلبك" data-en="Track Order">تتبع طلبك</span>
+                </button>
+
+                <!-- User Auth Area -->
+                <div id="desktopAuthArea">
+                    <button onclick="ProCable.showAuthModal()" class="text-xs font-bold px-3 py-1.5 bg-surface text-on-surface border border-outline-variant rounded-xl hover:bg-surface-container-high transition flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-base">login</span>
+                        <span>دخول / حساب</span>
+                    </button>
+                </div>
+
+                <!-- Lang Toggle -->
+                <button onclick="ProCable.toggleLang()" class="lang-toggle-btn text-xs font-semibold px-2.5 py-1 rounded-full border border-black/10 hover:bg-black/5 transition text-on-surface-variant" title="تبديل اللغة">EN</button>
+
+                <!-- Cart Button -->
+                <button onclick="scrollToCart()" class="relative p-2 rounded-full text-on-surface hover:bg-black/5 transition">
+                    <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+                    <span id="navCartBadge" class="absolute -top-0.5 -right-0.5 bg-primary text-white text-[0.6rem] font-bold w-4.5 h-4.5 min-w-[18px] min-h-[18px] rounded-full flex items-center justify-center border-2 border-surface hidden">٠</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Controls -->
+        <div class="flex items-center gap-2 md:hidden">
+            <button onclick="ProCable.showOrderTrackingModal()" class="p-2 text-primary rounded-full hover:bg-black/5 transition" title="تتبع الطلب">
+                <span class="material-symbols-outlined text-xl">track_changes</span>
+            </button>
+            <button onclick="ProCable.toggleLang()" class="lang-toggle-btn text-xs font-semibold px-2 py-1 rounded-full border border-black/10 text-on-surface-variant">EN</button>
+            <button onclick="scrollToCart()" class="relative p-2 text-on-surface">
+                <span class="material-symbols-outlined text-xl">shopping_bag</span>
+                <span id="mobileCartBadge" class="absolute -top-0.5 -right-0.5 bg-primary text-white text-[0.6rem] font-bold min-w-[16px] min-h-[16px] rounded-full flex items-center justify-center border-2 border-surface hidden">٠</span>
+            </button>
+            <button onclick="document.getElementById('mobileDrawer').classList.toggle('hidden')" class="p-2 text-on-surface rounded-full hover:bg-black/5 transition">
+                <span class="material-symbols-outlined text-xl">menu</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-b border-black/5 px-6 py-5">
+        <div id="mobileAuthArea">
+                    <button onclick="ProCable.showAuthModal(); document.getElementById('mobileDrawer').classList.add('hidden');" class="w-full flex items-center gap-2 py-2 text-primary font-bold border-b border-outline-variant mb-2">
+                        <span class="material-symbols-outlined text-base">login</span>
+                        <span>تسجيل الدخول / إنشاء حساب</span>
+                    </button>
+                </div>
+        <ul id="mobileDrawerLinks" class="space-y-3 list-none p-0 m-0 font-medium text-sm mt-2">
+                    <li class="">
+                        <a href="index.html" class="block py-1 text-xs text-on-surface flex items-center gap-1.5">
+                            
+                            <span>الرئيسية</span>
+                            
+                        </a>
+                    </li>
+                
+                        <li class="">
+                            <button onclick="document.getElementById('mob-acc-nav-store').classList.toggle('hidden'); this.querySelector('.mob-acc-chevron').classList.toggle('rotate-180')" class="w-full flex items-center justify-between py-1 text-xs font-semibold text-on-surface">
+                                <span class="flex items-center gap-1.5">
+                                    
+                                    <span>المتجر</span>
+                                </span>
+                                <span class="material-symbols-outlined text-sm mob-acc-chevron transition-transform">expand_more</span>
+                            </button>
+                            <div id="mob-acc-nav-store" class="hidden ps-2 border-s-2 border-primary/20 mt-1 pb-1"><div class="mb-3"><div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">التصنيفات</div><a href="store.html" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">كل المنتجات</a><a href="store.html?cat=cables" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">كابلات الصوت</a><a href="store.html?cat=connectors" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">كونيكتورات</a><a href="store.html?cat=adapters" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">محولات</a><a href="store.html?cat=sale" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">خصومات 🔥</a></div><div class="mb-3"><div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">خدماتنا</div><a href="builder.html" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">تفصيل كابل خاص</a><a href="builder.html#repair" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">صيانة وإصلاح</a><a href="index.html#contactSection" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">استشارة فنية</a></div></div>
+                        </li>
+                    
+                    <li class="sale-nav-item">
+                        <a href="store.html?cat=sale" class="block py-1 text-xs text-primary font-bold flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-sm">local_fire_department</span>
+                            <span>خصومات 🔥</span>
+                            
+                        </a>
+                    </li>
+                
+                        <li class="py-1">
+                            <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">تفصيل وصيانة الكابلات</div>
+                            <div class="space-y-1 ps-2 border-s-2 border-primary/20">
+                                <a href="builder.html" class="block py-1 text-xs text-primary font-bold flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-sm text-primary">tune</span>
+                                    <span>استوديو التفصيل الخاص</span>
+                                </a>
+                                
+                                <a href="index.html#repairSection" class="repair-nav-item block py-1 text-xs text-on-surface font-semibold flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-sm text-primary">build</span>
+                                    <span>صيانة وإصلاح الكابلات</span>
+                                </a>
+                                
+                            </div>
+                        </li>
+                    
+                    <li class="">
+                        <a href="index.html#reviewsSection" class="block py-1 text-xs text-on-surface flex items-center gap-1.5">
+                            
+                            <span>آراء العملاء</span>
+                            
+                        </a>
+                    </li>
+                
+                    <li class="">
+                        <a href="index.html#contactSection" class="block py-1 text-xs text-on-surface flex items-center gap-1.5">
+                            
+                            <span>تواصل معنا</span>
+                            
+                        </a>
+                    </li>
+                
+                <li class="pt-2 border-t border-outline-variant">
+                    <a href="builder.html#cartSection" onclick="document.getElementById('mobileDrawer').classList.add('hidden')" class="w-full text-start py-1 text-on-surface font-bold flex items-center justify-between">
+                        <span class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-base">shopping_bag</span>
+                            <span>سلة المشتريات</span>
+                        </span>
+                        <span class="cart-count-badge bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full">0</span>
+                    </a>
+                </li>
+                <li class="pt-1">
+                    <button onclick="ProCable.showOrderTrackingModal(); document.getElementById('mobileDrawer').classList.add('hidden')" class="w-full text-start py-1 text-primary font-bold flex items-center gap-2 text-xs">
+                        <span class="material-symbols-outlined text-base">track_changes</span>
+                        <span>تتبع مسار طلبك</span>
+                    </button>
+                </li>
+            </ul>
+    </div>
+</nav>
+
+<!-- ================= MAIN BUILDER CONTAINER ================= -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1 w-full">
+
+    <div class="mb-10 text-center max-w-2xl mx-auto apple-reveal revealed">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-xs font-bold mb-3">
+            <span class="material-symbols-outlined text-sm">tune</span>
+            <span data-ar="Attractive — استوديو التصنيع اليدوي الفوري" data-en="Attractive — Real-Time Handcrafted Cable Studio">Attractive — استوديو التصنيع اليدوي الفوري</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-on-surface mb-3 font-headline" data-ar="صمّم كابلك الصوتي بالمواصفات التي تحتاجها" data-en="Build Your Custom Studio Audio Cable">صمّم كابلك الصوتي بالمواصفات التي تحتاجها</h1>
+        <p class="text-sm sm:text-base text-on-surface-variant" data-ar="اختر نوع الموصلات، خامة النحاس، والطول المطلوب بدقة مع حساب التكلفة والعربون فورياً وإرسال الطلب لورشة التصنيع." data-en="Choose connectors, copper grade, and exact length with instant price &amp; deposit calculation.">اختر نوع الموصلات، خامة النحاس، والطول المطلوب بدقة مع حساب التكلفة والعربون فورياً وإرسال الطلب لورشة التصنيع.</p>
+    </div>
+
+    <!-- Progress Steps -->
+    <div class="flex justify-between items-center border-b border-outline-variant pb-3 mb-8 overflow-x-auto no-scrollbar text-xs sm:text-sm font-bold gap-4 apple-reveal apple-reveal-delay-1 revealed">
+        <span class="text-primary border-b-2 border-primary pb-3 whitespace-nowrap" data-ar="١. الموصل الأول (Side A)" data-en="1. First Connector (Side A)">١. الموصل الأول (Side A)</span>
+        <span class="text-on-surface-variant whitespace-nowrap" data-ar="٢. الموصل الثاني (Side B)" data-en="2. Second Connector (Side B)">٢. الموصل الثاني (Side B)</span>
+        <span class="text-on-surface-variant whitespace-nowrap" data-ar="٣. خامة النحاس" data-en="3. Wire Grade">٣. خامة النحاس</span>
+        <span class="text-on-surface-variant whitespace-nowrap" data-ar="٤. الطول والعربون" data-en="4. Length &amp; Deposit">٤. الطول والعربون</span>
+    </div>
+
+    <!-- Dual Connector Selector (A & B) -->
+    <div class="grid grid-cols-1 md:grid-cols-11 gap-4 items-center mb-10 apple-reveal apple-reveal-delay-2">
+        <!-- Side A -->
+        <div class="apple-card md:col-span-5 bg-white rounded-[28px] p-6 hover:shadow-md transition shadow-sm">
+            <div class="flex justify-between items-center mb-3">
+                <h3 class="text-sm font-bold text-on-surface-variant" data-ar="الطرف الأول (A)" data-en="First Connector (A)">الطرف الأول (A)</h3>
+                <div class="text-xs font-bold text-primary bg-primary-fixed px-3 py-1 rounded-full stat-number" id="priceDisplayA">٩٠ ج.م</div>
+            </div>
+            <div class="h-24 flex items-center justify-center drop-shadow-sm mb-2" id="imgDisplayA"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="10" y="38" width="50" height="24" rx="4" fill="#3D3D3F"></rect><rect x="60" y="32" width="25" height="36" rx="3" fill="#1D1D1F"></rect><circle cx="25" cy="45" r="3" fill="#ffffff"></circle><circle cx="25" cy="55" r="3" fill="#ffffff"></circle><circle cx="38" cy="50" r="3" fill="#ffffff"></circle><path d="M85 45 L95 45 M85 50 L95 50 M85 55 L95 55" stroke="var(--primary-color, #C8102E)" stroke-width="2.5"></path></svg></div>
+            <div class="text-center font-bold text-base text-on-surface mb-4 tracking-tight" id="titleA">XLR ذكر</div>
+            <div id="gridA" class="grid grid-cols-4 gap-2" role="radiogroup">
+                <button onclick="selectedA=0; updateCustomizer();" class="p-2 rounded-xl border text-center flex flex-col items-center justify-center transition border-primary bg-primary text-white shadow" title="XLR ذكر">
+                    <div class="w-6 h-6 mb-1"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="10" y="38" width="50" height="24" rx="4" fill="#3D3D3F"></rect><rect x="60" y="32" width="25" height="36" rx="3" fill="#1D1D1F"></rect><circle cx="25" cy="45" r="3" fill="#ffffff"></circle><circle cx="25" cy="55" r="3" fill="#ffffff"></circle><circle cx="38" cy="50" r="3" fill="#ffffff"></circle><path d="M85 45 L95 45 M85 50 L95 50 M85 55 L95 55" stroke="var(--primary-color, #C8102E)" stroke-width="2.5"></path></svg></div>
+                    <span class="text-[0.65rem] font-bold leading-tight line-clamp-1">XLR ذكر</span>
+                </button>
+            
+                <button onclick="selectedA=1; updateCustomizer();" class="p-2 rounded-xl border text-center flex flex-col items-center justify-center transition bg-surface border-outline-variant hover:border-primary/50 text-on-surface" title="XLR نتاية">
+                    <div class="w-6 h-6 mb-1"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="10" y="38" width="50" height="24" rx="4" fill="#3D3D3F"></rect><rect x="60" y="32" width="25" height="36" rx="3" fill="#1D1D1F"></rect><circle cx="75" cy="45" r="2.5" fill="#ffffff" stroke="#6E6E73"></circle><circle cx="75" cy="55" r="2.5" fill="#ffffff" stroke="#6E6E73"></circle><circle cx="68" cy="50" r="2.5" fill="#ffffff" stroke="#6E6E73"></circle></svg></div>
+                    <span class="text-[0.65rem] font-bold leading-tight line-clamp-1">XLR نتاية</span>
+                </button>
+            
+                <button onclick="selectedA=2; updateCustomizer();" class="p-2 rounded-xl border text-center flex flex-col items-center justify-center transition bg-surface border-outline-variant hover:border-primary/50 text-on-surface" title="جاك TRS (استريو)">
+                    <div class="w-6 h-6 mb-1"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="15" y="42" width="45" height="16" rx="3" fill="#3D3D3F"></rect><rect x="60" y="45" width="10" height="10" fill="#E8E8ED"></rect><path d="M70 47 L90 47 L95 50 L90 53 L70 53 Z" fill="var(--primary-color, #C8102E)"></path><line x1="77" y1="47" x2="77" y2="53" stroke="#1D1D1F" stroke-width="1.5"></line><line x1="84" y1="47" x2="84" y2="53" stroke="#1D1D1F" stroke-width="1.5"></line></svg></div>
+                    <span class="text-[0.65rem] font-bold leading-tight line-clamp-1">جاك TRS (استريو)</span>
+                </button>
+            
+                <button onclick="selectedA=3; updateCustomizer();" class="p-2 rounded-xl border text-center flex flex-col items-center justify-center transition bg-surface border-outline-variant hover:border-primary/50 text-on-surface" title="جاك TS (مونو)">
+                    <div class="w-6 h-6 mb-1"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="15" y="42" width="45" height="16" rx="3" fill="#3D3D3F"></rect><rect x="60" y="45" width="10" height="10" fill="#E8E8ED"></rect><path d="M70 47 L90 47 L95 50 L90 53 L70 53 Z" fill="var(--primary-color, #C8102E)"></path><line x1="82" y1="47" x2="82" y2="53" stroke="#1D1D1F" stroke-width="1.5"></line></svg></div>
+                    <span class="text-[0.65rem] font-bold leading-tight line-clamp-1">جاك TS (مونو)</span>
+                </button>
+            
+                <button onclick="selectedA=4; updateCustomizer();" class="p-2 rounded-xl border text-center flex flex-col items-center justify-center transition bg-surface border-outline-variant hover:border-primary/50 text-on-surface" title="جاك 3.5mm Mini">
+                    <div class="w-6 h-6 mb-1"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="15" y="44" width="40" height="12" rx="3" fill="#3D3D3F"></rect><rect x="55" y="47" width="8" height="6" fill="#E8E8ED"></rect><path d="M63 47.5 L84 47.5 L88 50 L84 52.5 L63 52.5 Z" fill="var(--primary-color, #C8102E)"></path><line x1="72" y1="47.5" x2="72" y2="52.5" stroke="#1D1D1F" stroke-width="1.5"></line><line x1="79" y1="47.5" x2="79" y2="52.5" stroke="#1D1D1F" stroke-width="1.5"></line></svg></div>
+                    <span class="text-[0.65rem] font-bold leading-tight line-clamp-1">جاك 3.5mm Mini</span>
+                </button>
+            
+                <button onclick="selectedA=5; updateCustomizer();" class="p-2 rounded-xl border text-center flex flex-col items-center justify-center transition bg-surface border-outline-variant hover:border-primary/50 text-on-surface" title="جاك RCA">
+                    <div class="w-6 h-6 mb-1"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="15" y="40" width="40" height="20" rx="4" fill="var(--primary-color, #C8102E)"></rect><circle cx="75" cy="50" r="4" fill="#E8E8ED"></circle><rect x="55" y="46" width="12" height="8" rx="1" fill="#c1c6d5"></rect></svg></div>
+                    <span class="text-[0.65rem] font-bold leading-tight line-clamp-1">جاك RCA</span>
+                </button>
+            
+                <button onclick="selectedA=6; updateCustomizer();" class="p-2 rounded-xl border text-center flex flex-col items-center justify-center transition bg-surface border-outline-variant hover:border-primary/50 text-on-surface" title="سبيكون Speakon">
+                    <div class="w-6 h-6 mb-1"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="15" y="35" width="55" height="30" rx="4" fill="#1D1D1F"></rect><circle cx="42" cy="50" r="6" fill="var(--primary-color, #C8102E)"></circle><rect x="70" y="42" width="14" height="16" rx="2" fill="#3D3D3F"></rect></svg></div>
+                    <span class="text-[0.65rem] font-bold leading-tight line-clamp-1">سبيكون Speakon</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Swap Connectors -->
+        <div class="md:col-span-1 flex justify-center">
+            <button onclick="swapConnectors()" data-ar-title="تبديل الطرفين" data-en-title="Swap Connectors" title="تبديل الطرفين" class="swap-btn w-11 h-11 rounded-full bg-white border border-black/10 shadow-sm hover:bg-primary hover:text-white transition-all flex items-center justify-center text-lg apple-btn-secondary">
+                ⇌
+            </button>
+        </div>
+
+        <!-- Side B -->
+        <div class="apple-card md:col-span-5 bg-white rounded-[28px] p-6 hover:shadow-md transition shadow-sm">
+            <div class="flex justify-between items-center mb-3">
+                <h3 class="text-sm font-bold text-on-surface-variant" data-ar="الطرف الثاني (B)" data-en="Second Connector (B)">الطرف الثاني (B)</h3>
+                <div class="text-xs font-bold text-primary bg-primary-fixed px-3 py-1 rounded-full stat-number" id="priceDisplayB">٩٠ ج.م</div>
+            </div>
+            <div class="h-24 flex items-center justify-center drop-shadow-sm mb-2" id="imgDisplayB"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="10" y="38" width="50" height="24" rx="4" fill="#3D3D3F"></rect><rect x="60" y="32" width="25" height="36" rx="3" fill="#1D1D1F"></rect><circle cx="75" cy="45" r="2.5" fill="#ffffff" stroke="#6E6E73"></circle><circle cx="75" cy="55" r="2.5" fill="#ffffff" stroke="#6E6E73"></circle><circle cx="68" cy="50" r="2.5" fill="#ffffff" stroke="#6E6E73"></circle></svg></div>
+            <div class="text-center font-bold text-base text-on-surface mb-4 tracking-tight" id="titleB">XLR نتاية</div>
+            <div id="gridB" class="grid grid-cols-4 gap-2" role="radiogroup">
+                <button onclick="selectedB=0; updateCustomizer();" class="p-2 rounded-xl border text-center flex flex-col items-center justify-center transition bg-surface border-outline-variant hover:border-primary/50 text-on-surface" title="XLR ذكر">
+                    <div class="w-6 h-6 mb-1"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="10" y="38" width="50" height="24" rx="4" fill="#3D3D3F"></rect><rect x="60" y="32" width="25" height="36" rx="3" fill="#1D1D1F"></rect><circle cx="25" cy="45" r="3" fill="#ffffff"></circle><circle cx="25" cy="55" r="3" fill="#ffffff"></circle><circle cx="38" cy="50" r="3" fill="#ffffff"></circle><path d="M85 45 L95 45 M85 50 L95 50 M85 55 L95 55" stroke="var(--primary-color, #C8102E)" stroke-width="2.5"></path></svg></div>
+                    <span class="text-[0.65rem] font-bold leading-tight line-clamp-1">XLR ذكر</span>
+                </button>
+            
+                <button onclick="selectedB=1; updateCustomizer();" class="p-2 rounded-xl border text-center flex flex-col items-center justify-center transition border-primary bg-primary text-white shadow" title="XLR نتاية">
+                    <div class="w-6 h-6 mb-1"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="10" y="38" width="50" height="24" rx="4" fill="#3D3D3F"></rect><rect x="60" y="32" width="25" height="36" rx="3" fill="#1D1D1F"></rect><circle cx="75" cy="45" r="2.5" fill="#ffffff" stroke="#6E6E73"></circle><circle cx="75" cy="55" r="2.5" fill="#ffffff" stroke="#6E6E73"></circle><circle cx="68" cy="50" r="2.5" fill="#ffffff" stroke="#6E6E73"></circle></svg></div>
+                    <span class="text-[0.65rem] font-bold leading-tight line-clamp-1">XLR نتاية</span>
+                </button>
+            
+                <button onclick="selectedB=2; updateCustomizer();" class="p-2 rounded-xl border text-center flex flex-col items-center justify-center transition bg-surface border-outline-variant hover:border-primary/50 text-on-surface" title="جاك TRS (استريو)">
+                    <div class="w-6 h-6 mb-1"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="15" y="42" width="45" height="16" rx="3" fill="#3D3D3F"></rect><rect x="60" y="45" width="10" height="10" fill="#E8E8ED"></rect><path d="M70 47 L90 47 L95 50 L90 53 L70 53 Z" fill="var(--primary-color, #C8102E)"></path><line x1="77" y1="47" x2="77" y2="53" stroke="#1D1D1F" stroke-width="1.5"></line><line x1="84" y1="47" x2="84" y2="53" stroke="#1D1D1F" stroke-width="1.5"></line></svg></div>
+                    <span class="text-[0.65rem] font-bold leading-tight line-clamp-1">جاك TRS (استريو)</span>
+                </button>
+            
+                <button onclick="selectedB=3; updateCustomizer();" class="p-2 rounded-xl border text-center flex flex-col items-center justify-center transition bg-surface border-outline-variant hover:border-primary/50 text-on-surface" title="جاك TS (مونو)">
+                    <div class="w-6 h-6 mb-1"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="15" y="42" width="45" height="16" rx="3" fill="#3D3D3F"></rect><rect x="60" y="45" width="10" height="10" fill="#E8E8ED"></rect><path d="M70 47 L90 47 L95 50 L90 53 L70 53 Z" fill="var(--primary-color, #C8102E)"></path><line x1="82" y1="47" x2="82" y2="53" stroke="#1D1D1F" stroke-width="1.5"></line></svg></div>
+                    <span class="text-[0.65rem] font-bold leading-tight line-clamp-1">جاك TS (مونو)</span>
+                </button>
+            
+                <button onclick="selectedB=4; updateCustomizer();" class="p-2 rounded-xl border text-center flex flex-col items-center justify-center transition bg-surface border-outline-variant hover:border-primary/50 text-on-surface" title="جاك 3.5mm Mini">
+                    <div class="w-6 h-6 mb-1"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="15" y="44" width="40" height="12" rx="3" fill="#3D3D3F"></rect><rect x="55" y="47" width="8" height="6" fill="#E8E8ED"></rect><path d="M63 47.5 L84 47.5 L88 50 L84 52.5 L63 52.5 Z" fill="var(--primary-color, #C8102E)"></path><line x1="72" y1="47.5" x2="72" y2="52.5" stroke="#1D1D1F" stroke-width="1.5"></line><line x1="79" y1="47.5" x2="79" y2="52.5" stroke="#1D1D1F" stroke-width="1.5"></line></svg></div>
+                    <span class="text-[0.65rem] font-bold leading-tight line-clamp-1">جاك 3.5mm Mini</span>
+                </button>
+            
+                <button onclick="selectedB=5; updateCustomizer();" class="p-2 rounded-xl border text-center flex flex-col items-center justify-center transition bg-surface border-outline-variant hover:border-primary/50 text-on-surface" title="جاك RCA">
+                    <div class="w-6 h-6 mb-1"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="15" y="40" width="40" height="20" rx="4" fill="var(--primary-color, #C8102E)"></rect><circle cx="75" cy="50" r="4" fill="#E8E8ED"></circle><rect x="55" y="46" width="12" height="8" rx="1" fill="#c1c6d5"></rect></svg></div>
+                    <span class="text-[0.65rem] font-bold leading-tight line-clamp-1">جاك RCA</span>
+                </button>
+            
+                <button onclick="selectedB=6; updateCustomizer();" class="p-2 rounded-xl border text-center flex flex-col items-center justify-center transition bg-surface border-outline-variant hover:border-primary/50 text-on-surface" title="سبيكون Speakon">
+                    <div class="w-6 h-6 mb-1"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="15" y="35" width="55" height="30" rx="4" fill="#1D1D1F"></rect><circle cx="42" cy="50" r="6" fill="var(--primary-color, #C8102E)"></circle><rect x="70" y="42" width="14" height="16" rx="2" fill="#3D3D3F"></rect></svg></div>
+                    <span class="text-[0.65rem] font-bold leading-tight line-clamp-1">سبيكون Speakon</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cable Wire Grade Selection -->
+    <div class="mb-10 apple-reveal apple-reveal-delay-3">
+        <h3 class="text-base font-bold text-on-surface mb-3 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">cable</span>
+            <span data-ar="خامة وجودة السلك الداخلي" data-en="Internal Wire Material &amp; Grade">خامة وجودة السلك الداخلي</span>
+        </h3>
+        <div id="cableGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div onclick="selectedCable=0; updateCustomizer();" class="p-5 rounded-2xl cursor-pointer transition flex flex-col justify-between border-2 border-primary bg-primary-fixed/40 shadow-sm">
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <h4 class="font-bold text-sm text-on-surface">نحاس نقي خالي من الأكسجين (OFC)</h4>
+                            <span class="bg-primary text-white text-[0.65rem] font-bold px-2 py-0.5 rounded-full">الأعلى طلباً</span>
+                        </div>
+                        <p class="text-xs text-on-surface-variant mb-3">أعلى نقاء واستجابة ترددية لاستوديوهات التسجيل الاحترافية</p>
+                    </div>
+                    <div class="font-bold text-sm text-primary">
+                        +٣٠ ج.م <span class="text-xs text-on-surface-variant font-normal">/ متر</span>
+                    </div>
+                </div>
+            
+                <div onclick="selectedCable=1; updateCustomizer();" class="p-5 rounded-2xl cursor-pointer transition flex flex-col justify-between border border-outline-variant bg-surface hover:border-primary/50">
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <h4 class="font-bold text-sm text-on-surface">نحاس OFC قياسي معزول</h4>
+                            
+                        </div>
+                        <p class="text-xs text-on-surface-variant mb-3">للاستخدام اليومي والمسارح والحفلات والربط الميداني</p>
+                    </div>
+                    <div class="font-bold text-sm text-primary">
+                        +٢٠ ج.م <span class="text-xs text-on-surface-variant font-normal">/ متر</span>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <!-- Cable Length Slider -->
+    <div class="apple-card bg-white p-6 sm:p-8 rounded-[28px] mb-10 shadow-sm hover:shadow-md transition apple-reveal apple-reveal-delay-4">
+        <div class="flex justify-between items-center mb-3">
+            <h3 class="text-base font-bold text-on-surface flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">straighten</span>
+                <span data-ar="طول الكابل المطلوب" data-en="Required Cable Length">طول الكابل المطلوب</span>
+            </h3>
+            <span id="lengthVal" class="text-2xl sm:text-3xl font-black text-primary stat-number">١٥ م</span>
+        </div>
+
+        <div class="py-4" dir="ltr">
+            <input id="lengthSlider" type="range" min="1" max="100" value="15" oninput="updateLength(this.value)" class="w-full" style="background: linear-gradient(to right, rgb(200, 16, 46) 0%, rgb(200, 16, 46) 14.1414%, rgb(226, 226, 231) 14.1414%, rgb(226, 226, 231) 100%);">
+        </div>
+
+        <!-- Preset Buttons (Apple Pill Style) -->
+        <div id="presetButtonsContainer" class="flex flex-wrap gap-2 justify-center pt-2">
+            <button onclick="updateLength(1)" data-preset="1" class="preset-btn px-4 py-1.5 rounded-xl border border-outline-variant bg-surface text-xs font-bold hover:bg-primary hover:text-white transition">١ م</button>
+            <button onclick="updateLength(2)" data-preset="2" class="preset-btn px-4 py-1.5 rounded-xl border border-outline-variant bg-surface text-xs font-bold hover:bg-primary hover:text-white transition">٢ م</button>
+            <button onclick="updateLength(3)" data-preset="3" class="preset-btn px-4 py-1.5 rounded-xl border border-outline-variant bg-surface text-xs font-bold hover:bg-primary hover:text-white transition">٣ م</button>
+            <button onclick="updateLength(5)" data-preset="5" class="preset-btn px-4 py-1.5 rounded-xl border border-outline-variant bg-surface text-xs font-bold hover:bg-primary hover:text-white transition">٥ م</button>
+            <button onclick="updateLength(10)" data-preset="10" class="preset-btn px-4 py-1.5 rounded-xl border border-outline-variant bg-surface text-xs font-bold hover:bg-primary hover:text-white transition">١٠ م</button>
+            <button onclick="updateLength(15)" data-preset="15" class="preset-btn px-4 py-1.5 rounded-xl border border-primary bg-primary text-white text-xs font-bold shadow transition">١٥ م</button>
+            <button onclick="updateLength(20)" data-preset="20" class="preset-btn px-4 py-1.5 rounded-xl border border-outline-variant bg-surface text-xs font-bold hover:bg-primary hover:text-white transition">٢٠ م</button>
+            <button onclick="updateLength(30)" data-preset="30" class="preset-btn px-4 py-1.5 rounded-xl border border-outline-variant bg-surface text-xs font-bold hover:bg-primary hover:text-white transition">٣٠ م</button>
+            <button onclick="updateLength(50)" data-preset="50" class="preset-btn px-4 py-1.5 rounded-xl border border-outline-variant bg-surface text-xs font-bold hover:bg-primary hover:text-white transition">٥٠ م</button>
+            <button onclick="updateLength(100)" data-preset="100" class="preset-btn px-4 py-1.5 rounded-xl border border-outline-variant bg-surface text-xs font-bold hover:bg-primary hover:text-white transition">١٠٠ م</button>
+        </div>
+    </div>
+
+    <!-- Live Preview & Add to Cart Box -->
+    <div class="apple-card bg-surface-container-lowest rounded-[28px] p-6 md:p-8 shadow-sm hover:shadow-md transition grid grid-cols-1 md:grid-cols-12 gap-8 items-center mb-16 apple-reveal apple-reveal-delay-5">
+
+        <!-- Specs Summary -->
+        <div class="md:col-span-7 space-y-4">
+            <h3 class="text-lg font-bold text-on-surface flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">receipt_long</span>
+                <span data-ar="المواصفات المختارة للكابل" data-en="Selected Cable Specifications">المواصفات المختارة للكابل</span>
+            </h3>
+
+            <div class="space-y-2 text-sm text-on-surface-variant bg-surface-container-low p-4 rounded-2xl border border-black/[0.04]">
+                <div class="flex justify-between"><span data-ar="الطرف الأول (A):" data-en="Side A:">الطرف الأول (A):</span><span id="sumA" class="font-bold text-on-surface">XLR ذكر</span></div>
+                <div class="flex justify-between"><span data-ar="الطرف الثاني (B):" data-en="Side B:">الطرف الثاني (B):</span><span id="sumB" class="font-bold text-on-surface">XLR نتاية</span></div>
+                <div class="flex justify-between"><span data-ar="خامة السلك:" data-en="Wire Material:">خامة السلك:</span><span id="sumCable" class="font-bold text-on-surface">نحاس نقي خالي من الأكسجين (OFC)</span></div>
+                <div class="flex justify-between"><span data-ar="الطول:" data-en="Length:">الطول:</span><span id="sumLength" class="font-bold text-on-surface stat-number">١٥ م</span></div>
+            </div>
+
+            <!-- Custom Label on Cable (#3) -->
+            <div>
+                <label class="block text-xs font-bold mb-1 text-on-surface-variant" data-ar="طباعة اسمك أو اسم الاستوديو على الكابل (اختياري)" data-en="Print your name or studio on cable (Optional)">طباعة اسمك أو اسم الاستوديو على الكابل (اختياري)</label>
+                <input id="cableCustomLabel" type="text" data-ar-placeholder="مثال: Sound Wave Studio / كابل مايك 1" data-en-placeholder="e.g., Sound Wave Studio / Mic 1" placeholder="مثال: Sound Wave Studio / كابل مايك 1" class="w-full p-3 bg-surface border border-outline-variant rounded-xl outline-none focus:ring-2 focus:ring-primary text-xs" oninput="updateCustomizer()">
+            </div>
+
+            <div class="flex items-center justify-between pt-1">
+                <span class="text-sm font-semibold text-on-surface" data-ar="الكمية المطلوبة:" data-en="Quantity:">الكمية المطلوبة:</span>
+                <div class="flex items-center gap-2 bg-surface-container-high rounded-full p-1 border border-outline-variant">
+                    <button onclick="changeQty(-1)" class="w-7 h-7 rounded-full bg-surface flex items-center justify-center font-bold text-base hover:bg-primary hover:text-white transition">-</button>
+                    <input id="qtyInput" type="text" readonly="" value="1" class="w-10 text-center font-bold bg-transparent border-none p-0 text-sm focus:ring-0 stat-number">
+                    <button onclick="changeQty(1)" class="w-7 h-7 rounded-full bg-surface flex items-center justify-center font-bold text-base hover:bg-primary hover:text-white transition">+</button>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-2 border-t border-dashed border-outline-variant">
+                <span class="text-sm text-on-surface-variant" data-ar="السعر الإجمالي:" data-en="Total Price:">السعر الإجمالي:</span>
+                <span id="totalPrice" class="text-3xl font-black text-primary stat-number">٦٣٠ ج.م</span>
+            </div>
+
+            <!-- Deposit Alert (#34) -->
+            <div id="builderDepositNotice" class="bg-amber-50 border border-amber-200 p-3 rounded-2xl text-amber-800 text-xs flex items-center gap-2">
+                <span class="material-symbols-outlined text-base text-amber-600">info</span>
+                <span id="builderDepositNoticeText" data-ar="هذا الطلب يتطلب عربون مقدم لجدية التصنيع والحجز." data-en="This custom build order requires an upfront deposit to start manufacturing.">العربون المقدر لهذا الكابل: ١٨٩ ج.م (والباقي ٤٤١ ج.م عند الاستلام).</span>
+            </div>
+
+            <button onclick="addCustomToCart()" class="w-full bg-primary text-white py-3.5 rounded-full font-bold text-sm apple-btn-primary hover:bg-primary-dark transition shadow-md flex items-center justify-center gap-2">
+                <span data-ar="إضافة الكابل المخصص للسلة" data-en="Add Custom Cable to Cart">إضافة الكابل المخصص للسلة</span>
+                <span class="material-symbols-outlined text-lg">shopping_bag</span>
+            </button>
+        </div>
+
+        <!-- Graphic Visualizer -->
+        <div class="md:col-span-5 bg-surface-container-low rounded-[24px] p-6 border border-black/[0.04] text-center flex flex-col items-center justify-center shadow-inner">
+            <span class="text-xs font-bold text-on-surface-variant mb-4 uppercase tracking-wider" data-ar="معاينة حية لشكل الكابل" data-en="Live Cable Preview">معاينة حية لشكل الكابل</span>
+            <div id="finalCablePreview" class="w-full h-24 flex items-center justify-center">
+            <svg viewBox="0 0 240 80" class="w-full h-full max-h-20">
+                <path d="M 25 40 Q 120 47.5 215 40" stroke="#1D1D1F" stroke-width="9" fill="none" stroke-linecap="round" class="animate-draw"></path>
+                <circle cx="25" cy="40" r="11" fill="var(--primary-color, #C8102E)"></circle>
+                <circle cx="215" cy="40" r="11" fill="#3D3D3F"></circle>
+            </svg>
+        </div>
+            <div id="visualLabels" class="text-xs font-bold text-on-surface-variant mt-3 bg-white px-3.5 py-1.5 rounded-full border border-black/[0.06] shadow-sm">XLR ذكر ◄--- [١٥ م] ---► XLR نتاية</div>
+            <div id="visualCustomLabel" class="text-[11px] font-mono text-primary mt-2 font-bold"></div>
+        </div>
+    </div>
+
+    <!-- ================= CART SECTION ================= -->
+    <section id="cartSection" class="py-12 border-t border-black/[0.06] scroll-mt-24 apple-reveal">
+        <!-- Section Header -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+            <div class="flex items-center gap-3.5">
+                <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                    <span class="material-symbols-outlined text-2xl">shopping_bag</span>
+                </div>
+                <div>
+                    <div class="flex items-center gap-3">
+                        <h2 class="text-2xl sm:text-3xl font-black text-on-surface font-headline tracking-tight" data-ar="حقيبة المشتريات" data-en="Review Your Bag">حقيبة المشتريات</h2>
+                        <span id="cartItemCountBadge" class="bg-black/5 text-on-surface px-3 py-1 rounded-full text-xs font-bold border border-black/[0.04] stat-number hidden">٠ عناصر</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-on-surface-variant mt-0.5" data-ar="شحن سريع لكافة المحافظات • فحص دقيق واختبار جودة صوتية 100%" data-en="Fast nationwide delivery • 100% lab-tested pro audio gear">شحن سريع لكافة المحافظات • فحص دقيق واختبار جودة صوتية 100%</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 self-start sm:self-auto">
+                <a href="store.html" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
+                    <span data-ar="تصفح المتجر الجاهز" data-en="Browse Store">تصفح المتجر الجاهز</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Empty Cart State -->
+        <div id="emptyCartMessage" class="text-center py-16 px-6 bg-white rounded-[28px] border border-black/[0.06] shadow-sm max-w-2xl mx-auto">
+            <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant/40">
+                <span class="material-symbols-outlined text-4xl">remove_shopping_cart</span>
+            </div>
+            <h3 class="text-xl font-bold text-on-surface mb-2 font-headline" data-ar="حقيبة المشتريات فارغة حالياً" data-en="Your bag is empty">حقيبة المشتريات فارغة حالياً</h3>
+            <p class="text-xs sm:text-sm text-on-surface-variant font-medium mb-6 max-w-md mx-auto leading-relaxed" data-ar="لم تقم بإضافة أي كابلات بعد. قم بتخصيص كابلك الآن من الأعلى أو تصفح منتجاتنا الجاهزة." data-en="You haven't added any cables yet. Customize your cable above or explore our store.">لم تقم بإضافة أي كابلات بعد. قم بتخصيص كابلك الآن من الأعلى أو تصفح منتجاتنا الجاهزة.</p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="#lengthSlider" class="apple-btn-primary bg-primary text-white rounded-full px-7 py-3 text-xs font-bold inline-flex items-center gap-2 shadow-sm">
+                    <span class="material-symbols-outlined text-base">tune</span>
+                    <span data-ar="تفصيل كابل جديد" data-en="Build Custom Cable">تفصيل كابل جديد</span>
+                </a>
+                <a href="store.html" class="rounded-full px-7 py-3 text-xs font-bold border border-black/10 hover:bg-black/5 transition inline-flex items-center gap-2 text-on-surface">
+                    <span class="material-symbols-outlined text-base">storefront</span>
+                    <span data-ar="تصفح منتجات المتجر" data-en="Browse Store">تصفح منتجات المتجر</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Vertical Responsive Cart Content Wrapper (طريقة العرض بالطول بدون أي تداخل) -->
+        <div id="cartContentWrapper" class="max-w-4xl mx-auto w-full space-y-8 hidden">
+            <!-- 1. Cart Items Stack (بالطول) -->
+            <div class="space-y-4">
+                <div class="flex items-center justify-between text-xs font-bold text-on-surface-variant px-3 pb-2 border-b border-black/[0.06]">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base text-primary">list_alt</span>
+                        <span data-ar="المنتجات في حقيبتك" data-en="Items in your bag">المنتجات في حقيبتك</span>
+                    </div>
+                    <button onclick="clearBuilderCart()" class="text-[11px] text-error hover:underline flex items-center gap-1 font-bold">
+                        <span class="material-symbols-outlined text-sm">delete_sweep</span>
+                        <span data-ar="تفريغ السلة بالكامل" data-en="Empty Cart">تفريغ السلة بالكامل</span>
+                    </button>
+                </div>
+                <div id="cartItemsList" class="space-y-4"></div>
+            </div>
+
+            <!-- 2. Apple Order Summary Block (تحت المنتجات بالطول) -->
+            <div id="cartSummaryBlock" class="bg-white rounded-[28px] border border-black/[0.08] p-6 sm:p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] space-y-6 hidden">
+                <div class="flex items-center justify-between pb-4 border-b border-black/[0.06]">
+                    <h3 class="text-lg font-bold text-on-surface font-headline" data-ar="ملخص الطلب" data-en="Order Summary">ملخص الطلب</h3>
+                    <span class="material-symbols-outlined text-on-surface-variant text-xl">receipt_long</span>
+                </div>
+
+                <!-- Member Perks Banner in Cart -->
+                <div id="cartMemberPerkBadge" class="hidden"></div>
+
+                <!-- Price Breakdown Rows -->
+                <div class="space-y-3 text-xs sm:text-sm">
+                    <div class="flex justify-between items-center text-on-surface-variant">
+                        <span data-ar="إجمالي المنتجات:" data-en="Items Subtotal:">إجمالي المنتجات:</span>
+                        <span id="cartItemsSubtotalText" class="font-bold text-on-surface stat-number">0 ج.م</span>
+                    </div>
+                    <div class="flex justify-between items-center text-on-surface-variant">
+                        <span data-ar="الشحن التقديري:" data-en="Estimated Shipping:">الشحن التقديري:</span>
+                        <span id="cartShippingNotice" class="font-semibold text-xs text-primary" data-ar="يُحسب عند إتمام الطلب" data-en="Calculated at checkout">يُحسب عند إتمام الطلب</span>
+                    </div>
+                </div>
+
+                <!-- Total Row -->
+                <div class="pt-4 border-t border-black/[0.06] flex justify-between items-baseline">
+                    <div>
+                        <span class="text-xs font-bold text-on-surface block" data-ar="الإجمالي (قبل الشحن)" data-en="Subtotal (Before Shipping)">الإجمالي (قبل الشحن)</span>
+                        <span class="text-[11px] text-on-surface-variant" data-ar="شامل الفحص وضمان الصناعة" data-en="Includes full warranty">شامل الفحص وضمان الصناعة</span>
+                    </div>
+                    <span id="cartTotalSum" class="text-2xl sm:text-3xl font-black text-primary stat-number">0 ج.م</span>
+                </div>
+
+                <!-- Checkout & Actions -->
+                <div class="space-y-2.5 pt-2">
+                    <button onclick="openCheckoutModal()" class="apple-btn-primary bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full w-full py-4 text-sm sm:text-base font-bold flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg transition">
+                        <span data-ar="إتمام الشراء عبر الواتساب" data-en="Checkout via WhatsApp">إتمام الشراء عبر الواتساب</span>
+                        <span class="material-symbols-outlined text-lg">check_circle</span>
+                    </button>
+                    <button onclick="clearBuilderCart()" class="w-full text-center py-2 text-xs text-on-surface-variant hover:text-error transition font-semibold" data-ar="تفريغ السلة بالكامل" data-en="Clear Bag">تفريغ السلة بالكامل</button>
+                </div>
+
+                <!-- Trust & Peace of Mind -->
+                <div class="bg-[#F5F5F7] rounded-2xl p-4 border border-black/[0.04] grid grid-cols-1 sm:grid-cols-3 gap-3 text-[11px] text-on-surface-variant font-medium">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base text-green-600">verified</span>
+                        <span data-ar="فحص صوتي 100% واختبار إشارة دقيق" data-en="100% Signal Tested &amp; Inspected">فحص صوتي 100% واختبار إشارة دقيق</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base text-primary">speed</span>
+                        <span data-ar="تجهيز وشحن سريع خلال 24 - 48 ساعة" data-en="Fast Dispatch Within 24-48h">تجهيز وشحن سريع خلال 24 - 48 ساعة</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base text-blue-600">headset_mic</span>
+                        <span data-ar="دعم فني واستشارات صوتية متخصصة" data-en="Expert Pro Audio Support">دعم فني واستشارات صوتية متخصصة</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant py-8 mt-auto">
+    <div class="max-w-6xl mx-auto px-5 text-center sm:flex sm:justify-between sm:items-center text-xs text-on-surface-variant space-y-3 sm:space-y-0">
+        <div class="flex items-center justify-center sm:justify-start gap-2">
+            <img src="logo.png" alt="Attractive" class="site-logo-img h-6 object-contain">
+            <p class="footer-copyright">© 2026 <span class="site-brand-name font-bold">Attractive</span>. <span class="footer-copyright-text">جميع الحقوق محفوظة لـ Attractive Audio Studio.</span></p>
+        </div>
+        <div class="footer-nav-links flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+                    <a href="store.html" class="hover:text-primary transition font-medium">المتجر</a>
+                    <a href="builder.html" class="hover:text-primary transition font-medium">التفصيل الخاص</a>
+                    <button onclick="ProCable.showAboutModal()" class="hover:text-primary transition font-medium text-inherit">عن الشركة</button>
+                    <button onclick="ProCable.showPolicyModal('privacy')" class="hover:text-primary transition font-medium text-inherit">سياسة الخصوصية</button>
+                    <button onclick="ProCable.showPolicyModal('return')" class="hover:text-primary transition font-medium text-inherit">الاستبدال والضمان</button>
+                </div>
+    </div>
+</footer>
+
+<!-- ================= CHECKOUT MODAL (#13, #34, #36) ================= -->
+<div id="checkoutModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden justify-center items-center z-[2000] modal-overlay" onclick="handleBackdropClick(event, 'checkoutModal')">
+    <div class="bg-surface-container-lowest rounded-2xl w-[92%] max-w-[540px] p-6 md:p-8 relative modal-content shadow-2xl border border-outline-variant max-h-[90vh] overflow-y-auto">
+        <button onclick="closeModal('checkoutModal')" class="absolute ltr:right-5 rtl:left-5 top-5 text-gray-400 hover:text-gray-700 w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-100 transition">&#10005;</button>
+        
+        <div class="flex items-center gap-3 mb-5">
+            <span class="material-symbols-outlined text-whatsapp text-3xl">shopping_bag</span>
+            <div>
+                <h3 class="font-bold text-xl text-on-surface" data-ar="استكمال عملية الشراء" data-en="Complete Your Purchase">استكمال عملية الشراء</h3>
+                <p class="text-xs text-on-surface-variant" data-ar="Attractive — سيتم تجهيز طلب تفصيل الكابل وإرساله فوراً عبر الواتساب" data-en="Attractive — Your custom cable order will be prepared and sent via WhatsApp">Attractive — سيتم تجهيز طلب تفصيل الكابل وإرساله فوراً عبر الواتساب</p>
+            </div>
+        </div>
+
+        <div id="checkoutUserPerksBanner" class="hidden mb-4"></div>
+
+        <form onsubmit="handleCheckout(event)" class="space-y-4">
+            <div>
+                <label class="block text-xs font-bold mb-1 text-on-surface-variant" data-ar="الاسم بالكامل *" data-en="Full Name *">الاسم بالكامل *</label>
+                <input id="custName" required="" type="text" data-ar-placeholder="اكتب اسمك ثلاثي" data-en-placeholder="Full name" placeholder="اكتب اسمك ثلاثي" class="w-full p-3 bg-surface border border-outline-variant rounded-xl outline-none focus:ring-2 focus:ring-primary text-sm">
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold mb-1 text-on-surface-variant" data-ar="رقم الموبايل / الواتساب *" data-en="Mobile / WhatsApp *">رقم الموبايل / الواتساب *</label>
+                <input id="custPhone" required="" type="tel" placeholder="01xxxxxxxxx" pattern="^01[0125][0-9]{8}$" title="يرجى إدخال رقم مصري صحيح 11 رقم" class="w-full p-3 bg-surface border border-outline-variant rounded-xl outline-none focus:ring-2 focus:ring-primary text-sm dir-ltr text-right">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                    <label class="block text-xs font-bold mb-1 text-on-surface-variant" data-ar="المحافظة *" data-en="Governorate *">المحافظة *</label>
+                    <select id="custGov" onchange="calculateShipping()" class="w-full p-3 bg-surface border border-outline-variant rounded-xl outline-none focus:ring-2 focus:ring-primary text-xs"><option value="cairo" data-fee="45">القاهرة (٤٥ ج.م) — خلال 24-48 ساعة</option><option value="giza" data-fee="45">الجيزة (٤٥ ج.م) — خلال 24-48 ساعة</option><option value="qalyubia" data-fee="50">القليوبية (٥٠ ج.م) — خلال 24-48 ساعة</option><option value="alex" data-fee="60">الإسكندرية (٦٠ ج.م) — خلال 2-3 أيام</option><option value="beheira" data-fee="65">البحيرة (٦٥ ج.م) — خلال 2-3 أيام</option><option value="kafr-sheikh" data-fee="65">كفر الشيخ (٦٥ ج.م) — خلال 2-3 أيام</option><option value="gharbia" data-fee="65">الغربية (٦٥ ج.م) — خلال 2-3 أيام</option><option value="menofia" data-fee="60">المنوفية (٦٠ ج.م) — خلال 2-3 أيام</option><option value="dakahlia" data-fee="65">الدقهلية (٦٥ ج.م) — خلال 2-3 أيام</option><option value="sharqia" data-fee="60">الشرقية (٦٠ ج.م) — خلال 2-3 أيام</option><option value="damietta" data-fee="65">دمياط (٦٥ ج.م) — خلال 2-3 أيام</option><option value="port-said" data-fee="70">بورسعيد (٧٠ ج.م) — خلال 2-3 أيام</option><option value="ismailia" data-fee="65">الإسماعيلية (٦٥ ج.م) — خلال 2-3 أيام</option><option value="suez" data-fee="70">السويس (٧٠ ج.م) — خلال 2-3 أيام</option><option value="north-sinai" data-fee="85">شمال سيناء (٨٥ ج.م) — خلال 3-5 أيام</option><option value="south-sinai" data-fee="90">جنوب سيناء (٩٠ ج.م) — خلال 3-5 أيام</option><option value="beni-suef" data-fee="70">بني سويف (٧٠ ج.م) — خلال 2-4 أيام</option><option value="faiyum" data-fee="70">الفيوم (٧٠ ج.م) — خلال 2-4 أيام</option><option value="minya" data-fee="75">المنيا (٧٥ ج.م) — خلال 3-5 أيام</option><option value="asyut" data-fee="80">أسيوط (٨٠ ج.م) — خلال 3-5 أيام</option><option value="sohag" data-fee="80">سوهاج (٨٠ ج.م) — خلال 3-5 أيام</option><option value="qena" data-fee="85">قنا (٨٥ ج.م) — خلال 3-5 أيام</option><option value="luxor" data-fee="85">الأقصر (٨٥ ج.م) — خلال 3-5 أيام</option><option value="aswan" data-fee="90">أسوان (٩٠ ج.م) — خلال 4-6 أيام</option><option value="red-sea" data-fee="95">البحر الأحمر (٩٥ ج.م) — خلال 4-6 أيام</option><option value="new-valley" data-fee="100">الوادي الجديد (١٠٠ ج.م) — خلال 5-7 أيام</option><option value="matrouh" data-fee="100">مطروح (١٠٠ ج.م) — خلال 5-7 أيام</option></select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold mb-1 text-on-surface-variant" data-ar="طريقة الدفع" data-en="Payment Method">طريقة الدفع</label>
+                    <select id="payMethod" class="w-full p-3 bg-surface border border-outline-variant rounded-xl outline-none focus:ring-2 focus:ring-primary text-xs">
+                        <option value="الدفع كاش عند الاستلام (COD)" data-ar="الدفع كاش عند الاستلام (COD)" data-en="Cash on Delivery (COD)">الدفع كاش عند الاستلام (COD)</option>
+                        <option value="انستا باي (InstaPay)" data-ar="انستا باي (InstaPay)" data-en="InstaPay">انستا باي (InstaPay)</option>
+                        <option value="محفظة إلكترونية (فودافون كاش)" data-ar="محفظة إلكترونية (فودافون كاش)" data-en="Vodafone Cash / E-Wallets">محفظة إلكترونية (فودافون كاش)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold mb-1 text-on-surface-variant" data-ar="العنوان بالتفصيل *" data-en="Detailed Address *">العنوان بالتفصيل *</label>
+                <input id="custAddress" required="" type="text" data-ar-placeholder="المنطقة، الشارع، رقم العقار أو الاستوديو" data-en-placeholder="Area, street name, studio/building number" placeholder="المنطقة، الشارع، رقم العقار أو الاستوديو" class="w-full p-3 bg-surface border border-outline-variant rounded-xl outline-none focus:ring-2 focus:ring-primary text-sm">
+            </div>
+
+            <!-- Coupon Code Input (#13) -->
+            <div>
+                <label class="block text-xs font-bold mb-1 text-on-surface-variant" data-ar="كوبون الخصم (اختياري)" data-en="Coupon Code (Optional)">كوبون الخصم (اختياري)</label>
+                <div class="flex gap-2">
+                    <input id="couponCodeInput" type="text" data-ar-placeholder="أدخل كود الكوبون إن وجد" data-en-placeholder="Enter coupon code" placeholder="أدخل كود الكوبون إن وجد" class="flex-1 p-2.5 bg-surface border border-outline-variant rounded-xl outline-none focus:ring-2 focus:ring-primary text-xs font-mono uppercase">
+                    <button type="button" onclick="applyBuilderCoupon()" class="px-4 py-2.5 bg-on-surface text-white rounded-xl text-xs font-bold hover:bg-black transition" data-ar="تطبيق" data-en="Apply">تطبيق</button>
+                </div>
+                <p id="couponMsg" class="text-[11px] mt-1 font-bold hidden"></p>
+            </div>
+
+            <div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant space-y-1.5 text-xs">
+                <div class="flex justify-between text-on-surface-variant"><span data-ar="إجمالي الكابلات والتوصيلات:" data-en="Cables &amp; Links Subtotal:">إجمالي الكابلات والتوصيلات:</span><span id="checkoutSubtotal" class="font-bold">0 ج.م</span></div>
+                <div class="flex justify-between text-on-surface-variant"><span data-ar="الشحن السريع:" data-en="Shipping:">الشحن السريع:</span><span id="checkoutShipping" class="font-bold">0 ج.م</span></div>
+                <div id="couponDiscountRow" class="flex justify-between text-green-700 font-bold hidden">
+                    <span data-ar="الخصم المطبق:" data-en="Discount:">الخصم المطبق:</span>
+                    <span id="checkoutDiscount">-0 ج.م</span>
+                </div>
+                <div class="flex justify-between text-base font-extrabold text-primary border-t border-outline-variant pt-2 mt-1"><span data-ar="الإجمالي النهائي:" data-en="Total:">الإجمالي النهائي:</span><span id="checkoutFinalTotal">0 ج.م</span></div>
+                
+                <!-- Deposit Box (#34) -->
+                <div id="depositInfoRow" class="bg-amber-50 border border-amber-200 p-2.5 rounded-lg text-amber-800 text-[11px] mt-2">
+                    <div class="flex justify-between font-bold">
+                        <span data-ar="العربون المطلوب للتجهيز:" data-en="Required Deposit:">العربون المطلوب للتجهيز:</span>
+                        <span id="checkoutDepositAmount">0 ج.م</span>
+                    </div>
+                    <div class="flex justify-between text-amber-700 mt-0.5">
+                        <span data-ar="المتبقي عند الاستلام:" data-en="Remaining on Delivery:">المتبقي عند الاستلام:</span>
+                        <span id="checkoutRemainingAmount">0 ج.م</span>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="w-full bg-whatsapp text-white py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 hover:bg-whatsapp-hover transition shadow-md">
+                <span data-ar="تأكيد وإرسال طلب التوصيلات عبر الواتساب" data-en="Confirm &amp; Send via WhatsApp">تأكيد وإرسال طلب التوصيلات عبر الواتساب</span>
+                <span class="material-symbols-outlined text-lg">send</span>
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- ================= ORDER SUCCESS MODAL ================= -->
+<div id="orderSuccessModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden justify-center items-center z-[2000] modal-overlay">
+    <div class="bg-surface-container-lowest rounded-2xl w-[90%] max-w-[460px] p-6 md:p-8 text-center modal-content shadow-2xl border border-outline-variant">
+        <div class="w-14 h-14 bg-green-100 text-success rounded-full flex items-center justify-center mx-auto mb-3">
+            <span class="material-symbols-outlined text-3xl">check_circle</span>
+        </div>
+        <h3 class="font-bold text-xl text-on-surface mb-1" data-ar="تم تجهيز طلبك بنجاح!" data-en="Order Placed Successfully!">تم تجهيز طلبك بنجاح!</h3>
+        <p class="text-xs text-on-surface-variant mb-3" data-ar="رقم الطلب الخاص بك:" data-en="Your Order Reference:">رقم الطلب الخاص بك:</p>
+        <div class="bg-surface-container-low py-2.5 px-5 rounded-xl font-mono text-lg font-bold text-primary mb-5 inline-block tracking-wider" id="orderSuccessId">#ATT-00000</div>
+        
+        <div class="flex flex-col gap-2.5">
+            <a id="orderWhatsAppLink" href="#" target="_blank" class="w-full bg-whatsapp text-white py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:bg-whatsapp-hover transition shadow">
+                <span data-ar="فتح المحادثة على الواتساب" data-en="Open WhatsApp Chat">فتح المحادثة على الواتساب</span>
+                <span class="material-symbols-outlined text-lg">chat</span>
+            </a>
+            <button onclick="closeModal('orderSuccessModal')" class="w-full bg-surface border border-outline-variant py-2.5 rounded-xl font-semibold text-xs text-gray-700 hover:bg-gray-100 transition" data-ar="إغلاق" data-en="Close">إغلاق</button>
+        </div>
+    </div>
+</div>
+
+<!-- Floating Cart Button -->
+<button onclick="scrollToCart()" aria-label="عرض السلة" class="fixed bottom-6 ltr:right-6 rtl:left-6 bg-primary text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition z-40">
+    <div class="relative">
+        <span class="material-symbols-outlined text-2xl">shopping_cart</span>
+        <span id="floatingCartCount" class="absolute -top-2 -right-2 bg-[#1D1D1F] text-white text-[0.65rem] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-surface pulse-badge hidden">٠</span>
+    </div>
+</button>
+
+<script src="procable-data.js"></script>
+
+<script>
+    let selectedA = 0;
+    let selectedB = 1;
+    let selectedCable = 0;
+    let currentLength = 15;
+    let quantity = 1;
+    let appliedDiscountVal = 0;
+
+    function updateLength(val) {
+        currentLength = parseInt(val) || 1;
+        const slider = document.getElementById('lengthSlider');
+        slider.value = currentLength;
+        updateSliderVisual(slider);
+        
+        const isAr = ProCable.getLang() === 'ar';
+        const unit = isAr ? 'م' : 'm';
+        document.getElementById('lengthVal').innerText = `${ProCable.formatNum(currentLength)} ${unit}`;
+        
+        document.querySelectorAll('.preset-btn').forEach(btn => {
+            const preset = parseInt(btn.getAttribute('data-preset'));
+            btn.innerText = `${ProCable.formatNum(preset)} ${unit}`;
+            if (preset === currentLength) {
+                btn.className = "preset-btn px-4 py-1.5 rounded-xl border border-primary bg-primary text-white text-xs font-bold shadow transition";
+            } else {
+                btn.className = "preset-btn px-4 py-1.5 rounded-xl border border-outline-variant bg-surface text-xs font-bold hover:bg-primary hover:text-white transition";
+            }
+        });
+
+        updateCustomizer();
+    }
+
+    function updateSliderVisual(slider) {
+        const min = parseFloat(slider.min) || 1;
+        const max = parseFloat(slider.max) || 100;
+        const val = parseFloat(slider.value);
+        const percent = ((val - min) / (max - min)) * 100;
+        slider.style.background = `linear-gradient(to right, #C8102E 0%, #C8102E ${percent}%, #E2E2E7 ${percent}%, #E2E2E7 100%)`;
+    }
+
+    function changeQty(delta) {
+        quantity = Math.max(1, quantity + delta);
+        document.getElementById('qtyInput').value = ProCable.formatNum(quantity);
+        updateCustomizer();
+    }
+
+    function swapConnectors() {
+        const btn = document.querySelector('.swap-btn');
+        if (btn) btn.classList.toggle('rotated');
+        const temp = selectedA;
+        selectedA = selectedB;
+        selectedB = temp;
+        updateCustomizer();
+        ProCable.showToast(ProCable.getLang() === 'ar' ? 'تم تبديل أطراف التوصيل' : 'Connectors swapped', 'info');
+    }
+
+    function updateCustomizer() {
+        const connectors = ProCable.getConnectors();
+        const cables = ProCable.getCableTypes();
+        const isAr = ProCable.getLang() === 'ar';
+        const currency = isAr ? 'ج.م' : 'EGP';
+        const unit = isAr ? 'م' : 'm';
+
+        if (selectedA >= connectors.length) selectedA = 0;
+        if (selectedB >= connectors.length) selectedB = Math.min(1, connectors.length - 1);
+        if (selectedCable >= cables.length) selectedCable = 0;
+
+        // Render Grids A & B
+        const gridA = document.getElementById('gridA');
+        const gridB = document.getElementById('gridB');
+        gridA.innerHTML = '';
+        gridB.innerHTML = '';
+
+        connectors.forEach((c, idx) => {
+            const svg = PRO_SVGS[c.id] || PRO_SVGS[c.icon] || PRO_SVGS['xlr-m'];
+            const actA = idx === selectedA ? "border-primary bg-primary text-white shadow" : "bg-surface border-outline-variant hover:border-primary/50 text-on-surface";
+            const actB = idx === selectedB ? "border-primary bg-primary text-white shadow" : "bg-surface border-outline-variant hover:border-primary/50 text-on-surface";
+            const name = isAr ? c.nameAr : (c.nameEn || c.nameAr);
+            const visual = c.image 
+                ? `<img src="${ProCable.sanitize(c.image)}" class="w-7 h-7 object-contain rounded mb-1"/>` 
+                : `<div class="w-6 h-6 mb-1">${svg}</div>`;
+
+            gridA.innerHTML += `
+                <button onclick="selectedA=${idx}; updateCustomizer();" class="p-2 rounded-xl border text-center flex flex-col items-center justify-center transition ${actA}" title="${ProCable.sanitize(name)}">
+                    ${visual}
+                    <span class="text-[0.65rem] font-bold leading-tight line-clamp-1">${ProCable.sanitize(name)}</span>
+                </button>
+            `;
+            gridB.innerHTML += `
+                <button onclick="selectedB=${idx}; updateCustomizer();" class="p-2 rounded-xl border text-center flex flex-col items-center justify-center transition ${actB}" title="${ProCable.sanitize(name)}">
+                    ${visual}
+                    <span class="text-[0.65rem] font-bold leading-tight line-clamp-1">${ProCable.sanitize(name)}</span>
+                </button>
+            `;
+        });
+
+        // Cable Cores Grid
+        const cableGrid = document.getElementById('cableGrid');
+        cableGrid.innerHTML = '';
+        cables.forEach((c, idx) => {
+            const isSel = idx === selectedCable;
+            const cls = isSel ? "border-2 border-primary bg-primary-fixed/40 shadow-sm" : "border border-outline-variant bg-surface hover:border-primary/50";
+            const badge = c.popular ? `<span class="bg-primary text-white text-[0.65rem] font-bold px-2 py-0.5 rounded-full">${isAr ? 'الأعلى طلباً' : 'Popular'}</span>` : '';
+            const cName = isAr ? c.nameAr : (c.nameEn || c.nameAr);
+            const cDesc = isAr ? c.descAr : (c.descEn || c.descAr);
+
+            cableGrid.innerHTML += `
+                <div onclick="selectedCable=${idx}; updateCustomizer();" class="p-5 rounded-2xl cursor-pointer transition flex flex-col justify-between ${cls}">
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <h4 class="font-bold text-sm text-on-surface">${ProCable.sanitize(cName)}</h4>
+                            ${badge}
+                        </div>
+                        <p class="text-xs text-on-surface-variant mb-3">${ProCable.sanitize(cDesc)}</p>
+                    </div>
+                    <div class="font-bold text-sm text-primary">
+                        +${ProCable.formatNum(c.pricePerM)} ${currency} <span class="text-xs text-on-surface-variant font-normal">/ ${isAr ? 'متر' : 'meter'}</span>
+                    </div>
+                </div>
+            `;
+        });
+
+        const connA = connectors[selectedA] || connectors[0];
+        const connB = connectors[selectedB] || connectors[0];
+        const cable = cables[selectedCable] || cables[0];
+        const customLabel = document.getElementById('cableCustomLabel')?.value.trim() || '';
+
+        const nameA = isAr ? connA.nameAr : (connA.nameEn || connA.nameAr);
+        const nameB = isAr ? connB.nameAr : (connB.nameEn || connB.nameAr);
+        const nameCable = isAr ? cable.nameAr : (cable.nameEn || cable.nameAr);
+
+        const visualDisplayA = connA.image 
+            ? `<img src="${ProCable.sanitize(connA.image)}" class="max-h-24 max-w-full object-contain rounded-xl drop-shadow-md" alt="${ProCable.sanitize(nameA)}"/>` 
+            : (PRO_SVGS[connA.id] || PRO_SVGS[connA.icon] || PRO_SVGS['xlr-m']);
+        document.getElementById('imgDisplayA').innerHTML = visualDisplayA;
+        document.getElementById('titleA').innerText = nameA;
+        document.getElementById('priceDisplayA').innerText = `${ProCable.formatNum(connA.price)} ${currency}`;
+
+        const visualDisplayB = connB.image 
+            ? `<img src="${ProCable.sanitize(connB.image)}" class="max-h-24 max-w-full object-contain rounded-xl drop-shadow-md" alt="${ProCable.sanitize(nameB)}"/>` 
+            : (PRO_SVGS[connB.id] || PRO_SVGS[connB.icon] || PRO_SVGS['xlr-m']);
+        document.getElementById('imgDisplayB').innerHTML = visualDisplayB;
+        document.getElementById('titleB').innerText = nameB;
+        document.getElementById('priceDisplayB').innerText = `${ProCable.formatNum(connB.price)} ${currency}`;
+
+        document.getElementById('sumA').innerText = nameA;
+        document.getElementById('sumB').innerText = nameB;
+        document.getElementById('sumCable').innerText = nameCable;
+        document.getElementById('sumLength').innerText = `${ProCable.formatNum(currentLength)} ${unit}`;
+
+        const singleCost = connA.price + connB.price + (cable.pricePerM * currentLength);
+        const total = singleCost * quantity;
+        document.getElementById('totalPrice').innerText = `${ProCable.formatNum(total)} ${currency}`;
+
+        // Deposit Info notice
+        const s = ProCable.getSettings();
+        if (s.depositEnabled) {
+            const dep = ProCable.calculateDeposit(total);
+            document.getElementById('builderDepositNotice').classList.remove('hidden');
+            document.getElementById('builderDepositNoticeText').innerText = isAr 
+                ? `العربون المقدر لهذا الكابل: ${ProCable.formatNum(dep)} ج.م (والباقي ${ProCable.formatNum(total - dep)} ج.م عند الاستلام).`
+                : `Estimated deposit: ${ProCable.formatNum(dep)} EGP (Remaining ${ProCable.formatNum(total - dep)} EGP upon delivery).`;
+        } else {
+            document.getElementById('builderDepositNotice').classList.add('hidden');
+        }
+
+        const curve = Math.min(50, Math.max(10, currentLength));
+        document.getElementById('finalCablePreview').innerHTML = `
+            <svg viewBox="0 0 240 80" class="w-full h-full max-h-20">
+                <path d="M 25 40 Q 120 ${40 + (curve / 2)} 215 40" stroke="#1D1D1F" stroke-width="9" fill="none" stroke-linecap="round" class="animate-draw"/>
+                <circle cx="25" cy="40" r="11" fill="var(--primary-color, #C8102E)" />
+                <circle cx="215" cy="40" r="11" fill="#3D3D3F" />
+            </svg>
+        `;
+        document.getElementById('visualLabels').innerText = `${nameA} ◄--- [${ProCable.formatNum(currentLength)} ${unit}] ---► ${nameB}`;
+        document.getElementById('visualCustomLabel').innerText = customLabel ? (isAr ? `🏷️ المطبوع: "${customLabel}"` : `🏷️ Printed: "${customLabel}"`) : '';
+    }
+
+    function addCustomToCart() {
+        const connectors = ProCable.getConnectors();
+        const cables = ProCable.getCableTypes();
+        const connA = connectors[selectedA];
+        const connB = connectors[selectedB];
+        const cable = cables[selectedCable];
+        const customLabel = document.getElementById('cableCustomLabel')?.value.trim() || '';
+        const isAr = ProCable.getLang() === 'ar';
+
+        const nameA = isAr ? connA.nameAr : (connA.nameEn || connA.nameAr);
+        const nameB = isAr ? connB.nameAr : (connB.nameEn || connB.nameAr);
+        const nameCable = isAr ? cable.nameAr : (cable.nameEn || cable.nameAr);
+
+        const singleCost = connA.price + connB.price + (cable.pricePerM * currentLength);
+        const itemName = customLabel 
+            ? `${nameA} ←→ ${nameB} (${customLabel})`
+            : `${nameA} ←→ ${nameB}`;
+
+        ProCable.addToCart({
+            id: Date.now(),
+            type: 'custom',
+            name: itemName,
+            connA: nameA,
+            connB: nameB,
+            cable: nameCable,
+            length: currentLength,
+            customLabel: customLabel,
+            qty: quantity,
+            unitPrice: singleCost,
+            price: singleCost * quantity
+        });
+
+        quantity = 1;
+        document.getElementById('qtyInput').value = ProCable.formatNum(1);
+        if (document.getElementById('cableCustomLabel')) document.getElementById('cableCustomLabel').value = '';
+        updateCustomizer();
+        renderCartView();
+    }
+
+    function renderCartView() {
+        const cart = ProCable.getCart();
+        const contentWrapper = document.getElementById('cartContentWrapper');
+        const list = document.getElementById('cartItemsList');
+        const emptyMsg = document.getElementById('emptyCartMessage');
+        const summary = document.getElementById('cartSummaryBlock');
+        const totalSumEl = document.getElementById('cartTotalSum');
+        const subtotalTextEl = document.getElementById('cartItemsSubtotalText');
+        const memberBadge = document.getElementById('cartMemberPerkBadge');
+        const isAr = ProCable.getLang() === 'ar';
+        const currency = isAr ? 'ج.م' : 'EGP';
+        const unit = isAr ? 'م' : 'm';
+
+        ProCable.updateCartBadges();
+
+        const badge = document.getElementById('cartItemCountBadge');
+        const totalItemsCount = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+        if (badge) badge.innerText = isAr ? `${ProCable.formatNum(totalItemsCount)} عناصر` : `${ProCable.formatNum(totalItemsCount)} items`;
+
+        if (cart.length === 0) {
+            list.innerHTML = '';
+            emptyMsg.classList.remove('hidden');
+            if (contentWrapper) contentWrapper.classList.add('hidden');
+            if (summary) summary.classList.add('hidden');
+            return;
+        }
+
+        emptyMsg.classList.add('hidden');
+        if (contentWrapper) contentWrapper.classList.remove('hidden');
+        if (summary) summary.classList.remove('hidden');
+
+        // Check active member perks
+        if (memberBadge) {
+            const user = ProCable.getCurrentUserAccount ? ProCable.getCurrentUserAccount() : null;
+            if (user) {
+                let perkTexts = [];
+                if (user.discountPercent > 0) perkTexts.push(isAr ? `خصم عضوية ${ProCable.formatNum(user.discountPercent)}%` : `${user.discountPercent}% Member Discount`);
+                if (user.freeShipping) perkTexts.push(isAr ? 'شحن مجاني' : 'Free Shipping');
+                if (Array.isArray(user.customPerks) && user.customPerks.length) {
+                    user.customPerks.forEach(p => perkTexts.push(p));
+                }
+                
+                memberBadge.innerHTML = `
+                    <div class="p-3.5 bg-green-50 border border-green-200 rounded-2xl flex items-center gap-2.5 text-green-900 text-xs">
+                        <span class="material-symbols-outlined text-green-600 text-lg flex-shrink-0">verified</span>
+                        <div class="font-bold flex-1">
+                            <span class="block">${isAr ? `أهلاً بك يا ${user.name.split(' ')[0]}!` : `Welcome back, ${user.name}!`}</span>
+                            <span class="block text-[11px] font-normal text-green-800 mt-0.5">${perkTexts.join(' • ')}</span>
+                        </div>
+                    </div>
+                `;
+                memberBadge.classList.remove('hidden');
+            } else {
+                memberBadge.innerHTML = `
+                    <div class="p-3 bg-[#F5F5F7] rounded-2xl border border-black/[0.04] flex items-center justify-between text-xs">
+                        <span class="text-on-surface-variant text-[11px] font-medium">${isAr ? 'سجل دخولك للاستفادة من مزايا العضوية' : 'Sign in for member perks & free shipping'}</span>
+                        <button type="button" onclick="ProCable.showAuthModal()" class="text-primary font-bold text-xs hover:underline">${isAr ? 'دخول' : 'Sign in'}</button>
+                    </div>
+                `;
+                memberBadge.classList.remove('hidden');
+            }
+        }
+
+        let grandTotal = 0;
+        let html = '';
+
+        cart.forEach(item => {
+            grandTotal += item.price;
+            const isCustom = item.type === 'custom';
+            
+            // Icon / Visual preview
+            let visual = '';
+            const storeProd = !isCustom ? ProCable.getProducts().find(p => p.id === item.id) : null;
+            const itemImage = item.image || (storeProd ? storeProd.image : '');
+            const itemIcon = item.icon || (storeProd ? storeProd.icon : 'xlr-m');
+
+            if (itemImage) {
+                visual = `<img src="${ProCable.sanitize(itemImage)}" alt="${ProCable.sanitize(item.name)}" class="w-full h-full object-cover rounded-xl"/>`;
+            } else {
+                const iconKey = isCustom ? 'cable' : itemIcon;
+                const svg = (typeof PRO_SVGS !== 'undefined' && PRO_SVGS[iconKey]) ? PRO_SVGS[iconKey] : (PRO_SVGS['cable'] || PRO_SVGS['xlr-m']);
+                visual = `<div class="w-10 h-10 flex items-center justify-center">${svg}</div>`;
+            }
+
+            const itemTypeBadge = isCustom 
+                ? (isAr ? 'كابل تفصيل خاص' : 'Custom Cable')
+                : (isAr ? 'منتج جاهز' : 'Ready Product');
+
+            const unitPrice = item.unitPrice || (item.price / (item.qty || 1));
+            const itemUnitFormatted = ProCable.formatNum(unitPrice);
+            const safeItemId = JSON.stringify(item.id);
+
+            html += `
+                <!-- Vertical spacious item card with zero overlap -->
+                <div class="bg-white border border-black/[0.08] rounded-[24px] p-5 sm:p-6 shadow-sm hover:border-black/[0.14] transition-all space-y-4">
+                    <!-- Top Row: Thumbnail + Product Name & Badges + Delete Button -->
+                    <div class="flex items-start justify-between gap-4">
+                        <div class="flex items-start gap-4 flex-1 min-w-0">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-surface-container-low border border-black/[0.04] flex items-center justify-center flex-shrink-0 p-2 overflow-hidden">
+                                ${visual}
+                            </div>
+                            <div class="space-y-1.5 flex-1 min-w-0">
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full ${isCustom ? 'bg-primary/10 text-primary' : 'bg-black/5 text-on-surface-variant'}">${itemTypeBadge}</span>
+                                    ${item.customLabel ? `<span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-amber-50 text-amber-900 border border-amber-200 flex items-center gap-1"><span class="material-symbols-outlined text-xs">label</span>${ProCable.sanitize(item.customLabel)}</span>` : ''}
+                                </div>
+                                <h4 class="font-black text-base sm:text-lg text-on-surface leading-snug break-words">${ProCable.sanitize(item.name)}</h4>
+                                <div class="text-xs text-on-surface-variant space-y-0.5 leading-relaxed">
+                                    ${item.cable ? `<div><span class="font-semibold text-gray-500">${isAr ? 'نوع السلك:' : 'Wire:'}</span> ${ProCable.sanitize(item.cable)}</div>` : ''}
+                                    ${item.length ? `<div><span class="font-semibold text-gray-500">${isAr ? 'طول الكابل:' : 'Cable Length:'}</span> <span class="font-bold text-primary">${ProCable.formatNum(item.length)} ${unit}</span></div>` : ''}
+                                    ${isCustom && item.connA && item.connB ? `<div><span class="font-semibold text-gray-500">${isAr ? 'الموصلات:' : 'Connectors:'}</span> <span class="text-primary font-bold">${ProCable.sanitize(item.connA)} ←→ ${ProCable.sanitize(item.connB)}</span></div>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Delete Button -->
+                        <button onclick="ProCable.removeFromCart(${safeItemId}); renderCartView();" class="w-9 h-9 rounded-full bg-red-50 text-red-600 hover:bg-red-600 hover:text-white transition flex items-center justify-center flex-shrink-0 shadow-2xs" title="${isAr ? 'حذف من السلة' : 'Remove item'}">
+                            <span class="material-symbols-outlined text-lg">delete</span>
+                        </button>
+                    </div>
+
+                    <!-- Bottom Action Bar: Unit Price, Quantity Stepper, Item Total (Zero Overlap) -->
+                    <div class="pt-3 border-t border-black/[0.06] flex flex-wrap items-center justify-between gap-4">
+                        <!-- Unit Price -->
+                        <div class="text-xs text-on-surface-variant font-medium">
+                            <span>${isAr ? 'سعر القطعة:' : 'Unit price:'}</span>
+                            <span class="font-bold text-on-surface ms-1 stat-number text-sm">${itemUnitFormatted} ${currency}</span>
+                        </div>
+
+                        <!-- Apple Pill Stepper -->
+                        <div class="flex items-center bg-surface-container-high rounded-full p-1 border border-black/[0.06]">
+                            <button onclick="ProCable.updateCartQty(${safeItemId}, -1); renderCartView();" class="w-8 h-8 rounded-full bg-white text-on-surface hover:bg-black/5 flex items-center justify-center font-bold text-sm shadow-2xs active:scale-90 transition" title="${isAr ? 'تقليل' : 'Decrease'}">−</button>
+                            <span class="w-8 text-center text-sm font-black stat-number text-on-surface">${ProCable.formatNum(item.qty)}</span>
+                            <button onclick="ProCable.updateCartQty(${safeItemId}, 1); renderCartView();" class="w-8 h-8 rounded-full bg-white text-on-surface hover:bg-black/5 flex items-center justify-center font-bold text-sm shadow-2xs active:scale-90 transition" title="${isAr ? 'زيادة' : 'Increase'}">+</button>
+                        </div>
+
+                        <!-- Item Total Price -->
+                        <div class="text-end">
+                            <span class="text-[11px] text-gray-400 block">${isAr ? 'إجمالي الصنف:' : 'Total:'}</span>
+                            <span class="font-black text-lg text-primary stat-number">${ProCable.formatNum(item.price)} ${currency}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        list.innerHTML = html;
+        const totalFormatted = `${ProCable.formatNum(grandTotal)} ${currency}`;
+        if (totalSumEl) totalSumEl.innerText = totalFormatted;
+        if (subtotalTextEl) subtotalTextEl.innerText = totalFormatted;
+    }
+
+    function clearBuilderCart() {
+        const isAr = ProCable.getLang() === 'ar';
+        if (confirm(isAr ? 'هل ترغب في تفريغ السلة؟' : 'Do you want to clear your cart?')) {
+            ProCable.clearCart();
+            renderCartView();
+        }
+    }
+
+    function scrollToCart() {
+        const el = document.getElementById('cartSection');
+        if (el) {
+            const drawer = document.getElementById('mobileDrawer');
+            if (drawer && !drawer.classList.contains('hidden')) {
+                drawer.classList.add('hidden');
+            }
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            el.classList.add('ring-4', 'ring-primary/20', 'rounded-[32px]', 'transition-all', 'duration-500');
+            setTimeout(() => {
+                el.classList.remove('ring-4', 'ring-primary/20');
+            }, 1800);
+        }
+    }
+
+    // Modal Helpers
+    function openModal(id) {
+        const el = document.getElementById(id);
+        el.classList.remove('hidden');
+        el.classList.add('flex');
+        setTimeout(() => el.classList.add('active'), 10);
+    }
+
+    function closeModal(id) {
+        const el = document.getElementById(id);
+        el.classList.remove('active');
+        setTimeout(() => {
+            el.classList.remove('flex');
+            el.classList.add('hidden');
+        }, 300);
+    }
+
+    function handleBackdropClick(e, id) {
+        if (e.target.id === id) closeModal(id);
+    }
+
+    // Checkout (#13, #34, #36)
+    function populateShippingSelect() {
+        const select = document.getElementById('custGov');
+        const rates = ProCable.getShipping();
+        const isAr = ProCable.getLang() === 'ar';
+        const currency = isAr ? 'ج.م' : 'EGP';
+        // Only show enabled governorates
+        const activeRates = rates.filter(r => r.enabled !== false);
+        select.innerHTML = activeRates.map(r => {
+            const govName = isAr ? r.nameAr : (r.nameEn || r.nameAr);
+            const deliveryTime = isAr ? (r.deliveryTimeAr || '') : (r.deliveryTimeEn || r.deliveryTimeAr || '');
+            const timeLabel = deliveryTime ? ` — ${deliveryTime}` : '';
+            return `<option value="${r.id}" data-fee="${r.fee}">${govName} (${ProCable.formatNum(r.fee)} ${currency})${timeLabel}</option>`;
+        }).join('');
+    }
+
+    function openCheckoutModal() {
+        const isAr = ProCable.getLang() === 'ar';
+        if (ProCable.getCart().length === 0) {
+            ProCable.showToast(isAr ? 'السلة فارغة!' : 'Cart is empty!', 'error');
+            return;
+        }
+        appliedDiscountVal = 0;
+        document.getElementById('couponDiscountRow').classList.add('hidden');
+        document.getElementById('couponMsg').classList.add('hidden');
+        document.getElementById('couponCodeInput').value = '';
+
+        // Check user perks & pre-fill
+        const user = ProCable.getCurrentUserAccount();
+        const banner = document.getElementById('checkoutUserPerksBanner');
+        if (banner) {
+            if (user) {
+                if (user.name && !document.getElementById('custName').value) document.getElementById('custName').value = user.name;
+                if (user.phone && !document.getElementById('custPhone').value) document.getElementById('custPhone').value = user.phone;
+                
+                const perks = [];
+                if (user.freeShipping) perks.push(isAr ? '🚚 شحن مجاني مفعل' : 'Free Shipping Active');
+                if (user.discountPercent > 0) perks.push(isAr ? `🏷️ خصم خاص ${user.discountPercent}%` : `${user.discountPercent}% Member Discount`);
+                if (user.customCoupon) perks.push(isAr ? `🎟️ كوبونك: ${user.customCoupon}` : `Coupon: ${user.customCoupon}`);
+                if (Array.isArray(user.customPerks)) {
+                    user.customPerks.forEach(p => perks.push(`⭐ ${p}`));
+                }
+
+                banner.innerHTML = `
+                    <div class="p-3.5 bg-green-50/90 border border-green-200 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-900 font-bold text-xs mb-1">
+                            <span class="material-symbols-outlined text-base text-green-700">verified</span>
+                            <span>${isAr ? `أهلاً بك يا ${user.name.split(' ')[0]}! تم تفعيل مزايا عضويتك في هذا الطلب تلقائياً:` : `Welcome back ${user.name}! Your member perks are applied:`}</span>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-1.5">
+                            ${perks.map(p => `<span class="bg-white border border-green-300 text-green-800 text-[10px] font-bold px-2 py-0.5 rounded-lg shadow-2xs">${p}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+                banner.classList.remove('hidden');
+            } else {
+                banner.innerHTML = `
+                    <div class="p-2.5 bg-surface border border-outline-variant rounded-xl flex items-center justify-between text-xs">
+                        <div class="flex items-center gap-1.5 text-on-surface">
+                            <span class="material-symbols-outlined text-primary text-base">loyalty</span>
+                            <span>${isAr ? 'لديك حساب مسجل؟ سجل دخولك للاستفادة من الشحن المجاني والخصومات' : 'Have an account? Log in for member perks'}</span>
+                        </div>
+                        <button type="button" onclick="closeModal('checkoutModal'); ProCable.showAuthModal();" class="text-[11px] font-bold text-primary underline">${isAr ? 'دخول' : 'Sign in'}</button>
+                    </div>
+                `;
+                banner.classList.remove('hidden');
+            }
+        }
+
+        populateShippingSelect();
+        calculateShipping();
+        openModal('checkoutModal');
+    }
+
+    function applyBuilderCoupon() {
+        const code = document.getElementById('couponCodeInput').value;
+        const cart = ProCable.getCart();
+        const subtotal = cart.reduce((sum, i) => sum + i.price, 0);
+        const res = ProCable.applyCoupon(code, subtotal);
+        const msgEl = document.getElementById('couponMsg');
+        const isAr = ProCable.getLang() === 'ar';
+        const currency = isAr ? 'ج.م' : 'EGP';
+        msgEl.classList.remove('hidden', 'text-green-600', 'text-red-500');
+
+        if (res.valid) {
+            appliedDiscountVal = res.discount;
+            msgEl.innerText = `✓ ${res.message}`;
+            msgEl.classList.add('text-green-600');
+            document.getElementById('couponDiscountRow').classList.remove('hidden');
+            document.getElementById('checkoutDiscount').innerText = `-${ProCable.formatNum(appliedDiscountVal)} ${currency}`;
+        } else {
+            appliedDiscountVal = 0;
+            msgEl.innerText = res.message;
+            msgEl.classList.add('text-red-500');
+            document.getElementById('couponDiscountRow').classList.add('hidden');
+        }
+        calculateShipping();
+    }
+
+    function calculateShipping() {
+        const govSelect = document.getElementById('custGov');
+        const selectedOpt = govSelect.options[govSelect.selectedIndex];
+        const govId = selectedOpt ? selectedOpt.value : null;
+        let fee = parseInt(selectedOpt ? selectedOpt.getAttribute('data-fee') : '45') || 45;
+        const isAr = ProCable.getLang() === 'ar';
+        const currency = isAr ? 'ج.م' : 'EGP';
+
+        const cart = ProCable.getCart();
+        const subtotal = cart.reduce((sum, i) => sum + i.price, 0);
+
+        const user = ProCable.getCurrentUserAccount();
+        let isFreeShippingApplied = false;
+        let freeShipReason = '';
+
+        // User member free shipping perk
+        if (user && user.freeShipping) {
+            fee = 0;
+            isFreeShippingApplied = true;
+            freeShipReason = isAr ? 'شحن مجاني لعضويتك! 🚚' : 'Free Shipping (Member Perk)';
+        }
+
+        // Store-wide free shipping
+        if (!isFreeShippingApplied && govId) {
+            const effective = ProCable.calculateEffectiveShipping(subtotal, govId);
+            if (effective.isFree) {
+                fee = 0;
+                isFreeShippingApplied = true;
+                if (effective.reason === 'free_all') {
+                    freeShipReason = isAr ? 'عرض خاص: شحن مجاني لجميع الطلبات! 🚚' : 'Special Offer: Free Shipping on all orders! 🚚';
+                } else {
+                    freeShipReason = isAr ? `شحن مجاني للطلبات فوق ${ProCable.formatNum(ProCable.getSettings().freeShippingMinOrder)} ج.م 🚚` : `Free shipping on orders over ${ProCable.formatNum(ProCable.getSettings().freeShippingMinOrder)} EGP`;
+                }
+            } else {
+                fee = effective.fee;
+            }
+        }
+
+        // Auto apply user discount percent if no other manual coupon is entered
+        if (appliedDiscountVal === 0 && user && user.discountPercent > 0) {
+            appliedDiscountVal = Math.round(subtotal * (user.discountPercent / 100));
+            document.getElementById('couponDiscountRow').classList.remove('hidden');
+            document.getElementById('checkoutDiscount').innerText = `-${ProCable.formatNum(appliedDiscountVal)} ${currency} (${user.discountPercent}%)`;
+        }
+
+        const finalTotal = Math.max(0, subtotal + fee - appliedDiscountVal);
+
+        document.getElementById('checkoutSubtotal').innerText = `${ProCable.formatNum(subtotal)} ${currency}`;
+        document.getElementById('checkoutShipping').innerText = isFreeShippingApplied 
+            ? `0 ${currency} (${freeShipReason})`
+            : `${ProCable.formatNum(fee)} ${currency}`;
+        document.getElementById('checkoutFinalTotal').innerText = `${ProCable.formatNum(finalTotal)} ${currency}`;
+
+        // Deposit calculation (#34)
+        const s = ProCable.getSettings();
+        if (s.depositEnabled) {
+            const deposit = ProCable.calculateDeposit(finalTotal);
+            document.getElementById('checkoutDepositAmount').innerText = `${ProCable.formatNum(deposit)} ${currency}`;
+            document.getElementById('checkoutRemainingAmount').innerText = `${ProCable.formatNum(finalTotal - deposit)} ${currency}`;
+            document.getElementById('depositInfoRow').classList.remove('hidden');
+        } else {
+            document.getElementById('depositInfoRow').classList.add('hidden');
+        }
+    }
+
+    function handleCheckout(e) {
+        e.preventDefault();
+        const cart = ProCable.getCart();
+        if (cart.length === 0) return;
+
+        const name = document.getElementById('custName').value.trim();
+        const phone = document.getElementById('custPhone').value.trim();
+        const govSelect = document.getElementById('custGov');
+        const govText = govSelect.options[govSelect.selectedIndex].text;
+        const user = ProCable.getCurrentUserAccount();
+        const govId = govSelect.value;
+        const subtotal = cart.reduce((sum, i) => sum + i.price, 0);
+        let fee = parseInt(govSelect.options[govSelect.selectedIndex].getAttribute('data-fee')) || 45;
+        if (user && user.freeShipping) {
+            fee = 0;
+        } else if (govId) {
+            const effective = ProCable.calculateEffectiveShipping(subtotal, govId);
+            fee = effective.fee;
+        }
+
+        const address = document.getElementById('custAddress').value.trim();
+        const payment = document.getElementById('payMethod').value;
+
+        const grandTotal = Math.max(0, subtotal + fee - appliedDiscountVal);
+        const deposit = ProCable.getSettings().depositEnabled ? ProCable.calculateDeposit(grandTotal) : 0;
+
+        let userPerksList = [];
+        if (user) {
+            if (user.freeShipping) userPerksList.push('شحن مجاني');
+            if (user.discountPercent > 0) userPerksList.push(`خصم ${user.discountPercent}%`);
+            if (Array.isArray(user.customPerks)) userPerksList = userPerksList.concat(user.customPerks);
+        }
+
+        const order = {
+            customerName: name,
+            customerPhone: phone,
+            governorate: govText,
+            addressDetails: address,
+            paymentMethod: payment,
+            items: cart,
+            subtotal: subtotal,
+            shippingFee: fee,
+            discount: appliedDiscountVal,
+            total: grandTotal,
+            deposit: deposit,
+            remaining: grandTotal - deposit,
+            registeredUserEmail: user ? user.email : null,
+            userPerks: userPerksList,
+            notes: user ? `[عضو مسجل: ${user.email} | مزايا: ${userPerksList.join(', ')}]` : ''
+        };
+
+        const savedOrder = ProCable.saveOrder(order);
+        const encodedMsg = ProCable.buildWhatsAppMessage(savedOrder);
+        const settings = ProCable.getSettings();
+        const whatsappUrl = `https://wa.me/${settings.whatsappNumber}?text=${encodedMsg}`;
+
+        ProCable.clearCart();
+        renderCartView();
+        closeModal('checkoutModal');
+
+        document.getElementById('orderSuccessId').innerText = `#${savedOrder.id}`;
+        document.getElementById('orderWhatsAppLink').setAttribute('href', whatsappUrl);
+        openModal('orderSuccessModal');
+
+        window.open(whatsappUrl, '_blank');
+    }
+
+    function initBuilderAppleExperience() {
+        // 1. Navigation frosted scroll listener
+        const nav = document.querySelector('nav.apple-nav');
+        if (nav) {
+            const updateNav = () => {
+                if (window.scrollY > 20) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            };
+            window.addEventListener('scroll', updateNav, { passive: true });
+            updateNav();
+        }
+
+        // 2. Scroll Reveal IntersectionObserver
+        if ('IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.08,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            document.querySelectorAll('.apple-reveal').forEach(el => revealObserver.observe(el));
+        } else {
+            document.querySelectorAll('.apple-reveal').forEach(el => el.classList.add('revealed'));
+        }
+    }
+
+    // Init
+    window.addEventListener('DOMContentLoaded', () => {
+        updateLength(15);
+        renderCartView();
+        populateShippingSelect();
+        initBuilderAppleExperience();
+        // Pull latest admin-edited content from the server, then refresh the page with it.
+        if (ProCable.syncFromServer) {
+            ProCable.syncFromServer().then((updated) => {
+                if (updated) {
+                    updateLength(15);
+                    populateShippingSelect();
+                }
+            });
+        }
+    });
+
+</script>
+<!-- User Auth Modal -->
+<div id="userAuthModal" onclick="if(event.target === this) ProCable.hideAuthModal()" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden justify-center items-center z-[2500] modal-overlay p-4">
+    <div class="bg-surface-container-lowest rounded-3xl w-full max-w-[430px] p-6 relative modal-content shadow-2xl border border-outline-variant max-h-[90vh] overflow-y-auto">
+        <button onclick="ProCable.hideAuthModal()" class="absolute ltr:right-4 rtl:left-4 top-4 text-gray-400 hover:text-gray-700 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition" title="إغلاق">&#10005;</button>
+        
+        <div class="flex items-center gap-3 mb-5">
+            <div class="w-12 h-12 rounded-2xl bg-primary-fixed text-primary flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined text-2xl">account_circle</span>
+            </div>
+            <div>
+                <h3 class="text-base font-black text-on-surface" data-ar="حساب Attractive الخاص بك" data-en="Your Attractive Account">حساب Attractive الخاص بك</h3>
+                <p class="text-xs text-on-surface-variant" data-ar="سجل دخولك أو أنشئ حساباً للاستمتاع بالمزايا والخصومات" data-en="Sign in or register to unlock exclusive member perks">سجل دخولك أو أنشئ حساباً للاستمتاع بالمزايا والخصومات</p>
+            </div>
+        </div>
+
+        <div class="flex border-b border-outline-variant mb-5">
+            <button id="tabAuthSignIn" onclick="ProCable.switchAuthTab('signin')" class="flex-1 pb-3 text-center font-bold text-xs sm:text-sm text-primary border-b-2 border-primary transition flex items-center justify-center gap-1.5">
+                <span class="material-symbols-outlined text-base">login</span>
+                <span data-ar="تسجيل الدخول" data-en="Sign In">تسجيل الدخول</span>
+            </button>
+            <button id="tabAuthSignUp" onclick="ProCable.switchAuthTab('signup')" class="flex-1 pb-3 text-center font-bold text-xs sm:text-sm text-on-surface-variant border-b-2 border-transparent transition flex items-center justify-center gap-1.5">
+                <span class="material-symbols-outlined text-base">person_add</span>
+                <span data-ar="إنشاء حساب جديد" data-en="Create Account">إنشاء حساب جديد</span>
+            </button>
+        </div>
+
+        <div id="authErrorMsg" class="hidden mb-4 p-3 bg-red-50 text-error text-xs rounded-xl font-bold border border-red-200 flex items-center gap-2">
+            <span class="material-symbols-outlined text-base shrink-0">error</span>
+            <span id="authErrorMsgText"></span>
+        </div>
+
+        <!-- Sign In Form -->
+        <form id="authSignInForm" onsubmit="ProCable.handleSignIn(event)" class="space-y-4">
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1" data-ar="البريد الإلكتروني" data-en="Email Address">البريد الإلكتروني</label>
+                <input id="authEmailIn" required="" type="email" dir="ltr" placeholder="sound@example.com" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary font-mono">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1" data-ar="كلمة المرور" data-en="Password">كلمة المرور</label>
+                <input id="authPassIn" required="" type="password" dir="ltr" placeholder="••••••••" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary">
+            </div>
+            <button type="submit" class="w-full py-3 bg-primary hover:bg-primary-dark text-white rounded-xl font-bold text-xs sm:text-sm transition shadow flex items-center justify-center gap-2">
+                <span data-ar="دخول لحسابي" data-en="Sign In">دخول لحسابي</span>
+                <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </button>
+
+            <!-- Quick helper to switch to sign up -->
+            <div class="text-center pt-2 border-t border-outline-variant">
+                <span class="text-xs text-on-surface-variant" data-ar="ليس لديك حساب بعد؟" data-en="Do not have an account?">ليس لديك حساب بعد؟</span>
+                <button type="button" onclick="ProCable.switchAuthTab('signup')" class="text-xs font-bold text-primary hover:underline ms-1" data-ar="اضغط هنا لإنشاء حساب والحصول على المزايا" data-en="Register now &amp; get perks">اضغط هنا لإنشاء حساب والحصول على المزايا</button>
+            </div>
+
+            <!-- Demo credentials autofill button -->
+            <div class="p-2.5 bg-surface-container-low rounded-xl border border-outline-variant text-[11px] text-on-surface-variant flex items-center justify-between">
+                <span data-ar="تجربة سريعة بحساب تجريبي مجهز:" data-en="Quick Demo Account:">تجربة سريعة بحساب تجريبي مجهز:</span>
+                <button type="button" onclick="ProCable.fillDemoUser()" class="text-[11px] font-bold text-primary bg-primary/10 hover:bg-primary/20 px-2.5 py-1 rounded-lg transition" data-ar="تعبئة بيانات م/ طارق" data-en="Fill Demo VIP">تعبئة بيانات م/ طارق</button>
+            </div>
+        </form>
+
+        <!-- Sign Up Form -->
+        <form id="authSignUpForm" onsubmit="ProCable.handleSignUp(event)" class="space-y-4 hidden">
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1" data-ar="الاسم بالكامل" data-en="Full Name">الاسم بالكامل</label>
+                <input id="authNameUp" required="" type="text" placeholder="مثال: م/ أحمد علي" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1" data-ar="البريد الإلكتروني" data-en="Email Address">البريد الإلكتروني</label>
+                <input id="authEmailUp" required="" type="email" dir="ltr" placeholder="sound@example.com" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary font-mono">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1" data-ar="رقم الهاتف / الواتساب" data-en="Phone / WhatsApp">رقم الهاتف / الواتساب</label>
+                <input id="authPhoneUp" required="" type="tel" dir="ltr" placeholder="010xxxxxxxx" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary font-mono">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1" data-ar="كلمة المرور" data-en="Password">كلمة المرور</label>
+                <input id="authPassUp" required="" type="password" dir="ltr" minlength="4" placeholder="••••••••" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary">
+            </div>
+
+            <div class="p-2.5 bg-primary/5 rounded-xl border border-primary/20 text-[11px] text-primary space-y-1">
+                <div class="font-black flex items-center gap-1">
+                    <span class="material-symbols-outlined text-xs">loyalty</span>
+                    <span data-ar="بمجرد تسجيل حسابك ستتمتع تلقائياً بـ:" data-en="Upon sign-up you instantly get:">بمجرد تسجيل حسابك ستتمتع تلقائياً بـ:</span>
+                </div>
+                <p class="text-[10px] text-on-surface-variant leading-relaxed" data-ar="• شحن مجاني لكافة المحافظات + كود خصم مباشر + أولوية تجهيز وضمان ذهبي ممتد." data-en="• Free nationwide shipping + instant discount coupon + priority production.">• شحن مجاني لكافة المحافظات + كود خصم مباشر + أولوية تجهيز وضمان ذهبي ممتد.</p>
+            </div>
+
+            <button type="submit" class="w-full py-3 bg-primary hover:bg-primary-dark text-white rounded-xl font-bold text-xs sm:text-sm transition shadow flex items-center justify-center gap-2">
+                <span data-ar="تأكيد وإنشاء الحساب" data-en="Create My Account">تأكيد وإنشاء الحساب</span>
+                <span class="material-symbols-outlined text-base">check</span>
+            </button>
+
+            <div class="text-center pt-2 border-t border-outline-variant">
+                <span class="text-xs text-on-surface-variant" data-ar="لديك حساب بالفعل؟" data-en="Already have an account?">لديك حساب بالفعل؟</span>
+                <button type="button" onclick="ProCable.switchAuthTab('signin')" class="text-xs font-bold text-primary hover:underline ms-1" data-ar="تسجيل الدخول" data-en="Sign In">تسجيل الدخول</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<button id="floatingCouponBadge" title="كوبون خصم" style="position: fixed; bottom: 38%; right: 0px; left: auto; z-index: 9000; background: rgb(200, 16, 46); color: rgb(255, 255, 255); writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); padding: 14px 9px; border-radius: 10px 0px 0px 10px; font-size: 12px; font-weight: 900; cursor: pointer; display: none; align-items: center; gap: 6px; letter-spacing: 0.04em; box-shadow: rgba(0, 0, 0, 0.25) -4px 0px 18px; transition: 0.3s; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; outline: none; user-select: none;">
+            <span class="material-symbols-outlined" style="font-size:15px; writing-mode:horizontal-tb; transform: rotate(90deg); display:block;">redeem</span>
+            <span style="white-space:nowrap;">كوبون خصم</span>
+        </button><div id="couponPromoBubble" style="position: fixed; bottom: 24px; right: 16px; left: auto; z-index: 9001; max-width: 320px; width: 90%; background-color: rgb(29, 29, 31); border-radius: 24px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.15); color: rgb(255, 255, 255); font-size: 13px; box-shadow: rgba(0, 0, 0, 0.4) 0px 20px 60px; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); opacity: 1; transform: translateY(0px) scale(1); pointer-events: auto;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center;">
+                        <span class="material-symbols-outlined" style="font-size:17px;">redeem</span>
+                    </span>
+                    <span style="font-size:10px; font-weight:900; letter-spacing:0.08em; background:rgba(255,255,255,0.12); padding:2px 10px; border-radius:99px; text-transform:uppercase;">
+                        هدية لزوار الموقع
+                    </span>
+                </div>
+                <button onclick="ProCable.dismissCouponBubble()" style="background:none; border:none; color:rgba(255,255,255,0.6); cursor:pointer; font-size:16px; line-height:1; padding:2px 6px; border-radius:6px; transition:all 0.2s;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.1)';" onmouseout="this.style.color='rgba(255,255,255,0.6)';this.style.background='none';">&#10005;</button>
+            </div>
+
+            <h4 style="font-weight:900; font-size:14px; color:#fff; margin:0 0 6px; line-height:1.4;">🎁 خصم حصري 10% لزوار الموقع اليوم!</h4>
+            <p style="font-size:12px; color:rgba(255,255,255,0.78); line-height:1.6; margin:0 0 12px;">استخدم كود الخصم عند الدفع وتمتع بتخفيض فوري على كابلاتك المفصلة والجاهزة.</p>
+
+            <div style="background:rgba(0,0,0,0.28); backdrop-filter:blur(8px); border-radius:14px; padding:10px 12px; border:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px;">
+                <div>
+                    <span style="display:block; font-size:9px; color:rgba(255,255,255,0.55); margin-bottom:2px;">كود الكوبون الحصري:</span>
+                    <span style="font-family:monospace; font-weight:900; font-size:15px; color:#fbbf24; letter-spacing:0.1em; user-select:all;">ATTRACTIVE10</span>
+                </div>
+                <button onclick="ProCable.copyBubbleCouponCode('ATTRACTIVE10')" style="background:var(--primary-color,#C8102E); color:#fff; border:none; padding:7px 14px; border-radius:8px; font-size:11px; font-weight:700; cursor:pointer; display:flex; align-items:center; gap:4px; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+                    <span class="material-symbols-outlined" style="font-size:13px;">content_copy</span>
+                    <span>نسخ</span>
+                </button>
+            </div>
+
+            <div style="display:flex; align-items:center; justify-content:space-between; font-size:11px; color:rgba(255,255,255,0.65); padding-top:8px; border-top:1px solid rgba(255,255,255,0.1);">
+                <a href="store.html" style="color:rgba(255,255,255,0.8); text-decoration:underline; font-weight:700; display:flex; align-items:center; gap:4px;">
+                    <span>استخدمه الآن في المتجر</span>
+                    <span class="material-symbols-outlined" style="font-size:12px;">arrow_forward</span>
+                </a>
+                <button onclick="ProCable.dismissCouponBubble()" style="background:none; border:none; cursor:pointer; color:rgba(255,255,255,0.55); font-size:10px; font-weight:700;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+                    تصغير ←
+                </button>
+            </div>
+        </div><button id="floatingSubscriberBtn" class="fixed bottom-6 left-6 z-40 bg-surface-container-lowest border border-outline-variant hover:border-primary shadow-xl hover:shadow-2xl rounded-2xl p-2.5 sm:px-3.5 sm:py-2.5 flex items-center gap-2 text-xs font-bold text-on-surface transition-all duration-300 hover:scale-105 group">
+            <span class="w-7 h-7 rounded-xl bg-primary-fixed text-primary flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-white transition">
+                <span class="material-symbols-outlined text-base">card_membership</span>
+            </span>
+            <div class="text-start hidden sm:block">
+                <span class="text-[10px] text-gray-400 block leading-none">نادي العملاء</span>
+                <span class="font-bold text-primary">سجّل إيميلك وخصمك</span>
+            </div>
+            <span class="w-2 h-2 rounded-full bg-primary inline-block animate-ping"></span>
+        </button><div id="appleMegaMenuOverlay" aria-hidden="true" style="position: fixed; top: 49px; left: 0px; right: 0px; z-index: 9000; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid rgba(0, 0, 0, 0.08); box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 40px; display: none; pointer-events: none; transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1), transform 0.22s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; transform: translateY(-6px);">
+                <div class="agy-mm-panel hidden" data-panel="nav-store">
+                    <div class="max-w-5xl mx-auto px-8 py-8 flex gap-12 flex-row-reverse">
+                    <div class="agy-mm-col min-w-[160px]">
+                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">التصنيفات</div>
+                        <div class="space-y-0.5">
+                        <a href="store.html" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            كل المنتجات
+                        </a>
+                        <a href="store.html?cat=cables" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            كابلات الصوت
+                        </a>
+                        <a href="store.html?cat=connectors" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            كونيكتورات
+                        </a>
+                        <a href="store.html?cat=adapters" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            محولات
+                        </a>
+                        <a href="store.html?cat=sale" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            خصومات 🔥
+                        </a></div>
+                    </div>
+                    <div class="agy-mm-col min-w-[160px]">
+                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">خدماتنا</div>
+                        <div class="space-y-0.5">
+                        <a href="builder.html" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            تفصيل كابل خاص
+                        </a>
+                        <a href="builder.html#repair" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            صيانة وإصلاح
+                        </a>
+                        <a href="index.html#contactSection" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            استشارة فنية
+                        </a></div>
+                    </div></div>
+                </div></div><div id="appleMegaMenuBackdrop" style="position: fixed; inset: 0px; z-index: 8999; background: rgba(0, 0, 0, 0.15); display: none; opacity: 0; transition: opacity 0.22s; pointer-events: none;"></div></body></html>
