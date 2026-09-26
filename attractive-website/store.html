@@ -730,6 +730,28 @@
         </div>
     </section>
 
+    <!-- SECTION: CUSTOMER REVIEWS / TESTIMONIALS -->
+    <section id="storeReviewsSection" class="py-16 border-t border-black/[0.06] apple-reveal">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-8">
+            <div class="max-w-xl space-y-2">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-fixed text-primary border border-primary/20 text-xs font-bold">
+                    <span class="material-symbols-outlined text-sm">reviews</span>
+                    <span data-ar="آراء حقيقية" data-en="Real Feedback">آراء حقيقية</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-black text-on-surface font-headline tracking-tight" data-ar="آراء عملائنا" data-en="What Our Customers Say">آراء عملائنا</h2>
+                <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed" data-ar="نفتخر بثقة عملائنا، وده جزء بسيط من تجاربهم معانا" data-en="We're proud of our customers' trust — here's a small part of their experience with us">نفتخر بثقة عملائنا، وده جزء بسيط من تجاربهم معانا</p>
+            </div>
+            <button onclick="ProCable.openReviewFormModal()" class="bg-primary hover:bg-primary-dark text-white py-3 px-5 rounded-full font-bold text-xs sm:text-sm flex items-center gap-2 apple-btn-primary transition shadow flex-shrink-0">
+                <span class="material-symbols-outlined text-lg">rate_review</span>
+                <span data-ar="شاركنا رأيك" data-en="Share Your Review">شاركنا رأيك</span>
+            </button>
+        </div>
+
+        <div data-reviews-container class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <!-- Rendered dynamically by ProCable.renderReviewsSection() -->
+        </div>
+    </section>
+
 </main>
 
 <!-- ================= FOOTER ================= -->
@@ -1961,6 +1983,12 @@
         renderCartView();
         populateShippingSelect();
         initStoreAppleExperience();
+        // Deep link from the homepage's featured-products grid: ?product=<id>
+        // opens that exact product's detail modal automatically.
+        const deepLinkProductId = parseInt(urlParams.get('product'), 10);
+        if (!isNaN(deepLinkProductId)) {
+            showProductDetails(deepLinkProductId);
+        }
         // Pull latest admin-edited content from the server, then refresh the page with it.
         if (ProCable.syncFromServer) {
             ProCable.syncFromServer().then((updated) => {

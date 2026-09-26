@@ -252,13 +252,6 @@
                             </div>
                         </li>
                     
-                    <li class="" data-nav-id="nav-reviews">
-                        <a href="index.html#reviewsSection" class="text-primary font-bold transition flex items-center gap-1 text-sm font-medium">
-                            
-                            <span>آراء العملاء</span>
-                            
-                        </a>
-                    </li>
                 
                     <li class="" data-nav-id="nav-contact">
                         <a href="index.html#contactSection" class="text-primary font-bold transition flex items-center gap-1 text-sm font-medium">
@@ -363,14 +356,6 @@
                             </div>
                         </li>
                     
-                
-                    <li class="">
-                        <a href="index.html#reviewsSection" class="block py-1 text-xs text-primary font-bold flex items-center gap-1.5">
-                            
-                            <span>آراء العملاء</span>
-                            
-                        </a>
-                    </li>
                 
                     <li class="">
                         <a href="index.html#contactSection" class="block py-1 text-xs text-primary font-bold flex items-center gap-1.5">
@@ -640,14 +625,26 @@
         </div>
     </section>
 
-    <!-- SECTION 4: REVIEWS -->
+    <!-- SECTION: CUSTOMER REVIEWS / TESTIMONIALS -->
     <section id="reviewsSection" class="py-20 border-b border-black/[0.06] apple-reveal">
-        <div class="text-center max-w-lg mx-auto mb-14">
-            <span class="section-eyebrow" data-ar="ثقة المهندسين" data-en="Trusted by Engineers">ثقة المهندسين</span>
-            <h2 class="text-2xl sm:text-4xl font-black text-on-surface font-headline tracking-tight" data-ar="آراء مهندسي الأمن والسلامة والتيار الخفيف" data-en="What Light Current Engineers Say">آراء مهندسي الأمن والسلامة والتيار الخفيف</h2>
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-8">
+            <div class="max-w-xl space-y-2">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-fixed text-primary border border-primary/20 text-xs font-bold">
+                    <span class="material-symbols-outlined text-sm">reviews</span>
+                    <span data-ar="آراء حقيقية" data-en="Real Feedback">آراء حقيقية</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-black text-on-surface font-headline tracking-tight" data-ar="آراء عملائنا" data-en="What Our Customers Say">آراء عملائنا</h2>
+                <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed" data-ar="نفتخر بثقة عملائنا، وده جزء بسيط من تجاربهم معانا" data-en="We're proud of our customers' trust — here's a small part of their experience with us">نفتخر بثقة عملائنا، وده جزء بسيط من تجاربهم معانا</p>
+            </div>
+            <button onclick="ProCable.openReviewFormModal()" class="bg-primary hover:bg-primary-dark text-white py-3 px-5 rounded-full font-bold text-xs sm:text-sm flex items-center gap-2 apple-btn-primary transition shadow flex-shrink-0">
+                <span class="material-symbols-outlined text-lg">rate_review</span>
+                <span data-ar="شاركنا رأيك" data-en="Share Your Review">شاركنا رأيك</span>
+            </button>
         </div>
 
-        <div id="reviewsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+        <div data-reviews-container class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <!-- Rendered dynamically by ProCable.renderReviewsSection() -->
+        </div>
     </section>
 
     <!-- SECTION 5: CONTACT & WORKSHOP (#35) -->
@@ -716,7 +713,7 @@
 <script>
     function renderFeatured() {
         const grid = document.getElementById('featuredGrid');
-        const products = ProCable.getProducts().slice(0, 3);
+        const products = ProCable.getHomeFeaturedProducts(3);
         const isAr = ProCable.getLang() === 'ar';
 
         grid.innerHTML = products.map((p, idx) => {
@@ -760,31 +757,13 @@
                         <h3 class="font-bold text-sm text-on-surface mb-1.5 tracking-tight">${ProCable.sanitize(prodName)}</h3>
                         <p class="text-xs text-on-surface-variant line-clamp-2 mb-4 leading-relaxed">${ProCable.sanitize(prodDesc)}</p>
                     </div>
-                    <a href="store.html" class="w-full bg-surface hover:bg-primary hover:text-white text-on-surface py-2.5 rounded-full font-semibold text-xs text-center apple-btn-secondary transition flex items-center justify-center gap-1.5 border border-black/10">
+                    <a href="store.html?product=${p.id}" class="w-full bg-surface hover:bg-primary hover:text-white text-on-surface py-2.5 rounded-full font-semibold text-xs text-center apple-btn-secondary transition flex items-center justify-center gap-1.5 border border-black/10">
                         <span>${isAr ? 'طلب المنتج' : 'Order Product'}</span>
                         <span class="material-symbols-outlined text-sm">shopping_bag</span>
                     </a>
                 </div>
             `;
         }).join('');
-    }
-
-    function renderReviews() {
-        const grid = document.getElementById('reviewsGrid');
-        if (!grid) return;
-        const reviews = ProCable.getReviews();
-        grid.innerHTML = reviews.slice(0, 3).map(r => `
-            <div class="apple-card apple-reveal bg-surface-container-lowest p-7 rounded-[24px] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
-                <div>
-                    <div class="flex text-amber-400 text-sm mb-3">${'&#x2605;'.repeat(r.rating || 5)}${'&#x2606;'.repeat(5 - (r.rating || 5))}</div>
-                    <p class="text-xs sm:text-sm text-on-surface leading-relaxed mb-6 font-medium">"${ProCable.sanitize(r.text)}"</p>
-                </div>
-                <div class="border-t border-black/[0.06] pt-3">
-                    <span class="block font-bold text-xs text-on-surface">${ProCable.sanitize(r.name)}</span>
-                    <span class="text-[0.68rem] text-on-surface-variant font-medium">${ProCable.sanitize(r.role || '')}</span>
-                </div>
-            </div>
-        `).join('');
     }
 
     function renderHomePageContent() {
@@ -937,7 +916,6 @@
     window.addEventListener('DOMContentLoaded', () => {
         renderHomePageContent();
         renderFeatured();
-        renderReviews();
         initAppleScrollExperience();
         // Pull latest admin-edited content from the server, then refresh the page with it.
         if (ProCable.syncFromServer) {
@@ -945,7 +923,6 @@
                 if (updated) {
                     renderHomePageContent();
                     renderFeatured();
-                    renderReviews();
                     // Newly rendered cards weren't seen by the scroll-reveal observer; show them immediately.
                     document.querySelectorAll('.apple-reveal:not(.revealed)').forEach(el => el.classList.add('revealed'));
                 }

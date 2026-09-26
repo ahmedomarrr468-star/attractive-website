@@ -655,8 +655,17 @@ We adhere to the highest international standards and safety codes to protect hea
     // Free Shipping Controls
     freeShippingEnabled: false,
     freeShippingType: "threshold", // "threshold" | "all"
-    freeShippingMinOrder: 2000
+    freeShippingMinOrder: 2000,
+
+    // Google Sign-In (Social Login) — 100% Admin Configurable from the Accounts tab
+    googleSignInEnabled: false,
+    googleClientId: ""
 };
+
+// Customer Reviews / Testimonials — empty by default; every review is either
+// submitted by a real visitor through the public form (status starts "pending")
+// or added manually by the admin (status "approved" immediately).
+const DEFAULT_REVIEWS = [];
 
 
 const ProCable = {
@@ -719,6 +728,11 @@ const ProCable = {
                 localStorage.removeItem('procable_settings');
                 localStorage.removeItem('procable_connectors');
                 localStorage.removeItem('procable_cables');
+            }
+            // Reviews is a newer key: seed it once, independently of the version
+            // migration above, so it never gets wiped by future version bumps.
+            if (localStorage.getItem('attractive_reviews') === null) {
+                localStorage.setItem('attractive_reviews', JSON.stringify(DEFAULT_REVIEWS));
             }
         } catch(e) { console.error('Data version check error:', e); }
     },
@@ -819,6 +833,205 @@ const ProCable = {
         return false;
     },
 
+    // --- Customer Reviews (Testimonials) ---
+    // Visitors submit reviews publicly (always start "pending"); the admin
+    // approves/rejects/edits/deletes them from the "آراء العملاء" tab.
+    getReviews() {
+        this.checkDataVersion();
+        const stored = localStorage.getItem('attractive_reviews');
+        let list = DEFAULT_REVIEWS;
+        if (stored) {
+            try { list = JSON.parse(stored); } catch(e) { list = DEFAULT_REVIEWS; }
+        } else {
+            localStorage.setItem('attractive_reviews', JSON.stringify(DEFAULT_REVIEWS));
+        }
+        return Array.isArray(list) ? list : [];
+    },
+    getApprovedReviews() {
+        return this.getReviews()
+            .filter(r => r.status === 'approved')
+            .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+    },
+    getPendingReviewsCount() {
+        return this.getReviews().filter(r => r.status === 'pending').length;
+    },
+    saveReviews(list) {
+        // Admin-only: persists moderation actions (approve/reject/edit/delete).
+        if (this.isAdminLoggedIn && !this.isAdminLoggedIn()) throw new Error('Unauthorized');
+        localStorage.setItem('attractive_reviews', JSON.stringify(list));
+        this.pushToServer('reviews', list);
+    },
+    approveReview(id) {
+        let list = this.getReviews();
+        const r = list.find(x => x.id === id);
+        if (r) { r.status = 'approved'; this.saveReviews(list); }
+        return r;
+    },
+    rejectReview(id) {
+        let list = this.getReviews();
+        const r = list.find(x => x.id === id);
+        if (r) { r.status = 'rejected'; this.saveReviews(list); }
+        return r;
+    },
+    updateReview(id, data) {
+        let list = this.getReviews();
+        const idx = list.findIndex(r => r.id === id);
+        if (idx !== -1) {
+            list[idx] = Object.assign({}, list[idx], data);
+            this.saveReviews(list);
+            return list[idx];
+        }
+        return null;
+    },
+    deleteReview(id) {
+        let list = this.getReviews();
+        list = list.filter(r => r.id !== id);
+        this.saveReviews(list);
+        return true;
+    },
+    // Admin adds a review manually (e.g. relaying a WhatsApp/phone testimonial) —
+    // published immediately since the admin is the one vouching for it.
+    addManualReview({ name, rating, text }) {
+        if (this.isAdminLoggedIn && !this.isAdminLoggedIn()) throw new Error('Unauthorized');
+        const review = {
+            id: 'rev-' + Date.now() + '-' + Math.floor(Math.random() * 1000),
+            name: (name || '').toString().trim().slice(0, 60),
+            phone: '',
+            rating: Math.min(5, Math.max(1, parseInt(rating, 10) || 5)),
+            text: (text || '').toString().trim().slice(0, 800),
+            status: 'approved',
+            createdAt: Date.now()
+        };
+        let list = this.getReviews();
+        list.push(review);
+        this.saveReviews(list);
+        return review;
+    },
+    // Public: any site visitor can submit a review. It always lands as "pending"
+    // and is sent to the server through a restricted, non-admin endpoint so the
+    // admin secret never has to be exposed to visitors.
+    submitPublicReview({ name, phone, rating, text }) {
+        name = (name || '').toString().trim().slice(0, 60);
+        phone = (phone || '').toString().trim().slice(0, 30);
+        text = (text || '').toString().trim().slice(0, 800);
+        rating = Math.min(5, Math.max(1, parseInt(rating, 10) || 5));
+
+        if (!name || !text) {
+            return { success: false, message: this.getLang() === 'ar' ? 'من فضلك اكتب اسمك ونص رأيك' : 'Please enter your name and review text' };
+        }
+
+        const review = {
+            id: 'rev-' + Date.now() + '-' + Math.floor(Math.random() * 1000),
+            name, phone, rating, text,
+            status: 'pending',
+            createdAt: Date.now()
+        };
+
+        // Optimistic local copy so the visitor sees their own submission right away.
+        let list = this.getReviews();
+        list.push(review);
+        localStorage.setItem('attractive_reviews', JSON.stringify(list));
+
+        try {
+            fetch('/api/store', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: 'submitReview', review: { name, phone, rating, text } })
+            }).catch(() => {});
+        } catch(e) { /* ignore - offline or API not deployed */ }
+
+        return { success: true };
+    },
+    // Renders the public "آراء العملاء" grid into every [data-reviews-container]
+    // element on the page (index.html and store.html both call this on load).
+    renderReviewsSection() {
+        const containers = document.querySelectorAll('[data-reviews-container]');
+        if (!containers.length) return;
+        const isAr = this.getLang() === 'ar';
+        const reviews = this.getApprovedReviews();
+
+        containers.forEach(container => {
+            if (!reviews.length) {
+                container.innerHTML = `<div class="col-span-full text-center py-10 text-on-surface-variant text-sm">${isAr ? 'لا توجد آراء منشورة حتى الآن. كن أول من يشاركنا رأيه!' : 'No reviews yet. Be the first to share your experience!'}</div>`;
+                return;
+            }
+            container.innerHTML = reviews.map(r => {
+                const stars = Array.from({ length: 5 }, (_, i) =>
+                    `<span class="material-symbols-outlined text-base ${i < r.rating ? 'text-amber-400' : 'text-gray-300'}" style="font-variation-settings:'FILL' 1;">star</span>`
+                ).join('');
+                const initial = this.sanitize((r.name || '?').trim().charAt(0).toUpperCase() || '?');
+                const dateStr = r.createdAt ? new Date(r.createdAt).toLocaleDateString(isAr ? 'ar-EG' : 'en-US', { year: 'numeric', month: 'short' }) : '';
+                return `
+                    <div class="apple-card bg-surface-container-lowest rounded-2xl p-6 border border-outline-variant/60 shadow-sm h-full flex flex-col gap-3">
+                        <div class="flex items-center gap-1">${stars}</div>
+                        <p class="text-sm text-on-surface leading-relaxed flex-1">${this.sanitize(r.text)}</p>
+                        <div class="flex items-center gap-3 pt-2 border-t border-outline-variant/50">
+                            <div class="w-9 h-9 rounded-full bg-primary-fixed text-primary font-black flex items-center justify-center text-sm flex-shrink-0">${initial}</div>
+                            <div class="min-w-0">
+                                <p class="text-xs font-bold text-on-surface truncate">${this.sanitize(r.name)}</p>
+                                ${dateStr ? `<p class="text-[10px] text-on-surface-variant">${dateStr}</p>` : ''}
+                            </div>
+                        </div>
+                    </div>`;
+            }).join('');
+        });
+    },
+    // --- Public Review Submission Modal (built dynamically, no static markup needed) ---
+    openReviewFormModal() {
+        if (document.getElementById('reviewFormModal')) return;
+        const isAr = this.getLang() === 'ar';
+        const modal = document.createElement('div');
+        modal.id = 'reviewFormModal';
+        modal.dataset.rating = '5';
+        modal.className = 'fixed inset-0 bg-black/60 z-[9998] flex items-center justify-center p-4';
+        modal.innerHTML = `
+            <div class="bg-white rounded-2xl w-full max-w-md p-6 space-y-4 shadow-2xl relative">
+                <button onclick="document.getElementById('reviewFormModal').remove()" class="absolute top-4 ${isAr ? 'left-4' : 'right-4'} text-on-surface-variant hover:text-on-surface">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+                <h3 class="text-lg font-black text-on-surface">${isAr ? 'شاركنا رأيك' : 'Share Your Review'}</h3>
+                <p class="text-xs text-on-surface-variant -mt-2">${isAr ? 'رأيك سيظهر في الموقع بعد مراجعته من فريقنا' : 'Your review will appear on the site after our team reviews it'}</p>
+                <div class="space-y-3">
+                    <input id="reviewFormName" type="text" placeholder="${isAr ? 'الاسم' : 'Name'}" class="w-full p-2.5 bg-surface border border-outline-variant rounded-xl outline-none focus:ring-1 focus:ring-primary text-sm"/>
+                    <input id="reviewFormPhone" type="text" placeholder="${isAr ? 'رقم الموبايل (اختياري، لن يظهر للعامة)' : 'Phone (optional, not shown publicly)'}" class="w-full p-2.5 bg-surface border border-outline-variant rounded-xl outline-none focus:ring-1 focus:ring-primary text-sm dir-ltr"/>
+                    <div class="flex items-center gap-1" id="reviewFormStars">
+                        ${[1, 2, 3, 4, 5].map(i => `<span class="material-symbols-outlined text-2xl cursor-pointer text-amber-400" data-star="${i}" onclick="ProCable.setReviewFormRating(${i})" style="font-variation-settings:'FILL' 1;">star</span>`).join('')}
+                    </div>
+                    <textarea id="reviewFormText" rows="4" placeholder="${isAr ? 'اكتب رأيك في المنتجات أو الخدمة...' : 'Write your review...'}" class="w-full p-2.5 bg-surface border border-outline-variant rounded-xl outline-none focus:ring-1 focus:ring-primary text-sm"></textarea>
+                </div>
+                <button onclick="ProCable.handleSubmitPublicReview()" class="w-full bg-primary hover:bg-primary-dark text-white py-3 rounded-xl font-bold text-sm transition">${isAr ? 'إرسال الرأي' : 'Submit Review'}</button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    },
+    setReviewFormRating(n) {
+        const modal = document.getElementById('reviewFormModal');
+        if (!modal) return;
+        modal.dataset.rating = String(n);
+        modal.querySelectorAll('#reviewFormStars span').forEach(el => {
+            const v = parseInt(el.dataset.star, 10);
+            el.style.setProperty('font-variation-settings', `'FILL' ${v <= n ? 1 : 0}`);
+            el.classList.toggle('text-amber-400', v <= n);
+            el.classList.toggle('text-gray-300', v > n);
+        });
+    },
+    handleSubmitPublicReview() {
+        const modal = document.getElementById('reviewFormModal');
+        if (!modal) return;
+        const name = document.getElementById('reviewFormName').value;
+        const phone = document.getElementById('reviewFormPhone').value;
+        const text = document.getElementById('reviewFormText').value;
+        const rating = parseInt(modal.dataset.rating, 10) || 5;
+
+        const res = this.submitPublicReview({ name, phone, rating, text });
+        if (res.success) {
+            modal.remove();
+            this.showToast(this.getLang() === 'ar' ? 'شكراً لك! تم إرسال رأيك وسيظهر بعد مراجعته من فريقنا 🙏' : 'Thank you! Your review will appear after our team reviews it 🙏', 'success');
+        } else {
+            this.showToast(res.message, 'error');
+        }
+    },
+
     // Products
     getProducts() {
         this.checkDataVersion();
@@ -842,6 +1055,7 @@ const ProCable = {
             const imgs = (Array.isArray(p.images) && p.images.length > 0) ? p.images : (p.image ? [p.image] : []);
             return Object.assign({ 
                 hidden: false, 
+                featuredHome: false,
                 datasheet: defSheet, 
                 datasheetType: defType,
                 images: imgs,
@@ -890,6 +1104,26 @@ const ProCable = {
             return prod.hidden;
         }
         return false;
+    },
+    // Controls whether a product appears in the "أشهر أجهزة وأنظمة" featured
+    // section on the homepage (index.html). Admin-picked, not automatic.
+    toggleProductFeaturedHome(id) {
+        let list = this.getProducts();
+        const prod = list.find(p => p.id === id);
+        if (prod) {
+            prod.featuredHome = !(prod.featuredHome === true);
+            this.saveProducts(list);
+            return prod.featuredHome;
+        }
+        return false;
+    },
+    // Products explicitly picked by the admin for the homepage featured grid,
+    // falling back to the first 3 catalog products if none were picked yet
+    // (keeps the homepage from ever showing an empty section).
+    getHomeFeaturedProducts(limit = 3) {
+        const all = this.getProducts().filter(p => p.hidden !== true);
+        const picked = all.filter(p => p.featuredHome === true);
+        return (picked.length > 0 ? picked : all).slice(0, limit);
     },
 
     getConnectors() {
@@ -1301,25 +1535,6 @@ const ProCable = {
     saveCoupons(list) {
         localStorage.setItem('attractive_coupons', JSON.stringify(list));
         this.pushToServer('coupons', list);
-    },
-
-    // Customer Reviews
-    getReviews() {
-        const stored = localStorage.getItem('attractive_reviews');
-        if (!stored) {
-            const defaults = [
-                { name: 'م/ أحمد علي', role: 'مهندس أنظمة مراقبة CCTV - مشروع فندقي', text: 'كابلات Cat6 بكفاءة عالية جداً، نتيجة اختبار الشبكة ممتازة وما فيش أي خسارة في الإشارة حتى على مسافة 90 متر. شغل هندسي من الدرجة الأولى.', rating: 5 },
-                { name: 'سارة محمود', role: 'مديرة أمن وسلامة - مجمع تجاري', text: 'كابلات الحريق مقاومة للحرارة ومعتمدة وجودتها ممتازة. لوحة الإنذار شغلت من أول مرة بدون أي مشكلة في التوصيل. أنصح بيهم جداً للمشاريع الحساسة.', rating: 5 },
-                { name: 'ياسين إبراهيم', role: 'مهندس تيار خفيف - مشاريع صحية وسكنية', text: 'نظام الصوت والإذاعة اتركّب في المستشفى بكفاءة عالية. الكابلات مدروسة وتغليفها ممتاز للبيئات الطبية. فريق Attractive فاهم متطلبات المشاريع الحساسة.', rating: 5 }
-            ];
-            localStorage.setItem('attractive_reviews', JSON.stringify(defaults));
-            return defaults;
-        }
-        try { return JSON.parse(stored); } catch(e) { return []; }
-    },
-    saveReviews(list) {
-        localStorage.setItem('attractive_reviews', JSON.stringify(list));
-        this.pushToServer('reviews', list);
     },
     applyCoupon(code, subtotal) {
         const cleanCode = (code || '').trim().toUpperCase();
@@ -3277,6 +3492,8 @@ const ProCable = {
                 if (s2) s2.classList.add('hidden');
             }
         }
+
+        this.setupGoogleSignIn(tab === 'reset');
     },
     _pendingResetAccId: null,
     submitResetRequest() {
@@ -3548,6 +3765,16 @@ const ProCable = {
                     <span id="authErrorMsgText"></span>
                 </div>
 
+                <!-- Google Sign-In (shown only if enabled by admin) -->
+                <div id="googleAuthSection" class="mb-4 hidden">
+                    <div id="googleSignInBtnHost" class="w-full flex justify-center"></div>
+                    <div class="flex items-center gap-3 mt-4">
+                        <div class="flex-1 h-px bg-outline-variant"></div>
+                        <span class="text-[11px] text-on-surface-variant font-bold">${isAr ? 'أو' : 'OR'}</span>
+                        <div class="flex-1 h-px bg-outline-variant"></div>
+                    </div>
+                </div>
+
                 <!-- Sign In Form -->
                 <form id="authSignInForm" onsubmit="ProCable.handleSignIn(event)" class="space-y-4">
                     <div>
@@ -3761,6 +3988,146 @@ const ProCable = {
         }
     },
 
+    // --- Google Sign-In (Social Login) ---
+    // Fully admin-controlled: only loads/activates if enabled + a Client ID is set
+    // from the admin panel's "حسابات المستخدمين" tab. Falls back silently otherwise.
+    _googleScriptLoading: false,
+    loadGoogleScript(cb) {
+        if (window.google && window.google.accounts && window.google.accounts.id) { cb(); return; }
+        if (this._googleScriptLoading) {
+            const check = setInterval(() => {
+                if (window.google && window.google.accounts && window.google.accounts.id) {
+                    clearInterval(check);
+                    cb();
+                }
+            }, 150);
+            return;
+        }
+        this._googleScriptLoading = true;
+        const script = document.createElement('script');
+        script.src = 'https://accounts.google.com/gsi/client';
+        script.async = true;
+        script.defer = true;
+        script.onload = () => { this._googleScriptLoading = false; cb(); };
+        script.onerror = () => { this._googleScriptLoading = false; };
+        document.head.appendChild(script);
+    },
+    setupGoogleSignIn(forceHide) {
+        const wrap = document.getElementById('googleAuthSection');
+        const btnHost = document.getElementById('googleSignInBtnHost');
+        if (!wrap || !btnHost) return;
+
+        const s = this.getSettings();
+        if (forceHide || !s.googleSignInEnabled || !s.googleClientId) {
+            wrap.classList.add('hidden');
+            return;
+        }
+        wrap.classList.remove('hidden');
+
+        this.loadGoogleScript(() => {
+            try {
+                google.accounts.id.initialize({
+                    client_id: s.googleClientId,
+                    callback: (resp) => this.handleGoogleCredential(resp)
+                });
+                btnHost.innerHTML = '';
+                google.accounts.id.renderButton(btnHost, {
+                    type: 'standard',
+                    theme: 'outline',
+                    size: 'large',
+                    shape: 'pill',
+                    text: 'continue_with',
+                    width: 350,
+                    locale: this.getLang() === 'ar' ? 'ar' : 'en'
+                });
+            } catch(e) { console.error('Google Sign-In init error:', e); }
+        });
+    },
+    // Decodes the JWT credential Google sends back (no server round-trip needed —
+    // this site has no dedicated backend auth layer, consistent with the rest of
+    // its client-side account system).
+    decodeGoogleCredential(token) {
+        try {
+            const payload = token.split('.')[1];
+            const json = decodeURIComponent(
+                atob(payload.replace(/-/g, '+').replace(/_/g, '/'))
+                    .split('')
+                    .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+                    .join('')
+            );
+            return JSON.parse(json);
+        } catch(e) { return null; }
+    },
+    handleGoogleCredential(response) {
+        const isAr = this.getLang() === 'ar';
+        const profile = this.decodeGoogleCredential(response && response.credential);
+        if (!profile || !profile.email) {
+            this.showToast(isAr ? 'تعذر تسجيل الدخول عبر جوجل' : 'Google sign-in failed', 'error');
+            return;
+        }
+
+        const res = this.loginOrRegisterWithGoogle(profile);
+        if (res.success) {
+            this.showToast(isAr ? `أهلاً بك ${res.account.name || ''}! ✨` : `Welcome ${res.account.name || ''}! ✨`, 'success');
+            setTimeout(() => {
+                this.hideAuthModal();
+                window.location.reload();
+            }, 500);
+        } else {
+            this.showToast(res.message, 'error');
+        }
+    },
+    // Finds an existing account by email (links it to Google) or creates a new
+    // one with the same default signup perks as a normal registration.
+    loginOrRegisterWithGoogle(profile) {
+        const isAr = this.getLang() === 'ar';
+        const emailNorm = (profile.email || '').trim().toLowerCase();
+        if (!emailNorm) {
+            return { success: false, message: isAr ? 'تعذر الحصول على البريد الإلكتروني من جوجل' : 'Could not get email from Google' };
+        }
+
+        let accounts = this.getUserAccounts();
+        let acc = accounts.find(a => a.email.toLowerCase() === emailNorm);
+
+        if (acc) {
+            if (!acc.active) {
+                return { success: false, message: isAr ? 'هذا الحساب معطل حالياً، يرجى التواصل مع الإدارة' : 'This account is currently disabled, please contact support' };
+            }
+            acc.googleId = profile.sub;
+            acc.authProvider = acc.authProvider || 'google';
+            acc.avatar = profile.picture || acc.avatar || '';
+            if (!acc.name && profile.name) acc.name = profile.name;
+            this.saveUserAccounts(accounts);
+        } else {
+            const s = this.getSettings();
+            const defaultPerks = Array.isArray(s.userSignupCustomPerksDefault) ? [...s.userSignupCustomPerksDefault] : [];
+            acc = {
+                id: 'acc-' + Date.now(),
+                email: emailNorm,
+                // Random, never-shown password: this account can only sign in via Google.
+                passwordEncoded: btoa(Math.random().toString(36).slice(2) + Date.now()),
+                authProvider: 'google',
+                googleId: profile.sub,
+                avatar: profile.picture || '',
+                name: (profile.name || '').trim(),
+                phone: '',
+                registeredAt: new Date().toISOString(),
+                active: true,
+                customCoupon: s.userSignupCustomCouponDefault || 'WELCOME5',
+                freeShipping: s.userSignupFreeShippingDefault !== false,
+                perksActive: true,
+                discountPercent: parseInt(s.userSignupDiscountPercentDefault) || 5,
+                customPerks: defaultPerks,
+                notes: isAr ? 'حساب مسجل عبر جوجل' : 'Registered via Google Sign-In'
+            };
+            accounts.push(acc);
+            this.saveUserAccounts(accounts);
+        }
+
+        localStorage.setItem('attractive_logged_in_user', JSON.stringify(acc.id));
+        return { success: true, account: acc };
+    },
+
     sanitize(str) {
         if (typeof str !== 'string') return str;
         return str.replace(/[&<>"']/g, function(m) {
@@ -3795,6 +4162,13 @@ ProCable.api = {
     products: {
         list: () => ProCable.getProducts(),
         setCategory: (pId, catId) => ProCable.setProductCategory(pId, catId)
+    },
+    reviews: {
+        list: () => ProCable.getReviews(),
+        approved: () => ProCable.getApprovedReviews(),
+        approve: (id) => ProCable.approveReview(id),
+        reject: (id) => ProCable.rejectReview(id),
+        delete: (id) => ProCable.deleteReview(id)
     }
 };
 
@@ -3816,4 +4190,5 @@ document.addEventListener('DOMContentLoaded', () => {
     ProCable.renderSaleNavAndBanners();
     ProCable.renderNavbars();
     ProCable.renderAuthAreas();
+    ProCable.renderReviewsSection();
 });

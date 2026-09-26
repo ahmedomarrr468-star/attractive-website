@@ -178,8 +178,9 @@
                 <span>كوبونات وبابل الخصم الجانبي</span>
             </button>
             <button onclick="switchAdminTab('reviews')" id="tabBtn-reviews" class="admin-tab-btn w-full text-start p-3 rounded-xl text-on-surface hover:bg-surface-container-high flex items-center gap-2.5 transition">
-                <span class="material-symbols-outlined text-lg">reviews</span>
-                <span>آراء العملاء</span>
+                <span class="material-symbols-outlined text-lg">rate_review</span>
+                <span class="flex-1">آراء العملاء (Reviews)</span>
+                <span id="reviewsPendingBadge" class="hidden bg-error text-white text-[10px] font-black w-5 h-5 rounded-full items-center justify-center">0</span>
             </button>
             <button onclick="switchAdminTab('accounts')" id="tabBtn-accounts" class="admin-tab-btn w-full text-start p-3 rounded-xl text-on-surface hover:bg-surface-container-high flex items-center gap-2.5 transition">
                 <span class="material-symbols-outlined text-lg">manage_accounts</span>
@@ -212,6 +213,7 @@
                     <div>
                         <h2 class="text-xl font-bold text-on-surface">كتالوج الكابلات والمنتجات الجاهزة</h2>
                         <p class="text-xs text-on-surface-variant">أضف كابلات جديدة أو عدّل الأسعار، الخصومات، الترتيب، الشارات والصور</p>
+                        <p class="text-[11px] text-on-surface-variant mt-1">⭐ دوس على أيقونة النجمة بجدول أي منتج عشان يظهر في قسم "أشهر الأنظمة" بالصفحة الرئيسية (أول 3 منتجات مُحددة حسب ترتيبها)</p>
                     </div>
                     <button onclick="openProductModal()" class="bg-primary text-white py-2.5 px-4 rounded-xl text-xs font-bold hover:bg-primary-dark transition flex items-center gap-1.5 shadow">
                         <span class="material-symbols-outlined text-base">add</span>
@@ -231,6 +233,7 @@
                                 <th class="py-3 px-2 text-start">الشارة</th>
                                 <th class="py-3 px-2 text-start">التوفر</th>
                                 <th class="py-3 px-2 text-start">الظهور بالمتجر</th>
+                                <th class="py-3 px-2 text-start">مميز بالرئيسية</th>
                                 <th class="py-3 px-2 text-start">الداتا شيت</th>
                                 <th class="py-3 px-2 text-center">إجراءات</th>
                             </tr>
@@ -1144,64 +1147,46 @@
                 </div>
             </section>
 
-            <!-- TAB: CUSTOMER REVIEWS -->
-            <section id="tabView-reviews" class="hidden space-y-8">
-                <div class="bg-surface p-6 rounded-2xl border border-outline-variant space-y-4">
-                    <div class="flex justify-between items-center border-b border-outline-variant pb-3">
-                        <div>
-                            <h3 class="font-bold text-sm text-on-surface flex items-center gap-2">
-                                <span class="material-symbols-outlined text-primary text-lg">reviews</span>
-                                <span>آراء العملاء (تظهر في الصفحة الرئيسية)</span>
-                            </h3>
-                            <p class="text-[11px] text-gray-500">أضف رأي عميل جديد ليظهر في قسم "آراء المهندسين" بالصفحة الرئيسية</p>
-                        </div>
-                        <button onclick="openAddReviewModal()" class="bg-primary text-white py-2 px-3 rounded-xl text-xs font-bold hover:bg-primary-dark transition flex items-center gap-1 shadow-sm">
-                            <span class="material-symbols-outlined text-sm">add</span>
-                            <span>إضافة رأي جديد</span>
-                        </button>
+            <!-- TAB: CUSTOMER REVIEWS (Testimonials) -->
+            <section id="tabView-reviews" class="hidden space-y-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-2">
+                    <div>
+                        <h2 class="text-xl font-bold text-on-surface">آراء العملاء (Reviews)</h2>
+                        <p class="text-xs text-on-surface-variant">راجع آراء العملاء المُرسلة من الموقع واعتمدها لتظهر في قسم "آراء عملائنا"، أو ارفضها، أو أضف رأياً يدوياً بنفسك</p>
                     </div>
+                    <button onclick="openManualReviewModal()" class="bg-primary text-white py-2.5 px-4 rounded-xl text-xs font-bold hover:bg-primary-dark transition flex items-center gap-1.5 shadow flex-shrink-0">
+                        <span class="material-symbols-outlined text-base">add</span>
+                        <span>إضافة رأي يدوياً</span>
+                    </button>
+                </div>
 
-                    <div id="reviewsListContainer" class="space-y-3 max-w-xl"></div>
+                <!-- Filter Pills -->
+                <div class="flex items-center gap-2 flex-wrap text-xs font-bold">
+                    <button onclick="setReviewsFilter('all')" id="reviewsFilterBtn-all" class="reviews-filter-btn px-3 py-1.5 rounded-full bg-primary text-white transition">الكل <span id="reviewsCount-all">0</span></button>
+                    <button onclick="setReviewsFilter('pending')" id="reviewsFilterBtn-pending" class="reviews-filter-btn px-3 py-1.5 rounded-full bg-surface border border-outline-variant text-on-surface transition">قيد المراجعة <span id="reviewsCount-pending">0</span></button>
+                    <button onclick="setReviewsFilter('approved')" id="reviewsFilterBtn-approved" class="reviews-filter-btn px-3 py-1.5 rounded-full bg-surface border border-outline-variant text-on-surface transition">منشورة <span id="reviewsCount-approved">0</span></button>
+                    <button onclick="setReviewsFilter('rejected')" id="reviewsFilterBtn-rejected" class="reviews-filter-btn px-3 py-1.5 rounded-full bg-surface border border-outline-variant text-on-surface transition">مرفوضة <span id="reviewsCount-rejected">0</span></button>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-start">
+                        <thead>
+                            <tr class="border-b border-outline-variant text-on-surface-variant font-bold pb-2">
+                                <th class="py-3 px-2 text-start">العميل</th>
+                                <th class="py-3 px-2 text-start">التقييم</th>
+                                <th class="py-3 px-2 text-start">نص الرأي</th>
+                                <th class="py-3 px-2 text-start">التاريخ</th>
+                                <th class="py-3 px-2 text-start">الحالة</th>
+                                <th class="py-3 px-2 text-center">إجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminReviewsTableBody" class="divide-y divide-outline-variant/60">
+                            <!-- Dynamic Content -->
+                        </tbody>
+                    </table>
+                    <div id="adminReviewsEmptyState" class="hidden text-center py-10 text-on-surface-variant text-xs">لا توجد آراء في هذا التصنيف حالياً</div>
                 </div>
             </section>
-
-            <!-- REVIEW ADD/EDIT MODAL -->
-            <div id="reviewModal" class="fixed inset-0 bg-black/50 z-[2500] hidden items-center justify-center p-4">
-                <div class="bg-white rounded-2xl p-6 max-w-md w-full max-h-[90vh] overflow-y-auto space-y-4">
-                    <h3 class="font-bold text-sm text-on-surface flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary text-lg">reviews</span>
-                        <span id="reviewModalTitle">إضافة رأي جديد</span>
-                    </h3>
-                    <input type="hidden" id="reviewEditIndex" value="-1"/>
-                    <div>
-                        <label class="block font-bold text-on-surface mb-1 text-xs">اسم العميل:</label>
-                        <input id="reviewNameInput" type="text" placeholder="مثال: م/ أحمد علي" class="w-full p-2.5 bg-white border border-outline-variant rounded-xl outline-none focus:ring-1 focus:ring-primary text-sm"/>
-                    </div>
-                    <div>
-                        <label class="block font-bold text-on-surface mb-1 text-xs">الصفة / المسمى الوظيفي:</label>
-                        <input id="reviewRoleInput" type="text" placeholder="مثال: مهندس أنظمة مراقبة CCTV" class="w-full p-2.5 bg-white border border-outline-variant rounded-xl outline-none focus:ring-1 focus:ring-primary text-sm"/>
-                    </div>
-                    <div>
-                        <label class="block font-bold text-on-surface mb-1 text-xs">نص الرأي:</label>
-                        <textarea id="reviewTextInput" rows="4" placeholder="اكتب رأي العميل هنا..." class="w-full p-2.5 bg-white border border-outline-variant rounded-xl outline-none focus:ring-1 focus:ring-primary text-sm"></textarea>
-                    </div>
-                    <div>
-                        <label class="block font-bold text-on-surface mb-1 text-xs">التقييم (من 5):</label>
-                        <select id="reviewRatingInput" class="w-full p-2.5 bg-white border border-outline-variant rounded-xl outline-none focus:ring-1 focus:ring-primary text-sm">
-                            <option value="5">5 نجوم</option>
-                            <option value="4">4 نجوم</option>
-                            <option value="3">3 نجوم</option>
-                            <option value="2">نجمتين</option>
-                            <option value="1">نجمة</option>
-                        </select>
-                    </div>
-                    <div class="flex gap-2 pt-2">
-                        <button onclick="saveReviewFromModal()" class="flex-1 bg-primary text-white py-2.5 rounded-xl font-bold text-xs hover:bg-primary-dark transition">حفظ</button>
-                        <button onclick="closeReviewModal()" class="flex-1 bg-surface-container-high text-on-surface py-2.5 rounded-xl font-bold text-xs hover:bg-surface-container-highest transition">إلغاء</button>
-                    </div>
-                </div>
-            </div>
-
 
             <!-- TAB: VIP SUBSCRIBERS & EMAIL MEMBERS -->
             <section id="tabView-subscribers" class="hidden space-y-8">
@@ -1982,6 +1967,50 @@
 
                 <!-- Stats Cards -->
                 <div id="accountsStatsCards" class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6"></div>
+
+                <!-- Google Sign-In Configuration Panel (NEW) -->
+                <div class="bg-surface-container-low rounded-2xl border border-outline-variant p-4 md:p-5 mb-6">
+                    <div class="flex items-center justify-between cursor-pointer select-none" onclick="document.getElementById('googleSignInBox').classList.toggle('hidden')">
+                        <div class="flex items-center gap-2.5">
+                            <span class="material-symbols-outlined text-primary text-xl">login</span>
+                            <div>
+                                <h3 class="font-bold text-xs text-on-surface">تسجيل الدخول بحساب جوجل (Google Sign-In)</h3>
+                                <p class="text-[11px] text-on-surface-variant">فعّل زر "المتابعة عبر جوجل" في نافذة تسجيل الدخول بالمتجر وتحكم فيه بالكامل من هنا</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-gray-500 text-sm">tune</span>
+                    </div>
+
+                    <div id="googleSignInBox" class="mt-4 pt-4 border-t border-outline-variant space-y-4">
+                        <div class="p-3 bg-surface rounded-xl border border-outline-variant flex items-center justify-between">
+                            <div>
+                                <label class="block font-bold text-xs text-on-surface">تفعيل تسجيل الدخول بجوجل</label>
+                                <span class="text-[10px] text-on-surface-variant">عند التعطيل يختفي زر جوجل تماماً من نافذة الدخول بالمتجر</span>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input id="googleSignInEnabledToggle" type="checkbox" class="sr-only peer"/>
+                                <div class="w-11 h-6 bg-gray-300 peer-checked:bg-primary rounded-full peer peer-checked:after:translate-x-5 rtl:peer-checked:after:-translate-x-5 after:content-[''] after:absolute after:top-0.5 after:start-0.5 after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+                            </label>
+                        </div>
+
+                        <div class="p-3 bg-surface rounded-xl border border-outline-variant">
+                            <label class="block font-bold text-xs text-on-surface mb-1">Google Client ID</label>
+                            <input id="googleClientIdInput" type="text" dir="ltr" placeholder="xxxxxxxxxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com" class="w-full p-2.5 bg-surface-container-lowest border border-outline-variant rounded-lg text-xs font-mono outline-none focus:ring-1 focus:ring-primary" dir="ltr"/>
+                            <p class="text-[10px] text-on-surface-variant mt-2 leading-relaxed">
+                                احصل عليه مجاناً من
+                                <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener" class="text-primary font-bold hover:underline">Google Cloud Console</a>
+                                عبر إنشاء "OAuth 2.0 Client ID" من نوع Web application، وأضف رابط موقعك ضمن Authorized JavaScript origins.
+                            </p>
+                        </div>
+
+                        <div class="flex justify-end pt-1">
+                            <button type="button" onclick="saveGoogleSignInSettings()" class="bg-primary text-white py-2 px-5 rounded-xl font-bold text-xs hover:bg-primary-dark transition shadow flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-sm">save</span>
+                                <span>حفظ إعدادات جوجل</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Default Perks Configuration Panel (NEW) -->
                 <div class="bg-surface-container-low rounded-2xl border border-outline-variant p-4 md:p-5 mb-6">
@@ -2873,6 +2902,11 @@
                 ? `<span class="bg-gray-200 text-gray-700 font-bold px-2 py-0.5 rounded-full text-[0.65rem] inline-flex items-center gap-1"><span class="material-symbols-outlined text-xs">visibility_off</span>مخفي</span>`
                 : `<span class="bg-blue-100 text-blue-800 font-bold px-2 py-0.5 rounded-full text-[0.65rem] inline-flex items-center gap-1"><span class="material-symbols-outlined text-xs">visibility</span>ظاهر</span>`;
 
+            const isFeaturedHome = p.featuredHome === true;
+            const featuredHomeBadge = isFeaturedHome
+                ? `<span class="bg-primary-fixed text-primary font-bold px-2 py-0.5 rounded-full text-[0.65rem] inline-flex items-center gap-1"><span class="material-symbols-outlined text-xs">star</span>ظاهر بالرئيسية</span>`
+                : `<span class="text-gray-400 text-[0.65rem]">-</span>`;
+
             const hasDatasheet = !!(p.datasheet && p.datasheet.trim());
             const datasheetBadge = hasDatasheet
                 ? `<button onclick="previewAdminDatasheet(${p.id})" class="bg-purple-100 text-purple-800 hover:bg-purple-200 font-bold px-2 py-0.5 rounded-full text-[0.65rem] inline-flex items-center gap-1 transition" title="معاينة الداتا شيت"><span class="material-symbols-outlined text-xs">${p.datasheetType === 'pdf' ? 'picture_as_pdf' : 'description'}</span><span>${p.datasheetType === 'pdf' ? 'PDF' : 'صورة'}</span></button>`
@@ -2895,6 +2929,7 @@
                     <td class="py-3 px-2">${badgeTxt}</td>
                     <td class="py-3 px-2">${stockBadge}</td>
                     <td class="py-3 px-2">${visibilityBadge}</td>
+                    <td class="py-3 px-2">${featuredHomeBadge}</td>
                     <td class="py-3 px-2">${datasheetBadge}</td>
                     <td class="py-3 px-2 text-center space-x-1 space-x-reverse whitespace-nowrap">
                         <button onclick="openProductModal(${p.id})" title="تعديل المنتج والداتا شيت" class="p-1.5 rounded-lg bg-surface border border-outline-variant hover:bg-primary hover:text-white transition">
@@ -2902,6 +2937,9 @@
                         </button>
                         <button onclick="toggleProductVisibility(${p.id})" title="${isHidden ? 'إظهار بالمتجر' : 'إخفاء من المتجر'}" class="p-1.5 rounded-lg ${isHidden ? 'bg-amber-100 text-amber-900 border border-amber-300' : 'bg-surface border border-outline-variant text-gray-700'} hover:bg-amber-600 hover:text-white transition">
                             <span class="material-symbols-outlined text-base">${isHidden ? 'visibility_off' : 'visibility'}</span>
+                        </button>
+                        <button onclick="toggleProductFeaturedHomeAdmin(${p.id})" title="${isFeaturedHome ? 'إزالة من الصفحة الرئيسية' : 'إظهار في الصفحة الرئيسية'}" class="p-1.5 rounded-lg ${isFeaturedHome ? 'bg-primary-fixed text-primary border border-primary/30' : 'bg-surface border border-outline-variant text-gray-700'} hover:bg-primary hover:text-white transition">
+                            <span class="material-symbols-outlined text-base">${isFeaturedHome ? 'star' : 'star_border'}</span>
                         </button>
                         <button onclick="toggleProductStock(${p.id})" title="تغيير حالة التوفر بالمخزون" class="p-1.5 rounded-lg bg-surface border border-outline-variant hover:bg-amber-600 hover:text-white transition">
                             <span class="material-symbols-outlined text-base">swap_horiz</span>
@@ -2919,6 +2957,22 @@
         const isHidden = ProCable.toggleProductVisibility(id);
         renderAdminProducts();
         ProCable.showToast(isHidden ? 'تم إخفاء المنتج من المتجر' : 'تم إظهار المنتج بالمتجر بنجاح', 'info');
+    }
+
+    function toggleProductFeaturedHomeAdmin(id) {
+        const isFeatured = ProCable.toggleProductFeaturedHome(id);
+        renderAdminProducts();
+        if (isFeatured) {
+            const featuredCount = ProCable.getProducts().filter(p => p.featuredHome === true).length;
+            ProCable.showToast(
+                featuredCount > 3
+                    ? 'تم التحديد، لكن يظهر بالرئيسية أول 3 منتجات مُحددة فقط بترتيبها — قلل التحديد أو رتّب المنتجات'
+                    : 'تم إظهار المنتج في قسم "أشهر الأنظمة" بالصفحة الرئيسية',
+                'success'
+            );
+        } else {
+            ProCable.showToast('تمت إزالة المنتج من الصفحة الرئيسية', 'info');
+        }
     }
 
     function previewAdminDatasheet(id) {
@@ -4808,6 +4862,160 @@
         renderCouponsList();
     }
 
+    // =============================================
+    // --- TAB: CUSTOMER REVIEWS (Testimonials) ---
+    // =============================================
+    let currentReviewsFilter = 'all';
+
+    function updateReviewsPendingBadge() {
+        const badge = document.getElementById('reviewsPendingBadge');
+        if (!badge) return;
+        const count = ProCable.getPendingReviewsCount();
+        badge.innerText = count;
+        badge.classList.toggle('hidden', count === 0);
+        badge.classList.toggle('flex', count > 0);
+    }
+
+    function setReviewsFilter(filter) {
+        currentReviewsFilter = filter;
+        document.querySelectorAll('.reviews-filter-btn').forEach(b => {
+            b.className = 'reviews-filter-btn px-3 py-1.5 rounded-full bg-surface border border-outline-variant text-on-surface transition';
+        });
+        const activeBtn = document.getElementById(`reviewsFilterBtn-${filter}`);
+        if (activeBtn) activeBtn.className = 'reviews-filter-btn px-3 py-1.5 rounded-full bg-primary text-white transition';
+        renderReviewsTab();
+    }
+
+    function renderReviewsTab() {
+        const all = ProCable.getReviews().sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+
+        document.getElementById('reviewsCount-all').innerText = all.length;
+        document.getElementById('reviewsCount-pending').innerText = all.filter(r => r.status === 'pending').length;
+        document.getElementById('reviewsCount-approved').innerText = all.filter(r => r.status === 'approved').length;
+        document.getElementById('reviewsCount-rejected').innerText = all.filter(r => r.status === 'rejected').length;
+        updateReviewsPendingBadge();
+
+        const list = currentReviewsFilter === 'all' ? all : all.filter(r => r.status === currentReviewsFilter);
+        const tbody = document.getElementById('adminReviewsTableBody');
+        const emptyState = document.getElementById('adminReviewsEmptyState');
+
+        if (!list.length) {
+            tbody.innerHTML = '';
+            emptyState.classList.remove('hidden');
+            return;
+        }
+        emptyState.classList.add('hidden');
+
+        const statusBadges = {
+            pending: '<span class="bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full text-[0.65rem]">قيد المراجعة</span>',
+            approved: '<span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full text-[0.65rem]">منشور</span>',
+            rejected: '<span class="bg-red-100 text-red-800 font-bold px-2 py-0.5 rounded-full text-[0.65rem]">مرفوض</span>'
+        };
+
+        tbody.innerHTML = list.map(r => {
+            const stars = Array.from({ length: 5 }, (_, i) => `<span class="material-symbols-outlined text-sm ${i < r.rating ? 'text-amber-400' : 'text-gray-300'}" style="font-variation-settings:'FILL' 1;">star</span>`).join('');
+            const dateStr = r.createdAt ? new Date(r.createdAt).toLocaleDateString('ar-EG', { year: 'numeric', month: 'short', day: 'numeric' }) : '-';
+            const shortText = (r.text || '').length > 70 ? r.text.slice(0, 70) + '…' : (r.text || '');
+
+            let actions = '';
+            if (r.status !== 'approved') {
+                actions += `<button onclick="approveReviewAdmin('${r.id}')" class="text-emerald-600 hover:bg-emerald-50 p-1.5 rounded-lg transition" title="اعتماد ونشر"><span class="material-symbols-outlined text-base">check_circle</span></button>`;
+            }
+            if (r.status !== 'rejected') {
+                actions += `<button onclick="rejectReviewAdmin('${r.id}')" class="text-amber-600 hover:bg-amber-50 p-1.5 rounded-lg transition" title="رفض"><span class="material-symbols-outlined text-base">cancel</span></button>`;
+            }
+            actions += `<button onclick="deleteReviewAdmin('${r.id}')" class="text-red-600 hover:bg-red-50 p-1.5 rounded-lg transition" title="حذف نهائي"><span class="material-symbols-outlined text-base">delete</span></button>`;
+
+            return `
+                <tr>
+                    <td class="py-3 px-2">
+                        <p class="font-bold text-on-surface">${ProCable.sanitize(r.name || '-')}</p>
+                        ${r.phone ? `<p class="text-[10px] text-on-surface-variant dir-ltr">${ProCable.sanitize(r.phone)}</p>` : ''}
+                    </td>
+                    <td class="py-3 px-2"><div class="flex items-center gap-0.5">${stars}</div></td>
+                    <td class="py-3 px-2 max-w-xs" title="${ProCable.sanitize(r.text || '')}">${ProCable.sanitize(shortText)}</td>
+                    <td class="py-3 px-2 whitespace-nowrap text-on-surface-variant">${dateStr}</td>
+                    <td class="py-3 px-2">${statusBadges[r.status] || statusBadges.pending}</td>
+                    <td class="py-3 px-2"><div class="flex items-center justify-center gap-1">${actions}</div></td>
+                </tr>`;
+        }).join('');
+    }
+
+    function approveReviewAdmin(id) {
+        ProCable.approveReview(id);
+        ProCable.showToast('تم اعتماد الرأي، وسيظهر الآن في الموقع', 'success');
+        renderReviewsTab();
+    }
+
+    function rejectReviewAdmin(id) {
+        ProCable.rejectReview(id);
+        ProCable.showToast('تم رفض الرأي', 'info');
+        renderReviewsTab();
+    }
+
+    function deleteReviewAdmin(id) {
+        if (!confirm('هل أنت متأكد من حذف هذا الرأي نهائياً؟')) return;
+        ProCable.deleteReview(id);
+        ProCable.showToast('تم حذف الرأي نهائياً', 'success');
+        renderReviewsTab();
+    }
+
+    function openManualReviewModal() {
+        if (document.getElementById('manualReviewModal')) return;
+        const modal = document.createElement('div');
+        modal.id = 'manualReviewModal';
+        modal.dataset.rating = '5';
+        modal.className = 'fixed inset-0 bg-black/60 z-[9998] flex items-center justify-center p-4';
+        modal.innerHTML = `
+            <div class="bg-white rounded-2xl w-full max-w-md p-6 space-y-4 shadow-2xl relative">
+                <button onclick="document.getElementById('manualReviewModal').remove()" class="absolute top-4 left-4 text-on-surface-variant hover:text-on-surface">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+                <h3 class="text-lg font-black text-on-surface">إضافة رأي عميل يدوياً</h3>
+                <p class="text-[11px] text-on-surface-variant -mt-2">هيتم نشره فوراً في الموقع بمجرد الحفظ</p>
+                <div class="space-y-3">
+                    <input id="manualReviewName" type="text" placeholder="اسم العميل" class="w-full p-2.5 bg-surface border border-outline-variant rounded-xl outline-none focus:ring-1 focus:ring-primary text-sm"/>
+                    <div class="flex items-center gap-1" id="manualReviewStars">
+                        ${[1, 2, 3, 4, 5].map(i => `<span class="material-symbols-outlined text-2xl cursor-pointer text-amber-400" data-star="${i}" onclick="setManualReviewRating(${i})" style="font-variation-settings:'FILL' 1;">star</span>`).join('')}
+                    </div>
+                    <textarea id="manualReviewText" rows="4" placeholder="نص رأي العميل..." class="w-full p-2.5 bg-surface border border-outline-variant rounded-xl outline-none focus:ring-1 focus:ring-primary text-sm"></textarea>
+                </div>
+                <button onclick="saveManualReview()" class="w-full bg-primary hover:bg-primary-dark text-white py-3 rounded-xl font-bold text-sm transition">حفظ ونشر</button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+
+    function setManualReviewRating(n) {
+        const modal = document.getElementById('manualReviewModal');
+        if (!modal) return;
+        modal.dataset.rating = String(n);
+        modal.querySelectorAll('#manualReviewStars span').forEach(el => {
+            const v = parseInt(el.dataset.star, 10);
+            el.style.setProperty('font-variation-settings', `'FILL' ${v <= n ? 1 : 0}`);
+            el.classList.toggle('text-amber-400', v <= n);
+            el.classList.toggle('text-gray-300', v > n);
+        });
+    }
+
+    function saveManualReview() {
+        const modal = document.getElementById('manualReviewModal');
+        if (!modal) return;
+        const name = document.getElementById('manualReviewName').value.trim();
+        const text = document.getElementById('manualReviewText').value.trim();
+        const rating = parseInt(modal.dataset.rating, 10) || 5;
+
+        if (!name || !text) {
+            ProCable.showToast('من فضلك اكتب اسم العميل ونص الرأي', 'error');
+            return;
+        }
+
+        ProCable.addManualReview({ name, rating, text });
+        modal.remove();
+        ProCable.showToast('تمت إضافة الرأي ونشره بنجاح', 'success');
+        renderReviewsTab();
+    }
+
     function renderCouponsList() {
         const container = document.getElementById('couponsListContainer');
         if (!container) return;
@@ -4910,100 +5118,6 @@
         ProCable.saveCoupons(coupons);
         renderCouponsList();
         ProCable.showToast('تم إضافة الكوبون بنجاح!', 'success');
-    }
-
-    // --- Customer Reviews Management ---
-    function renderReviewsTab() {
-        renderReviewsList();
-    }
-
-    function renderReviewsList() {
-        const container = document.getElementById('reviewsListContainer');
-        if (!container) return;
-        const reviews = ProCable.getReviews();
-        if (reviews.length === 0) {
-            container.innerHTML = '<p class="text-xs text-gray-500 py-4 text-center">لا توجد آراء مضافة حالياً.</p>';
-            return;
-        }
-        container.innerHTML = reviews.map((r, idx) => `
-            <div class="bg-surface p-4 rounded-xl border border-outline-variant flex items-start justify-between gap-3">
-                <div class="flex-1 min-w-0">
-                    <div class="flex text-amber-400 text-xs mb-1">${'★'.repeat(r.rating || 5)}${'☆'.repeat(5 - (r.rating || 5))}</div>
-                    <p class="text-xs text-on-surface leading-relaxed mb-1.5 line-clamp-2">"${ProCable.sanitize(r.text)}"</p>
-                    <span class="font-bold text-xs text-on-surface block">${ProCable.sanitize(r.name)}</span>
-                    <span class="text-[11px] text-on-surface-variant">${ProCable.sanitize(r.role || '')}</span>
-                </div>
-                <div class="flex items-center gap-2 shrink-0">
-                    <button onclick="openAddReviewModal(${idx})" class="p-1.5 rounded-lg border border-outline-variant text-xs hover:bg-gray-100 transition" title="تعديل">
-                        <span class="material-symbols-outlined text-sm">edit</span>
-                    </button>
-                    <button onclick="deleteReview(${idx})" class="p-1.5 rounded-lg bg-red-50 text-error hover:bg-error hover:text-white transition" title="حذف">
-                        <span class="material-symbols-outlined text-sm">delete</span>
-                    </button>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    function openAddReviewModal(idx) {
-        const modal = document.getElementById('reviewModal');
-        const isEdit = typeof idx === 'number' && idx >= 0;
-        document.getElementById('reviewEditIndex').value = isEdit ? idx : -1;
-        document.getElementById('reviewModalTitle').textContent = isEdit ? 'تعديل رأي العميل' : 'إضافة رأي جديد';
-        if (isEdit) {
-            const r = ProCable.getReviews()[idx];
-            document.getElementById('reviewNameInput').value = r.name || '';
-            document.getElementById('reviewRoleInput').value = r.role || '';
-            document.getElementById('reviewTextInput').value = r.text || '';
-            document.getElementById('reviewRatingInput').value = r.rating || 5;
-        } else {
-            document.getElementById('reviewNameInput').value = '';
-            document.getElementById('reviewRoleInput').value = '';
-            document.getElementById('reviewTextInput').value = '';
-            document.getElementById('reviewRatingInput').value = 5;
-        }
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-    }
-
-    function closeReviewModal() {
-        const modal = document.getElementById('reviewModal');
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-    }
-
-    function saveReviewFromModal() {
-        const name = document.getElementById('reviewNameInput').value.trim();
-        const role = document.getElementById('reviewRoleInput').value.trim();
-        const text = document.getElementById('reviewTextInput').value.trim();
-        const rating = parseInt(document.getElementById('reviewRatingInput').value) || 5;
-        const editIdx = parseInt(document.getElementById('reviewEditIndex').value);
-
-        if (!name || !text) {
-            ProCable.showToast('من فضلك اكتب اسم العميل ونص الرأي', 'error');
-            return;
-        }
-
-        let reviews = ProCable.getReviews();
-        const entry = { name, role, text, rating };
-        if (editIdx >= 0) {
-            reviews[editIdx] = entry;
-        } else {
-            reviews.unshift(entry);
-        }
-        ProCable.saveReviews(reviews);
-        renderReviewsList();
-        closeReviewModal();
-        ProCable.showToast('تم حفظ رأي العميل بنجاح!', 'success');
-    }
-
-    function deleteReview(idx) {
-        if (confirm('حذف رأي العميل ده؟')) {
-            let reviews = ProCable.getReviews();
-            reviews.splice(idx, 1);
-            ProCable.saveReviews(reviews);
-            renderReviewsList();
-        }
     }
 
     // --- 7.5 VIP Email Subscribers & Members Management ---
@@ -6125,7 +6239,7 @@
         renderDepositTab();
         renderWhatsAppTab();
         renderCouponsTab();
-        renderReviewsTab();
+        updateReviewsPendingBadge();
         renderSubscribersTab();
         renderSaleTab();
         renderShippingTab();
@@ -6761,8 +6875,35 @@
             `;
         }
 
+        renderGoogleSignInSettings();
         renderDefaultSignupPerks();
         renderAccountsTable();
+    }
+
+    function renderGoogleSignInSettings() {
+        const s = ProCable.getSettings();
+        const toggle = document.getElementById('googleSignInEnabledToggle');
+        const idInput = document.getElementById('googleClientIdInput');
+        if (toggle) toggle.checked = !!s.googleSignInEnabled;
+        if (idInput) idInput.value = s.googleClientId || '';
+    }
+
+    function saveGoogleSignInSettings() {
+        const toggle = document.getElementById('googleSignInEnabledToggle');
+        const idInput = document.getElementById('googleClientIdInput');
+        const enabled = toggle ? toggle.checked : false;
+        const clientId = (idInput?.value || '').trim();
+
+        if (enabled && !clientId) {
+            ProCable.showToast('يرجى إدخال Google Client ID أولاً قبل تفعيل الخاصية', 'error');
+            return;
+        }
+
+        let s = ProCable.getSettings();
+        s.googleSignInEnabled = enabled;
+        s.googleClientId = clientId;
+        ProCable.saveSettings(s);
+        ProCable.showToast(enabled ? 'تم تفعيل تسجيل الدخول بجوجل بنجاح ✅' : 'تم إيقاف تسجيل الدخول بجوجل', 'success');
     }
 
     function renderDefaultSignupPerks() {
@@ -6848,7 +6989,10 @@
 
             return `<tr class="hover:bg-surface-container-low transition">
                 <td class="py-3 px-3">
-                    <div class="font-bold text-xs">${ProCable.sanitize(acc.name)}</div>
+                    <div class="font-bold text-xs flex items-center gap-1.5">
+                        <span>${ProCable.sanitize(acc.name)}</span>
+                        ${acc.authProvider === 'google' ? '<span class="bg-blue-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded-md" title="مسجل عبر جوجل">G</span>' : ''}
+                    </div>
                     <div class="text-on-surface-variant text-[10px]" dir="ltr">${ProCable.sanitize(acc.email)}</div>
                     <div class="text-on-surface-variant text-[10px]">${ProCable.sanitize(acc.phone || '')}</div>
                 </td>
