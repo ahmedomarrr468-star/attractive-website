@@ -1,0 +1,2219 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar" style="--primary-color: #C8102E;"><head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>متجر أنظمة التيار الخفيف - Attractive</title>
+    
+    <!-- Google Fonts & Material Symbols -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS with Apple + Attractive Colors -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#C8102E",
+              "primary-dark": "#A00D24",
+              "primary-container": "#990C22",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#FFE8EC",
+              "on-primary-fixed": "#5C000F",
+              "surface": "#F5F5F7",
+              "on-surface": "#1D1D1F",
+              "on-surface-variant": "#6E6E73",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#F5F5F7",
+              "surface-container": "#E8E8ED",
+              "surface-container-high": "#E2E2E7",
+              "surface-container-highest": "#D2D2D7",
+              "outline-variant": "#E8E8ED",
+              "error": "#BA1A1A",
+              "success": "#16A34A",
+              "whatsapp": "#25D366",
+              "whatsapp-hover": "#128C7E"
+            },
+            fontFamily: {
+              body: ['Cairo', 'Inter', 'sans-serif'],
+              headline: ['Cairo', 'Plus Jakarta Sans', 'Inter', 'sans-serif']
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        /* === Apple-style Base === */
+        *, *::before, *::after { box-sizing: border-box; }
+        body { 
+            font-family: 'Cairo', 'Inter', sans-serif; 
+            background-color: #F5F5F7; 
+            color: #1D1D1F; 
+            scroll-behavior: smooth; 
+            -webkit-font-smoothing: antialiased; 
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* === Apple Frosted Nav with Scroll Polish === */
+        nav.apple-nav { 
+            background: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: saturate(180%) blur(20px); 
+            -webkit-backdrop-filter: saturate(180%) blur(20px); 
+            border-bottom: 1px solid rgba(0, 0, 0, 0.07); 
+            transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                        border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        nav.apple-nav.scrolled {
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+            border-bottom-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* === Apple Card Multi-Layer Depth & Hover Lift === */
+        .apple-card { 
+            transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                        border-color 0.3s ease; 
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02), 0 4px 16px rgba(0, 0, 0, 0.03);
+            will-change: transform, box-shadow;
+        }
+        .apple-card:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.08), 0 4px 12px -2px rgba(200, 16, 46, 0.06); 
+            border-color: rgba(200, 16, 46, 0.28) !important; 
+        }
+
+        /* === Product Visual Hover Subtle Zoom === */
+        .store-card-visual img, .store-card-visual video {
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .apple-card:hover .store-card-visual img,
+        .apple-card:hover .store-card-visual video {
+            transform: scale(1.04);
+        }
+
+        /* === Category Buttons === */
+        .cat-btn {
+            transition: background-color 0.2s ease, 
+                        color 0.2s ease, 
+                        transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                        box-shadow 0.2s ease;
+        }
+        .cat-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* === Apple Tactile CTA Buttons === */
+        .apple-btn-primary { 
+            transition: background-color 0.2s ease, 
+                        transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                        box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1); 
+            box-shadow: 0 4px 14px -2px rgba(200, 16, 46, 0.25);
+        }
+        .apple-btn-primary:hover { 
+            transform: translateY(-1.5px); 
+            box-shadow: 0 8px 24px -4px rgba(200, 16, 46, 0.38); 
+        }
+        .apple-btn-primary:active { 
+            transform: scale(0.97); 
+        }
+
+        .apple-btn-secondary { 
+            transition: background-color 0.2s ease, 
+                        color 0.2s ease, 
+                        transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                        border-color 0.2s ease,
+                        box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        .apple-btn-secondary:hover { 
+            transform: translateY(-1.5px); 
+            box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.08); 
+        }
+        .apple-btn-secondary:active { 
+            transform: scale(0.97); 
+        }
+
+        /* === Modals === */
+        .modal-overlay { opacity: 0; pointer-events: none; transition: opacity 0.25s ease; }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .modal-content { transform: scale(0.96) translateY(14px); opacity: 0; transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+        .modal-overlay.active .modal-content { transform: scale(1) translateY(0); opacity: 1; }
+
+        /* === Apple Scroll Reveal System === */
+        .apple-reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .apple-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .apple-reveal-delay-1 { transition-delay: 60ms; }
+        .apple-reveal-delay-2 { transition-delay: 120ms; }
+        .apple-reveal-delay-3 { transition-delay: 180ms; }
+        .apple-reveal-delay-4 { transition-delay: 240ms; }
+        .apple-reveal-delay-5 { transition-delay: 300ms; }
+
+        /* === Cart Badge Pulse === */
+        @keyframes pulse-badge { 0% { transform: scale(1); } 50% { transform: scale(1.25); } 100% { transform: scale(1); } }
+        .pulse-badge { animation: pulse-badge 0.3s ease-in-out; }
+
+        /* === No Scrollbar === */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* === Focus Ring === */
+        input:focus, textarea:focus, select:focus { 
+            outline: none; 
+            box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.2); 
+            border-color: #C8102E !important; 
+        }
+
+        /* === Product Hero Background Media Animations === */
+        @keyframes heroEntrance {
+            0% {
+                opacity: 0;
+                transform: scale(1.04);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.0);
+            }
+        }
+        .hero-bg-animate {
+            animation: heroEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* === Accessibility: Reduced Motion Support === */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .apple-reveal {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            .hero-bg-animate {
+                animation: none !important;
+                transform: none !important;
+            }
+            .store-card-visual img, .store-card-visual video {
+                transform: none !important;
+            }
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}[type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select{-webkit-appearance:none;appearance:none;background-color:#fff;border-color:#6b7280;border-width:1px;border-radius:0px;padding-top:0.5rem;padding-right:0.75rem;padding-bottom:0.5rem;padding-left:0.75rem;font-size:1rem;line-height:1.5rem;--tw-shadow:0 0 #0000;}[type='text']:focus, input:where(:not([type])):focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);border-color:#2563eb}input::placeholder,textarea::placeholder{color:#6b7280;opacity:1}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-date-and-time-value{min-height:1.5em;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{padding-top:0;padding-bottom:0}select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");background-position:right 0.5rem center;background-repeat:no-repeat;background-size:1.5em 1.5em;padding-right:2.5rem;print-color-adjust:exact}[multiple],[size]:where(select:not([size="1"])){background-image:initial;background-position:initial;background-repeat:unset;background-size:initial;padding-right:0.75rem;print-color-adjust:unset}[type='checkbox'],[type='radio']{-webkit-appearance:none;appearance:none;padding:0;print-color-adjust:exact;display:inline-block;vertical-align:middle;background-origin:border-box;-webkit-user-select:none;user-select:none;flex-shrink:0;height:1rem;width:1rem;color:#2563eb;background-color:#fff;border-color:#6b7280;border-width:1px;--tw-shadow:0 0 #0000}[type='checkbox']{border-radius:0px}[type='radio']{border-radius:100%}[type='checkbox']:focus,[type='radio']:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:2px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}[type='checkbox']:checked,[type='radio']:checked{border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat}[type='checkbox']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='checkbox']:checked{-webkit-appearance:auto;appearance:auto}}[type='radio']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='radio']:checked{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus{border-color:transparent;background-color:currentColor}[type='checkbox']:indeterminate{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat;}@media (forced-colors: active) {[type='checkbox']:indeterminate{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus{border-color:transparent;background-color:currentColor}[type='file']{background:unset;border-color:inherit;border-width:0;border-radius:0;padding:0;font-size:unset;line-height:inherit}[type='file']:focus{outline:1px solid ButtonText;outline:1px auto -webkit-focus-ring-color}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.-right-0\.5{right:-0.125rem}.-right-2{right:-0.5rem}.-top-0\.5{top:-0.125rem}.-top-2{top:-0.5rem}.bottom-6{bottom:1.5rem}.right-4{right:1rem}.top-0{top:0px}.top-3\.5{top:0.875rem}.top-4{top:1rem}.top-5{top:1.25rem}.top-full{top:100%}.left-6{left:1.5rem}.z-0{z-index:0}.z-10{z-index:10}.z-20{z-index:20}.z-40{z-index:40}.z-50{z-index:50}.z-\[2000\]{z-index:2000}.z-\[2500\]{z-index:2500}.z-\[2600\]{z-index:2600}.m-0{margin:0px}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-10{margin-bottom:2.5rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-auto{margin-top:auto}.ms-1{margin-inline-start:0.25rem}.mt-4{margin-top:1rem}.mb-1\.5{margin-bottom:0.375rem}.line-clamp-2{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-12{height:3rem}.h-14{height:3.5rem}.h-20{height:5rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-8{height:2rem}.h-10{height:2.5rem}.h-2{height:0.5rem}.h-7{height:1.75rem}.h-full{height:100%}.max-h-\[90vh\]{max-height:90vh}.max-h-\[92vh\]{max-height:92vh}.min-h-\[16px\]{min-height:16px}.min-h-\[18px\]{min-height:18px}.min-h-screen{min-height:100vh}.min-h-\[300px\]{min-height:300px}.min-h-\[130px\]{min-height:130px}.w-12{width:3rem}.w-14{width:3.5rem}.w-20{width:5rem}.w-5{width:1.25rem}.w-8{width:2rem}.w-\[90\%\]{width:90%}.w-\[92\%\]{width:92%}.w-full{width:100%}.w-10{width:2.5rem}.w-2{width:0.5rem}.w-7{width:1.75rem}.w-auto{width:auto}.min-w-\[16px\]{min-width:16px}.min-w-\[18px\]{min-width:18px}.min-w-\[250px\]{min-width:250px}.min-w-\[160px\]{min-width:160px}.max-w-2xl{max-width:42rem}.max-w-4xl{max-width:56rem}.max-w-6xl{max-width:72rem}.max-w-7xl{max-width:80rem}.max-w-\[1200px\]{max-width:1200px}.max-w-\[460px\]{max-width:460px}.max-w-\[540px\]{max-width:540px}.max-w-\[560px\]{max-width:560px}.max-w-lg{max-width:32rem}.max-w-md{max-width:28rem}.max-w-xl{max-width:36rem}.max-w-\[430px\]{max-width:430px}.max-w-5xl{max-width:64rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.shrink-0{flex-shrink:0}@keyframes ping{75%, 100%{transform:scale(2);opacity:0}}.animate-ping{animation:ping 1s cubic-bezier(0, 0, 0.2, 1) infinite}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.scroll-mt-24{scroll-margin-top:6rem}.list-none{list-style-type:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-row-reverse{flex-direction:row-reverse}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-3\.5{gap:0.875rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-7{gap:1.75rem}.gap-0\.5{gap:0.125rem}.gap-12{gap:3rem}.gap-x-4{column-gap:1rem}.gap-y-1{row-gap:0.25rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.space-y-0\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.125rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.125rem * var(--tw-space-y-reverse))}.self-start{align-self:flex-start}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.overflow-x-hidden{overflow-x:hidden}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.whitespace-nowrap{white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-\[28px\]{border-radius:28px}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-\[24px\]{border-radius:24px}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-s-2{border-inline-start-width:2px}.border-t{border-top-width:1px}.border-b-2{border-bottom-width:2px}.border-amber-200{--tw-border-opacity:1;border-color:rgb(253 230 138 / var(--tw-border-opacity, 1))}.border-black\/10{border-color:rgb(0 0 0 / 0.1)}.border-black\/5{border-color:rgb(0 0 0 / 0.05)}.border-black\/\[0\.04\]{border-color:rgb(0 0 0 / 0.04)}.border-black\/\[0\.06\]{border-color:rgb(0 0 0 / 0.06)}.border-black\/\[0\.08\]{border-color:rgb(0 0 0 / 0.08)}.border-outline-variant{--tw-border-opacity:1;border-color:rgb(232 232 237 / var(--tw-border-opacity, 1))}.border-primary\/20{border-color:rgb(200 16 46 / 0.2)}.border-red-500\/30{border-color:rgb(239 68 68 / 0.3)}.border-surface{--tw-border-opacity:1;border-color:rgb(245 245 247 / var(--tw-border-opacity, 1))}.border-primary{--tw-border-opacity:1;border-color:rgb(200 16 46 / var(--tw-border-opacity, 1))}.border-red-200{--tw-border-opacity:1;border-color:rgb(254 202 202 / var(--tw-border-opacity, 1))}.border-transparent{border-color:transparent}.border-black\/\[0\.03\]{border-color:rgb(0 0 0 / 0.03)}.bg-\[\#1D1D1F\]{--tw-bg-opacity:1;background-color:rgb(29 29 31 / var(--tw-bg-opacity, 1))}.bg-\[\#25D366\]{--tw-bg-opacity:1;background-color:rgb(37 211 102 / var(--tw-bg-opacity, 1))}.bg-\[\#F5F5F7\]{--tw-bg-opacity:1;background-color:rgb(245 245 247 / var(--tw-bg-opacity, 1))}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.bg-black\/40{background-color:rgb(0 0 0 / 0.4)}.bg-black\/5{background-color:rgb(0 0 0 / 0.05)}.bg-green-100{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity, 1))}.bg-on-surface{--tw-bg-opacity:1;background-color:rgb(29 29 31 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(200 16 46 / var(--tw-bg-opacity, 1))}.bg-primary-fixed{--tw-bg-opacity:1;background-color:rgb(255 232 236 / var(--tw-bg-opacity, 1))}.bg-primary\/10{background-color:rgb(200 16 46 / 0.1)}.bg-surface{--tw-bg-opacity:1;background-color:rgb(245 245 247 / var(--tw-bg-opacity, 1))}.bg-surface-container{--tw-bg-opacity:1;background-color:rgb(232 232 237 / var(--tw-bg-opacity, 1))}.bg-surface-container-low{--tw-bg-opacity:1;background-color:rgb(245 245 247 / var(--tw-bg-opacity, 1))}.bg-surface-container-lowest{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-whatsapp{--tw-bg-opacity:1;background-color:rgb(37 211 102 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/20{background-color:rgb(255 255 255 / 0.2)}.bg-white\/70{background-color:rgb(255 255 255 / 0.7)}.bg-white\/95{background-color:rgb(255 255 255 / 0.95)}.bg-black\/50{background-color:rgb(0 0 0 / 0.5)}.bg-black\/60{background-color:rgb(0 0 0 / 0.6)}.bg-primary\/5{background-color:rgb(200 16 46 / 0.05)}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity, 1))}.bg-green-600{--tw-bg-opacity:1;background-color:rgb(22 163 74 / var(--tw-bg-opacity, 1))}.bg-surface-container-high{--tw-bg-opacity:1;background-color:rgb(226 226 231 / var(--tw-bg-opacity, 1))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-primary-fixed\/60{--tw-gradient-from:rgb(255 232 236 / 0.6) var(--tw-gradient-from-position);--tw-gradient-to:rgb(255 232 236 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-red-600{--tw-gradient-from:#dc2626 var(--tw-gradient-from-position);--tw-gradient-to:rgb(220 38 38 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-red-700{--tw-gradient-to:rgb(185 28 28 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #b91c1c var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-white{--tw-gradient-to:rgb(255 255 255 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #fff var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-black{--tw-gradient-to:#000 var(--tw-gradient-to-position)}.to-surface-container-high{--tw-gradient-to:#E2E2E7 var(--tw-gradient-to-position)}.object-contain{object-fit:contain}.p-0{padding:0px}.p-2{padding:0.5rem}.p-2\.5{padding:0.625rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.p-1{padding:0.25rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-7{padding-left:1.75rem;padding-right:1.75rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-8{padding-top:2rem;padding-bottom:2rem}.px-8{padding-left:2rem;padding-right:2rem}.pb-2{padding-bottom:0.5rem}.pb-4{padding-bottom:1rem}.pl-4{padding-left:1rem}.pr-11{padding-right:2.75rem}.ps-2{padding-inline-start:0.5rem}.pt-2{padding-top:0.5rem}.pt-4{padding-top:1rem}.pb-3{padding-bottom:0.75rem}.pb-1{padding-bottom:0.25rem}.pt-1{padding-top:0.25rem}.pt-3{padding-top:0.75rem}.text-center{text-align:center}.text-right{text-align:right}.text-start{text-align:start}.text-end{text-align:end}.font-headline{font-family:Cairo, Plus Jakarta Sans, Inter, sans-serif}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[0\.65rem\]{font-size:0.65rem}.text-\[0\.6rem\]{font-size:0.6rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[22px\]{font-size:22px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.tracking-tight{letter-spacing:-0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9 / var(--tw-text-opacity, 1))}.text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-error{--tw-text-opacity:1;color:rgb(186 26 26 / var(--tw-text-opacity, 1))}.text-gray-300{--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-green-700{--tw-text-opacity:1;color:rgb(21 128 61 / var(--tw-text-opacity, 1))}.text-inherit{color:inherit}.text-on-primary-fixed{--tw-text-opacity:1;color:rgb(92 0 15 / var(--tw-text-opacity, 1))}.text-on-surface{--tw-text-opacity:1;color:rgb(29 29 31 / var(--tw-text-opacity, 1))}.text-on-surface-variant{--tw-text-opacity:1;color:rgb(110 110 115 / var(--tw-text-opacity, 1))}.text-on-surface-variant\/40{color:rgb(110 110 115 / 0.4)}.text-primary{--tw-text-opacity:1;color:rgb(200 16 46 / var(--tw-text-opacity, 1))}.text-success{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-whatsapp{--tw-text-opacity:1;color:rgb(37 211 102 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-white\/85{color:rgb(255 255 255 / 0.85)}.text-yellow-300{--tw-text-opacity:1;color:rgb(253 224 71 / var(--tw-text-opacity, 1))}.text-\[\#1d1d1f\]{--tw-text-opacity:1;color:rgb(29 29 31 / var(--tw-text-opacity, 1))}.text-white\/70{color:rgb(255 255 255 / 0.7)}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.no-underline{-webkit-text-decoration-line:none;text-decoration-line:none}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.shadow{--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[0_4px_24px_rgba\(0\2c 0\2c 0\2c 0\.04\)\]{--tw-shadow:0 4px 24px rgba(0,0,0,0.04);--tw-shadow-colored:0 4px 24px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.drop-shadow-sm{--tw-drop-shadow:drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-shadow{transition-property:box-shadow;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-primary:hover{--tw-border-opacity:1;border-color:rgb(200 16 46 / var(--tw-border-opacity, 1))}.hover\:bg-\[\#20bd5a\]:hover{--tw-bg-opacity:1;background-color:rgb(32 189 90 / var(--tw-bg-opacity, 1))}.hover\:bg-black:hover{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.hover\:bg-black\/5:hover{background-color:rgb(0 0 0 / 0.05)}.hover\:bg-gray-100:hover{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.hover\:bg-primary:hover{--tw-bg-opacity:1;background-color:rgb(200 16 46 / var(--tw-bg-opacity, 1))}.hover\:bg-primary-dark:hover{--tw-bg-opacity:1;background-color:rgb(160 13 36 / var(--tw-bg-opacity, 1))}.hover\:bg-whatsapp-hover:hover{--tw-bg-opacity:1;background-color:rgb(18 140 126 / var(--tw-bg-opacity, 1))}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.hover\:bg-black\/10:hover{background-color:rgb(0 0 0 / 0.1)}.hover\:bg-primary\/20:hover{background-color:rgb(200 16 46 / 0.2)}.hover\:bg-surface-container-high:hover{--tw-bg-opacity:1;background-color:rgb(226 226 231 / var(--tw-bg-opacity, 1))}.hover\:bg-red-100:hover{--tw-bg-opacity:1;background-color:rgb(254 226 226 / var(--tw-bg-opacity, 1))}.hover\:bg-surface-container-highest:hover{--tw-bg-opacity:1;background-color:rgb(210 210 215 / var(--tw-bg-opacity, 1))}.hover\:text-error:hover{--tw-text-opacity:1;color:rgb(186 26 26 / var(--tw-text-opacity, 1))}.hover\:text-gray-700:hover{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.hover\:text-gray-800:hover{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.hover\:text-on-surface:hover{--tw-text-opacity:1;color:rgb(29 29 31 / var(--tw-text-opacity, 1))}.hover\:text-primary:hover{--tw-text-opacity:1;color:rgb(200 16 46 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:text-\[\#C8102E\]:hover{--tw-text-opacity:1;color:rgb(200 16 46 / var(--tw-text-opacity, 1))}.hover\:text-white\/80:hover{color:rgb(255 255 255 / 0.8)}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.hover\:opacity-80:hover{opacity:0.8}.hover\:shadow-lg:hover{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.hover\:shadow-2xl:hover{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.focus\:ring-1:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-primary:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(200 16 46 / var(--tw-ring-opacity, 1))}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:block{display:block}.group:hover .group-hover\:rotate-180{--tw-rotate:180deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:bg-primary{--tw-bg-opacity:1;background-color:rgb(200 16 46 / var(--tw-bg-opacity, 1))}.group:hover .group-hover\:text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:block{display:block}.sm\:flex{display:flex}.sm\:w-auto{width:auto}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:space-y-0 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0px * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0px * var(--tw-space-y-reverse))}.sm\:self-auto{align-self:auto}.sm\:p-7{padding:1.75rem}.sm\:p-8{padding:2rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.sm\:py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}}@media (min-width: 768px){.md\:flex{display:flex}.md\:hidden{display:none}.md\:h-9{height:2.25rem}.md\:flex-row{flex-direction:row}.md\:p-8{padding:2rem}.md\:text-start{text-align:start}.md\:text-3xl{font-size:1.875rem;line-height:2.25rem}}@media (min-width: 1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:px-8{padding-left:2rem;padding-right:2rem}}.ltr\:left-0:where([dir="ltr"], [dir="ltr"] *){left:0px}.ltr\:right-4:where([dir="ltr"], [dir="ltr"] *){right:1rem}.ltr\:right-5:where([dir="ltr"], [dir="ltr"] *){right:1.25rem}.ltr\:right-6:where([dir="ltr"], [dir="ltr"] *){right:1.5rem}.rtl\:left-4:where([dir="rtl"], [dir="rtl"] *){left:1rem}.rtl\:left-5:where([dir="rtl"], [dir="rtl"] *){left:1.25rem}.rtl\:left-6:where([dir="rtl"], [dir="rtl"] *){left:1.5rem}.rtl\:right-0:where([dir="rtl"], [dir="rtl"] *){right:0px}</style><style id="dynamic-theme-style">
+            :root { --primary-color: #C8102E; }
+            .bg-primary { background-color: #C8102E !important; }
+            .text-primary { color: #C8102E !important; }
+            .border-primary { border-color: #C8102E !important; }
+            .hover\:bg-primary:hover { background-color: #C8102E !important; }
+            .hover\:text-primary:hover { color: #C8102E !important; }
+            .focus\:ring-primary:focus { --tw-ring-color: #C8102E !important; }
+            .text-primary-fixed { color: #C8102E !important; }
+            .hover\:border-primary\/50:hover { border-color: #C8102E80 !important; }
+            body.has-custom-bg { background-color: transparent !important; }
+            body.has-custom-bg main { position: relative; z-index: 1; }
+        </style></head>
+<body class="antialiased flex flex-col min-h-screen">
+
+<!-- TOP PROMO BANNER CONTAINER -->
+<div id="topPromoBannerContainer">
+            <div id="topPromoBanner" style="background: #C8102E;" class="text-white py-2 px-4 text-xs font-bold transition-all duration-300 relative z-50 shadow-md">
+                <div class="max-w-6xl mx-auto flex items-center justify-between gap-3">
+                    <div class="flex items-center gap-2 flex-1 justify-center text-center truncate">
+                        <span class="bg-white/20 text-white text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider animate-pulse flex-shrink-0">عرض حصري</span>
+                        <span class="truncate">🔥 عرض الافتتاح: شحن مجاني لكافة محافظات مصر عند الطلب بمبلغ 1500 ج.م أو أكثر لفترة محدودة!</span>
+                        <a href="store.html" class="underline hover:text-white/80 font-black flex items-center gap-0.5 flex-shrink-0"><span>تسوق الآن</span><span class="material-symbols-outlined text-xs">arrow_forward</span></a>
+                    </div>
+                    <button onclick="ProCable.dismissPromoBanner()" class="text-white/70 hover:text-white text-base leading-none p-1 flex-shrink-0" title="إغلاق">&#10005;</button>
+                </div>
+            </div>
+        </div>
+
+<!-- ================= NAVIGATION ================= -->
+<nav class="sticky top-0 z-50 apple-nav">
+    <div class="max-w-[1200px] mx-auto px-5 h-12 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2 text-on-surface no-underline select-none">
+            <img src="logo.png" alt="Attractive" class="site-logo-img h-8 md:h-9 object-contain transition-opacity hover:opacity-80">
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center gap-7">
+            <ul id="desktopNavLinks" class="flex items-center gap-6 list-none p-0 m-0 text-sm font-medium">
+                    <li class="" data-nav-id="nav-home">
+                        <a href="index.html" class="text-on-surface hover:text-primary transition flex items-center gap-1 text-sm font-medium">
+                            
+                            <span>الرئيسية</span>
+                            
+                        </a>
+                    </li>
+                
+                        <li class="relative" data-nav-id="nav-store" data-has-mega="true">
+                            <a href="store.html" class="text-primary font-bold transition flex items-center gap-1 py-1 text-sm font-medium agy-mega-trigger" data-mega-id="nav-store">
+                                
+                                <span>المتجر</span>
+                                <span class="material-symbols-outlined text-sm transition-transform agy-mega-chevron">expand_more</span>
+                                
+                            </a>
+                        </li>
+                    
+                    <li class="sale-nav-item" data-nav-id="nav-sale">
+                        <a href="store.html?cat=sale" class="text-primary font-bold transition flex items-center gap-1 text-sm font-medium">
+                            <span class="material-symbols-outlined text-sm">local_fire_department</span>
+                            <span>خصومات 🔥</span>
+                            
+                        </a>
+                    </li>
+                
+                        <li class="relative group" data-nav-id="nav-builder">
+                            <a href="builder.html" class="text-on-surface hover:text-primary transition flex items-center gap-1 py-1 text-sm font-medium">
+                                <span>تفصيل وصيانة الكابلات</span>
+                                <span class="material-symbols-outlined text-sm transition-transform group-hover:rotate-180">expand_more</span>
+                            </a>
+                            <div class="absolute top-full ltr:left-0 rtl:right-0 pt-2 hidden group-hover:block z-50 min-w-[250px]">
+                                <div class="bg-white/95 backdrop-blur-xl border border-black/10 rounded-2xl shadow-2xl p-2 space-y-1">
+                                    <a href="builder.html" class="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-black/5 text-on-surface text-xs font-bold transition">
+                                        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+                                            <span class="material-symbols-outlined text-base">tune</span>
+                                        </div>
+                                        <div>
+                                            <span class="block text-on-surface">استوديو التفصيل الخاص</span>
+                                            <span class="block text-[10px] font-normal text-gray-400">تجميع وتفصيل كابلك الصوتي</span>
+                                        </div>
+                                    </a>
+                                    
+                                    <a href="index.html#repairSection" class="repair-nav-item flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-black/5 text-on-surface text-xs font-bold transition">
+                                        <div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+                                            <span class="material-symbols-outlined text-base">build</span>
+                                        </div>
+                                        <div>
+                                            <span class="block text-on-surface">مركز التركيبات والصيانة</span>
+                                            <span class="block text-[10px] font-normal text-gray-400">برمجة وصيانة وفحص الأنظمة</span>
+                                        </div>
+                                    </a>
+                                    
+                                </div>
+                            </div>
+                        </li>
+                    
+                    <li class="" data-nav-id="nav-reviews">
+                        <a href="index.html#reviewsSection" class="text-on-surface hover:text-primary transition flex items-center gap-1 text-sm font-medium">
+                            
+                            <span>آراء العملاء</span>
+                            
+                        </a>
+                    </li>
+                
+                    <li class="" data-nav-id="nav-contact">
+                        <a href="index.html#contactSection" class="text-on-surface hover:text-primary transition flex items-center gap-1 text-sm font-medium">
+                            
+                            <span>تواصل معنا</span>
+                            
+                        </a>
+                    </li>
+                </ul>
+
+            <div class="flex items-center gap-2">
+                <!-- Order Tracking -->
+                <button onclick="ProCable.showOrderTrackingModal()" class="text-xs font-semibold px-3 py-1.5 rounded-full bg-surface border border-black/10 hover:bg-white text-on-surface-variant flex items-center gap-1.5 transition" title="تتبع مسار الطلب">
+                    <span class="material-symbols-outlined text-base text-primary">track_changes</span>
+                    <span data-ar="تتبع طلبك" data-en="Track Order">تتبع طلبك</span>
+                </button>
+
+                <!-- User Auth Area -->
+                <div id="desktopAuthArea">
+                    <button onclick="ProCable.showAuthModal()" class="text-xs font-bold px-3 py-1.5 bg-surface text-on-surface border border-outline-variant rounded-xl hover:bg-surface-container-high transition flex items-center gap-1.5">
+                        <span class="material-symbols-outlined text-base">login</span>
+                        <span>دخول / حساب</span>
+                    </button>
+                </div>
+
+                <!-- Lang Toggle -->
+                <button onclick="ProCable.toggleLang()" class="lang-toggle-btn text-xs font-semibold px-2.5 py-1 rounded-full border border-black/10 hover:bg-black/5 transition text-on-surface-variant" title="تبديل اللغة">EN</button>
+
+                <!-- Cart Button -->
+                <button onclick="scrollToCart()" class="relative p-2 rounded-full text-on-surface hover:bg-black/5 transition">
+                    <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
+                    <span id="navCartBadge" class="absolute -top-0.5 -right-0.5 bg-primary text-white text-[0.6rem] font-bold w-4.5 h-4.5 min-w-[18px] min-h-[18px] rounded-full flex items-center justify-center border-2 border-surface hidden">٠</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Controls -->
+        <div class="flex items-center gap-2 md:hidden">
+            <button onclick="ProCable.showOrderTrackingModal()" class="p-2 text-primary rounded-full hover:bg-black/5 transition" title="تتبع الطلب">
+                <span class="material-symbols-outlined text-xl">track_changes</span>
+            </button>
+            <button onclick="ProCable.toggleLang()" class="lang-toggle-btn text-xs font-semibold px-2 py-1 rounded-full border border-black/10 text-on-surface-variant">EN</button>
+            <button onclick="scrollToCart()" class="relative p-2 text-on-surface">
+                <span class="material-symbols-outlined text-xl">shopping_bag</span>
+                <span id="mobileCartBadge" class="absolute -top-0.5 -right-0.5 bg-primary text-white text-[0.6rem] font-bold min-w-[16px] min-h-[16px] rounded-full flex items-center justify-center border-2 border-surface hidden">٠</span>
+            </button>
+            <button onclick="document.getElementById('mobileDrawer').classList.toggle('hidden')" class="p-2 text-on-surface rounded-full hover:bg-black/5 transition">
+                <span class="material-symbols-outlined text-xl">menu</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-b border-black/5 px-6 py-5">
+        <div id="mobileAuthArea">
+                    <button onclick="ProCable.showAuthModal(); document.getElementById('mobileDrawer').classList.add('hidden');" class="w-full flex items-center gap-2 py-2 text-primary font-bold border-b border-outline-variant mb-2">
+                        <span class="material-symbols-outlined text-base">login</span>
+                        <span>تسجيل الدخول / إنشاء حساب</span>
+                    </button>
+                </div>
+        <ul id="mobileDrawerLinks" class="space-y-3 list-none p-0 m-0 font-medium text-sm mt-2">
+                    <li class="">
+                        <a href="index.html" class="block py-1 text-xs text-on-surface flex items-center gap-1.5">
+                            
+                            <span>الرئيسية</span>
+                            
+                        </a>
+                    </li>
+                
+                        <li class="">
+                            <button onclick="document.getElementById('mob-acc-nav-store').classList.toggle('hidden'); this.querySelector('.mob-acc-chevron').classList.toggle('rotate-180')" class="w-full flex items-center justify-between py-1 text-xs font-semibold text-on-surface">
+                                <span class="flex items-center gap-1.5">
+                                    
+                                    <span>المتجر</span>
+                                </span>
+                                <span class="material-symbols-outlined text-sm mob-acc-chevron transition-transform">expand_more</span>
+                            </button>
+                            <div id="mob-acc-nav-store" class="hidden ps-2 border-s-2 border-primary/20 mt-1 pb-1"><div class="mb-3"><div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">التصنيفات</div><a href="store.html" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">كل المنتجات</a><a href="store.html?cat=cables" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">كابلات الصوت</a><a href="store.html?cat=connectors" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">كونيكتورات</a><a href="store.html?cat=adapters" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">محولات</a><a href="store.html?cat=sale" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">خصومات 🔥</a></div><div class="mb-3"><div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">خدماتنا</div><a href="builder.html" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">تفصيل كابل خاص</a><a href="builder.html#repair" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">صيانة وإصلاح</a><a href="index.html#contactSection" class="block py-1.5 text-xs text-on-surface hover:text-primary transition font-medium">استشارة فنية</a></div></div>
+                        </li>
+                    
+                    <li class="sale-nav-item">
+                        <a href="store.html?cat=sale" class="block py-1 text-xs text-primary font-bold flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-sm">local_fire_department</span>
+                            <span>خصومات 🔥</span>
+                            
+                        </a>
+                    </li>
+                
+                        <li class="py-1">
+                            <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1">تفصيل وصيانة الكابلات</div>
+                            <div class="space-y-1 ps-2 border-s-2 border-primary/20">
+                                <a href="builder.html" class="block py-1 text-xs text-on-surface font-semibold flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-sm text-primary">tune</span>
+                                    <span>استوديو التفصيل الخاص</span>
+                                </a>
+                                
+                                <a href="index.html#repairSection" class="repair-nav-item block py-1 text-xs text-on-surface font-semibold flex items-center gap-1.5">
+                                    <span class="material-symbols-outlined text-sm text-primary">build</span>
+                                    <span>صيانة وإصلاح الكابلات</span>
+                                </a>
+                                
+                            </div>
+                        </li>
+                    
+                    <li class="">
+                        <a href="index.html#reviewsSection" class="block py-1 text-xs text-on-surface flex items-center gap-1.5">
+                            
+                            <span>آراء العملاء</span>
+                            
+                        </a>
+                    </li>
+                
+                    <li class="">
+                        <a href="index.html#contactSection" class="block py-1 text-xs text-on-surface flex items-center gap-1.5">
+                            
+                            <span>تواصل معنا</span>
+                            
+                        </a>
+                    </li>
+                
+                <li class="pt-2 border-t border-outline-variant">
+                    <a href="store.html#cartSection" onclick="document.getElementById('mobileDrawer').classList.add('hidden')" class="w-full text-start py-1 text-on-surface font-bold flex items-center justify-between">
+                        <span class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-base">shopping_bag</span>
+                            <span>سلة المشتريات</span>
+                        </span>
+                        <span class="cart-count-badge bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full">0</span>
+                    </a>
+                </li>
+                <li class="pt-1">
+                    <button onclick="ProCable.showOrderTrackingModal(); document.getElementById('mobileDrawer').classList.add('hidden')" class="w-full text-start py-1 text-primary font-bold flex items-center gap-2 text-xs">
+                        <span class="material-symbols-outlined text-base">track_changes</span>
+                        <span>تتبع مسار طلبك</span>
+                    </button>
+                </li>
+            </ul>
+    </div>
+</nav>
+
+<!-- ================= MAIN STORE CONTAINER ================= -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1 w-full">
+
+    <!-- Store Page Header & Search (#30) -->
+    <div class="mb-10 text-center max-w-2xl mx-auto apple-reveal revealed">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed text-xs font-bold mb-3">
+            <span class="material-symbols-outlined text-sm">storefront</span>
+            <span data-ar="Attractive — أنظمة وأجهزة تيار خفيف معتمدة للتوريد الفوري" data-en="Attractive — Certified Light Current Systems &amp; Devices">Attractive — أنظمة وأجهزة تيار خفيف معتمدة للتوريد الفوري</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-on-surface mb-3 font-headline" data-ar="كتالوج أنظمة التيار الخفيف المتكاملة" data-en="Light Current Systems &amp; Equipment Catalog">كتالوج أنظمة التيار الخفيف المتكاملة</h1>
+        <p class="text-sm sm:text-base text-on-surface-variant mb-6" data-ar="تشكيلة معتمدة من كاميرات المراقبة، أجهزة الإنذار ومكافحة الحريق، الأنظمة الصوتية، واستدعاء التمريض مع ضمان عامان ودعم فني متخصص." data-en="Certified selection of CCTV cameras, fire alarm systems, public address audio, and nurse call systems with 2-year warranty.">تشكيلة معتمدة من كاميرات المراقبة، أجهزة الإنذار ومكافحة الحريق، الأنظمة الصوتية، واستدعاء التمريض مع ضمان عامان ودعم فني متخصص.</p>
+        
+        <!-- Instant Live Search Bar (#30 - Search from first letter) -->
+        <div class="relative max-w-lg mx-auto">
+            <span class="material-symbols-outlined absolute right-4 top-3.5 text-gray-400 text-xl">search</span>
+            <input id="searchInput" type="text" oninput="handleSearch(this.value)" data-ar-placeholder="ابحث فوري عن أي جهاز: كاميرا IP، لوحة إنذار، مضخم صوت، كاشف دخان، كابل شبكات..." data-en-placeholder="Instant search: IP Camera, Alarm Panel, PA Amp, Smoke Detector, Cat6..." placeholder="ابحث فوري عن أي جهاز: كاميرا IP، لوحة إنذار، مضخم صوت، كاشف دخان، كابل شبكات..." class="w-full pr-11 pl-4 py-3.5 bg-white border border-outline-variant rounded-2xl shadow-sm outline-none focus:ring-2 focus:ring-primary text-sm">
+        </div>
+    </div>
+
+    <!-- Filters & Sort Bar (#32) -->
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8 border-b border-outline-variant pb-4 apple-reveal apple-reveal-delay-1">
+        <!-- Dynamic Category Tabs -->
+        <div id="categoryTabsBar" class="flex gap-2 overflow-x-auto no-scrollbar w-full sm:w-auto text-xs font-bold">
+            <button onclick="setCategory('all')" data-cat="all" class="cat-btn px-4 py-2.5 rounded-xl transition whitespace-nowrap flex items-center gap-1.5 bg-primary text-white font-bold shadow-sm">
+                <span class="material-symbols-outlined text-base">apps</span>
+                <span>كافة الأنظمة</span>
+            </button>
+        
+                <button onclick="setCategory('sale')" data-cat="sale" class="cat-btn px-4 py-2.5 rounded-xl transition whitespace-nowrap sale-element flex items-center gap-1.5 bg-red-50 text-primary border border-red-200 hover:bg-red-100 font-bold">
+                    <span class="material-symbols-outlined text-base">local_fire_department</span>
+                    <span>عروض وتخفيضات &#x1F525;</span>
+                </button>
+            
+                <button onclick="setCategory('cctv')" data-cat="cctv" class="cat-btn px-4 py-2.5 rounded-xl transition whitespace-nowrap flex items-center gap-2 bg-surface-container-high text-on-surface hover:bg-surface-container-highest">
+                    <span class="material-symbols-outlined text-base">videocam</span>
+                    <span>كاميرات المراقبة</span>
+                </button>
+            
+                <button onclick="setCategory('fire-alarm')" data-cat="fire-alarm" class="cat-btn px-4 py-2.5 rounded-xl transition whitespace-nowrap flex items-center gap-2 bg-surface-container-high text-on-surface hover:bg-surface-container-highest">
+                    <span class="material-symbols-outlined text-base">detector_smoke</span>
+                    <span>إنذار الحريق</span>
+                </button>
+            
+                <button onclick="setCategory('sound-pa')" data-cat="sound-pa" class="cat-btn px-4 py-2.5 rounded-xl transition whitespace-nowrap flex items-center gap-2 bg-surface-container-high text-on-surface hover:bg-surface-container-highest">
+                    <span class="material-symbols-outlined text-base">speaker</span>
+                    <span>أنظمة الصوت</span>
+                </button>
+            
+                <button onclick="setCategory('nurse-call')" data-cat="nurse-call" class="cat-btn px-4 py-2.5 rounded-xl transition whitespace-nowrap flex items-center gap-2 bg-surface-container-high text-on-surface hover:bg-surface-container-highest">
+                    <span class="material-symbols-outlined text-base">call_end</span>
+                    <span>الاستدعاء والإنتركم</span>
+                </button>
+            
+                <button onclick="setCategory('cables')" data-cat="cables" class="cat-btn px-4 py-2.5 rounded-xl transition whitespace-nowrap flex items-center gap-2 bg-surface-container-high text-on-surface hover:bg-surface-container-highest">
+                    <span class="material-symbols-outlined text-base">cable</span>
+                    <span>كابلات وبنية تحتية</span>
+                </button>
+            </div>
+
+        <!-- Sort Select (#32) -->
+        <div class="flex items-center gap-2 w-full sm:w-auto justify-end text-xs font-semibold text-on-surface-variant">
+            <span data-ar="ترتيب حسب:" data-en="Sort by:">ترتيب حسب:</span>
+            <select id="sortSelect" onchange="handleSort(this.value)" class="bg-white border border-outline-variant py-2 px-3 rounded-xl text-xs outline-none focus:ring-1 focus:ring-primary">
+                <option value="default" data-ar="الافتراضي (ترتيب الأدمن)" data-en="Default (Featured)">الافتراضي (ترتيب الأدمن)</option>
+                <option value="discount" data-ar="عروض الخصم أولاً 🔥" data-en="Discounts First 🔥">عروض الخصم أولاً 🔥</option>
+                <option value="price-asc" data-ar="السعر: من الأقل للأعلى" data-en="Price: Low to High">السعر: من الأقل للأعلى</option>
+                <option value="price-desc" data-ar="السعر: من الأعلى للأقل" data-en="Price: High to Low">السعر: من الأعلى للأقل</option>
+                <option value="name" data-ar="الاسم (أ - ي)" data-en="Name (A - Z)">الاسم (أ - ي)</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Sale Hub Active Header Banner -->
+    <div id="saleHubBanner" class="hidden mb-8 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-red-600 via-red-700 to-black text-white shadow-xl relative overflow-hidden border border-red-500/30">
+        <div class="relative z-10 space-y-2 text-start">
+            <span id="saleHubBannerBadge" class="inline-flex items-center gap-1 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[11px] font-black uppercase tracking-wider text-yellow-300">
+                <span class="material-symbols-outlined text-sm">local_fire_department</span>
+                <span>عروض وتخفيضات &#x1F525;</span>
+            </span>
+            <h2 id="saleHubBannerTitle" class="text-xl sm:text-2xl md:text-3xl font-black">عروض وتخفيضات Attractive على أنظمة التيار الخفيف</h2>
+            <p id="saleHubBannerDesc" class="text-xs sm:text-sm text-white/85 max-w-2xl leading-relaxed">وفر حتى 25% على تشكيلة مختارة من كاميرات المراقبة، أجهزة الحريق، ومعدات الصوت المعتمدة — لفترة محدودة!</p>
+        </div>
+    </div>
+
+    <!-- Active Category Header & Quick Cart Access -->
+    <div class="flex items-center justify-between mb-6 px-1">
+        <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-lg">category</span>
+            </div>
+            <div>
+                <h3 id="currentCategoryTitle" class="text-base sm:text-lg font-black text-on-surface font-headline leading-none">كافة الأجهزة والأنظمة المعتمدة</h3>
+                <span id="currentCategoryCount" class="text-[11px] text-on-surface-variant font-medium">١ منتج متوفر</span>
+            </div>
+        </div>
+        <button onclick="scrollToCart()" class="text-xs font-bold text-primary hover:bg-primary hover:text-white transition flex items-center gap-1.5 bg-primary/10 px-3.5 py-2 rounded-full border border-primary/20 shadow-2xs">
+            <span class="material-symbols-outlined text-sm">shopping_bag</span>
+            <span data-ar="عرض السلة مباشرة" data-en="Go to Cart">عرض السلة مباشرة</span>
+        </button>
+    </div>
+
+    <!-- Products Grid (#29, #32) -->
+    <div id="storeGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+                <div class="apple-card apple-reveal apple-reveal-delay-1 bg-surface-container-lowest rounded-[24px] p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <div class="flex items-center gap-1.5 flex-wrap">
+                                <span class="text-xs bg-primary-fixed text-on-primary-fixed font-bold px-3 py-1 rounded-full">XLR-F to TRS</span>
+                                <span class="text-[10px] bg-green-600 text-white font-black px-2 py-0.5 rounded-full">✨ جديد</span>
+                            </div>
+                            <div class="text-end">
+                                <span class="font-black text-primary text-lg stat-number">٥٢٠ ج.م</span>
+                                
+                            </div>
+                        </div>
+
+                        <!-- Product Visual -->
+                        <div class="relative bg-surface-container-low rounded-2xl p-4 mb-4 flex items-center justify-center cursor-pointer min-h-[130px] border border-black/[0.03] overflow-hidden group store-card-visual" onclick="showProductDetails(104)">
+                            <div class="h-20 w-auto flex items-center justify-center drop-shadow-sm"><svg viewBox="0 0 100 100" class="h-full w-auto" aria-hidden="true"><rect x="15" y="42" width="45" height="16" rx="3" fill="#3D3D3F"></rect><rect x="60" y="45" width="10" height="10" fill="#E8E8ED"></rect><path d="M70 47 L90 47 L95 50 L90 53 L70 53 Z" fill="var(--primary-color, #C8102E)"></path><line x1="77" y1="47" x2="77" y2="53" stroke="#1D1D1F" stroke-width="1.5"></line><line x1="84" y1="47" x2="84" y2="53" stroke="#1D1D1F" stroke-width="1.5"></line></svg></div>
+                            
+                        </div>
+
+                        <h3 class="font-bold text-base text-on-surface mb-1.5 hover:text-primary cursor-pointer transition tracking-tight" onclick="showProductDetails(104)">كابل ميكروفون كوندنسر مذهب TRS (6 متر)</h3>
+                        <p class="text-xs text-on-surface-variant leading-relaxed line-clamp-2 mb-3">موصلات مذهبة عيار 24 مع مقاومة أكسدة واستجابة صوتية متوازنة واستثنائية.</p>
+
+                        <!-- Datasheet badge / button if available -->
+                        
+                    </div>
+
+                    <div class="pt-3 border-t border-black/[0.06] flex items-center gap-2">
+                        
+                            <button onclick="addStoreProductToCart(104)" class="flex-1 bg-primary text-white py-2.5 px-4 rounded-full text-xs font-bold apple-btn-primary hover:bg-primary-dark transition flex items-center justify-center gap-1.5 shadow-sm">
+                                <span class="material-symbols-outlined text-base">shopping_bag</span>
+                                <span>أضف للسلة</span>
+                            </button>
+                        
+                        <button onclick="showProductDetails(104)" title="تفاصيل الكابل" class="p-2.5 border border-black/10 rounded-full text-on-surface hover:bg-black/5 apple-btn-secondary transition flex items-center justify-center">
+                            <span class="material-symbols-outlined text-base">visibility</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+    <!-- Need Custom Cable Banner -->
+    <div class="bg-gradient-to-r from-primary-fixed/60 via-white to-surface-container-high rounded-3xl p-8 border border-outline-variant flex flex-col md:flex-row justify-between items-center gap-6 mb-16 shadow-sm apple-reveal">
+        <div class="space-y-2 text-center md:text-start">
+            <h3 class="text-xl font-bold text-on-surface" data-ar="لم تجد المقاس أو الموصل الذي تبحث عنه؟" data-en="Didn't find the exact length or connector?">لم تجد المقاس أو الموصل الذي تبحث عنه؟</h3>
+            <p class="text-xs sm:text-sm text-on-surface-variant max-w-xl" data-ar="يمكنك تصميم كابلك الصوتي وتفصيله بالسنتيمتر واختيار أطراف التوصيل المناسبة لأجهزتك من خلال استوديو التفصيل الخاص مع خيار العربون." data-en="Custom craft your audio cable by the centimeter with your exact connectors in our Custom Build Studio.">يمكنك تصميم كابلك الصوتي وتفصيله بالسنتيمتر واختيار أطراف التوصيل المناسبة لأجهزتك من خلال استوديو التفصيل الخاص مع خيار العربون.</p>
+        </div>
+        <a href="builder.html" class="bg-primary text-white py-3.5 px-7 rounded-xl font-bold text-sm hover:bg-primary-dark transition shadow flex items-center gap-2 whitespace-nowrap">
+            <span data-ar="صمم كابلك الخاص الآن" data-en="Build Your Custom Cable">صمم كابلك الخاص الآن</span>
+            <span class="material-symbols-outlined text-base">tune</span>
+        </a>
+    </div>
+
+    <!-- ================= CART SECTION IN STORE ================= -->
+    <section id="cartSection" class="py-12 border-t border-black/[0.06] scroll-mt-24 apple-reveal">
+        <!-- Section Header -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+            <div class="flex items-center gap-3.5">
+                <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                    <span class="material-symbols-outlined text-2xl">shopping_bag</span>
+                </div>
+                <div>
+                    <div class="flex items-center gap-3">
+                        <h2 class="text-2xl sm:text-3xl font-black text-on-surface font-headline tracking-tight" data-ar="حقيبة المشتريات" data-en="Review Your Bag">حقيبة المشتريات</h2>
+                        <span id="cartItemCountBadge" class="bg-black/5 text-on-surface px-3 py-1 rounded-full text-xs font-bold border border-black/[0.04] stat-number hidden">٠ عناصر</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-on-surface-variant mt-0.5" data-ar="توريد وشحن لكافة المحافظات • أجهزة وأنظمة معتمدة ومختبرة 100%" data-en="Fast nationwide delivery • 100% certified &amp; tested systems">توريد وشحن لكافة المحافظات • أجهزة وأنظمة معتمدة ومختبرة 100%</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 self-start sm:self-auto">
+                <a href="#storeGrid" class="text-xs font-semibold text-primary hover:underline flex items-center gap-1">
+                    <span data-ar="متابعة التسوق" data-en="Continue Shopping">متابعة التسوق</span>
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Empty Cart State -->
+        <div id="emptyCartMessage" class="text-center py-16 px-6 bg-white rounded-[28px] border border-black/[0.06] shadow-sm max-w-2xl mx-auto">
+            <div class="w-20 h-20 mx-auto mb-4 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant/40">
+                <span class="material-symbols-outlined text-4xl">remove_shopping_cart</span>
+            </div>
+            <h3 class="text-xl font-bold text-on-surface mb-2 font-headline" data-ar="حقيبة المشتريات فارغة حالياً" data-en="Your bag is empty">حقيبة المشتريات فارغة حالياً</h3>
+            <p class="text-xs sm:text-sm text-on-surface-variant font-medium mb-6 max-w-md mx-auto leading-relaxed" data-ar="حقيبة المشتريات فارغة حالياً. تصفح أجهزة وأنظمة التيار الخفيف أو استوديو تفصيل كابلات الصوت." data-en="Your shopping bag is currently empty. Browse our light current systems or visit our audio cable studio.">حقيبة المشتريات فارغة حالياً. تصفح أجهزة وأنظمة التيار الخفيف أو استوديو تفصيل كابلات الصوت.</p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="#storeGrid" class="apple-btn-primary bg-primary text-white rounded-full px-7 py-3 text-xs font-bold inline-flex items-center gap-2 shadow-sm">
+                    <span class="material-symbols-outlined text-base">storefront</span>
+                    <span data-ar="تصفح منتجات المتجر" data-en="Browse Store">تصفح منتجات المتجر</span>
+                </a>
+                <a href="builder.html" class="rounded-full px-7 py-3 text-xs font-bold border border-black/10 hover:bg-black/5 transition inline-flex items-center gap-2 text-on-surface">
+                    <span class="material-symbols-outlined text-base">tune</span>
+                    <span data-ar="استوديو التفصيل الخاص" data-en="Custom Builder">استوديو التفصيل الخاص</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Vertical Responsive Cart Content Wrapper (طريقة العرض بالطول بدون أي تداخل) -->
+        <div id="cartContentWrapper" class="max-w-4xl mx-auto w-full space-y-8 hidden">
+            <!-- 1. Cart Items Stack (بالطول) -->
+            <div class="space-y-4">
+                <div class="flex items-center justify-between text-xs font-bold text-on-surface-variant px-3 pb-2 border-b border-black/[0.06]">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base text-primary">list_alt</span>
+                        <span data-ar="المنتجات في حقيبتك" data-en="Items in your bag">المنتجات في حقيبتك</span>
+                    </div>
+                    <button onclick="clearStoreCart()" class="text-[11px] text-error hover:underline flex items-center gap-1 font-bold">
+                        <span class="material-symbols-outlined text-sm">delete_sweep</span>
+                        <span data-ar="تفريغ السلة بالكامل" data-en="Empty Cart">تفريغ السلة بالكامل</span>
+                    </button>
+                </div>
+                <div id="cartItemsList" class="space-y-4"></div>
+            </div>
+
+            <!-- 2. Apple Order Summary Block (تحت المنتجات بالطول) -->
+            <div id="cartSummaryBlock" class="bg-white rounded-[28px] border border-black/[0.08] p-6 sm:p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] space-y-6 hidden">
+                <div class="flex items-center justify-between pb-4 border-b border-black/[0.06]">
+                    <h3 class="text-lg font-bold text-on-surface font-headline" data-ar="ملخص الطلب" data-en="Order Summary">ملخص الطلب</h3>
+                    <span class="material-symbols-outlined text-on-surface-variant text-xl">receipt_long</span>
+                </div>
+
+                <!-- Member Perks Banner in Cart -->
+                <div id="cartMemberPerkBadge" class="hidden"></div>
+
+                <!-- Price Breakdown Rows -->
+                <div class="space-y-3 text-xs sm:text-sm">
+                    <div class="flex justify-between items-center text-on-surface-variant">
+                        <span data-ar="إجمالي المنتجات:" data-en="Items Subtotal:">إجمالي المنتجات:</span>
+                        <span id="cartItemsSubtotalText" class="font-bold text-on-surface stat-number">0 ج.م</span>
+                    </div>
+                    <div class="flex justify-between items-center text-on-surface-variant">
+                        <span data-ar="الشحن التقديري:" data-en="Estimated Shipping:">الشحن التقديري:</span>
+                        <span id="cartShippingNotice" class="font-semibold text-xs text-primary" data-ar="يُحسب عند إتمام الطلب" data-en="Calculated at checkout">يُحسب عند إتمام الطلب</span>
+                    </div>
+                </div>
+
+                <!-- Total Row -->
+                <div class="pt-4 border-t border-black/[0.06] flex justify-between items-baseline">
+                    <div>
+                        <span class="text-xs font-bold text-on-surface block" data-ar="الإجمالي (قبل الشحن)" data-en="Subtotal (Before Shipping)">الإجمالي (قبل الشحن)</span>
+                        <span class="text-[11px] text-on-surface-variant" data-ar="شامل الفحص وضمان الصناعة" data-en="Includes full warranty">شامل الفحص وضمان الصناعة</span>
+                    </div>
+                    <span id="cartTotalSum" class="text-2xl sm:text-3xl font-black text-primary stat-number">0 ج.م</span>
+                </div>
+
+                <!-- Checkout & Actions -->
+                <div class="space-y-2.5 pt-2">
+                    <button onclick="openCheckoutModal()" class="apple-btn-primary bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full w-full py-4 text-sm sm:text-base font-bold flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg transition">
+                        <span data-ar="إتمام الشراء عبر الواتساب" data-en="Checkout via WhatsApp">إتمام الشراء عبر الواتساب</span>
+                        <span class="material-symbols-outlined text-lg">check_circle</span>
+                    </button>
+                    <button onclick="clearStoreCart()" class="w-full text-center py-2 text-xs text-on-surface-variant hover:text-error transition font-semibold" data-ar="تفريغ السلة بالكامل" data-en="Clear Bag">تفريغ السلة بالكامل</button>
+                </div>
+
+                <!-- Trust & Peace of Mind -->
+                <div class="bg-[#F5F5F7] rounded-2xl p-4 border border-black/[0.04] grid grid-cols-1 sm:grid-cols-3 gap-3 text-[11px] text-on-surface-variant font-medium">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base text-green-600">verified</span>
+                        <span data-ar="أجهزة معتمدة ومختبرة ومطابقة للمواصفات" data-en="100% Certified &amp; Tested Equipment">أجهزة معتمدة ومختبرة ومطابقة للمواصفات</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base text-primary">speed</span>
+                        <span data-ar="توريد وشحن سريع لجميع المحافظات" data-en="Fast Dispatch Nationwide">توريد وشحن سريع لجميع المحافظات</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base text-blue-600">engineering</span>
+                        <span data-ar="دعم هندسي وفني متخصص لأنظمة التيار الخفيف" data-en="Specialized Engineering &amp; Technical Support">دعم هندسي وفني متخصص لأنظمة التيار الخفيف</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CUSTOMER REVIEWS / TESTIMONIALS -->
+    <section id="storeReviewsSection" class="py-16 border-t border-black/[0.06] apple-reveal">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-8">
+            <div class="max-w-xl space-y-2">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-fixed text-primary border border-primary/20 text-xs font-bold">
+                    <span class="material-symbols-outlined text-sm">reviews</span>
+                    <span data-ar="آراء حقيقية" data-en="Real Feedback">آراء حقيقية</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-black text-on-surface font-headline tracking-tight" data-ar="آراء عملائنا" data-en="What Our Customers Say">آراء عملائنا</h2>
+                <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed" data-ar="نفتخر بثقة عملائنا، وده جزء بسيط من تجاربهم معانا" data-en="We're proud of our customers' trust — here's a small part of their experience with us">نفتخر بثقة عملائنا، وده جزء بسيط من تجاربهم معانا</p>
+            </div>
+            <button onclick="ProCable.openReviewFormModal()" class="bg-primary hover:bg-primary-dark text-white py-3 px-5 rounded-full font-bold text-xs sm:text-sm flex items-center gap-2 apple-btn-primary transition shadow flex-shrink-0">
+                <span class="material-symbols-outlined text-lg">rate_review</span>
+                <span data-ar="شاركنا رأيك" data-en="Share Your Review">شاركنا رأيك</span>
+            </button>
+        </div>
+
+        <div data-reviews-container class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <!-- Rendered dynamically by ProCable.renderReviewsSection() -->
+        </div>
+    </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant py-8 mt-auto">
+    <div class="max-w-6xl mx-auto px-5 text-center sm:flex sm:justify-between sm:items-center text-xs text-on-surface-variant space-y-3 sm:space-y-0">
+        <div class="flex items-center justify-center sm:justify-start gap-2">
+            <img src="logo.png" alt="Attractive" class="site-logo-img h-6 object-contain">
+            <p class="footer-copyright">© 2026 <span class="site-brand-name font-bold">Attractive</span>. <span class="footer-copyright-text">جميع الحقوق محفوظة لـ Attractive Audio Studio.</span></p>
+        </div>
+        <div class="footer-nav-links flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+                    <a href="store.html" class="hover:text-primary transition font-medium">المتجر</a>
+                    <a href="builder.html" class="hover:text-primary transition font-medium">التفصيل الخاص</a>
+                    <button onclick="ProCable.showAboutModal()" class="hover:text-primary transition font-medium text-inherit">عن الشركة</button>
+                    <button onclick="ProCable.showPolicyModal('privacy')" class="hover:text-primary transition font-medium text-inherit">سياسة الخصوصية</button>
+                    <button onclick="ProCable.showPolicyModal('return')" class="hover:text-primary transition font-medium text-inherit">الاستبدال والضمان</button>
+                </div>
+    </div>
+</footer>
+
+<!-- ================= MODAL: PRODUCT DETAILS ================= -->
+<div id="prodDetailsModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden justify-center items-center z-[2000] modal-overlay" onclick="handleBackdropClick(event, 'prodDetailsModal')">
+    <div id="prodDetailsModalCard" class="bg-surface-container-lowest rounded-3xl w-[92%] max-w-[560px] p-5 sm:p-7 relative modal-content shadow-2xl border border-outline-variant max-h-[90vh] overflow-y-auto overflow-x-hidden">
+        <!-- Dynamic Product Hero Background Media Layer -->
+        <div id="prodDetailsHeroBgLayer" class="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl z-0 hidden"></div>
+        <button onclick="closeModal('prodDetailsModal')" class="absolute ltr:right-4 rtl:left-4 top-4 text-gray-500 hover:text-gray-800 w-8 h-8 rounded-full flex items-center justify-center bg-white/70 hover:bg-white backdrop-blur-sm transition z-20 shadow-xs border border-black/5" title="إغلاق">&#10005;</button>
+        <div id="prodDetailsContent" class="relative z-10"></div>
+    </div>
+</div>
+
+<!-- ================= MODAL: CHECKOUT MODAL (#13, #34, #36) ================= -->
+<div id="checkoutModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden justify-center items-center z-[2000] modal-overlay" onclick="handleBackdropClick(event, 'checkoutModal')">
+    <div class="bg-surface-container-lowest rounded-2xl w-[92%] max-w-[540px] p-6 md:p-8 relative modal-content shadow-2xl border border-outline-variant max-h-[90vh] overflow-y-auto">
+        <button onclick="closeModal('checkoutModal')" class="absolute ltr:right-5 rtl:left-5 top-5 text-gray-400 hover:text-gray-700 w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-100 transition">&#10005;</button>
+        
+        <div class="flex items-center gap-3 mb-5">
+            <span class="material-symbols-outlined text-whatsapp text-3xl">shopping_bag</span>
+            <div>
+                <h3 class="font-bold text-xl text-on-surface" data-ar="استكمال عملية الشراء" data-en="Complete Your Purchase">استكمال عملية الشراء</h3>
+                <p class="text-xs text-on-surface-variant" data-ar="Attractive — سيتم تجهيز طلبك وإرساله فوراً عبر الواتساب لتأكيد الشحن" data-en="Attractive — Your order will be prepared and sent directly to WhatsApp for shipping confirmation">Attractive — سيتم تجهيز طلبك وإرساله فوراً عبر الواتساب لتأكيد الشحن</p>
+            </div>
+        </div>
+
+        <div id="checkoutUserPerksBanner" class="hidden mb-4"></div>
+
+        <form onsubmit="handleCheckout(event)" class="space-y-4">
+            <div>
+                <label class="block text-xs font-bold mb-1 text-on-surface-variant" data-ar="الاسم بالكامل *" data-en="Full Name *">الاسم بالكامل *</label>
+                <input id="custName" required="" type="text" data-ar-placeholder="اكتب اسمك ثلاثي" data-en-placeholder="Full name" placeholder="اكتب اسمك ثلاثي" class="w-full p-3 bg-surface border border-outline-variant rounded-xl outline-none focus:ring-2 focus:ring-primary text-sm">
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold mb-1 text-on-surface-variant" data-ar="رقم الموبايل / الواتساب *" data-en="Mobile / WhatsApp *">رقم الموبايل / الواتساب *</label>
+                <input id="custPhone" required="" type="tel" placeholder="01xxxxxxxxx" pattern="^01[0125][0-9]{8}$" title="يرجى إدخال رقم مصري صحيح 11 رقم" class="w-full p-3 bg-surface border border-outline-variant rounded-xl outline-none focus:ring-2 focus:ring-primary text-sm dir-ltr text-right">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                    <label class="block text-xs font-bold mb-1 text-on-surface-variant" data-ar="المحافظة *" data-en="Governorate *">المحافظة *</label>
+                    <select id="custGov" onchange="calculateShipping()" class="w-full p-3 bg-surface border border-outline-variant rounded-xl outline-none focus:ring-2 focus:ring-primary text-xs"><option value="cairo" data-fee="45">القاهرة (٤٥ ج.م) — خلال 24-48 ساعة</option><option value="giza" data-fee="45">الجيزة (٤٥ ج.م) — خلال 24-48 ساعة</option><option value="qalyubia" data-fee="50">القليوبية (٥٠ ج.م) — خلال 24-48 ساعة</option><option value="alex" data-fee="60">الإسكندرية (٦٠ ج.م) — خلال 2-3 أيام</option><option value="beheira" data-fee="65">البحيرة (٦٥ ج.م) — خلال 2-3 أيام</option><option value="kafr-sheikh" data-fee="65">كفر الشيخ (٦٥ ج.م) — خلال 2-3 أيام</option><option value="gharbia" data-fee="65">الغربية (٦٥ ج.م) — خلال 2-3 أيام</option><option value="menofia" data-fee="60">المنوفية (٦٠ ج.م) — خلال 2-3 أيام</option><option value="dakahlia" data-fee="65">الدقهلية (٦٥ ج.م) — خلال 2-3 أيام</option><option value="sharqia" data-fee="60">الشرقية (٦٠ ج.م) — خلال 2-3 أيام</option><option value="damietta" data-fee="65">دمياط (٦٥ ج.م) — خلال 2-3 أيام</option><option value="port-said" data-fee="70">بورسعيد (٧٠ ج.م) — خلال 2-3 أيام</option><option value="ismailia" data-fee="65">الإسماعيلية (٦٥ ج.م) — خلال 2-3 أيام</option><option value="suez" data-fee="70">السويس (٧٠ ج.م) — خلال 2-3 أيام</option><option value="north-sinai" data-fee="85">شمال سيناء (٨٥ ج.م) — خلال 3-5 أيام</option><option value="south-sinai" data-fee="90">جنوب سيناء (٩٠ ج.م) — خلال 3-5 أيام</option><option value="beni-suef" data-fee="70">بني سويف (٧٠ ج.م) — خلال 2-4 أيام</option><option value="faiyum" data-fee="70">الفيوم (٧٠ ج.م) — خلال 2-4 أيام</option><option value="minya" data-fee="75">المنيا (٧٥ ج.م) — خلال 3-5 أيام</option><option value="asyut" data-fee="80">أسيوط (٨٠ ج.م) — خلال 3-5 أيام</option><option value="sohag" data-fee="80">سوهاج (٨٠ ج.م) — خلال 3-5 أيام</option><option value="qena" data-fee="85">قنا (٨٥ ج.م) — خلال 3-5 أيام</option><option value="luxor" data-fee="85">الأقصر (٨٥ ج.م) — خلال 3-5 أيام</option><option value="aswan" data-fee="90">أسوان (٩٠ ج.م) — خلال 4-6 أيام</option><option value="red-sea" data-fee="95">البحر الأحمر (٩٥ ج.م) — خلال 4-6 أيام</option><option value="new-valley" data-fee="100">الوادي الجديد (١٠٠ ج.م) — خلال 5-7 أيام</option><option value="matrouh" data-fee="100">مطروح (١٠٠ ج.م) — خلال 5-7 أيام</option></select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold mb-1 text-on-surface-variant" data-ar="طريقة الدفع" data-en="Payment Method">طريقة الدفع</label>
+                    <select id="payMethod" class="w-full p-3 bg-surface border border-outline-variant rounded-xl outline-none focus:ring-2 focus:ring-primary text-xs">
+                        <option value="الدفع كاش عند الاستلام (COD)" data-ar="الدفع كاش عند الاستلام (COD)" data-en="Cash on Delivery (COD)">الدفع كاش عند الاستلام (COD)</option>
+                        <option value="انستا باي (InstaPay)" data-ar="انستا باي (InstaPay)" data-en="InstaPay">انستا باي (InstaPay)</option>
+                        <option value="محفظة إلكترونية (فودافون كاش)" data-ar="محفظة إلكترونية (فودافون كاش)" data-en="Vodafone Cash / E-Wallets">محفظة إلكترونية (فودافون كاش)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold mb-1 text-on-surface-variant" data-ar="العنوان بالتفصيل *" data-en="Detailed Address *">العنوان بالتفصيل *</label>
+                <input id="custAddress" required="" type="text" data-ar-placeholder="المنطقة، الشارع، رقم العقار أو الاستوديو" data-en-placeholder="Area, street name, studio/building number" placeholder="المنطقة، الشارع، رقم العقار أو الاستوديو" class="w-full p-3 bg-surface border border-outline-variant rounded-xl outline-none focus:ring-2 focus:ring-primary text-sm">
+            </div>
+
+            <!-- Coupon Code Input (#13) -->
+            <div>
+                <label class="block text-xs font-bold mb-1 text-on-surface-variant" data-ar="كوبون الخصم (اختياري)" data-en="Coupon Code (Optional)">كوبون الخصم (اختياري)</label>
+                <div class="flex gap-2">
+                    <input id="couponCodeInput" type="text" data-ar-placeholder="أدخل كود الكوبون إن وجد" data-en-placeholder="Enter coupon code" placeholder="أدخل كود الكوبون إن وجد" class="flex-1 p-2.5 bg-surface border border-outline-variant rounded-xl outline-none focus:ring-2 focus:ring-primary text-xs font-mono uppercase">
+                    <button type="button" onclick="applyStoreCoupon()" class="px-4 py-2.5 bg-on-surface text-white rounded-xl text-xs font-bold hover:bg-black transition" data-ar="تطبيق" data-en="Apply">تطبيق</button>
+                </div>
+                <p id="couponMsg" class="text-[11px] mt-1 font-bold hidden"></p>
+            </div>
+
+            <!-- Cost Breakdown with Deposit (#34) -->
+            <div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant space-y-1.5 text-xs">
+                <div class="flex justify-between text-on-surface-variant">
+                    <span data-ar="إجمالي المنتجات:" data-en="Subtotal:">إجمالي المنتجات:</span>
+                    <span id="checkoutSubtotal" class="font-bold">0 ج.م</span>
+                </div>
+                <div class="flex justify-between text-on-surface-variant">
+                    <span data-ar="الشحن السريع:" data-en="Shipping:">الشحن السريع:</span>
+                    <span id="checkoutShipping" class="font-bold">0 ج.م</span>
+                </div>
+                <div id="couponDiscountRow" class="flex justify-between text-green-700 font-bold hidden">
+                    <span data-ar="الخصم المطبق:" data-en="Discount:">الخصم المطبق:</span>
+                    <span id="checkoutDiscount">-0 ج.م</span>
+                </div>
+                <div class="flex justify-between text-base font-extrabold text-primary border-t border-outline-variant pt-2 mt-1">
+                    <span data-ar="الإجمالي المستحق:" data-en="Total:">الإجمالي المستحق:</span>
+                    <span id="checkoutFinalTotal">0 ج.م</span>
+                </div>
+                <div id="depositInfoRow" class="bg-amber-50 border border-amber-200 p-2.5 rounded-lg text-amber-800 text-[11px] mt-2 hidden">
+                    <div class="flex justify-between font-bold">
+                        <span data-ar="العربون المطلوب لجدية الطلب:" data-en="Required Deposit:">العربون المطلوب لجدية الطلب:</span>
+                        <span id="checkoutDepositAmount">0 ج.م</span>
+                    </div>
+                    <div class="flex justify-between text-amber-700 mt-0.5">
+                        <span data-ar="المتبقي يدفع عند الاستلام:" data-en="Remaining on Delivery:">المتبقي يدفع عند الاستلام:</span>
+                        <span id="checkoutRemainingAmount">0 ج.م</span>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="w-full bg-whatsapp text-white py-3.5 rounded-xl text-sm font-bold flex items-center justify-center gap-2 hover:bg-whatsapp-hover transition shadow-md">
+                <span data-ar="تأكيد وإرسال الطلب عبر الواتساب" data-en="Confirm &amp; Send via WhatsApp">تأكيد وإرسال الطلب عبر الواتساب</span>
+                <span class="material-symbols-outlined text-lg">send</span>
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- ================= MODAL: ORDER SUCCESS ================= -->
+<div id="orderSuccessModal" class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden justify-center items-center z-[2000] modal-overlay">
+    <div class="bg-surface-container-lowest rounded-2xl w-[90%] max-w-[460px] p-6 md:p-8 text-center modal-content shadow-2xl border border-outline-variant">
+        <div class="w-14 h-14 bg-green-100 text-success rounded-full flex items-center justify-center mx-auto mb-3">
+            <span class="material-symbols-outlined text-3xl">check_circle</span>
+        </div>
+        <h3 class="font-bold text-xl text-on-surface mb-1" data-ar="تم تجهيز طلبك بنجاح!" data-en="Order Placed Successfully!">تم تجهيز طلبك بنجاح!</h3>
+        <p class="text-xs text-on-surface-variant mb-3" data-ar="رقم الطلب الخاص بك:" data-en="Your Order Reference:">رقم الطلب الخاص بك:</p>
+        <div class="bg-surface-container-low py-2.5 px-5 rounded-xl font-mono text-lg font-bold text-primary mb-5 inline-block tracking-wider" id="orderSuccessId">#ATT-00000</div>
+        
+        <div class="flex flex-col gap-2.5">
+            <a id="orderWhatsAppLink" href="#" target="_blank" class="w-full bg-whatsapp text-white py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:bg-whatsapp-hover transition shadow">
+                <span data-ar="فتح المحادثة على الواتساب" data-en="Open WhatsApp Chat">فتح المحادثة على الواتساب</span>
+                <span class="material-symbols-outlined text-lg">chat</span>
+            </a>
+            <button onclick="closeModal('orderSuccessModal')" class="w-full bg-surface border border-outline-variant py-2.5 rounded-xl font-semibold text-xs text-gray-700 hover:bg-gray-100 transition" data-ar="إغلاق" data-en="Close">إغلاق</button>
+        </div>
+    </div>
+</div>
+
+<!-- ================= FLOATING CART TRIGGER ================= -->
+<button onclick="scrollToCart()" aria-label="عرض السلة" class="fixed bottom-6 ltr:right-6 rtl:left-6 bg-primary text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition z-40">
+    <div class="relative">
+        <span class="material-symbols-outlined text-2xl">shopping_cart</span>
+        <span id="floatingCartCount" class="absolute -top-2 -right-2 bg-[#1D1D1F] text-white text-[0.65rem] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-surface pulse-badge hidden">٠</span>
+    </div>
+</button>
+
+<!-- Shared Data Core Script -->
+<script src="procable-data.js"></script>
+
+<script>
+    let activeCategory = 'all';
+    let searchQuery = '';
+    let sortMode = 'default';
+    let appliedDiscountVal = 0;
+
+    function renderCategoryTabs() {
+        const container = document.getElementById('categoryTabsBar');
+        if (!container) return;
+        const isAr = ProCable.getLang() === 'ar';
+        const categories = ProCable.getCategories().filter(c => c.hidden !== true);
+        const s = ProCable.getSettings();
+        
+        let html = `
+            <button onclick="setCategory('all')" data-cat="all" class="cat-btn px-4 py-2.5 rounded-xl transition whitespace-nowrap flex items-center gap-1.5 ${activeCategory === 'all' ? 'bg-primary text-white font-bold shadow-sm' : 'bg-surface-container-high text-on-surface hover:bg-surface-container-highest'}">
+                <span class="material-symbols-outlined text-base">apps</span>
+                <span>${isAr ? 'كافة المنتجات' : 'All Products'}</span>
+            </button>
+        `;
+
+        if (s.saleActive === true) {
+            const saleBadge = isAr ? (s.saleBadgeAr || 'عروض وتخفيضات 🔥') : (s.saleBadgeEn || 'Sale 🔥');
+            html += `
+                <button onclick="setCategory('sale')" data-cat="sale" class="cat-btn px-4 py-2.5 rounded-xl transition whitespace-nowrap sale-element flex items-center gap-1.5 ${activeCategory === 'sale' ? 'bg-primary text-white font-black shadow-sm' : 'bg-red-50 text-primary border border-red-200 hover:bg-red-100 font-bold'}">
+                    <span class="material-symbols-outlined text-base">local_fire_department</span>
+                    <span>${ProCable.sanitize(saleBadge)}</span>
+                </button>
+            `;
+        }
+        
+        categories.forEach(cat => {
+            if (cat.id === 'all') return;
+            const isAct = activeCategory === cat.id;
+            const name = isAr ? cat.nameAr : (cat.nameEn || cat.nameAr);
+            const icon = cat.icon || 'cable';
+            const hasImg = !!(cat.image && cat.image.trim());
+            const catVisual = hasImg
+                ? `<img src="${ProCable.sanitize(cat.image)}" alt="${ProCable.sanitize(name)}" class="w-5 h-5 rounded-full object-cover shadow-2xs"/>`
+                : `<span class="material-symbols-outlined text-base">${icon}</span>`;
+
+            html += `
+                <button onclick="setCategory('${cat.id}')" data-cat="${cat.id}" class="cat-btn px-4 py-2.5 rounded-xl transition whitespace-nowrap flex items-center gap-2 ${isAct ? 'bg-primary text-white font-bold shadow-sm' : 'bg-surface-container-high text-on-surface hover:bg-surface-container-highest'}">
+                    ${catVisual}
+                    <span>${ProCable.sanitize(name)}</span>
+                </button>
+            `;
+        });
+        
+        container.innerHTML = html;
+    }
+
+    function setCategory(cat) {
+        activeCategory = cat;
+        renderCategoryTabs();
+        renderStore();
+    }
+
+    // Search from single character (#30)
+    function handleSearch(val) {
+        searchQuery = val.trim().toLowerCase();
+        renderStore();
+    }
+
+    function handleSort(mode) {
+        sortMode = mode;
+        renderStore();
+    }
+
+    function renderStore() {
+        const grid = document.getElementById('storeGrid');
+        let products = ProCable.getProducts().filter(p => p.hidden !== true);
+        const isAr = ProCable.getLang() === 'ar';
+        const currency = isAr ? 'ج.م' : 'EGP';
+        const isSaleActive = ProCable.isSaleActive();
+
+        // Update Category Header
+        const catTitleEl = document.getElementById('currentCategoryTitle');
+        const catCountEl = document.getElementById('currentCategoryCount');
+        if (catTitleEl) {
+            if (activeCategory === 'all') catTitleEl.innerText = isAr ? 'كافة الأجهزة والأنظمة المعتمدة' : 'All Certified Systems';
+            else if (activeCategory === 'sale') catTitleEl.innerText = isAr ? 'قسم العروض والتخفيضات 🔥' : 'Sale & Deals 🔥';
+            else {
+                const curCat = ProCable.getCategories().find(c => c.id === activeCategory);
+                catTitleEl.innerText = curCat ? (isAr ? curCat.nameAr : (curCat.nameEn || curCat.nameAr)) : activeCategory;
+            }
+        }
+
+        // 1. Filter Category & Sale Hub
+        const saleBanner = document.getElementById('saleHubBanner');
+        if (saleBanner) {
+            if (activeCategory === 'sale') {
+                const s = ProCable.getSettings();
+                const titleEl = document.getElementById('saleHubBannerTitle');
+                const descEl = document.getElementById('saleHubBannerDesc');
+                const badgeEl = document.getElementById('saleHubBannerBadge');
+                if (titleEl) titleEl.innerText = isAr ? (s.saleTitleAr || s.saleTitleEn) : (s.saleTitleEn || s.saleTitleAr);
+                if (descEl) descEl.innerText = isAr ? (s.saleDescAr || s.saleDescEn) : (s.saleDescEn || s.saleDescAr);
+                if (badgeEl) badgeEl.innerHTML = `<span class="material-symbols-outlined text-sm">local_fire_department</span><span>${ProCable.sanitize(isAr ? (s.saleBadgeAr || 'عروض وتخفيضات 🔥') : (s.saleBadgeEn || 'Sale 🔥'))}</span>`;
+                saleBanner.classList.remove('hidden');
+            } else {
+                saleBanner.classList.add('hidden');
+            }
+        }
+
+        if (activeCategory === 'sale') {
+            products = products.filter(p => p.onSale === true || (p.originalPrice && p.originalPrice > p.price));
+        } else if (activeCategory !== 'all') {
+            products = products.filter(p => p.category === activeCategory);
+        }
+
+        // 2. Filter Search (Instant from 1 char)
+        if (searchQuery) {
+            products = products.filter(p => 
+                (p.nameAr && p.nameAr.toLowerCase().includes(searchQuery)) ||
+                (p.nameEn && p.nameEn.toLowerCase().includes(searchQuery)) ||
+                (p.descAr && p.descAr.toLowerCase().includes(searchQuery)) ||
+                (p.descEn && p.descEn.toLowerCase().includes(searchQuery)) ||
+                (p.tag && p.tag.toLowerCase().includes(searchQuery))
+            );
+        }
+
+        // Update count
+        if (catCountEl) {
+            catCountEl.innerText = isAr ? `${ProCable.formatNum(products.length)} منتج متوفر` : `${ProCable.formatNum(products.length)} items`;
+        }
+
+        // 3. Sorting (#32)
+        if (sortMode === 'discount') {
+            products.sort((a, b) => {
+                const discA = a.originalPrice ? (a.originalPrice - a.price) : 0;
+                const discB = b.originalPrice ? (b.originalPrice - b.price) : 0;
+                return discB - discA;
+            });
+        } else if (sortMode === 'price-asc') {
+            products.sort((a, b) => a.price - b.price);
+        } else if (sortMode === 'price-desc') {
+            products.sort((a, b) => b.price - a.price);
+        } else if (sortMode === 'name') {
+            products.sort((a, b) => (isAr ? a.nameAr.localeCompare(b.nameAr) : (a.nameEn || a.nameAr).localeCompare(b.nameEn || b.nameAr)));
+        } else {
+            products.sort((a, b) => (a.sortOrder || 99) - (b.sortOrder || 99));
+        }
+
+        if (products.length === 0) {
+            grid.innerHTML = `
+                <div class="col-span-full text-center py-16 bg-white rounded-3xl border border-outline-variant">
+                    <span class="material-symbols-outlined text-5xl text-gray-400 mb-2">search_off</span>
+                    <p class="text-sm text-on-surface-variant font-bold">${isAr ? 'لم نجد أجهزة أو منتجات مطابقة لبحثك في هذا التصنيف.' : 'No products matched your search in this category.'}</p>
+                    <button onclick="setCategory('all'); document.getElementById('searchInput').value=''; searchQuery='';" class="mt-3 text-xs text-primary font-bold hover:underline">${isAr ? 'عرض كافة المنتجات' : 'View all products'}</button>
+                </div>
+            `;
+            return;
+        }
+
+        let html = '';
+        products.forEach((p, idx) => {
+            const isOutOfStock = p.inStock === false;
+            const iconSvg = PRO_SVGS[p.icon] || PRO_SVGS['xlr-m'];
+            const prodName = isAr ? p.nameAr : (p.nameEn || p.nameAr);
+            const prodDesc = isAr ? p.descAr : (p.descEn || p.descAr);
+            const imgs = (Array.isArray(p.images) && p.images.length > 0) ? p.images : (p.image ? [p.image] : []);
+            const imgCount = imgs.length;
+            const hasVideo = !!(p.video && p.video.trim());
+            const primaryImg = imgs[0] || p.image || '';
+            const isGif = primaryImg.startsWith('data:image/gif') || /\.gif/i.test(primaryImg);
+
+            let mediaBadges = '';
+            if (imgCount > 1) {
+                mediaBadges += `<span class="bg-black/75 backdrop-blur-xs text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs" title="${imgCount} ${isAr ? 'صور' : 'images'}"><span class="material-symbols-outlined text-xs">photo_library</span><span>${imgCount}</span></span>`;
+            }
+            if (hasVideo) {
+                mediaBadges += `<span class="bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-xs"><span class="material-symbols-outlined text-xs">videocam</span><span>${isAr ? 'فيديو' : 'Video'}</span></span>`;
+            }
+            if (isGif) {
+                mediaBadges += `<span class="bg-purple-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded-md shadow-xs leading-none">GIF</span>`;
+            }
+            if (p.heroMediaType && p.heroMediaType !== 'none' && p.heroMediaUrl) {
+                mediaBadges += `<span class="bg-gradient-to-r from-rose-600 to-pink-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded-md flex items-center gap-0.5 shadow-xs" title="${isAr ? 'خلفية سينمائية هيرو' : 'Cinematic Hero Media'}"><span class="material-symbols-outlined text-[10px]">auto_awesome</span><span>${isAr ? 'هيرو' : 'Hero'}</span></span>`;
+            }
+
+            const isVideoCover = (p.coverType === 'video' || (!primaryImg && hasVideo)) && hasVideo;
+            const visual = isVideoCover
+                ? `<div class="relative w-full h-36 rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-inner group">
+                    <video src="${ProCable.sanitize(p.video)}" class="w-full h-full object-cover" autoplay loop muted playsinline></video>
+                    <div class="absolute top-2 right-2 bg-primary/95 text-white text-[9px] font-black px-2 py-0.5 rounded-full shadow-xs flex items-center gap-1 backdrop-blur-xs">
+                        <span class="material-symbols-outlined text-[11px]">play_circle</span>
+                        <span>${isAr ? 'فيديو رئيسي' : 'Featured Video'}</span>
+                    </div>
+                   </div>`
+                : (primaryImg 
+                    ? `<img src="${ProCable.sanitize(primaryImg)}" alt="${ProCable.sanitize(prodName)}" class="w-full h-full object-cover rounded-xl"/>`
+                    : (p.heroMediaUrl 
+                        ? (p.heroMediaType === 'video' 
+                            ? `<div class="relative w-full h-36 rounded-xl overflow-hidden bg-black flex items-center justify-center shadow-inner group"><video src="${ProCable.sanitize(p.heroMediaUrl)}" class="w-full h-full object-cover" autoplay loop muted playsinline></video></div>`
+                            : `<img src="${ProCable.sanitize(p.heroMediaUrl)}" alt="${ProCable.sanitize(prodName)}" class="w-full h-full object-cover rounded-xl"/>`)
+                        : `<div class="h-20 w-auto flex items-center justify-center drop-shadow-sm">${iconSvg}</div>`));
+
+            // Only apply discount if sale is globally active
+            const isItemOnSale = isSaleActive && (p.onSale === true || (p.originalPrice && p.originalPrice > p.price));
+            const currentItemPrice = isItemOnSale ? p.price : (p.originalPrice || p.price);
+            const hasDiscount = isItemOnSale && p.originalPrice && p.originalPrice > p.price;
+            const discountPct = hasDiscount ? Math.round((1 - p.price / p.originalPrice) * 100) : 0;
+
+            let badgeHtml = '';
+            if (isItemOnSale && (p.badge === 'sale' || discountPct > 0)) badgeHtml = `<span class="text-[10px] bg-primary text-white font-black px-2 py-0.5 rounded-full">${isAr ? `خصم ${discountPct}%` : `${discountPct}% OFF`}</span>`;
+            else if (p.badge === 'bestseller') badgeHtml = `<span class="text-[10px] bg-amber-500 text-white font-black px-2 py-0.5 rounded-full">${isAr ? '🔥 الأكثر مبيعاً' : '🔥 Bestseller'}</span>`;
+            else if (p.badge === 'choice') badgeHtml = `<span class="text-[10px] bg-blue-600 text-white font-black px-2 py-0.5 rounded-full">${isAr ? '⭐ اختيار المتجر' : '⭐ Staff Pick'}</span>`;
+            else if (p.badge === 'new') badgeHtml = `<span class="text-[10px] bg-green-600 text-white font-black px-2 py-0.5 rounded-full">${isAr ? '✨ جديد' : '✨ New'}</span>`;
+
+            html += `
+                <div class="apple-card apple-reveal apple-reveal-delay-${(idx % 6) + 1} bg-surface-container-lowest rounded-[24px] p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div>
+                        <div class="flex justify-between items-center mb-3">
+                            <div class="flex items-center gap-1.5 flex-wrap">
+                                <span class="text-xs bg-primary-fixed text-on-primary-fixed font-bold px-3 py-1 rounded-full">${ProCable.sanitize(p.tag || 'Audio')}</span>
+                                ${badgeHtml}
+                            </div>
+                            <div class="text-end">
+                                <span class="font-black text-primary text-lg stat-number">${ProCable.formatNum(currentItemPrice)} ${currency}</span>
+                                ${hasDiscount ? `<span class="text-xs text-on-surface-variant line-through block stat-number">${ProCable.formatNum(p.originalPrice)} ${currency}</span>` : ''}
+                            </div>
+                        </div>
+
+                        <!-- Product Visual -->
+                        <div class="relative bg-surface-container-low rounded-2xl p-4 mb-4 flex items-center justify-center cursor-pointer min-h-[130px] border border-black/[0.03] overflow-hidden group store-card-visual" onclick="showProductDetails(${p.id})">
+                            ${visual}
+                            ${mediaBadges ? `<div class="absolute bottom-2 ltr:left-2 rtl:right-2 flex items-center gap-1.5 z-10">${mediaBadges}</div>` : ''}
+                        </div>
+
+                        <h3 class="font-bold text-base text-on-surface mb-1.5 hover:text-primary cursor-pointer transition tracking-tight" onclick="showProductDetails(${p.id})">${ProCable.sanitize(prodName)}</h3>
+                        <p class="text-xs text-on-surface-variant leading-relaxed line-clamp-2 mb-3">${ProCable.sanitize(prodDesc)}</p>
+
+                        <!-- Datasheet badge / button if available -->
+                        ${p.datasheet ? `
+                            <div class="mb-3">
+                                <button onclick="openProductDatasheet(${p.id})" class="w-full text-[11px] font-bold text-primary bg-primary/5 hover:bg-primary hover:text-white border border-primary/20 py-1.5 px-3 rounded-xl transition flex items-center justify-center gap-1.5 shadow-2xs">
+                                    <span class="material-symbols-outlined text-sm">${p.datasheetType === 'pdf' ? 'picture_as_pdf' : 'description'}</span>
+                                    <span>${isAr ? 'عرض الداتا شيت والمواصفات الفنية 📄' : 'View Datasheet & Specs 📄'}</span>
+                                </button>
+                            </div>
+                        ` : ''}
+                    </div>
+
+                    <div class="pt-3 border-t border-black/[0.06] flex items-center gap-2">
+                        ${isOutOfStock ? `
+                            <span class="flex-1 py-2.5 text-center text-xs font-bold text-gray-500 bg-gray-100 rounded-full">${isAr ? 'نفد من المخزون' : 'Out of Stock'}</span>
+                        ` : `
+                            <button onclick="addStoreProductToCart(${p.id})" class="flex-1 bg-primary text-white py-2.5 px-4 rounded-full text-xs font-bold apple-btn-primary hover:bg-primary-dark transition flex items-center justify-center gap-1.5 shadow-sm">
+                                <span class="material-symbols-outlined text-base">shopping_bag</span>
+                                <span>${isAr ? 'أضف للسلة' : 'Add to Cart'}</span>
+                            </button>
+                        `}
+                        <button onclick="showProductDetails(${p.id})" title="${isAr ? 'تفاصيل المنتج' : 'Details'}" class="p-2.5 border border-black/10 rounded-full text-on-surface hover:bg-black/5 apple-btn-secondary transition flex items-center justify-center">
+                            <span class="material-symbols-outlined text-base">visibility</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+        });
+
+        grid.innerHTML = html;
+        if (typeof initStoreScrollObserver === 'function') {
+            initStoreScrollObserver();
+        }
+    }
+
+    function addStoreProductToCart(id) {
+        const prod = ProCable.getProducts().find(p => p.id === id);
+        if (!prod || prod.inStock === false) return;
+
+        const isSaleActive = ProCable.isSaleActive();
+        const isItemOnSale = isSaleActive && (prod.onSale === true || (prod.originalPrice && prod.originalPrice > prod.price));
+        const finalPrice = isItemOnSale ? prod.price : (prod.originalPrice || prod.price);
+
+        const isAr = ProCable.getLang() === 'ar';
+        ProCable.addToCart({
+            id: prod.id,
+            type: 'ready',
+            name: isAr ? prod.nameAr : (prod.nameEn || prod.nameAr),
+            connA: isAr ? prod.nameAr : (prod.nameEn || prod.nameAr),
+            connB: '',
+            cable: prod.tag || (isAr ? 'منتج جاهز' : 'Ready product'),
+            icon: prod.icon || '',
+            image: prod.image || '',
+            length: 1,
+            qty: 1,
+            unitPrice: finalPrice,
+            price: finalPrice
+        });
+
+        renderCartView();
+        ProCable.showToast(isAr ? 'تمت إضافة المنتج إلى حقيبة المشتريات!' : 'Added to cart!', 'success');
+    }
+
+    function showProductDetails(id) {
+        const prod = ProCable.getProducts().find(p => p.id === id);
+        if (!prod) return;
+
+        const isSaleActive = ProCable.isSaleActive();
+        const isItemOnSale = isSaleActive && (prod.onSale === true || (prod.originalPrice && prod.originalPrice > prod.price));
+        const finalPrice = isItemOnSale ? prod.price : (prod.originalPrice || prod.price);
+        const hasDiscount = isItemOnSale && prod.originalPrice && prod.originalPrice > prod.price;
+
+        const isAr = ProCable.getLang() === 'ar';
+        const currency = isAr ? 'ج.م' : 'EGP';
+        const prodName = isAr ? prod.nameAr : (prod.nameEn || prod.nameAr);
+        const prodDesc = isAr ? prod.descAr : (prod.descEn || prod.descAr);
+        const iconSvg = PRO_SVGS[prod.icon] || PRO_SVGS['xlr-m'];
+
+        // Build media items list
+        const mediaList = [];
+        const prodImages = (Array.isArray(prod.images) && prod.images.length > 0)
+            ? prod.images
+            : (prod.image ? [prod.image] : []);
+
+        const isVideoCover = (prod.coverType === 'video' || (prodImages.length === 0 && prod.video)) && prod.video && prod.video.trim();
+
+        // If video is designated as cover, insert it as the first media!
+        if (isVideoCover) {
+            mediaList.push({
+                type: 'video',
+                url: prod.video,
+                videoType: prod.videoType || 'file',
+                label: isAr ? 'فيديو الغلاف 🎯' : 'Featured Video'
+            });
+        }
+
+        prodImages.forEach((img, idx) => {
+            const isGif = img.startsWith('data:image/gif') || /\.gif/i.test(img);
+            mediaList.push({
+                type: isGif ? 'gif' : 'image',
+                url: img,
+                label: isAr ? (isGif ? `GIF ${idx + 1}` : `صورة ${idx + 1}`) : `Image ${idx + 1}`
+            });
+        });
+
+        // If video is NOT cover, insert it after images
+        if (!isVideoCover && prod.video && prod.video.trim()) {
+            mediaList.push({
+                type: 'video',
+                url: prod.video,
+                videoType: prod.videoType || 'file',
+                label: isAr ? 'فيديو' : 'Video'
+            });
+        }
+
+        window._activeProductMediaList = mediaList;
+        window._activeProductMediaIdx = 0;
+
+        const hasHeroBg = Boolean(prod.heroMediaType && prod.heroMediaType !== 'none' && prod.heroMediaUrl && prod.heroMediaUrl.trim());
+
+        let galleryHtml = '';
+        if (mediaList.length === 0) {
+            if (hasHeroBg) {
+                const isVid = prod.heroMediaType === 'video';
+                galleryHtml = `
+                    <div class="mb-4">
+                        <div id="productGalleryMainViewer" class="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden bg-black flex items-center justify-center shadow-inner mb-2">
+                            ${isVid 
+                                ? `<video src="${ProCable.sanitize(prod.heroMediaUrl)}" ${prod.heroPosterUrl ? `poster="${ProCable.sanitize(prod.heroPosterUrl)}"` : ''} controls autoplay loop muted playsinline class="w-full h-full object-contain bg-black"></video>`
+                                : `<img src="${ProCable.sanitize(prod.heroMediaUrl)}" alt="${ProCable.sanitize(prodName)}" class="w-full h-full object-contain"/>`}
+                            <span class="absolute top-2.5 left-2.5 bg-gradient-to-r from-rose-600 to-pink-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full shadow-xs flex items-center gap-1">
+                                <span class="material-symbols-outlined text-xs">auto_awesome</span>
+                                <span>${isVid ? (isAr ? 'فيديو سينمائي' : 'Cinematic Video') : (isAr ? 'خلفية الهيرو' : 'Hero Media')}</span>
+                            </span>
+                        </div>
+                    </div>
+                `;
+            } else {
+                galleryHtml = `<div class="h-44 flex items-center justify-center bg-surface-container-low rounded-2xl mb-4 border border-black/[0.03]">${iconSvg}</div>`;
+            }
+        } else {
+            const firstMedia = mediaList[0];
+            const mainViewerContent = firstMedia.type === 'video'
+                ? `<video src="${ProCable.sanitize(firstMedia.url)}" controls autoplay loop muted playsinline class="w-full h-full object-contain bg-black"></video>`
+                : `<img src="${ProCable.sanitize(firstMedia.url)}" alt="${ProCable.sanitize(prodName)}" class="w-full h-full object-contain"/>`;
+
+            const hasGifBadge = firstMedia.type === 'gif';
+
+            const thumbsHtml = mediaList.length > 1 ? `
+                <div class="flex items-center gap-2 overflow-x-auto pb-2 pt-1 mb-4">
+                    ${mediaList.map((m, idx) => {
+                        const isSelected = idx === 0;
+                        const isVid = m.type === 'video';
+                        const isG = m.type === 'gif';
+                        const thumbVisual = isVid
+                            ? `<div class="w-full h-full bg-black text-white flex items-center justify-center relative"><span class="material-symbols-outlined text-base">videocam</span></div>`
+                            : `<img src="${ProCable.sanitize(m.url)}" class="w-full h-full object-cover"/>`;
+
+                        return `
+                            <button type="button" onclick="switchProductDetailsMedia(${idx})" id="prodThumbBtn-${idx}" class="prod-thumb-btn w-14 h-14 rounded-xl overflow-hidden border-2 transition flex-shrink-0 relative ${isSelected ? 'border-primary ring-2 ring-primary/30 scale-105' : 'border-outline-variant hover:border-gray-400 opacity-75 hover:opacity-100'}">
+                                ${thumbVisual}
+                                ${isVid ? `<span class="absolute bottom-0 inset-x-0 bg-primary/90 text-white text-[7px] font-bold text-center leading-tight py-0.5">${isAr ? 'فيديو' : 'Video'}</span>` : ''}
+                                ${isG ? `<span class="absolute top-0.5 right-0.5 bg-purple-600 text-white text-[6px] font-black px-1 rounded-sm leading-tight">GIF</span>` : ''}
+                            </button>
+                        `;
+                    }).join('')}
+                </div>
+            ` : '';
+
+            galleryHtml = `
+                <div class="mb-4">
+                    <div id="productGalleryMainViewer" class="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden bg-surface-container-low border border-black/[0.04] flex items-center justify-center shadow-inner mb-2">
+                        ${mainViewerContent}
+                        <span id="productGalleryGifBadge" class="absolute top-2.5 left-2.5 bg-purple-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-xs ${hasGifBadge ? '' : 'hidden'}">GIF</span>
+                    </div>
+                    ${thumbsHtml}
+                </div>
+            `;
+        }
+
+        document.getElementById('prodDetailsContent').innerHTML = `
+            ${galleryHtml}
+            <div class="flex justify-between items-center mb-2">
+                <span class="text-xs font-bold bg-primary-fixed text-primary px-2.5 py-1 rounded-full">${ProCable.sanitize(prod.tag || 'Audio Cable')}</span>
+                <div class="text-end">
+                    <span class="text-2xl font-black text-primary">${ProCable.formatNum(finalPrice)} ${currency}</span>
+                    ${hasDiscount ? `<span class="text-xs text-on-surface-variant line-through block">${ProCable.formatNum(prod.originalPrice)} ${currency}</span>` : ''}
+                </div>
+            </div>
+            <h3 class="text-lg font-bold text-on-surface mb-2">${ProCable.sanitize(prodName)}</h3>
+            <p class="text-xs text-on-surface-variant leading-relaxed mb-4">${ProCable.sanitize(prodDesc)}</p>
+
+            ${prod.datasheet ? `
+                <div class="p-3.5 bg-primary/5 rounded-2xl border border-primary/20 mb-5 flex items-center justify-between">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-9 h-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                            <span class="material-symbols-outlined text-lg">${prod.datasheetType === 'pdf' ? 'picture_as_pdf' : 'description'}</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-on-surface block">${isAr ? 'الداتا شيت والمواصفات الهندسية' : 'Technical Datasheet'}</span>
+                            <span class="text-[10px] text-gray-500">${prod.datasheetType === 'pdf' ? 'ملف PDF معتمد' : 'مخطط فني عالي الدقة'}</span>
+                        </div>
+                    </div>
+                    <button onclick="openProductDatasheet(${prod.id})" class="px-3 py-1.5 bg-primary text-white rounded-full text-xs font-bold hover:bg-primary-dark transition flex items-center gap-1 shadow-xs">
+                        <span class="material-symbols-outlined text-sm">visibility</span>
+                        <span>${isAr ? 'عرض' : 'View'}</span>
+                    </button>
+                </div>
+            ` : ''}
+            
+            <div class="flex gap-3 pt-2">
+                <button onclick="closeModal('prodDetailsModal')" class="py-3 px-5 border border-outline-variant rounded-xl text-xs font-semibold text-gray-700 hover:bg-gray-100">${isAr ? 'إغلاق' : 'Close'}</button>
+                <button onclick="addStoreProductToCart(${prod.id}); closeModal('prodDetailsModal');" class="flex-1 bg-primary text-white py-3 rounded-xl text-xs font-bold hover:bg-primary-dark transition shadow flex items-center justify-center gap-1">
+                    <span class="material-symbols-outlined text-base">add_shopping_cart</span>
+                    <span>${isAr ? 'إضافة إلى السلة' : 'Add to Cart'}</span>
+                </button>
+            </div>
+        `;
+
+        const heroLayer = document.getElementById('prodDetailsHeroBgLayer');
+        if (heroLayer) {
+            if (hasHeroBg) {
+                const isVideo = prod.heroMediaType === 'video';
+                const posterAttr = (isVideo && prod.heroPosterUrl) ? `poster="${ProCable.sanitize(prod.heroPosterUrl)}"` : '';
+                
+                const mediaTag = isVideo
+                    ? `<video src="${ProCable.sanitize(prod.heroMediaUrl)}" ${posterAttr} autoplay loop muted playsinline preload="metadata" class="w-full h-full object-cover hero-bg-animate"></video>`
+                    : `<img src="${ProCable.sanitize(prod.heroMediaUrl)}" alt="Product Hero Background" class="w-full h-full object-cover hero-bg-animate"/>`;
+
+                heroLayer.innerHTML = `
+                    ${mediaTag}
+                    <div class="absolute inset-0 bg-gradient-to-b from-white/80 via-white/94 to-white backdrop-blur-[6px]"></div>
+                    <div class="absolute top-3.5 ltr:left-4 rtl:right-4 z-10">
+                        <span class="inline-flex items-center gap-1 bg-black/70 backdrop-blur-md text-white text-[9px] font-black px-2.5 py-1 rounded-full shadow-xs border border-white/10">
+                            <span class="material-symbols-outlined text-[12px] text-amber-400">auto_awesome</span>
+                            <span>${isVideo ? (isAr ? 'خلفية سينمائية' : 'Cinematic Video') : (prod.heroMediaType === 'animated-image' ? (isAr ? 'خلفية متحركة GIF' : 'Animated GIF') : (isAr ? 'خلفية هيرو' : 'Hero Image'))}</span>
+                        </span>
+                    </div>
+                `;
+                heroLayer.classList.remove('hidden');
+            } else {
+                heroLayer.innerHTML = '';
+                heroLayer.classList.add('hidden');
+            }
+        }
+
+        openModal('prodDetailsModal');
+    }
+
+    function switchProductDetailsMedia(idx) {
+        const list = window._activeProductMediaList;
+        if (!list || !list[idx]) return;
+        window._activeProductMediaIdx = idx;
+        const media = list[idx];
+        const viewer = document.getElementById('productGalleryMainViewer');
+        if (!viewer) return;
+
+        if (media.type === 'video') {
+            viewer.innerHTML = `<video src="${ProCable.sanitize(media.url)}" controls autoplay loop muted playsinline class="w-full h-full object-contain bg-black"></video>`;
+        } else {
+            viewer.innerHTML = `
+                <img src="${ProCable.sanitize(media.url)}" class="w-full h-full object-contain transition duration-200"/>
+                <span id="productGalleryGifBadge" class="absolute top-2.5 left-2.5 bg-purple-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-xs ${media.type === 'gif' ? '' : 'hidden'}">GIF</span>
+            `;
+        }
+
+        document.querySelectorAll('.prod-thumb-btn').forEach((btn, i) => {
+            if (i === idx) {
+                btn.className = 'prod-thumb-btn w-14 h-14 rounded-xl overflow-hidden border-2 transition flex-shrink-0 relative border-primary ring-2 ring-primary/30 scale-105';
+            } else {
+                btn.className = 'prod-thumb-btn w-14 h-14 rounded-xl overflow-hidden border-2 transition flex-shrink-0 relative border-outline-variant hover:border-gray-400 opacity-75 hover:opacity-100';
+            }
+        });
+    }
+
+    // --- Datasheet Lightbox Modal Helpers ---
+    function openProductDatasheet(id) {
+        const prod = ProCable.getProducts().find(p => p.id === id);
+        if (!prod || !prod.datasheet) {
+            ProCable.showToast('لا تتوفر داتا شيت لهذا المنتج حالياً', 'info');
+            return;
+        }
+
+        const isAr = ProCable.getLang() === 'ar';
+        const modal = document.getElementById('datasheetLightboxModal');
+        const titleEl = document.getElementById('datasheetModalTitle');
+        const subtitleEl = document.getElementById('datasheetModalSubtitle');
+        const contentEl = document.getElementById('datasheetModalContent');
+        const linkEl = document.getElementById('datasheetExternalLink');
+
+        const prodName = isAr ? prod.nameAr : (prod.nameEn || prod.nameAr);
+        if (titleEl) titleEl.innerText = `${isAr ? 'داتا شيت:' : 'Datasheet:'} ${prodName}`;
+        if (subtitleEl) subtitleEl.innerText = isAr ? 'المواصفات التقنية الرسمية والمخطط الهندسي للكابل' : 'Official technical specifications and engineering diagram';
+
+        if (linkEl) {
+            linkEl.href = prod.datasheet;
+        }
+
+        const isPdf = prod.datasheetType === 'pdf' || prod.datasheet.startsWith('data:application/pdf') || prod.datasheet.toLowerCase().endsWith('.pdf');
+
+        if (isPdf) {
+            contentEl.innerHTML = `
+                <div class="w-full h-full flex flex-col items-center justify-center p-6 text-center space-y-4">
+                    <div class="w-20 h-20 rounded-3xl bg-primary/10 text-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined text-5xl">picture_as_pdf</span>
+                    </div>
+                    <div class="space-y-1">
+                        <h4 class="font-black text-base text-on-surface">${ProCable.sanitize(prodName)}</h4>
+                        <p class="text-xs text-on-surface-variant max-w-sm">${isAr ? 'ملف المواصفات الفنية المعتمد بصيغة PDF متاح للعرض الفوري والتحميل' : 'Official PDF datasheet available for preview and download'}</p>
+                    </div>
+                    <div class="flex flex-wrap gap-3 justify-center pt-2">
+                        <a href="${prod.datasheet}" target="_blank" class="px-6 py-2.5 bg-primary text-white rounded-full text-xs font-bold hover:bg-primary-dark transition shadow flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-sm">open_in_new</span>
+                            <span>${isAr ? 'فتح ملف PDF بالكامل' : 'Open Full PDF'}</span>
+                        </a>
+                        <a href="${prod.datasheet}" download="Attractive-${prod.id}-Datasheet.pdf" class="px-6 py-2.5 border border-black/10 hover:bg-black/5 rounded-full text-xs font-bold text-on-surface transition flex items-center gap-1.5">
+                            <span class="material-symbols-outlined text-sm">download</span>
+                            <span>${isAr ? 'تحميل الملف' : 'Download PDF'}</span>
+                        </a>
+                    </div>
+                </div>
+            `;
+        } else {
+            contentEl.innerHTML = `
+                <div class="w-full h-full flex items-center justify-center p-2">
+                    <img src="${prod.datasheet}" alt="${ProCable.sanitize(prodName)}" class="max-h-[65vh] w-auto object-contain rounded-xl shadow-sm"/>
+                </div>
+            `;
+        }
+
+        if (modal) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => modal.classList.add('active'), 10);
+        }
+    }
+
+    function closeDatasheetModal() {
+        const modal = document.getElementById('datasheetLightboxModal');
+        if (!modal) return;
+        modal.classList.remove('active');
+        setTimeout(() => {
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }, 300);
+    }
+
+    // --- Cart View Logic: Vertical Stack (بالطول) Without Overlap ---
+    function renderCartView() {
+        const cart = ProCable.getCart();
+        const contentWrapper = document.getElementById('cartContentWrapper');
+        const list = document.getElementById('cartItemsList');
+        const emptyMsg = document.getElementById('emptyCartMessage');
+        const summary = document.getElementById('cartSummaryBlock');
+        const totalSumEl = document.getElementById('cartTotalSum');
+        const subtotalTextEl = document.getElementById('cartItemsSubtotalText');
+        const memberBadge = document.getElementById('cartMemberPerkBadge');
+        const isAr = ProCable.getLang() === 'ar';
+        const currency = isAr ? 'ج.م' : 'EGP';
+        const unit = isAr ? 'م' : 'm';
+
+        ProCable.updateCartBadges();
+
+        const badge = document.getElementById('cartItemCountBadge');
+        const totalItemsCount = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+        if (badge) badge.innerText = isAr ? `${ProCable.formatNum(totalItemsCount)} عناصر` : `${ProCable.formatNum(totalItemsCount)} items`;
+
+        if (cart.length === 0) {
+            list.innerHTML = '';
+            emptyMsg.classList.remove('hidden');
+            if (contentWrapper) contentWrapper.classList.add('hidden');
+            if (summary) summary.classList.add('hidden');
+            return;
+        }
+
+        emptyMsg.classList.add('hidden');
+        if (contentWrapper) contentWrapper.classList.remove('hidden');
+        if (summary) summary.classList.remove('hidden');
+
+        // Check active member perks
+        if (memberBadge) {
+            const user = ProCable.getCurrentUserAccount ? ProCable.getCurrentUserAccount() : null;
+            if (user) {
+                let perkTexts = [];
+                if (user.discountPercent > 0) perkTexts.push(isAr ? `خصم عضوية ${ProCable.formatNum(user.discountPercent)}%` : `${user.discountPercent}% Member Discount`);
+                if (user.freeShipping) perkTexts.push(isAr ? 'شحن مجاني' : 'Free Shipping');
+                if (Array.isArray(user.customPerks) && user.customPerks.length) {
+                    user.customPerks.forEach(p => perkTexts.push(p));
+                }
+                
+                memberBadge.innerHTML = `
+                    <div class="p-3.5 bg-green-50 border border-green-200 rounded-2xl flex items-center gap-2.5 text-green-900 text-xs">
+                        <span class="material-symbols-outlined text-green-600 text-lg flex-shrink-0">verified</span>
+                        <div class="font-bold flex-1">
+                            <span class="block">${isAr ? `أهلاً بك يا ${user.name.split(' ')[0]}!` : `Welcome back, ${user.name}!`}</span>
+                            <span class="block text-[11px] font-normal text-green-800 mt-0.5">${perkTexts.join(' • ')}</span>
+                        </div>
+                    </div>
+                `;
+                memberBadge.classList.remove('hidden');
+            } else {
+                memberBadge.innerHTML = `
+                    <div class="p-3 bg-[#F5F5F7] rounded-2xl border border-black/[0.04] flex items-center justify-between text-xs">
+                        <span class="text-on-surface-variant text-[11px] font-medium">${isAr ? 'سجل دخولك للاستفادة من مزايا العضوية' : 'Sign in for member perks & free shipping'}</span>
+                        <button type="button" onclick="ProCable.showAuthModal()" class="text-primary font-bold text-xs hover:underline">${isAr ? 'دخول' : 'Sign in'}</button>
+                    </div>
+                `;
+                memberBadge.classList.remove('hidden');
+            }
+        }
+
+        let grandTotal = 0;
+        let html = '';
+
+        cart.forEach(item => {
+            grandTotal += item.price;
+            const isCustom = item.type === 'custom';
+            
+            // Icon / Visual preview
+            let visual = '';
+            const storeProd = !isCustom ? ProCable.getProducts().find(p => p.id === item.id) : null;
+            const itemImage = item.image || (storeProd ? storeProd.image : '');
+            const itemIcon = item.icon || (storeProd ? storeProd.icon : 'xlr-m');
+
+            if (itemImage) {
+                visual = `<img src="${ProCable.sanitize(itemImage)}" alt="${ProCable.sanitize(item.name)}" class="w-full h-full object-cover rounded-xl"/>`;
+            } else {
+                const iconKey = isCustom ? 'cable' : itemIcon;
+                const svg = (typeof PRO_SVGS !== 'undefined' && PRO_SVGS[iconKey]) ? PRO_SVGS[iconKey] : (PRO_SVGS['cable'] || PRO_SVGS['xlr-m']);
+                visual = `<div class="w-10 h-10 flex items-center justify-center">${svg}</div>`;
+            }
+
+            const itemTypeBadge = isCustom 
+                ? (isAr ? 'كابل تفصيل خاص' : 'Custom Cable')
+                : (isAr ? 'منتج جاهز' : 'Ready Product');
+
+            const unitPrice = item.unitPrice || (item.price / (item.qty || 1));
+            const itemUnitFormatted = ProCable.formatNum(unitPrice);
+            const safeItemId = JSON.stringify(item.id);
+
+            html += `
+                <!-- Vertical spacious item card with zero overlap -->
+                <div class="bg-white border border-black/[0.08] rounded-[24px] p-5 sm:p-6 shadow-sm hover:border-black/[0.14] transition-all space-y-4">
+                    <!-- Top Row: Thumbnail + Product Name & Badges + Delete Button -->
+                    <div class="flex items-start justify-between gap-4">
+                        <div class="flex items-start gap-4 flex-1 min-w-0">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-surface-container-low border border-black/[0.04] flex items-center justify-center flex-shrink-0 p-2 overflow-hidden">
+                                ${visual}
+                            </div>
+                            <div class="space-y-1.5 flex-1 min-w-0">
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full ${isCustom ? 'bg-primary/10 text-primary' : 'bg-black/5 text-on-surface-variant'}">${itemTypeBadge}</span>
+                                    ${item.customLabel ? `<span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-amber-50 text-amber-900 border border-amber-200 flex items-center gap-1"><span class="material-symbols-outlined text-xs">label</span>${ProCable.sanitize(item.customLabel)}</span>` : ''}
+                                </div>
+                                <h4 class="font-black text-base sm:text-lg text-on-surface leading-snug break-words">${ProCable.sanitize(item.name)}</h4>
+                                <div class="text-xs text-on-surface-variant space-y-0.5 leading-relaxed">
+                                    ${item.cable ? `<div><span class="font-semibold text-gray-500">${isAr ? 'نوع السلك:' : 'Wire:'}</span> ${ProCable.sanitize(item.cable)}</div>` : ''}
+                                    ${item.length ? `<div><span class="font-semibold text-gray-500">${isAr ? 'طول الكابل:' : 'Cable Length:'}</span> <span class="font-bold text-primary">${ProCable.formatNum(item.length)} ${unit}</span></div>` : ''}
+                                    ${isCustom && item.connA && item.connB ? `<div><span class="font-semibold text-gray-500">${isAr ? 'الموصلات:' : 'Connectors:'}</span> <span class="text-primary font-bold">${ProCable.sanitize(item.connA)} ←→ ${ProCable.sanitize(item.connB)}</span></div>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Delete Button -->
+                        <button onclick="ProCable.removeFromCart(${safeItemId}); renderCartView();" class="w-9 h-9 rounded-full bg-red-50 text-red-600 hover:bg-red-600 hover:text-white transition flex items-center justify-center flex-shrink-0 shadow-2xs" title="${isAr ? 'حذف من السلة' : 'Remove item'}">
+                            <span class="material-symbols-outlined text-lg">delete</span>
+                        </button>
+                    </div>
+
+                    <!-- Bottom Action Bar: Unit Price, Quantity Stepper, Item Total (Zero Overlap) -->
+                    <div class="pt-3 border-t border-black/[0.06] flex flex-wrap items-center justify-between gap-4">
+                        <!-- Unit Price -->
+                        <div class="text-xs text-on-surface-variant font-medium">
+                            <span>${isAr ? 'سعر القطعة:' : 'Unit price:'}</span>
+                            <span class="font-bold text-on-surface ms-1 stat-number text-sm">${itemUnitFormatted} ${currency}</span>
+                        </div>
+
+                        <!-- Apple Pill Stepper -->
+                        <div class="flex items-center bg-surface-container-high rounded-full p-1 border border-black/[0.06]">
+                            <button onclick="ProCable.updateCartQty(${safeItemId}, -1); renderCartView();" class="w-8 h-8 rounded-full bg-white text-on-surface hover:bg-black/5 flex items-center justify-center font-bold text-sm shadow-2xs active:scale-90 transition" title="${isAr ? 'تقليل' : 'Decrease'}">−</button>
+                            <span class="w-8 text-center text-sm font-black stat-number text-on-surface">${ProCable.formatNum(item.qty)}</span>
+                            <button onclick="ProCable.updateCartQty(${safeItemId}, 1); renderCartView();" class="w-8 h-8 rounded-full bg-white text-on-surface hover:bg-black/5 flex items-center justify-center font-bold text-sm shadow-2xs active:scale-90 transition" title="${isAr ? 'زيادة' : 'Increase'}">+</button>
+                        </div>
+
+                        <!-- Item Total Price -->
+                        <div class="text-end">
+                            <span class="text-[11px] text-gray-400 block">${isAr ? 'إجمالي الصنف:' : 'Total:'}</span>
+                            <span class="font-black text-lg text-primary stat-number">${ProCable.formatNum(item.price)} ${currency}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        list.innerHTML = html;
+        const totalFormatted = `${ProCable.formatNum(grandTotal)} ${currency}`;
+        if (totalSumEl) totalSumEl.innerText = totalFormatted;
+        if (subtotalTextEl) subtotalTextEl.innerText = totalFormatted;
+    }
+
+    function clearStoreCart() {
+        const isAr = ProCable.getLang() === 'ar';
+        if (confirm(isAr ? 'هل ترغب في تفريغ سلة المشتريات بالكامل؟' : 'Do you want to clear your cart?')) {
+            ProCable.clearCart();
+            renderCartView();
+        }
+    }
+
+    function scrollToCart() {
+        const el = document.getElementById('cartSection');
+        if (el) {
+            const drawer = document.getElementById('mobileDrawer');
+            if (drawer && !drawer.classList.contains('hidden')) {
+                drawer.classList.add('hidden');
+            }
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            el.classList.add('ring-4', 'ring-primary/20', 'rounded-[32px]', 'transition-all', 'duration-500');
+            setTimeout(() => {
+                el.classList.remove('ring-4', 'ring-primary/20');
+            }, 1800);
+        }
+    }
+
+    // --- Modal Helpers ---
+    function openModal(id) {
+        const el = document.getElementById(id);
+        el.classList.remove('hidden');
+        el.classList.add('flex');
+        setTimeout(() => el.classList.add('active'), 10);
+    }
+
+    function closeModal(id) {
+        if (id === 'prodDetailsModal') {
+            const heroLayer = document.getElementById('prodDetailsHeroBgLayer');
+            if (heroLayer) {
+                const vid = heroLayer.querySelector('video');
+                if (vid) { vid.pause(); vid.src = ''; }
+                heroLayer.innerHTML = '';
+                heroLayer.classList.add('hidden');
+            }
+            const galleryViewer = document.getElementById('productGalleryMainViewer');
+            if (galleryViewer) {
+                const gVid = galleryViewer.querySelector('video');
+                if (gVid) { gVid.pause(); gVid.src = ''; }
+            }
+        }
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.classList.remove('active');
+        setTimeout(() => {
+            el.classList.remove('flex');
+            el.classList.add('hidden');
+        }, 300);
+    }
+
+    function handleBackdropClick(e, id) {
+        if (e.target.id === id) closeModal(id);
+    }
+
+    // --- Checkout Logic (#13, #34, #36) ---
+    function populateShippingSelect() {
+        const select = document.getElementById('custGov');
+        const rates = ProCable.getShipping();
+        const isAr = ProCable.getLang() === 'ar';
+        const currency = isAr ? 'ج.م' : 'EGP';
+        // Only show enabled governorates
+        const activeRates = rates.filter(r => r.enabled !== false);
+        select.innerHTML = activeRates.map(r => {
+            const govName = isAr ? r.nameAr : (r.nameEn || r.nameAr);
+            const deliveryTime = isAr ? (r.deliveryTimeAr || '') : (r.deliveryTimeEn || r.deliveryTimeAr || '');
+            const timeLabel = deliveryTime ? ` — ${deliveryTime}` : '';
+            return `<option value="${r.id}" data-fee="${r.fee}">${govName} (${ProCable.formatNum(r.fee)} ${currency})${timeLabel}</option>`;
+        }).join('');
+    }
+
+    function openCheckoutModal() {
+        const isAr = ProCable.getLang() === 'ar';
+        if (ProCable.getCart().length === 0) {
+            ProCable.showToast(isAr ? 'السلة فارغة حالياً!' : 'Cart is currently empty!', 'error');
+            return;
+        }
+        appliedDiscountVal = 0;
+        document.getElementById('couponDiscountRow').classList.add('hidden');
+        document.getElementById('couponMsg').classList.add('hidden');
+        document.getElementById('couponCodeInput').value = '';
+
+        // Check user perks & pre-fill
+        const user = ProCable.getCurrentUserAccount();
+        const banner = document.getElementById('checkoutUserPerksBanner');
+        if (banner) {
+            if (user) {
+                if (user.name && !document.getElementById('custName').value) document.getElementById('custName').value = user.name;
+                if (user.phone && !document.getElementById('custPhone').value) document.getElementById('custPhone').value = user.phone;
+                
+                const perks = [];
+                if (user.freeShipping) perks.push(isAr ? '🚚 شحن مجاني مفعل' : 'Free Shipping Active');
+                if (user.discountPercent > 0) perks.push(isAr ? `🏷️ خصم خاص ${user.discountPercent}%` : `${user.discountPercent}% Member Discount`);
+                if (user.customCoupon) perks.push(isAr ? `🎟️ كوبونك: ${user.customCoupon}` : `Coupon: ${user.customCoupon}`);
+                if (Array.isArray(user.customPerks)) {
+                    user.customPerks.forEach(p => perks.push(`⭐ ${p}`));
+                }
+
+                banner.innerHTML = `
+                    <div class="p-3.5 bg-green-50/90 border border-green-200 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-900 font-bold text-xs mb-1">
+                            <span class="material-symbols-outlined text-base text-green-700">verified</span>
+                            <span>${isAr ? `أهلاً بك يا ${user.name.split(' ')[0]}! تم تفعيل مزايا عضويتك في هذا الطلب تلقائياً:` : `Welcome back ${user.name}! Your member perks are applied:`}</span>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 mt-1.5">
+                            ${perks.map(p => `<span class="bg-white border border-green-300 text-green-800 text-[10px] font-bold px-2 py-0.5 rounded-lg shadow-2xs">${p}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+                banner.classList.remove('hidden');
+            } else {
+                banner.innerHTML = `
+                    <div class="p-2.5 bg-surface border border-outline-variant rounded-xl flex items-center justify-between text-xs">
+                        <div class="flex items-center gap-1.5 text-on-surface">
+                            <span class="material-symbols-outlined text-primary text-base">loyalty</span>
+                            <span>${isAr ? 'لديك حساب مسجل؟ سجل دخولك للاستفادة من الشحن المجاني والخصومات' : 'Have an account? Log in for member perks'}</span>
+                        </div>
+                        <button type="button" onclick="closeModal('checkoutModal'); ProCable.showAuthModal();" class="text-[11px] font-bold text-primary underline">${isAr ? 'دخول' : 'Sign in'}</button>
+                    </div>
+                `;
+                banner.classList.remove('hidden');
+            }
+        }
+
+        populateShippingSelect();
+        calculateShipping();
+        openModal('checkoutModal');
+    }
+
+    function applyStoreCoupon() {
+        const code = document.getElementById('couponCodeInput').value;
+        const cart = ProCable.getCart();
+        const subtotal = cart.reduce((sum, i) => sum + i.price, 0);
+        const res = ProCable.applyCoupon(code, subtotal);
+        const msgEl = document.getElementById('couponMsg');
+        const isAr = ProCable.getLang() === 'ar';
+        const currency = isAr ? 'ج.م' : 'EGP';
+        msgEl.classList.remove('hidden', 'text-green-600', 'text-red-500');
+
+        if (res.valid) {
+            appliedDiscountVal = res.discount;
+            msgEl.innerText = `✓ ${res.message}`;
+            msgEl.classList.add('text-green-600');
+            document.getElementById('couponDiscountRow').classList.remove('hidden');
+            document.getElementById('checkoutDiscount').innerText = `-${ProCable.formatNum(appliedDiscountVal)} ${currency}`;
+        } else {
+            appliedDiscountVal = 0;
+            msgEl.innerText = res.message;
+            msgEl.classList.add('text-red-500');
+            document.getElementById('couponDiscountRow').classList.add('hidden');
+        }
+        calculateShipping();
+    }
+
+    function calculateShipping() {
+        const govSelect = document.getElementById('custGov');
+        const selectedOpt = govSelect.options[govSelect.selectedIndex];
+        const govId = selectedOpt ? selectedOpt.value : null;
+        let fee = parseInt(selectedOpt ? selectedOpt.getAttribute('data-fee') : '45') || 45;
+        const isAr = ProCable.getLang() === 'ar';
+        const currency = isAr ? 'ج.م' : 'EGP';
+
+        const cart = ProCable.getCart();
+        const subtotal = cart.reduce((sum, i) => sum + i.price, 0);
+
+        const user = ProCable.getCurrentUserAccount();
+        let isFreeShippingApplied = false;
+        let freeShipReason = '';
+
+        // User member free shipping perk
+        if (user && user.freeShipping) {
+            fee = 0;
+            isFreeShippingApplied = true;
+            freeShipReason = isAr ? 'شحن مجاني لعضويتك! 🚚' : 'Free Shipping (Member Perk)';
+        }
+
+        // Store-wide free shipping
+        if (!isFreeShippingApplied && govId) {
+            const effective = ProCable.calculateEffectiveShipping(subtotal, govId);
+            if (effective.isFree) {
+                fee = 0;
+                isFreeShippingApplied = true;
+                if (effective.reason === 'free_all') {
+                    freeShipReason = isAr ? 'عرض خاص: شحن مجاني لجميع الطلبات! 🚚' : 'Special Offer: Free Shipping on all orders! 🚚';
+                } else {
+                    freeShipReason = isAr ? `شحن مجاني للطلبات فوق ${ProCable.formatNum(ProCable.getSettings().freeShippingMinOrder)} ج.م 🚚` : `Free shipping on orders over ${ProCable.formatNum(ProCable.getSettings().freeShippingMinOrder)} EGP`;
+                }
+            } else {
+                fee = effective.fee;
+            }
+        }
+
+        // Auto apply user discount percent if no other manual coupon is entered
+        if (appliedDiscountVal === 0 && user && user.discountPercent > 0) {
+            appliedDiscountVal = Math.round(subtotal * (user.discountPercent / 100));
+            document.getElementById('couponDiscountRow').classList.remove('hidden');
+            document.getElementById('checkoutDiscount').innerText = `-${ProCable.formatNum(appliedDiscountVal)} ${currency} (${user.discountPercent}%)`;
+        }
+
+        const finalTotal = Math.max(0, subtotal + fee - appliedDiscountVal);
+
+        document.getElementById('checkoutSubtotal').innerText = `${ProCable.formatNum(subtotal)} ${currency}`;
+        document.getElementById('checkoutShipping').innerText = isFreeShippingApplied
+            ? `0 ${currency} (${freeShipReason})`
+            : `${ProCable.formatNum(fee)} ${currency}`;
+        document.getElementById('checkoutFinalTotal').innerText = `${ProCable.formatNum(finalTotal)} ${currency}`;
+
+        // Check if builder item exists in cart requiring deposit (#34)
+        const hasCustomItem = cart.some(i => i.type !== 'ready');
+        const s = ProCable.getSettings();
+        const depositRow = document.getElementById('depositInfoRow');
+        if (hasCustomItem && s.depositEnabled) {
+            const deposit = ProCable.calculateDeposit(finalTotal);
+            document.getElementById('checkoutDepositAmount').innerText = `${ProCable.formatNum(deposit)} ${currency}`;
+            document.getElementById('checkoutRemainingAmount').innerText = `${ProCable.formatNum(finalTotal - deposit)} ${currency}`;
+            depositRow.classList.remove('hidden');
+        } else {
+            depositRow.classList.add('hidden');
+        }
+    }
+
+    function handleCheckout(e) {
+        e.preventDefault();
+        const cart = ProCable.getCart();
+        if (cart.length === 0) return;
+
+        const name = document.getElementById('custName').value.trim();
+        const phone = document.getElementById('custPhone').value.trim();
+        const govSelect = document.getElementById('custGov');
+        const govText = govSelect.options[govSelect.selectedIndex].text;
+        const user = ProCable.getCurrentUserAccount();
+        const govId = govSelect.value;
+        const subtotal = cart.reduce((sum, i) => sum + i.price, 0);
+        let fee = parseInt(govSelect.options[govSelect.selectedIndex].getAttribute('data-fee')) || 45;
+        if (user && user.freeShipping) {
+            fee = 0;
+        } else if (govId) {
+            const effective = ProCable.calculateEffectiveShipping(subtotal, govId);
+            fee = effective.fee;
+        }
+
+        const address = document.getElementById('custAddress').value.trim();
+        const payment = document.getElementById('payMethod').value;
+
+        const grandTotal = Math.max(0, subtotal + fee - appliedDiscountVal);
+        const hasCustomItem = cart.some(i => i.type !== 'ready');
+        const deposit = (hasCustomItem && ProCable.getSettings().depositEnabled) ? ProCable.calculateDeposit(grandTotal) : 0;
+
+        let userPerksList = [];
+        if (user) {
+            if (user.freeShipping) userPerksList.push('شحن مجاني');
+            if (user.discountPercent > 0) userPerksList.push(`خصم ${user.discountPercent}%`);
+            if (Array.isArray(user.customPerks)) userPerksList = userPerksList.concat(user.customPerks);
+        }
+
+        const order = {
+            customerName: name,
+            customerPhone: phone,
+            governorate: govText,
+            addressDetails: address,
+            paymentMethod: payment,
+            items: cart,
+            subtotal: subtotal,
+            shippingFee: fee,
+            discount: appliedDiscountVal,
+            total: grandTotal,
+            deposit: deposit,
+            remaining: grandTotal - deposit,
+            registeredUserEmail: user ? user.email : null,
+            userPerks: userPerksList,
+            notes: user ? `[عضو مسجل: ${user.email} | مزايا: ${userPerksList.join(', ')}]` : ''
+        };
+
+        const savedOrder = ProCable.saveOrder(order);
+        const encodedMsg = ProCable.buildWhatsAppMessage(savedOrder);
+        const settings = ProCable.getSettings();
+        const whatsappUrl = `https://wa.me/${settings.whatsappNumber}?text=${encodedMsg}`;
+
+        // Clear Cart & Save
+        ProCable.clearCart();
+        renderCartView();
+        closeModal('checkoutModal');
+
+        // Show Success Dialog
+        document.getElementById('orderSuccessId').innerText = `#${savedOrder.id}`;
+        document.getElementById('orderWhatsAppLink').setAttribute('href', whatsappUrl);
+        openModal('orderSuccessModal');
+
+        window.open(whatsappUrl, '_blank');
+    }
+
+    // --- Init ---
+    function initStoreScrollObserver() {
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px 0px -40px 0px',
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.apple-reveal:not(.revealed)').forEach(el => observer.observe(el));
+        } else {
+            document.querySelectorAll('.apple-reveal').forEach(el => el.classList.add('revealed'));
+        }
+    }
+
+    function initStoreAppleExperience() {
+        // Scroll-Aware Frosted Navigation
+        const nav = document.querySelector('nav.apple-nav');
+        if (nav) {
+            const onScroll = () => {
+                if (window.scrollY > 20) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            };
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+        }
+
+        initStoreScrollObserver();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('cat')) {
+            activeCategory = urlParams.get('cat');
+        } else if (window.location.hash === '#sale' || urlParams.get('sale') === 'true') {
+            activeCategory = 'sale';
+        }
+        renderCategoryTabs();
+        renderStore();
+        renderCartView();
+        populateShippingSelect();
+        initStoreAppleExperience();
+        // Deep link from the homepage's featured-products grid: ?product=<id>
+        // opens that exact product's detail modal automatically.
+        const deepLinkProductId = parseInt(urlParams.get('product'), 10);
+        if (!isNaN(deepLinkProductId)) {
+            showProductDetails(deepLinkProductId);
+        }
+        // Pull latest admin-edited content from the server, then refresh the page with it.
+        if (ProCable.syncFromServer) {
+            ProCable.syncFromServer().then((updated) => {
+                if (updated) {
+                    renderCategoryTabs();
+                    renderStore();
+                    populateShippingSelect();
+                    document.querySelectorAll('.apple-reveal:not(.revealed)').forEach(el => el.classList.add('revealed'));
+                }
+            });
+        }
+    });
+
+</script>
+<!-- User Auth Modal -->
+<div id="userAuthModal" onclick="if(event.target === this) ProCable.hideAuthModal()" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden justify-center items-center z-[2500] modal-overlay p-4">
+    <div class="bg-surface-container-lowest rounded-3xl w-full max-w-[430px] p-6 relative modal-content shadow-2xl border border-outline-variant max-h-[90vh] overflow-y-auto">
+        <button onclick="ProCable.hideAuthModal()" class="absolute ltr:right-4 rtl:left-4 top-4 text-gray-400 hover:text-gray-700 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition" title="إغلاق">&#10005;</button>
+        
+        <div class="flex items-center gap-3 mb-5">
+            <div class="w-12 h-12 rounded-2xl bg-primary-fixed text-primary flex items-center justify-center font-bold">
+                <span class="material-symbols-outlined text-2xl">account_circle</span>
+            </div>
+            <div>
+                <h3 class="text-base font-black text-on-surface" data-ar="حساب Attractive الخاص بك" data-en="Your Attractive Account">حساب Attractive الخاص بك</h3>
+                <p class="text-xs text-on-surface-variant" data-ar="سجل دخولك أو أنشئ حساباً للاستمتاع بالمزايا والخصومات" data-en="Sign in or register to unlock exclusive member perks">سجل دخولك أو أنشئ حساباً للاستمتاع بالمزايا والخصومات</p>
+            </div>
+        </div>
+
+        <div class="flex border-b border-outline-variant mb-5">
+            <button id="tabAuthSignIn" onclick="ProCable.switchAuthTab('signin')" class="flex-1 pb-3 text-center font-bold text-xs sm:text-sm text-primary border-b-2 border-primary transition flex items-center justify-center gap-1.5">
+                <span class="material-symbols-outlined text-base">login</span>
+                <span data-ar="تسجيل الدخول" data-en="Sign In">تسجيل الدخول</span>
+            </button>
+            <button id="tabAuthSignUp" onclick="ProCable.switchAuthTab('signup')" class="flex-1 pb-3 text-center font-bold text-xs sm:text-sm text-on-surface-variant border-b-2 border-transparent transition flex items-center justify-center gap-1.5">
+                <span class="material-symbols-outlined text-base">person_add</span>
+                <span data-ar="إنشاء حساب جديد" data-en="Create Account">إنشاء حساب جديد</span>
+            </button>
+        </div>
+
+        <div id="authErrorMsg" class="hidden mb-4 p-3 bg-red-50 text-error text-xs rounded-xl font-bold border border-red-200 flex items-center gap-2">
+            <span class="material-symbols-outlined text-base shrink-0">error</span>
+            <span id="authErrorMsgText"></span>
+        </div>
+
+        <!-- Sign In Form -->
+        <form id="authSignInForm" onsubmit="ProCable.handleSignIn(event)" class="space-y-4">
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1" data-ar="البريد الإلكتروني" data-en="Email Address">البريد الإلكتروني</label>
+                <input id="authEmailIn" required="" type="email" dir="ltr" placeholder="sound@example.com" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary font-mono">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1" data-ar="كلمة المرور" data-en="Password">كلمة المرور</label>
+                <input id="authPassIn" required="" type="password" dir="ltr" placeholder="••••••••" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary">
+            </div>
+            <button type="submit" class="w-full py-3 bg-primary hover:bg-primary-dark text-white rounded-xl font-bold text-xs sm:text-sm transition shadow flex items-center justify-center gap-2">
+                <span data-ar="دخول لحسابي" data-en="Sign In">دخول لحسابي</span>
+                <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </button>
+
+            <!-- Quick helper to switch to sign up -->
+            <div class="text-center pt-2 border-t border-outline-variant">
+                <span class="text-xs text-on-surface-variant" data-ar="ليس لديك حساب بعد؟" data-en="Do not have an account?">ليس لديك حساب بعد؟</span>
+                <button type="button" onclick="ProCable.switchAuthTab('signup')" class="text-xs font-bold text-primary hover:underline ms-1" data-ar="اضغط هنا لإنشاء حساب والحصول على المزايا" data-en="Register now &amp; get perks">اضغط هنا لإنشاء حساب والحصول على المزايا</button>
+            </div>
+
+            <!-- Demo credentials autofill button -->
+            <div class="p-2.5 bg-surface-container-low rounded-xl border border-outline-variant text-[11px] text-on-surface-variant flex items-center justify-between">
+                <span data-ar="تجربة سريعة بحساب تجريبي مجهز:" data-en="Quick Demo Account:">تجربة سريعة بحساب تجريبي مجهز:</span>
+                <button type="button" onclick="ProCable.fillDemoUser()" class="text-[11px] font-bold text-primary bg-primary/10 hover:bg-primary/20 px-2.5 py-1 rounded-lg transition" data-ar="تعبئة بيانات م/ طارق" data-en="Fill Demo VIP">تعبئة بيانات م/ طارق</button>
+            </div>
+        </form>
+
+        <!-- Sign Up Form -->
+        <form id="authSignUpForm" onsubmit="ProCable.handleSignUp(event)" class="space-y-4 hidden">
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1" data-ar="الاسم بالكامل" data-en="Full Name">الاسم بالكامل</label>
+                <input id="authNameUp" required="" type="text" placeholder="مثال: م/ أحمد علي" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1" data-ar="البريد الإلكتروني" data-en="Email Address">البريد الإلكتروني</label>
+                <input id="authEmailUp" required="" type="email" dir="ltr" placeholder="sound@example.com" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary font-mono">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1" data-ar="رقم الهاتف / الواتساب" data-en="Phone / WhatsApp">رقم الهاتف / الواتساب</label>
+                <input id="authPhoneUp" required="" type="tel" dir="ltr" placeholder="010xxxxxxxx" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary font-mono">
+            </div>
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1" data-ar="كلمة المرور" data-en="Password">كلمة المرور</label>
+                <input id="authPassUp" required="" type="password" dir="ltr" minlength="4" placeholder="••••••••" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary">
+            </div>
+
+            <div class="p-2.5 bg-primary/5 rounded-xl border border-primary/20 text-[11px] text-primary space-y-1">
+                <div class="font-black flex items-center gap-1">
+                    <span class="material-symbols-outlined text-xs">loyalty</span>
+                    <span data-ar="بمجرد تسجيل حسابك ستتمتع تلقائياً بـ:" data-en="Upon sign-up you instantly get:">بمجرد تسجيل حسابك ستتمتع تلقائياً بـ:</span>
+                </div>
+                <p class="text-[10px] text-on-surface-variant leading-relaxed" data-ar="• شحن مجاني لكافة المحافظات + كود خصم مباشر + أولوية تجهيز وضمان ذهبي ممتد." data-en="• Free nationwide shipping + instant discount coupon + priority production.">• شحن مجاني لكافة المحافظات + كود خصم مباشر + أولوية تجهيز وضمان ذهبي ممتد.</p>
+            </div>
+
+            <button type="submit" class="w-full py-3 bg-primary hover:bg-primary-dark text-white rounded-xl font-bold text-xs sm:text-sm transition shadow flex items-center justify-center gap-2">
+                <span data-ar="تأكيد وإنشاء الحساب" data-en="Create My Account">تأكيد وإنشاء الحساب</span>
+                <span class="material-symbols-outlined text-base">check</span>
+            </button>
+
+            <div class="text-center pt-2 border-t border-outline-variant">
+                <span class="text-xs text-on-surface-variant" data-ar="لديك حساب بالفعل؟" data-en="Already have an account?">لديك حساب بالفعل؟</span>
+                <button type="button" onclick="ProCable.switchAuthTab('signin')" class="text-xs font-bold text-primary hover:underline ms-1" data-ar="تسجيل الدخول" data-en="Sign In">تسجيل الدخول</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Datasheet Lightbox Modal -->
+<div id="datasheetLightboxModal" onclick="if(event.target === this) closeDatasheetModal()" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden justify-center items-center z-[2600] modal-overlay p-4">
+    <div class="bg-white rounded-3xl w-full max-w-2xl p-6 relative modal-content shadow-2xl border border-black/10 max-h-[92vh] flex flex-col">
+        <div class="flex items-center justify-between pb-4 border-b border-black/[0.06] mb-4">
+            <div class="flex items-center gap-2.5">
+                <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                    <span class="material-symbols-outlined text-xl">description</span>
+                </div>
+                <div>
+                    <h3 id="datasheetModalTitle" class="text-base sm:text-lg font-black text-on-surface">الداتا شيت والمواصفات الفنية</h3>
+                    <p id="datasheetModalSubtitle" class="text-xs text-on-surface-variant">المواصفات التقنية الرسمية للكابل</p>
+                </div>
+            </div>
+            <button onclick="closeDatasheetModal()" class="w-8 h-8 rounded-full bg-black/5 hover:bg-black/10 flex items-center justify-center text-on-surface transition">&#10005;</button>
+        </div>
+        
+        <div id="datasheetModalContent" class="flex-1 overflow-auto rounded-2xl bg-[#F5F5F7] p-2 flex items-center justify-center border border-black/[0.04] min-h-[300px]">
+            <!-- Dynamic PDF / Image -->
+        </div>
+
+        <div class="pt-4 border-t border-black/[0.06] mt-4 flex items-center justify-between gap-3">
+            <a id="datasheetExternalLink" href="#" target="_blank" class="text-xs font-bold text-primary hover:underline flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">open_in_new</span>
+                <span data-ar="فتح في نافذة مستقلة أو تحميل" data-en="Open / Download">فتح في نافذة مستقلة أو تحميل</span>
+            </a>
+            <button onclick="closeDatasheetModal()" class="px-6 py-2 rounded-full bg-black/5 hover:bg-black/10 text-xs font-bold text-on-surface transition">إغلاق</button>
+        </div>
+    </div>
+</div>
+
+
+<button id="floatingCouponBadge" title="كوبون خصم" style="position: fixed; bottom: 38%; right: 0px; left: auto; z-index: 9000; background: rgb(200, 16, 46); color: rgb(255, 255, 255); writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); padding: 14px 9px; border-radius: 10px 0px 0px 10px; font-size: 12px; font-weight: 900; cursor: pointer; display: none; align-items: center; gap: 6px; letter-spacing: 0.04em; box-shadow: rgba(0, 0, 0, 0.25) -4px 0px 18px; transition: 0.3s; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; outline: none; user-select: none;">
+            <span class="material-symbols-outlined" style="font-size:15px; writing-mode:horizontal-tb; transform: rotate(90deg); display:block;">redeem</span>
+            <span style="white-space:nowrap;">كوبون خصم</span>
+        </button><div id="couponPromoBubble" style="position: fixed; bottom: 24px; right: 16px; left: auto; z-index: 9001; max-width: 320px; width: 90%; background-color: rgb(29, 29, 31); border-radius: 24px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.15); color: rgb(255, 255, 255); font-size: 13px; box-shadow: rgba(0, 0, 0, 0.4) 0px 20px 60px; transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1); opacity: 1; transform: translateY(0px) scale(1); pointer-events: auto;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center;">
+                        <span class="material-symbols-outlined" style="font-size:17px;">redeem</span>
+                    </span>
+                    <span style="font-size:10px; font-weight:900; letter-spacing:0.08em; background:rgba(255,255,255,0.12); padding:2px 10px; border-radius:99px; text-transform:uppercase;">
+                        هدية لزوار الموقع
+                    </span>
+                </div>
+                <button onclick="ProCable.dismissCouponBubble()" style="background:none; border:none; color:rgba(255,255,255,0.6); cursor:pointer; font-size:16px; line-height:1; padding:2px 6px; border-radius:6px; transition:all 0.2s;" onmouseover="this.style.color='#fff';this.style.background='rgba(255,255,255,0.1)';" onmouseout="this.style.color='rgba(255,255,255,0.6)';this.style.background='none';">&#10005;</button>
+            </div>
+
+            <h4 style="font-weight:900; font-size:14px; color:#fff; margin:0 0 6px; line-height:1.4;">🎁 خصم حصري 10% لزوار الموقع اليوم!</h4>
+            <p style="font-size:12px; color:rgba(255,255,255,0.78); line-height:1.6; margin:0 0 12px;">استخدم كود الخصم عند الدفع وتمتع بتخفيض فوري على كابلاتك المفصلة والجاهزة.</p>
+
+            <div style="background:rgba(0,0,0,0.28); backdrop-filter:blur(8px); border-radius:14px; padding:10px 12px; border:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:10px;">
+                <div>
+                    <span style="display:block; font-size:9px; color:rgba(255,255,255,0.55); margin-bottom:2px;">كود الكوبون الحصري:</span>
+                    <span style="font-family:monospace; font-weight:900; font-size:15px; color:#fbbf24; letter-spacing:0.1em; user-select:all;">ATTRACTIVE10</span>
+                </div>
+                <button onclick="ProCable.copyBubbleCouponCode('ATTRACTIVE10')" style="background:var(--primary-color,#C8102E); color:#fff; border:none; padding:7px 14px; border-radius:8px; font-size:11px; font-weight:700; cursor:pointer; display:flex; align-items:center; gap:4px; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+                    <span class="material-symbols-outlined" style="font-size:13px;">content_copy</span>
+                    <span>نسخ</span>
+                </button>
+            </div>
+
+            <div style="display:flex; align-items:center; justify-content:space-between; font-size:11px; color:rgba(255,255,255,0.65); padding-top:8px; border-top:1px solid rgba(255,255,255,0.1);">
+                <a href="store.html" style="color:rgba(255,255,255,0.8); text-decoration:underline; font-weight:700; display:flex; align-items:center; gap:4px;">
+                    <span>استخدمه الآن في المتجر</span>
+                    <span class="material-symbols-outlined" style="font-size:12px;">arrow_forward</span>
+                </a>
+                <button onclick="ProCable.dismissCouponBubble()" style="background:none; border:none; cursor:pointer; color:rgba(255,255,255,0.55); font-size:10px; font-weight:700;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">
+                    تصغير ←
+                </button>
+            </div>
+        </div><button id="floatingSubscriberBtn" class="fixed bottom-6 left-6 z-40 bg-surface-container-lowest border border-outline-variant hover:border-primary shadow-xl hover:shadow-2xl rounded-2xl p-2.5 sm:px-3.5 sm:py-2.5 flex items-center gap-2 text-xs font-bold text-on-surface transition-all duration-300 hover:scale-105 group">
+            <span class="w-7 h-7 rounded-xl bg-primary-fixed text-primary flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:text-white transition">
+                <span class="material-symbols-outlined text-base">card_membership</span>
+            </span>
+            <div class="text-start hidden sm:block">
+                <span class="text-[10px] text-gray-400 block leading-none">نادي العملاء</span>
+                <span class="font-bold text-primary">سجّل إيميلك وخصمك</span>
+            </div>
+            <span class="w-2 h-2 rounded-full bg-primary inline-block animate-ping"></span>
+        </button><div id="appleMegaMenuOverlay" aria-hidden="true" style="position: fixed; top: 49px; left: 0px; right: 0px; z-index: 9000; background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid rgba(0, 0, 0, 0.08); box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 40px; display: none; pointer-events: none; transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1), transform 0.22s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; transform: translateY(-6px);">
+                <div class="agy-mm-panel hidden" data-panel="nav-store">
+                    <div class="max-w-5xl mx-auto px-8 py-8 flex gap-12 flex-row-reverse">
+                    <div class="agy-mm-col min-w-[160px]">
+                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">التصنيفات</div>
+                        <div class="space-y-0.5">
+                        <a href="store.html" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            كل المنتجات
+                        </a>
+                        <a href="store.html?cat=cables" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            كابلات الصوت
+                        </a>
+                        <a href="store.html?cat=connectors" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            كونيكتورات
+                        </a>
+                        <a href="store.html?cat=adapters" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            محولات
+                        </a>
+                        <a href="store.html?cat=sale" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            خصومات 🔥
+                        </a></div>
+                    </div>
+                    <div class="agy-mm-col min-w-[160px]">
+                        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">خدماتنا</div>
+                        <div class="space-y-0.5">
+                        <a href="builder.html" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            تفصيل كابل خاص
+                        </a>
+                        <a href="builder.html#repair" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            صيانة وإصلاح
+                        </a>
+                        <a href="index.html#contactSection" class="agy-mm-link block py-1.5 text-sm text-[#1d1d1f] hover:text-[#C8102E] transition-colors font-medium leading-snug">
+                            استشارة فنية
+                        </a></div>
+                    </div></div>
+                </div></div><div id="appleMegaMenuBackdrop" style="position: fixed; inset: 0px; z-index: 8999; background: rgba(0, 0, 0, 0.15); display: none; opacity: 0; transition: opacity 0.22s; pointer-events: none;"></div></body></html>
