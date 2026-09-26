@@ -252,6 +252,13 @@
                             </div>
                         </li>
                     
+                    <li class="" data-nav-id="nav-reviews">
+                        <a href="index.html#reviewsSection" class="text-primary font-bold transition flex items-center gap-1 text-sm font-medium">
+                            
+                            <span>آراء العملاء</span>
+                            
+                        </a>
+                    </li>
                 
                     <li class="" data-nav-id="nav-contact">
                         <a href="index.html#contactSection" class="text-primary font-bold transition flex items-center gap-1 text-sm font-medium">
@@ -356,6 +363,14 @@
                             </div>
                         </li>
                     
+                
+                    <li class="">
+                        <a href="index.html#reviewsSection" class="block py-1 text-xs text-primary font-bold flex items-center gap-1.5">
+                            
+                            <span>آراء العملاء</span>
+                            
+                        </a>
+                    </li>
                 
                     <li class="">
                         <a href="index.html#contactSection" class="block py-1 text-xs text-primary font-bold flex items-center gap-1.5">
@@ -625,6 +640,16 @@
         </div>
     </section>
 
+    <!-- SECTION 4: REVIEWS -->
+    <section id="reviewsSection" class="py-20 border-b border-black/[0.06] apple-reveal">
+        <div class="text-center max-w-lg mx-auto mb-14">
+            <span class="section-eyebrow" data-ar="ثقة المهندسين" data-en="Trusted by Engineers">ثقة المهندسين</span>
+            <h2 class="text-2xl sm:text-4xl font-black text-on-surface font-headline tracking-tight" data-ar="آراء مهندسي الأمن والسلامة والتيار الخفيف" data-en="What Light Current Engineers Say">آراء مهندسي الأمن والسلامة والتيار الخفيف</h2>
+        </div>
+
+        <div id="reviewsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+    </section>
+
     <!-- SECTION 5: CONTACT & WORKSHOP (#35) -->
     <section id="contactSection" class="py-20 apple-reveal">
         <div class="bg-[#1D1D1F] text-white rounded-[32px] p-8 md:p-14 shadow-2xl grid grid-cols-1 md:grid-cols-2 gap-10 items-center border border-white/10">
@@ -742,6 +767,24 @@
                 </div>
             `;
         }).join('');
+    }
+
+    function renderReviews() {
+        const grid = document.getElementById('reviewsGrid');
+        if (!grid) return;
+        const reviews = ProCable.getReviews();
+        grid.innerHTML = reviews.slice(0, 3).map(r => `
+            <div class="apple-card apple-reveal bg-surface-container-lowest p-7 rounded-[24px] shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                <div>
+                    <div class="flex text-amber-400 text-sm mb-3">${'&#x2605;'.repeat(r.rating || 5)}${'&#x2606;'.repeat(5 - (r.rating || 5))}</div>
+                    <p class="text-xs sm:text-sm text-on-surface leading-relaxed mb-6 font-medium">"${ProCable.sanitize(r.text)}"</p>
+                </div>
+                <div class="border-t border-black/[0.06] pt-3">
+                    <span class="block font-bold text-xs text-on-surface">${ProCable.sanitize(r.name)}</span>
+                    <span class="text-[0.68rem] text-on-surface-variant font-medium">${ProCable.sanitize(r.role || '')}</span>
+                </div>
+            </div>
+        `).join('');
     }
 
     function renderHomePageContent() {
@@ -894,6 +937,7 @@
     window.addEventListener('DOMContentLoaded', () => {
         renderHomePageContent();
         renderFeatured();
+        renderReviews();
         initAppleScrollExperience();
         // Pull latest admin-edited content from the server, then refresh the page with it.
         if (ProCable.syncFromServer) {
@@ -901,6 +945,7 @@
                 if (updated) {
                     renderHomePageContent();
                     renderFeatured();
+                    renderReviews();
                     // Newly rendered cards weren't seen by the scroll-reveal observer; show them immediately.
                     document.querySelectorAll('.apple-reveal:not(.revealed)').forEach(el => el.classList.add('revealed'));
                 }

@@ -177,6 +177,10 @@
                 <span class="material-symbols-outlined text-lg">sell</span>
                 <span>كوبونات وبابل الخصم الجانبي</span>
             </button>
+            <button onclick="switchAdminTab('reviews')" id="tabBtn-reviews" class="admin-tab-btn w-full text-start p-3 rounded-xl text-on-surface hover:bg-surface-container-high flex items-center gap-2.5 transition">
+                <span class="material-symbols-outlined text-lg">reviews</span>
+                <span>آراء العملاء</span>
+            </button>
             <button onclick="switchAdminTab('accounts')" id="tabBtn-accounts" class="admin-tab-btn w-full text-start p-3 rounded-xl text-on-surface hover:bg-surface-container-high flex items-center gap-2.5 transition">
                 <span class="material-symbols-outlined text-lg">manage_accounts</span>
                 <span>حسابات المستخدمين (Accounts)</span>
@@ -1139,6 +1143,65 @@
                     <div id="couponsListContainer" class="space-y-3 max-w-xl"></div>
                 </div>
             </section>
+
+            <!-- TAB: CUSTOMER REVIEWS -->
+            <section id="tabView-reviews" class="hidden space-y-8">
+                <div class="bg-surface p-6 rounded-2xl border border-outline-variant space-y-4">
+                    <div class="flex justify-between items-center border-b border-outline-variant pb-3">
+                        <div>
+                            <h3 class="font-bold text-sm text-on-surface flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary text-lg">reviews</span>
+                                <span>آراء العملاء (تظهر في الصفحة الرئيسية)</span>
+                            </h3>
+                            <p class="text-[11px] text-gray-500">أضف رأي عميل جديد ليظهر في قسم "آراء المهندسين" بالصفحة الرئيسية</p>
+                        </div>
+                        <button onclick="openAddReviewModal()" class="bg-primary text-white py-2 px-3 rounded-xl text-xs font-bold hover:bg-primary-dark transition flex items-center gap-1 shadow-sm">
+                            <span class="material-symbols-outlined text-sm">add</span>
+                            <span>إضافة رأي جديد</span>
+                        </button>
+                    </div>
+
+                    <div id="reviewsListContainer" class="space-y-3 max-w-xl"></div>
+                </div>
+            </section>
+
+            <!-- REVIEW ADD/EDIT MODAL -->
+            <div id="reviewModal" class="fixed inset-0 bg-black/50 z-[2500] hidden items-center justify-center p-4">
+                <div class="bg-white rounded-2xl p-6 max-w-md w-full max-h-[90vh] overflow-y-auto space-y-4">
+                    <h3 class="font-bold text-sm text-on-surface flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-lg">reviews</span>
+                        <span id="reviewModalTitle">إضافة رأي جديد</span>
+                    </h3>
+                    <input type="hidden" id="reviewEditIndex" value="-1"/>
+                    <div>
+                        <label class="block font-bold text-on-surface mb-1 text-xs">اسم العميل:</label>
+                        <input id="reviewNameInput" type="text" placeholder="مثال: م/ أحمد علي" class="w-full p-2.5 bg-white border border-outline-variant rounded-xl outline-none focus:ring-1 focus:ring-primary text-sm"/>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-on-surface mb-1 text-xs">الصفة / المسمى الوظيفي:</label>
+                        <input id="reviewRoleInput" type="text" placeholder="مثال: مهندس أنظمة مراقبة CCTV" class="w-full p-2.5 bg-white border border-outline-variant rounded-xl outline-none focus:ring-1 focus:ring-primary text-sm"/>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-on-surface mb-1 text-xs">نص الرأي:</label>
+                        <textarea id="reviewTextInput" rows="4" placeholder="اكتب رأي العميل هنا..." class="w-full p-2.5 bg-white border border-outline-variant rounded-xl outline-none focus:ring-1 focus:ring-primary text-sm"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-on-surface mb-1 text-xs">التقييم (من 5):</label>
+                        <select id="reviewRatingInput" class="w-full p-2.5 bg-white border border-outline-variant rounded-xl outline-none focus:ring-1 focus:ring-primary text-sm">
+                            <option value="5">5 نجوم</option>
+                            <option value="4">4 نجوم</option>
+                            <option value="3">3 نجوم</option>
+                            <option value="2">نجمتين</option>
+                            <option value="1">نجمة</option>
+                        </select>
+                    </div>
+                    <div class="flex gap-2 pt-2">
+                        <button onclick="saveReviewFromModal()" class="flex-1 bg-primary text-white py-2.5 rounded-xl font-bold text-xs hover:bg-primary-dark transition">حفظ</button>
+                        <button onclick="closeReviewModal()" class="flex-1 bg-surface-container-high text-on-surface py-2.5 rounded-xl font-bold text-xs hover:bg-surface-container-highest transition">إلغاء</button>
+                    </div>
+                </div>
+            </div>
+
 
             <!-- TAB: VIP SUBSCRIBERS & EMAIL MEMBERS -->
             <section id="tabView-subscribers" class="hidden space-y-8">
@@ -2731,7 +2794,7 @@
         const activeBtn = document.getElementById(`tabBtn-${tab}`);
         if (activeBtn) activeBtn.className = "admin-tab-btn w-full text-start p-3 rounded-xl bg-primary text-white flex items-center gap-2.5 transition";
 
-        ['products', 'orders', 'media', 'promo', 'repair', 'navigation', 'categories', 'branding', 'content', 'contacts', 'pricing', 'deposit', 'whatsapp', 'coupons', 'accounts', 'subscribers', 'sale', 'shipping', 'settings'].forEach(t => {
+        ['products', 'orders', 'media', 'promo', 'repair', 'navigation', 'categories', 'branding', 'content', 'contacts', 'pricing', 'deposit', 'whatsapp', 'coupons', 'reviews', 'accounts', 'subscribers', 'sale', 'shipping', 'settings'].forEach(t => {
             const view = document.getElementById(`tabView-${t}`);
             if (view) {
                 if (t === tab) view.classList.remove('hidden');
@@ -2749,6 +2812,7 @@
         if (tab === 'deposit') renderDepositTab();
         if (tab === 'whatsapp') renderWhatsAppTab();
         if (tab === 'coupons') renderCouponsTab();
+        if (tab === 'reviews') renderReviewsTab();
         if (tab === 'subscribers') renderSubscribersTab();
         if (tab === 'sale') renderSaleTab();
         if (tab === 'shipping') renderShippingTab();
@@ -4848,6 +4912,100 @@
         ProCable.showToast('تم إضافة الكوبون بنجاح!', 'success');
     }
 
+    // --- Customer Reviews Management ---
+    function renderReviewsTab() {
+        renderReviewsList();
+    }
+
+    function renderReviewsList() {
+        const container = document.getElementById('reviewsListContainer');
+        if (!container) return;
+        const reviews = ProCable.getReviews();
+        if (reviews.length === 0) {
+            container.innerHTML = '<p class="text-xs text-gray-500 py-4 text-center">لا توجد آراء مضافة حالياً.</p>';
+            return;
+        }
+        container.innerHTML = reviews.map((r, idx) => `
+            <div class="bg-surface p-4 rounded-xl border border-outline-variant flex items-start justify-between gap-3">
+                <div class="flex-1 min-w-0">
+                    <div class="flex text-amber-400 text-xs mb-1">${'★'.repeat(r.rating || 5)}${'☆'.repeat(5 - (r.rating || 5))}</div>
+                    <p class="text-xs text-on-surface leading-relaxed mb-1.5 line-clamp-2">"${ProCable.sanitize(r.text)}"</p>
+                    <span class="font-bold text-xs text-on-surface block">${ProCable.sanitize(r.name)}</span>
+                    <span class="text-[11px] text-on-surface-variant">${ProCable.sanitize(r.role || '')}</span>
+                </div>
+                <div class="flex items-center gap-2 shrink-0">
+                    <button onclick="openAddReviewModal(${idx})" class="p-1.5 rounded-lg border border-outline-variant text-xs hover:bg-gray-100 transition" title="تعديل">
+                        <span class="material-symbols-outlined text-sm">edit</span>
+                    </button>
+                    <button onclick="deleteReview(${idx})" class="p-1.5 rounded-lg bg-red-50 text-error hover:bg-error hover:text-white transition" title="حذف">
+                        <span class="material-symbols-outlined text-sm">delete</span>
+                    </button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function openAddReviewModal(idx) {
+        const modal = document.getElementById('reviewModal');
+        const isEdit = typeof idx === 'number' && idx >= 0;
+        document.getElementById('reviewEditIndex').value = isEdit ? idx : -1;
+        document.getElementById('reviewModalTitle').textContent = isEdit ? 'تعديل رأي العميل' : 'إضافة رأي جديد';
+        if (isEdit) {
+            const r = ProCable.getReviews()[idx];
+            document.getElementById('reviewNameInput').value = r.name || '';
+            document.getElementById('reviewRoleInput').value = r.role || '';
+            document.getElementById('reviewTextInput').value = r.text || '';
+            document.getElementById('reviewRatingInput').value = r.rating || 5;
+        } else {
+            document.getElementById('reviewNameInput').value = '';
+            document.getElementById('reviewRoleInput').value = '';
+            document.getElementById('reviewTextInput').value = '';
+            document.getElementById('reviewRatingInput').value = 5;
+        }
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+
+    function closeReviewModal() {
+        const modal = document.getElementById('reviewModal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+
+    function saveReviewFromModal() {
+        const name = document.getElementById('reviewNameInput').value.trim();
+        const role = document.getElementById('reviewRoleInput').value.trim();
+        const text = document.getElementById('reviewTextInput').value.trim();
+        const rating = parseInt(document.getElementById('reviewRatingInput').value) || 5;
+        const editIdx = parseInt(document.getElementById('reviewEditIndex').value);
+
+        if (!name || !text) {
+            ProCable.showToast('من فضلك اكتب اسم العميل ونص الرأي', 'error');
+            return;
+        }
+
+        let reviews = ProCable.getReviews();
+        const entry = { name, role, text, rating };
+        if (editIdx >= 0) {
+            reviews[editIdx] = entry;
+        } else {
+            reviews.unshift(entry);
+        }
+        ProCable.saveReviews(reviews);
+        renderReviewsList();
+        closeReviewModal();
+        ProCable.showToast('تم حفظ رأي العميل بنجاح!', 'success');
+    }
+
+    function deleteReview(idx) {
+        if (confirm('حذف رأي العميل ده؟')) {
+            let reviews = ProCable.getReviews();
+            reviews.splice(idx, 1);
+            ProCable.saveReviews(reviews);
+            renderReviewsList();
+        }
+    }
+
     // --- 7.5 VIP Email Subscribers & Members Management ---
     function renderSubscribersTab() {
         const s = ProCable.getSettings();
@@ -5967,6 +6125,7 @@
         renderDepositTab();
         renderWhatsAppTab();
         renderCouponsTab();
+        renderReviewsTab();
         renderSubscribersTab();
         renderSaleTab();
         renderShippingTab();

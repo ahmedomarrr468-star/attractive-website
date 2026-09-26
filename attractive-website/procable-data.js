@@ -689,7 +689,8 @@ const ProCable = {
                 shipping: 'attractive_shipping',
                 settings: 'attractive_settings',
                 coupons: 'attractive_coupons',
-                navItems: 'attractive_nav_items'
+                navItems: 'attractive_nav_items',
+                reviews: 'attractive_reviews'
             };
             Object.keys(map).forEach(k => {
                 if (remote[k] !== undefined) {
@@ -1300,6 +1301,25 @@ const ProCable = {
     saveCoupons(list) {
         localStorage.setItem('attractive_coupons', JSON.stringify(list));
         this.pushToServer('coupons', list);
+    },
+
+    // Customer Reviews
+    getReviews() {
+        const stored = localStorage.getItem('attractive_reviews');
+        if (!stored) {
+            const defaults = [
+                { name: 'م/ أحمد علي', role: 'مهندس أنظمة مراقبة CCTV - مشروع فندقي', text: 'كابلات Cat6 بكفاءة عالية جداً، نتيجة اختبار الشبكة ممتازة وما فيش أي خسارة في الإشارة حتى على مسافة 90 متر. شغل هندسي من الدرجة الأولى.', rating: 5 },
+                { name: 'سارة محمود', role: 'مديرة أمن وسلامة - مجمع تجاري', text: 'كابلات الحريق مقاومة للحرارة ومعتمدة وجودتها ممتازة. لوحة الإنذار شغلت من أول مرة بدون أي مشكلة في التوصيل. أنصح بيهم جداً للمشاريع الحساسة.', rating: 5 },
+                { name: 'ياسين إبراهيم', role: 'مهندس تيار خفيف - مشاريع صحية وسكنية', text: 'نظام الصوت والإذاعة اتركّب في المستشفى بكفاءة عالية. الكابلات مدروسة وتغليفها ممتاز للبيئات الطبية. فريق Attractive فاهم متطلبات المشاريع الحساسة.', rating: 5 }
+            ];
+            localStorage.setItem('attractive_reviews', JSON.stringify(defaults));
+            return defaults;
+        }
+        try { return JSON.parse(stored); } catch(e) { return []; }
+    },
+    saveReviews(list) {
+        localStorage.setItem('attractive_reviews', JSON.stringify(list));
+        this.pushToServer('reviews', list);
     },
     applyCoupon(code, subtotal) {
         const cleanCode = (code || '').trim().toUpperCase();
