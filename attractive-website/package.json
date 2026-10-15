@@ -1,8 +1,14 @@
 {
   "name": "attractive-website",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node tests/run.mjs",
+    "extract-defaults": "node scripts/extract-defaults.mjs"
+  },
   "dependencies": {
-    "@vercel/blob": "^0.27.0"
+    "@vercel/blob": "^2.6.1"
   }
 }
