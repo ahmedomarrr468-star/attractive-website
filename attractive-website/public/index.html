@@ -774,8 +774,13 @@
 <script>
     function renderFeatured() {
         const grid = document.getElementById('featuredGrid');
-        const products = ProCable.getProducts().slice(0, 3);
+        const products = ProCable.getProducts().filter(p => p.hidden !== true).slice(0, 3);
         const isAr = ProCable.getLang() === 'ar';
+
+        if (products.length === 0) {
+            grid.innerHTML = `<div class="col-span-full rounded-3xl bg-white border border-outline-variant p-8 text-center text-sm text-on-surface-variant">${isAr ? 'لا توجد منتجات مميزة للعرض حالياً.' : 'No featured products are available right now.'}</div>`;
+            return;
+        }
 
         grid.innerHTML = products.map((p, idx) => {
             const iconSvg = PRO_SVGS[p.icon] || PRO_SVGS['xlr-m'];
@@ -825,6 +830,10 @@
                 </div>
             `;
         }).join('');
+
+        // This grid is re-rendered after the server sync. Register the new cards
+        // with the existing reveal observer so they cannot remain at opacity: 0.
+        observeAppleReveals(grid);
     }
 
     function renderHomePageContent() {
@@ -1071,6 +1080,44 @@
         }
     }
 
+    let appleRevealObserver = null;
+
+    function observeAppleReveals(root = document) {
+        const elements = root.querySelectorAll('.apple-reveal:not(.revealed)');
+        if ('IntersectionObserver' in window) {
+            if (!appleRevealObserver) {
+                appleRevealObserver = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('revealed');
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    root: null,
+                    rootMargin: '0px 0px -40px 0px',
+                    threshold: 0.1
+                });
+            }
+            elements.forEach(el => appleRevealObserver.observe(el));
+
+            // A fallback keeps dynamically inserted cards visible even if the
+            // browser does not deliver an intersection callback promptly.
+            setTimeout(() => {
+                elements.forEach(el => {
+                    if (!el.isConnected || el.classList.contains('revealed')) return;
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight + 100) {
+                        el.classList.add('revealed');
+                        appleRevealObserver.unobserve(el);
+                    }
+                });
+            }, 100);
+        } else {
+            elements.forEach(el => el.classList.add('revealed'));
+        }
+    }
+
     function initAppleScrollExperience() {
         const nav = document.querySelector('nav.apple-nav');
         if (nav) {
@@ -1085,33 +1132,7 @@
             onScroll();
         }
 
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries, obs) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('revealed');
-                        obs.unobserve(entry.target);
-                    }
-                });
-            }, {
-                root: null,
-                rootMargin: '0px 0px -40px 0px',
-                threshold: 0.1
-            });
-
-            document.querySelectorAll('.apple-reveal:not(.revealed)').forEach(el => observer.observe(el));
-            // Immediate reveal fallback for initial viewport
-            setTimeout(() => {
-                document.querySelectorAll('.apple-reveal').forEach(el => {
-                    const rect = el.getBoundingClientRect();
-                    if (rect.top < window.innerHeight + 100) {
-                        el.classList.add('revealed');
-                    }
-                });
-            }, 100);
-        } else {
-            document.querySelectorAll('.apple-reveal').forEach(el => el.classList.add('revealed'));
-        }
+        observeAppleReveals();
     }
 
     window.addEventListener('DOMContentLoaded', () => {
