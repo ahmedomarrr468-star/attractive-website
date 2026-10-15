@@ -31,6 +31,13 @@ export default async function handler(req, res) {
     try {
         const admin = !!getSecret() && isAdmin(req);
         if (req.method === 'GET') {
+            res.setHeader('Vary', 'Authorization');
+            if (admin) {
+                res.setHeader('Vercel-CDN-Cache-Control', 'no-store');
+            } else {
+                res.setHeader('Vercel-CDN-Cache-Control', 'public, s-maxage=60, stale-while-revalidate=60');
+                res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+            }
             const reviews = await readReviews(!admin);
             const visible = admin ? reviews.slice(0, 200) : reviews.slice(0, 30);
             return res.status(200).json({ reviews: visible.map(r => admin ? { ...publicReview(r), status: r.status } : publicReview(r)) });

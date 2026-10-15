@@ -65,8 +65,19 @@ export default async function handler(req, res) {
     res.setHeader('Cache-Control', 'no-store');
     try {
         if (req.method === 'GET') {
+            const admin = isAdmin(req);
+            if (admin) {
+                res.setHeader('Vercel-CDN-Cache-Control', 'no-store');
+            } else {
+                // Public catalog content is identical for every visitor. Keep it
+                // at the regional edge briefly so a traffic spike does not fan
+                // out into one Blob read per visitor. Browser caching stays off.
+                res.setHeader('Vercel-CDN-Cache-Control', 'public, s-maxage=60, stale-while-revalidate=60');
+                res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+            }
+            res.setHeader('Vary', 'Authorization');
             const { data } = await read();
-            return res.status(200).json(publicData(data, isAdmin(req)));
+            return res.status(200).json(publicData(data, admin));
         }
         if (req.method !== 'POST') { res.setHeader('Allow', ['GET', 'POST']); return res.status(405).end('Method not allowed'); }
         if (!getSecret()) return res.status(500).json({ error: 'Server not configured: missing ADMIN_API_SECRET env var' });

@@ -1004,7 +1004,7 @@
         if (!grid) return;
         const isAr = ProCable.getLang() === 'ar';
         try {
-            const response = await fetch('/api/reviews', { cache: 'no-store' });
+            const response = await fetch('/api/reviews', { cache: 'default' });
             if (!response.ok) throw new Error('reviews unavailable');
             const data = await response.json();
             const reviews = Array.isArray(data.reviews) ? data.reviews : [];

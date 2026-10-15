@@ -741,7 +741,7 @@ const ProCable = {
     async syncFromServer() {
         if (this._isLocalAdminMode()) return false; // Never attempt API calls from the local-only copy.
         try {
-            const res = await fetch('/api/store', { cache: 'no-store', headers: this._adminHeaders() });
+            const res = await fetch('/api/store', { cache: 'default', headers: this._adminHeaders() });
             if (!res.ok) return false;
             const remote = await res.json();
             if (!remote || typeof remote !== 'object') return false;
