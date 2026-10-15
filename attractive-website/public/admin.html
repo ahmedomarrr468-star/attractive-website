@@ -5844,7 +5844,7 @@
     async function loadPaymobConfig() {
         const status = document.getElementById('paymobStatus');
         try {
-            const res = await fetch('/api/paymob-config', { cache: 'no-store', headers: ProCable._adminHeaders() });
+            const res = await fetch('/api/integrations?provider=paymob', { cache: 'no-store', headers: ProCable._adminHeaders() });
             const data = await res.json(); if (!res.ok) throw new Error(data.error || 'تعذر تحميل إعداد Paymob');
             document.getElementById('paymobEnabled').checked = !!data.enabled;
             document.getElementById('paymobMode').value = data.mode || 'test';
@@ -5863,7 +5863,7 @@
         }
         const payload = { enabled: document.getElementById('paymobEnabled').checked, mode: document.getElementById('paymobMode').value, publicKey: document.getElementById('paymobPublicKey').value.trim(), secretKey: document.getElementById('paymobSecretKey').value.trim(), hmacSecret: document.getElementById('paymobHmacSecret').value.trim(), integrationIds: document.getElementById('paymobIntegrationIds').value.trim() };
         try {
-            const res = await fetch('/api/paymob-config', { method: 'POST', headers: ProCable._adminHeaders({ 'Content-Type': 'application/json' }), body: JSON.stringify(payload) });
+            const res = await fetch('/api/integrations?provider=paymob', { method: 'POST', headers: ProCable._adminHeaders({ 'Content-Type': 'application/json' }), body: JSON.stringify(payload) });
             const data = await res.json(); if (!res.ok) throw new Error(data.error || 'تعذر الحفظ');
             document.getElementById('paymobSecretKey').value = ''; document.getElementById('paymobHmacSecret').value = '';
             if (status) status.textContent = payload.enabled ? 'تم الحفظ؛ Paymob مفعّل.' : 'تم الحفظ؛ Paymob متوقف.';

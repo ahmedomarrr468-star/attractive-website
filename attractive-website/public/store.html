@@ -1991,7 +1991,7 @@
         window.open(whatsappUrl, '_blank');
     }
 
-    fetch('/api/paymob-config', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(c => {
+    fetch('/api/integrations?provider=paymob', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(c => {
         const option = document.getElementById('paymobOption');
         if (option && c && c.enabled) { option.hidden = false; }
     }).catch(() => {});
