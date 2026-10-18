@@ -4281,7 +4281,7 @@ const ProCable = {
         };
 
         modal.innerHTML = `
-            <div class="bg-surface-container-lowest rounded-3xl w-full max-w-[430px] p-6 relative modal-content shadow-2xl border border-outline-variant max-h-[90vh] overflow-y-auto">
+            <div class="auth-modal-card bg-surface-container-lowest rounded-3xl w-full max-w-5xl p-2 relative modal-content shadow-2xl border border-outline-variant max-h-[90vh] overflow-hidden">
                 <button onclick="ProCable.hideAuthModal()" class="absolute ltr:right-4 rtl:left-4 top-4 text-gray-400 hover:text-gray-700 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition" title="إغلاق">&#10005;</button>
                 
                 <div class="flex items-center gap-3 mb-5">
@@ -4421,12 +4421,28 @@ const ProCable = {
             </div>
         `;
 
+        const authCard = modal.querySelector('.auth-modal-card');
+        if (authCard && !authCard.querySelector('.auth-welcome-panel')) {
+            const welcome = document.createElement('aside');
+            welcome.className = 'auth-welcome-panel';
+            welcome.innerHTML = `<div class="flex items-center justify-between gap-3"><img src="logo.png" alt="Attractive" class="w-36 rounded-xl bg-white p-2"><span class="text-xs font-bold text-white/75">حلول هندسية متكاملة</span></div><div class="max-w-sm mx-auto text-center space-y-4"><h2 class="text-3xl sm:text-4xl font-black">${isAr ? 'أهلاً بعودتك' : 'Welcome back'}</h2><p class="text-sm leading-7 text-white/80">${isAr ? 'سجّل دخولك لمتابعة طلباتك والاستفادة من مزايا Attractive.' : 'Sign in to track your orders and enjoy Attractive member benefits.'}</p><button type="button" onclick="ProCable.switchAuthTab('signup')" class="px-7 py-3 rounded-full border border-white/50 bg-white/10 hover:bg-white/20 transition font-bold">${isAr ? 'إنشاء حساب جديد' : 'Create an account'}</button></div><span class="text-[11px] text-white/55">Attractive · Security &amp; Light Current Systems</span>`;
+            const formPanel = document.createElement('div');
+            formPanel.className = 'auth-form-panel';
+            while (authCard.firstChild) formPanel.appendChild(authCard.firstChild);
+            authCard.append(welcome, formPanel);
+        }
         document.body.appendChild(modal);
         return modal;
     },
 
     showAuthModal(tab = 'signin') {
         let modal = document.getElementById('userAuthModal');
+        // Replace the legacy static modal with the current modal so the Google
+        // sign-in container and responsive welcome panel are always available.
+        if (modal && !modal.querySelector('#googleBtnHost')) {
+            modal.remove();
+            modal = null;
+        }
         if (!modal) {
             modal = this.createUserAuthModalDOM();
         }

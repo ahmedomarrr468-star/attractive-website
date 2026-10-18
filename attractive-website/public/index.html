@@ -161,6 +161,11 @@
     .commercial-brand-card:hover{transform:translateY(-3px);border-color:rgba(200,16,46,.24);box-shadow:0 12px 28px rgba(25,25,35,.09)}
     .commercial-brand-card img{max-width:100%;width:100%;height:100%;object-fit:contain}
     .commercial-brand-card span{font-size:15px;font-weight:800;text-align:center;color:#333}
+    .auth-modal-card{direction:ltr;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);width:min(1080px,calc(100vw - 32px));padding:10px;gap:10px}
+    .auth-welcome-panel{min-height:560px;display:flex;flex-direction:column;justify-content:space-between;padding:28px;border-radius:24px;color:#fff;background:radial-gradient(circle at 90% 10%,rgba(200,16,46,.72),transparent 42%),linear-gradient(145deg,#151518,#350b17 62%,#8d0c26);overflow:hidden}
+    .auth-form-panel{direction:rtl;min-width:0;max-height:calc(90vh - 20px);overflow-y:auto;padding:18px 22px}
+    .auth-modal-card input:-webkit-autofill,.auth-modal-card input:-webkit-autofill:hover,.auth-modal-card input:-webkit-autofill:focus{-webkit-box-shadow:0 0 0 1000px #f5f5f7 inset;box-shadow:0 0 0 1000px #f5f5f7 inset;-webkit-text-fill-color:#1d1d1f;transition:background-color 9999s ease-out}
+    @media(max-width:767px){.auth-modal-card{display:block;padding:8px}.auth-welcome-panel{display:none}.auth-form-panel{padding:14px 12px;max-height:calc(90vh - 16px)}}
     @media(max-width:680px){.glass-products-stage{height:420px}.glass-product-card{width:min(82vw,350px);min-width:0;min-height:370px;padding:18px!important;border-radius:22px!important}.glass-product-card .glass-product-visual{height:158px;min-height:158px!important}.glass-product-card h3{font-size:14px}.glass-product-card p{font-size:11px}.glass-carousel-controls{margin-top:-8px}}
     @media(max-width:480px){.commercial-brands-section{padding:30px 14px}.commercial-brands-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.commercial-brand-card{height:66px;padding:10px 14px;border-radius:13px}}
     @media(prefers-reduced-motion:reduce){.glass-product-card,.glass-carousel-control{transition-duration:.01ms!important}}
@@ -833,8 +838,6 @@
         const grid = document.getElementById('featuredGrid');
         const products = ProCable.getProducts().filter(p => p.hidden !== true).slice(0, 3);
         const isAr = ProCable.getLang() === 'ar';
-        renderCommercialBrands(s, isAr);
-
         if (products.length === 0) {
             grid.innerHTML = `<div class="col-span-full rounded-3xl bg-white border border-outline-variant p-8 text-center text-sm text-on-surface-variant">${isAr ? 'لا توجد منتجات مميزة للعرض حالياً.' : 'No featured products are available right now.'}</div>`;
             return;
@@ -1084,7 +1087,6 @@
         const grid = document.getElementById('customerReviewsGrid');
         if (!grid) return;
         const isAr = ProCable.getLang() === 'ar';
-        renderCommercialBrands(s, isAr);
         try {
             const response = await fetch('/api/reviews', { cache: 'default' });
             if (!response.ok) throw new Error('reviews unavailable');
@@ -1138,7 +1140,6 @@
         const button = form.querySelector('button[type="submit"]');
         const message = document.getElementById('customerReviewMessage');
         const isAr = ProCable.getLang() === 'ar';
-        renderCommercialBrands(s, isAr);
         const payload = Object.fromEntries(new FormData(form).entries());
         payload.stars = Number(payload.stars);
         button.disabled = true;
@@ -1164,6 +1165,7 @@
     }
 
     let appleRevealObserver = null;
+    let appleRevealFallbackTimer = null;
 
     function observeAppleReveals(root = document) {
         const elements = root.querySelectorAll('.apple-reveal:not(.revealed)');
@@ -1198,6 +1200,11 @@
             }, 100);
         } else {
             elements.forEach(el => el.classList.add('revealed'));
+        }
+        if (!appleRevealFallbackTimer) {
+            appleRevealFallbackTimer = setTimeout(() => {
+                document.querySelectorAll('.apple-reveal:not(.revealed)').forEach(el => el.classList.add('revealed'));
+            }, 1800);
         }
     }
 
