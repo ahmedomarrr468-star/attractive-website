@@ -163,7 +163,8 @@
     .commercial-brand-card span{font-size:15px;font-weight:800;text-align:center;color:#333}
     .auth-modal-card{direction:ltr;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);width:min(1080px,calc(100vw - 32px));padding:10px;gap:10px}
     .auth-welcome-panel{min-height:560px;display:flex;flex-direction:column;justify-content:space-between;padding:28px;border-radius:24px;color:#fff;background:radial-gradient(circle at 90% 10%,rgba(200,16,46,.72),transparent 42%),linear-gradient(145deg,#151518,#350b17 62%,#8d0c26);overflow:hidden}
-    .auth-form-panel{direction:rtl;min-width:0;max-height:calc(90vh - 20px);overflow-y:auto;padding:18px 22px}
+    .auth-form-panel{direction:rtl;position:relative;min-width:0;max-height:calc(90vh - 20px);overflow-y:auto;padding:18px 22px}
+    #userAuthModal{z-index:10000!important}#userAuthModal .auth-form-panel>button[onclick*="hideAuthModal"]{right:16px!important;left:auto!important}
     .auth-modal-card input:-webkit-autofill,.auth-modal-card input:-webkit-autofill:hover,.auth-modal-card input:-webkit-autofill:focus{-webkit-box-shadow:0 0 0 1000px #f5f5f7 inset;box-shadow:0 0 0 1000px #f5f5f7 inset;-webkit-text-fill-color:#1d1d1f;transition:background-color 9999s ease-out}
     @media(max-width:767px){.auth-modal-card{display:block;padding:8px}.auth-welcome-panel{display:none}.auth-form-panel{padding:14px 12px;max-height:calc(90vh - 16px)}}
     @media(max-width:680px){.glass-products-stage{height:420px}.glass-product-card{width:min(82vw,350px);min-width:0;min-height:370px;padding:18px!important;border-radius:22px!important}.glass-product-card .glass-product-visual{height:158px;min-height:158px!important}.glass-product-card h3{font-size:14px}.glass-product-card p{font-size:11px}.glass-carousel-controls{margin-top:-8px}}
