@@ -459,6 +459,24 @@ const DEFAULT_SETTINGS = {
     brandTitleEn: "Attractive - Integrated Light Current & Security Systems",
     logoImage: "logo.png",
     primaryColor: "#C8102E", // Editable Site Theme Color!
+    commercialBrands: [
+        { id: 'hikvision', name: 'Hikvision', logo: 'brands/hikvision.svg', enabled: true },
+        { id: 'unv', name: 'UNV', logo: 'brands/unv.png', enabled: true },
+        { id: 'dahua', name: 'Dahua', logo: 'brands/dahua.svg', enabled: true },
+        { id: 'eaton', name: 'Eaton', logo: 'brands/eaton.svg', enabled: true },
+        { id: 'honeywell', name: 'Honeywell', logo: 'brands/honeywell.svg', enabled: true },
+        { id: 'hanwha', name: 'Hanwha Vision', logo: 'brands/hanwha-vision.svg', enabled: true },
+        { id: 'bosch', name: 'Bosch', logo: 'brands/bosch.svg', enabled: true },
+        { id: 'dsppa', name: 'DSPPA', logo: 'brands/dsppa.png', enabled: true },
+        { id: 'zkteco', name: 'ZKTeco', logo: 'brands/zkteco.png', enabled: true },
+        { id: 'dlink', name: 'D-Link', logo: 'brands/d-link.svg', enabled: true },
+        { id: 'panduit', name: 'Panduit', logo: 'brands/panduit.svg', enabled: true },
+        { id: 'legrand', name: 'Legrand', logo: 'brands/legrand.svg', enabled: true },
+        { id: 'simplex', name: 'Simplex', logo: 'brands/simplex.jpg', enabled: true },
+        { id: 'hst', name: 'HST', logo: 'brands/hst.png', enabled: true },
+        { id: 'apollo', name: 'Apollo', logo: 'brands/apollo.png', enabled: true },
+        { id: 'wisenet', name: 'Wisenet', logo: 'brands/wisenet.png', enabled: true }
+    ],
 
     // Full Website Wallpaper & Background (Single or Multiple Images / GIF + Slideshow)
     siteBackgrounds: [], // Array of image/GIF URLs: ['url1', 'url2', ...]

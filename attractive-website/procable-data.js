@@ -588,7 +588,7 @@ We adhere to the highest international standards and safety codes to protect hea
     contactDescEn: "Our engineering team provides on-site surveys and turnkey BOQ designs for CCTV, fire alarms, PA systems, structured cabling, and nurse call for commercial and healthcare projects.",
 
     // Security
-    adminPassHash: "attractive2026",
+    adminPassHash: "",
     
     // Deposit Feature (#34)
     depositEnabled: true,
@@ -2365,7 +2365,7 @@ const ProCable = {
         }
 
         const settings = this.getSettings();
-        if (password === settings.adminPassHash || password === "attractive2026") {
+        if (settings.adminPassHash && password === settings.adminPassHash) {
             sessionStorage.setItem('attractive_admin_session', 'authenticated_attractive_admin_token');
             sessionStorage.setItem('procable_admin_session', 'authenticated_attractive_admin_token');
             sessionStorage.setItem('attractive_api_secret', password);

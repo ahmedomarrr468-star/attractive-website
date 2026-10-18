@@ -18,9 +18,9 @@ const MIN_PASSWORD = 8;
 
 const dataPath = () => pathFor('accounts', 'accounts.json');
 // Paths used by the previous version: derived from the OLD admin secret, plaintext.
-// Candidates: LEGACY_ADMIN_SECRET (set this to your old password if it wasn't attractive2026), ADMIN_SECRET, the current secret, and the old default.
+// Legacy paths are derived only from explicitly configured secrets; never keep a default password in source.
 const legacyPaths = () => {
-    const secrets = [process.env.LEGACY_ADMIN_SECRET, process.env.ADMIN_SECRET, getSecret(), 'attractive2026'].filter(Boolean);
+    const secrets = [process.env.LEGACY_ADMIN_SECRET, process.env.ADMIN_SECRET, getSecret()].filter(Boolean);
     return [...new Set(secrets)].map(sec =>
         'private-data/' + crypto.createHash('sha256').update('accounts:' + sec).digest('hex').slice(0, 32) + '/accounts.json');
 };

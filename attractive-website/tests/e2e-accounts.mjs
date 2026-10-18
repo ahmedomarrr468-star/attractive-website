@@ -1,6 +1,7 @@
 process.env.ADMIN_API_SECRET = 'test-admin-secret-0123456789abcdef0123';
 process.env.DATA_KEY = 'test-data-key-0123456789';
 process.env.GOOGLE_CLIENT_ID = 'cid.apps.googleusercontent.com';
+process.env.LEGACY_ADMIN_SECRET = 'legacy-test-secret-0123456789abcdef';
 import crypto from 'crypto';
 import { store, put } from '@vercel/blob';
 import accounts from './api/accounts.js';
@@ -59,9 +60,9 @@ const bad1 = await call(accounts, { action: 'login', email: 'nobody@x.com', pass
 const bad2 = await call(accounts, { action: 'login', email: 'victim@gmail.com', password: 'wrongwrong' });
 t('unknown e-mail and wrong password look identical', bad1.status === 401 && bad2.status === 401 && bad1.json.code === bad2.json.code);
 
-// 8. legacy migration: old plaintext file under attractive2026-derived path
+// 8. legacy migration: old plaintext file under an explicitly configured legacy-secret path
 store.clear();
-const legacyPath = 'private-data/' + crypto.createHash('sha256').update('accounts:attractive2026').digest('hex').slice(0, 32) + '/accounts.json';
+const legacyPath = 'private-data/' + crypto.createHash('sha256').update('accounts:' + process.env.LEGACY_ADMIN_SECRET).digest('hex').slice(0, 32) + '/accounts.json';
 await put(legacyPath, JSON.stringify({ accounts: [{ id: 'old-1', email: 'old@user.com', name: 'Old', active: true, passwordEncoded: Buffer.from('oldpassword1').toString('base64') }], members: [{ id: 'vip-1', email: 'vip@user.com', name: 'V' }] }), { allowOverwrite: true });
 t('legacy file exists before', store.has(legacyPath));
 r = await call(accounts, { action: 'login', email: 'old@user.com', password: 'oldpassword1' });
