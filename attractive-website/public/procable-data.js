@@ -4009,6 +4009,19 @@ const ProCable = {
         const formSignIn = document.getElementById('authSignInForm');
         const formSignUp = document.getElementById('authSignUpForm');
         const formReset = document.getElementById('authResetForm');
+        const authCard = document.getElementById('authMotionCard');
+        if (authCard) {
+            const mode = tab === 'signup' ? 'signup' : 'signin';
+            authCard.dataset.mode = mode;
+            authCard.classList.toggle('auth-mode-signup', mode === 'signup');
+            const welcomeTitle = document.getElementById('authWelcomeTitle');
+            const welcomeText = document.getElementById('authWelcomeText');
+            const welcomeAction = document.getElementById('authWelcomeAction');
+            const isAr = this.getLang() === 'ar';
+            if (welcomeTitle) welcomeTitle.textContent = mode === 'signup' ? (isAr ? 'أهلاً بعودتك' : 'Welcome back') : (isAr ? 'ابدأ رحلتك معنا' : 'Hello there');
+            if (welcomeText) welcomeText.textContent = mode === 'signup' ? (isAr ? 'سجّل دخولك لمتابعة طلباتك والاستفادة من مزايا Attractive.' : 'Sign in to track your orders and enjoy Attractive member perks.') : (isAr ? 'أنشئ حسابك وتعرّف على حلول Attractive الموثوقة.' : 'Create an account and discover trusted Attractive solutions.');
+            if (welcomeAction) welcomeAction.textContent = mode === 'signup' ? (isAr ? 'تسجيل الدخول' : 'SIGN IN') : (isAr ? 'إنشاء حساب' : 'SIGN UP');
+        }
         const err = document.getElementById('authErrorMsg');
         if (err) err.classList.add('hidden');
 
@@ -4037,6 +4050,37 @@ const ProCable = {
                 if (s2) s2.classList.add('hidden');
             }
         }
+    },
+    initPasswordStrength() {
+        const input = document.getElementById('authPassUp');
+        if (!input || input.dataset.strengthBound) return;
+        input.dataset.strengthBound = '1';
+        input.addEventListener('input', () => this.updatePasswordStrength(input.value));
+        this.updatePasswordStrength(input.value);
+    },
+    updatePasswordStrength(value) {
+        const fill = document.getElementById('authPasswordStrengthFill');
+        const label = document.getElementById('authPasswordStrengthLabel');
+        const note = document.getElementById('authPasswordStrengthNote');
+        if (!fill || !label || !note) return;
+        const password = String(value || '');
+        const isAr = this.getLang() === 'ar';
+        const checks = [password.length >= 8, password.length >= 12, /[a-z]/.test(password) && /[A-Z]/.test(password), /\d/.test(password), /[^A-Za-z0-9]/.test(password)];
+        const score = checks.filter(Boolean).length;
+        const level = !password ? 'empty' : password.length < 8 || score <= 2 ? 'weak' : score <= 3 ? 'medium' : 'strong';
+        const labels = {
+            empty: isAr ? 'أدخل كلمة المرور' : 'Enter a password',
+            weak: isAr ? 'ضعيفة' : 'Weak',
+            medium: isAr ? 'متوسطة' : 'Medium',
+            strong: isAr ? 'قوية' : 'Strong'
+        };
+        const colors = { empty: '#d9d9df', weak: '#dc2626', medium: '#d97706', strong: '#16a34a' };
+        fill.style.width = `${Math.min(100, score * 20)}%`;
+        fill.style.backgroundColor = colors[level];
+        fill.dataset.level = level;
+        label.textContent = labels[level];
+        label.style.color = colors[level];
+        note.textContent = isAr ? 'استخدم 8 أحرف على الأقل، وامزج الحروف الكبيرة والصغيرة والأرقام والرموز لزيادة القوة.' : 'Use at least 8 characters and mix uppercase, lowercase, numbers, and symbols for a stronger password.';
     },
     _pendingResetAccId: null,
     submitResetRequest() {
@@ -4270,20 +4314,56 @@ const ProCable = {
 
     createUserAuthModalDOM() {
         let modal = document.getElementById('userAuthModal');
-        if (modal) return modal;
-
         const isAr = this.getLang() === 'ar';
-        modal = document.createElement('div');
-        modal.id = 'userAuthModal';
-        modal.className = 'fixed inset-0 bg-black/50 backdrop-blur-sm hidden justify-center items-center z-[2500] modal-overlay p-4';
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'userAuthModal';
+            modal.className = 'fixed inset-0 bg-black/50 backdrop-blur-sm hidden justify-center items-center z-[2500] modal-overlay p-4';
+        }
         modal.onclick = (e) => {
             if (e.target === modal) ProCable.hideAuthModal();
         };
 
+        if (!document.getElementById('authMotionStyles')) {
+            const style = document.createElement('style');
+            style.id = 'authMotionStyles';
+            style.textContent = `
+                .auth-motion-card{--auth-ease:cubic-bezier(.16,1,.3,1);position:relative;isolation:isolate;width:min(920px,96vw);height:min(650px,90vh);min-height:540px;overflow:hidden;border:8px solid #fff;border-radius:30px;background:#fff;box-shadow:0 28px 90px rgba(20,16,20,.24)}
+                .auth-form-pane{position:absolute;inset:0 auto 0 0;width:50%;height:100%;overflow-y:auto;padding:30px 34px 24px;transition:transform .65s ease-in-out;z-index:1;scrollbar-width:thin}
+                .auth-motion-card.auth-mode-signup .auth-form-pane{transform:translateX(100%)}
+                .auth-visual-panel{position:absolute;z-index:2;inset:0 0 0 50%;width:50%;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:30px;color:#fff;border-radius:22px;background:radial-gradient(ellipse at 75% 15%,rgba(200,16,46,.7),transparent 42%),radial-gradient(ellipse at 12% 88%,rgba(115,8,34,.65),transparent 45%),linear-gradient(145deg,#26262b 0%,#151519 55%,#09090b 100%);transition:transform .65s ease-in-out}
+                .auth-motion-card.auth-mode-signup .auth-visual-panel{transform:translateX(-100%)}
+                .auth-visual-brand{position:relative;z-index:1;display:flex;align-items:center;gap:12px;font-size:12px;font-weight:700;color:rgba(255,255,255,.78)}
+                .auth-visual-brand img{display:block;width:128px;height:auto;padding:8px 10px;border-radius:12px;background:#fff}
+                .auth-visual-copy{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:0 20px;min-height:250px}
+                .auth-visual-copy h2{font-size:clamp(25px,3vw,38px);line-height:1.2;font-weight:900;margin:0}
+                .auth-visual-copy p{max-width:330px;margin:0;color:rgba(255,255,255,.8);line-height:1.8;font-size:14px}
+                .auth-visual-copy button{margin-top:4px;padding:11px 28px;border:1px solid rgba(255,255,255,.7);border-radius:999px;background:rgba(255,255,255,.08);color:white;font-family:inherit;font-size:12px;font-weight:700;letter-spacing:.04em;backdrop-filter:blur(6px);transition:background .25s,transform .25s}
+                .auth-visual-copy button:hover{background:rgba(255,255,255,.2);transform:translateY(-2px)}
+                .auth-visual-orbit{position:absolute;border:1px solid rgba(255,255,255,.1);border-radius:50%;pointer-events:none}
+                .auth-orbit-one{width:390px;height:390px;right:-150px;top:16%}.auth-orbit-two{width:280px;height:280px;left:-120px;bottom:-10%;border-color:rgba(200,16,46,.28)}
+                .auth-close{position:absolute;z-index:5;top:12px;right:12px;width:34px;height:34px;border:0;border-radius:50%;background:rgba(255,255,255,.88);color:#555;cursor:pointer}
+                .auth-social-button{width:100%;min-height:44px;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid #d9d9df;border-radius:10px;background:#f7f7f8;color:#25252a;font-family:inherit;font-size:12px;font-weight:700;transition:background .2s,transform .2s;cursor:pointer}
+                .auth-social-button:hover{background:#eeeef1;transform:translateY(-1px)}
+                .auth-google-mark{display:inline-flex;width:20px;height:20px;align-items:center;justify-content:center;flex:0 0 20px} .auth-google-mark svg{display:block;width:20px;height:20px}
+                .auth-password-strength{margin-top:8px}.auth-password-strength-track{height:6px;overflow:hidden;border-radius:999px;background:#e8e8ed;direction:ltr}.auth-password-strength-fill{height:100%;width:0;border-radius:inherit;transition:width .25s ease,background-color .25s ease}
+                .auth-facebook-mark{display:inline-flex;width:20px;height:20px;align-items:center;justify-content:center;flex:0 0 20px;color:#1877f2} .auth-facebook-mark svg{display:block;width:20px;height:20px}
+                #googleBtnHost iframe{max-width:100%}
+                @media(max-width:680px){.auth-motion-card{width:min(470px,96vw);height:min(900px,94vh);min-height:0;border-width:6px;border-radius:24px}.auth-visual-panel{inset:0 0 auto 0;width:100%;height:142px;padding:16px 20px;border-radius:17px 17px 14px 14px;transition:height .65s ease-in-out,background-position .65s ease-in-out}.auth-motion-card.auth-mode-signup .auth-visual-panel{transform:none;height:142px}.auth-visual-brand img{width:104px}.auth-visual-brand{font-size:10px}.auth-visual-copy{position:absolute;inset:0 0 0 auto;min-height:0;width:58%;gap:6px;padding:8px 12px}.auth-visual-copy h2{font-size:19px}.auth-visual-copy p{font-size:10px;line-height:1.4}.auth-visual-copy button{padding:6px 15px;font-size:10px}.auth-visual-orbit{opacity:.5}.auth-form-pane{inset:142px 0 0;width:100%;height:auto;padding:22px 20px 18px;transition:opacity .35s ease,transform .65s ease-in-out}.auth-motion-card.auth-mode-signup .auth-form-pane{transform:none}.auth-form-pane>div:first-of-type{padding-inline-end:25px}.auth-close{top:8px;right:8px;width:30px;height:30px}}
+                @media(prefers-reduced-motion:reduce){.auth-form-pane,.auth-visual-panel{transition-duration:.01ms!important}}
+            `;
+            document.head.appendChild(style);
+        }
+
         modal.innerHTML = `
-            <div class="auth-modal-card bg-surface-container-lowest rounded-3xl w-full max-w-5xl p-2 relative modal-content shadow-2xl border border-outline-variant max-h-[90vh] overflow-hidden">
-                <button onclick="ProCable.hideAuthModal()" class="absolute ltr:right-4 rtl:left-4 top-4 text-gray-400 hover:text-gray-700 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition" title="إغلاق">&#10005;</button>
-                
+            <div id="authMotionCard" data-mode="signin" class="auth-motion-card modal-content">
+                <button onclick="ProCable.hideAuthModal()" class="auth-close" title="${isAr ? 'إغلاق' : 'Close'}" aria-label="${isAr ? 'إغلاق' : 'Close'}">&#10005;</button>
+                <aside class="auth-visual-panel" aria-live="polite">
+                    <div class="auth-visual-brand"><img src="logo.png" alt="Attractive"><span>${isAr ? 'حلول هندسية متكاملة' : 'Integrated Engineering Solutions'}</span></div>
+                    <div class="auth-visual-copy"><h2 id="authWelcomeTitle">${isAr ? 'ابدأ رحلتك معنا' : 'Hello there'}</h2><p id="authWelcomeText">${isAr ? 'أنشئ حسابك وتعرّف على حلول Attractive الموثوقة.' : 'Create an account and discover trusted Attractive solutions.'}</p><button id="authWelcomeAction" type="button" onclick="ProCable.switchAuthTab(document.getElementById('authMotionCard')?.dataset.mode === 'signup' ? 'signin' : 'signup')">${isAr ? 'إنشاء حساب' : 'SIGN UP'}</button></div>
+                    <div class="auth-visual-orbit auth-orbit-one"></div><div class="auth-visual-orbit auth-orbit-two"></div>
+                </aside>
+                <section class="auth-form-pane">
                 <div class="flex items-center gap-3 mb-5">
                     <div class="w-12 h-12 rounded-2xl bg-primary-fixed text-primary flex items-center justify-center font-bold">
                         <span class="material-symbols-outlined text-2xl">account_circle</span>
@@ -4294,25 +4374,16 @@ const ProCable = {
                     </div>
                 </div>
 
-                <div class="flex border-b border-outline-variant mb-5">
-                    <button id="tabAuthSignIn" onclick="ProCable.switchAuthTab('signin')" class="flex-1 pb-3 text-center font-bold text-xs sm:text-sm text-primary border-b-2 border-primary transition flex items-center justify-center gap-1.5">
-                        <span class="material-symbols-outlined text-base">login</span>
-                        <span>${isAr ? 'تسجيل الدخول' : 'Sign In'}</span>
-                    </button>
-                    <button id="tabAuthSignUp" onclick="ProCable.switchAuthTab('signup')" class="flex-1 pb-3 text-center font-bold text-xs sm:text-sm text-on-surface-variant border-b-2 border-transparent transition flex items-center justify-center gap-1.5">
-                        <span class="material-symbols-outlined text-base">person_add</span>
-                        <span>${isAr ? 'إنشاء حساب جديد' : 'Create Account'}</span>
-                    </button>
-                </div>
-
                 <div id="authErrorMsg" class="hidden mb-4 p-3 bg-red-50 text-error text-xs rounded-xl font-bold border border-red-200 flex items-center gap-2">
                     <span class="material-symbols-outlined text-base shrink-0">error</span>
                     <span id="authErrorMsgText"></span>
                 </div>
 
                 <!-- Google (shown only when GOOGLE_CLIENT_ID is configured on the server) -->
-                <div id="googleSignInBox" class="hidden mb-5">
-                    <div id="googleBtnHost" class="flex justify-center min-h-[44px]"></div>
+                <div id="googleSignInBox" class="mb-5">
+                    <div id="googleBtnHost" class="hidden justify-center min-h-[44px]"></div>
+                    <button id="googleUnavailableButton" type="button" onclick="ProCable.startGoogleLogin()" class="auth-social-button"><span class="auth-google-mark" aria-hidden="true"><svg viewBox="0 0 48 48" focusable="false"><path fill="#4285F4" d="M43.6 24.5c0-1.4-.1-2.8-.4-4.1H24v7.8h11a9.4 9.4 0 0 1-4.1 6.2v5.1h6.6c3.9-3.6 6.1-8.8 6.1-15Z"/><path fill="#34A853" d="M24 44c5.5 0 10.1-1.8 13.5-4.8l-6.6-5.1c-1.8 1.2-4.1 2-6.9 2-5.3 0-9.8-3.6-11.4-8.4H5.8v5.3A20 20 0 0 0 24 44Z"/><path fill="#FBBC05" d="M12.6 27.7a12 12 0 0 1 0-7.4V15H5.8a20 20 0 0 0 0 18l6.8-5.3Z"/><path fill="#EA4335" d="M24 12.1c3 0 5.7 1 7.8 3.1l5.8-5.8C34.1 6.1 29.5 4 24 4A20 20 0 0 0 5.8 15l6.8 5.3c1.6-4.8 6.1-8.2 11.4-8.2Z"/></svg></span><span>${isAr ? 'المتابعة باستخدام Google' : 'Continue with Google'}</span></button>
+                    <button id="facebookSignInButton" type="button" onclick="ProCable.startFacebookLogin()" class="auth-social-button"><span class="auth-facebook-mark" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path fill="currentColor" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11 10.13 11.93v-8.43H7.08v-3.5h3.05V9.4c0-3.03 1.79-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.96h-1.51c-1.49 0-1.96.93-1.96 1.89v2.28h3.34l-.53 3.5h-2.81V24C19.61 23.07 24 18.09 24 12.07Z"/></svg></span><span>${isAr ? 'المتابعة باستخدام Facebook' : 'Continue with Facebook'}</span></button>
                     <div class="flex items-center gap-3 mt-4 text-[11px] text-on-surface-variant"><span class="flex-1 h-px bg-outline-variant"></span><span>${isAr ? 'أو بالبريد الإلكتروني' : 'or with e-mail'}</span><span class="flex-1 h-px bg-outline-variant"></span></div>
                 </div>
 
@@ -4334,14 +4405,6 @@ const ProCable = {
                         <span class="material-symbols-outlined text-base">arrow_forward</span>
                     </button>
 
-                    <!-- Quick helper to switch to sign up -->
-                    <div class="text-center pt-2 border-t border-outline-variant">
-                        <span class="text-xs text-on-surface-variant">${isAr ? 'ليس لديك حساب بعد؟' : 'Do not have an account?'}</span>
-                        <button type="button" onclick="ProCable.switchAuthTab('signup')" class="text-xs font-bold text-primary hover:underline ms-1">
-                            ${isAr ? 'اضغط هنا لإنشاء حساب والحصول على المزايا' : 'Register now & get perks'}
-                        </button>
-                    </div>
-
                 </form>
 
                 <!-- Sign Up Form -->
@@ -4361,6 +4424,11 @@ const ProCable = {
                     <div>
                         <label class="block text-xs font-bold text-on-surface mb-1">${isAr ? 'كلمة المرور' : 'Password'}</label>
                         <input id="authPassUp" required type="password" dir="ltr" minlength="8" placeholder="••••••••" class="w-full p-3 bg-surface border border-outline-variant rounded-xl text-xs sm:text-sm outline-none focus:ring-2 focus:ring-primary"/>
+                        <div class="auth-password-strength" aria-live="polite">
+                            <div class="flex items-center justify-between gap-3 mb-1.5 text-[11px] font-bold"><span>${isAr ? 'قوة كلمة المرور' : 'Password strength'}</span><span id="authPasswordStrengthLabel" data-level="empty">${isAr ? 'أدخل كلمة المرور' : 'Enter a password'}</span></div>
+                            <div class="auth-password-strength-track"><div id="authPasswordStrengthFill" class="auth-password-strength-fill" data-level="empty"></div></div>
+                            <p id="authPasswordStrengthNote" class="mt-1.5 text-[10px] leading-relaxed text-on-surface-variant">${isAr ? 'استخدم 8 أحرف على الأقل، وامزج الحروف الكبيرة والصغيرة والأرقام والرموز لزيادة القوة.' : 'Use at least 8 characters and mix uppercase, lowercase, numbers, and symbols for a stronger password.'}</p>
+                        </div>
                     </div>
 
                     <div class="p-2.5 bg-primary/5 rounded-xl border border-primary/20 text-[11px] text-primary space-y-1">
@@ -4378,12 +4446,6 @@ const ProCable = {
                         <span class="material-symbols-outlined text-base">check</span>
                     </button>
 
-                    <div class="text-center pt-2 border-t border-outline-variant">
-                        <span class="text-xs text-on-surface-variant">${isAr ? 'لديك حساب بالفعل؟' : 'Already have an account?'}</span>
-                        <button type="button" onclick="ProCable.switchAuthTab('signin')" class="text-xs font-bold text-primary hover:underline ms-1">
-                            ${isAr ? 'تسجيل الدخول' : 'Sign In'}
-                        </button>
-                    </div>
                 </form>
 
                 <!-- Password Reset Form -->
@@ -4418,32 +4480,18 @@ const ProCable = {
                         </button>
                     </div>
                 </div>
+                </section>
             </div>
         `;
 
-        const authCard = modal.querySelector('.auth-modal-card');
-        if (authCard && !authCard.querySelector('.auth-welcome-panel')) {
-            const welcome = document.createElement('aside');
-            welcome.className = 'auth-welcome-panel';
-            welcome.innerHTML = `<div class="flex items-center justify-between gap-3"><img src="logo.png" alt="Attractive" class="w-36 rounded-xl bg-white p-2"><span class="text-xs font-bold text-white/75">حلول هندسية متكاملة</span></div><div class="max-w-sm mx-auto text-center space-y-4"><h2 class="text-3xl sm:text-4xl font-black">${isAr ? 'أهلاً بعودتك' : 'Welcome back'}</h2><p class="text-sm leading-7 text-white/80">${isAr ? 'سجّل دخولك لمتابعة طلباتك والاستفادة من مزايا Attractive.' : 'Sign in to track your orders and enjoy Attractive member benefits.'}</p><button type="button" onclick="ProCable.switchAuthTab('signup')" class="px-7 py-3 rounded-full border border-white/50 bg-white/10 hover:bg-white/20 transition font-bold">${isAr ? 'إنشاء حساب جديد' : 'Create an account'}</button></div><span class="text-[11px] text-white/55">Attractive · Security &amp; Light Current Systems</span>`;
-            const formPanel = document.createElement('div');
-            formPanel.className = 'auth-form-panel';
-            while (authCard.firstChild) formPanel.appendChild(authCard.firstChild);
-            authCard.append(welcome, formPanel);
-        }
-        document.body.appendChild(modal);
+        modal.dataset.authMotionReady = '1';
+        if (!modal.isConnected) document.body.appendChild(modal);
         return modal;
     },
 
     showAuthModal(tab = 'signin') {
         let modal = document.getElementById('userAuthModal');
-        // Replace the legacy static modal with the current modal so the Google
-        // sign-in container and responsive welcome panel are always available.
-        if (modal && !modal.querySelector('#googleBtnHost')) {
-            modal.remove();
-            modal = null;
-        }
-        if (!modal) {
+        if (!modal || modal.dataset.authMotionReady !== '1') {
             modal = this.createUserAuthModalDOM();
         }
 
@@ -4457,7 +4505,9 @@ const ProCable = {
         modal.style.display = 'flex';
 
         this.switchAuthTab(tab);
+        this.initPasswordStrength();
         this.initGoogleButton();
+        this.initFacebookButton();
     },
 
     // --- Sign in with Google (Google Identity Services). The server verifies the token; only GOOGLE_CLIENT_ID is needed. ---
@@ -4484,11 +4534,93 @@ const ProCable = {
             await this._loadGsi();
             window.google.accounts.id.initialize({ client_id: this._googleClientId, callback: (resp) => ProCable.handleGoogleCredential(resp) });
             window.google.accounts.id.renderButton(host, { theme: 'outline', size: 'large', width: 320, text: 'continue_with', locale: this.getLang() === 'ar' ? 'ar' : 'en' });
+            host.classList.remove('hidden');
+            const fallback = document.getElementById('googleUnavailableButton');
+            if (fallback) fallback.classList.add('hidden');
             host.dataset.ready = '1';
-            box.classList.remove('hidden');
         } catch (e) { /* offline or blocked: e-mail login still works */ }
     },
-    async handleGoogleCredential(resp) {
+    async startGoogleLogin() {
+        const isAr = this.getLang() === 'ar';
+        if (this._googleClientId === undefined) {
+            try { const r = await fetch('/api/config'); const j = await r.json(); this._googleClientId = (j && j.googleClientId) || ''; }
+            catch (e) { this._googleClientId = ''; }
+        }
+        if (!this._googleClientId) {
+            this.showToast(isAr ? 'تسجيل Google غير مفعّل بعد. أضف GOOGLE_CLIENT_ID في إعدادات السيرفر.' : 'Google sign-in is not configured yet. Add GOOGLE_CLIENT_ID to the server environment.', 'error');
+            return;
+        }
+        try {
+            await this._loadGsi();
+            if (window.google?.accounts?.id) window.google.accounts.id.prompt();
+        } catch (e) { this.showToast(isAr ? 'تعذر تحميل تسجيل Google، حاول مرة أخرى.' : 'Could not load Google sign-in. Please try again.', 'error'); }
+    },
+    _loadFacebookSdk(appId) {
+        return new Promise((resolve, reject) => {
+            if (window.FB) {
+                try { window.FB.init({ appId, cookie: true, xfbml: false, version: 'v26.0' }); resolve(); } catch (e) { reject(e); }
+                return;
+            }
+            if (this._facebookSdkPromise) return this._facebookSdkPromise.then(resolve, reject);
+            this._facebookSdkPromise = new Promise((sdkResolve, sdkReject) => {
+                window.fbAsyncInit = () => {
+                    try { window.FB.init({ appId, cookie: true, xfbml: false, version: 'v26.0' }); sdkResolve(); } catch (e) { sdkReject(e); }
+                };
+                const script = document.createElement('script');
+                script.src = 'https://connect.facebook.net/en_US/sdk.js'; script.async = true; script.defer = true; script.crossOrigin = 'anonymous';
+                script.onerror = () => sdkReject(new Error('facebook_sdk'));
+                document.head.appendChild(script);
+            });
+            this._facebookSdkPromise.then(resolve, reject);
+        });
+    },
+    async initFacebookButton() {
+        const button = document.getElementById('facebookSignInButton');
+        if (!button) return;
+        try {
+            if (this._facebookAppId === undefined) {
+                const r = await fetch('/api/config');
+                const j = await r.json();
+                this._facebookAppId = (j && j.facebookAppId) || '';
+            }
+            if (!this._facebookAppId) return;
+        } catch (e) { /* social sign-in is optional; password sign-in remains available */ }
+    },
+    async startFacebookLogin() {
+        const isAr = this.getLang() === 'ar';
+        try {
+            if (this._facebookAppId === undefined) await this.initFacebookButton();
+            if (!this._facebookAppId) throw new Error('facebook_not_configured');
+            await this._loadFacebookSdk(this._facebookAppId);
+            window.FB.login((response) => {
+                if (response && response.authResponse && response.authResponse.accessToken) {
+                    ProCable.handleFacebookAccessToken(response.authResponse.accessToken);
+                } else {
+                    ProCable.showToast(isAr ? 'تم إلغاء تسجيل الدخول عبر Facebook.' : 'Facebook sign-in was cancelled.', 'info');
+                }
+            }, { scope: 'email,public_profile', return_scopes: true });
+        } catch (e) {
+            this.showToast(isAr ? 'تسجيل Facebook غير مفعّل بعد. أضف إعدادات تطبيق Meta أولاً.' : 'Facebook sign-in is not configured yet. Add the Meta app settings first.', 'error');
+        }
+    },
+    async handleFacebookAccessToken(accessToken) {
+        const err = document.getElementById('authErrorMsg');
+        const errTxt = document.getElementById('authErrorMsgText') || err;
+        let r;
+        try { r = await this._publicApi({ action: 'facebook', accessToken }); }
+        catch (e) { r = { data: { code: 'network' } }; }
+        if (r.data && r.data.success) {
+            this._adoptServerAccount(r.data.account, r.data.token);
+            try { await this.pullMyOrders(); } catch (e) { /* ignore */ }
+            if (err) err.classList.add('hidden');
+            this.showToast(this.getLang() === 'ar' ? `أهلاً بك ${r.data.account.name || ''}! ✨` : `Welcome ${r.data.account.name || ''}! ✨`, 'success');
+            setTimeout(() => { this.hideAuthModal(); window.location.reload(); }, 500);
+        } else if (err && errTxt) {
+            errTxt.innerText = this._authError(r.data && r.data.code);
+            err.classList.remove('hidden');
+        }
+    },
+    async handleGoogleCredential(resp) {    async handleGoogleCredential(resp) {
         const err = document.getElementById('authErrorMsg');
         const errTxt = document.getElementById('authErrorMsgText') || err;
         let r;
